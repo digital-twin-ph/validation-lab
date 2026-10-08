@@ -27,7 +27,8 @@ A notebook that reused the implementation under test would measure nothing.
       00-kernel-check.ipynb          which packages this kernel really has, and their versions
       01-reproject-vs-pyproj.ipynb   check 01
       02-clip-vs-rasterio.ipynb      check 02
-      checks/                        the comparison, importable and runnable headlessly
+      checks/                        the Python comparisons, importable and runnable headlessly
+    node/                            Node-side checks; the OWL 2 DL reasoner is a JS/WASM package
       fixtures/                      exported from Fieldwork, with .sha256 beside each
       results/                       recorded reports, including the environment that produced them
 
@@ -70,6 +71,8 @@ edited by hand no longer describes what the application did.
 | 02 | Clip raster, cell centre inside, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Agrees exactly.** Same window, same 132 cells, same retained values |
 | 02 | Clip raster, all touched, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Differs.** Fieldwork includes 35 cells GDAL excludes and none the other way; all 35 sit beside a pixel-aligned cutline coordinate |
 | 02 | Clip raster, all touched, margin 1 | dilation model | **Inconclusive by construction.** `rasterio` has no margin parameter; the 61-cell gap is against a 3 × 3 dilation model, not a validated reference |
+| 03 | Ontology structure | own checks over the six `ontology/*.ttl` files | **Clean where checkable.** No fieldwork term is used in a domain, range or subClassOf without being declared. Annotation coverage is partial: 47 of 80 classes carry no label |
+| 03 | Ontology meaning | Konclude OWL 2 DL | **Consistent, but unfalsifiably so.** Zero disjointness, cardinality or restriction axioms, and classification infers no subsumption beyond those asserted. A probe conflating terms the audit says must stay distinct stays consistent; adding three `owl:disjointWith` axioms makes it inconsistent |
 
 Both checks ran in CPython 3.13.3 on macOS arm64, **not** in Pyodide, so the
 first acceptance criterion in the design record is unmet for a browser kernel
@@ -88,6 +91,15 @@ pad widens the crop by a further cell. The difference is one-sided, so an
 all-touched clip here retains more boundary cells than a GDAL-derived one. For
 count-valued rasters such as population that inflates any total. The write-up
 lives in the Fieldwork repository at `docs/experiments/29-raster-edge-inclusion.md`.
+
+Check 03 is the one with the most actionable result. Fieldwork's ontology is an
+RDFS-expressive taxonomy declared with OWL vocabulary: classes, properties,
+subClassOf, domain and range, and none of the axioms a description-logic
+reasoner needs in order to catch a modelling error. Its consistency therefore
+carries no information, and the "terms that must remain distinct" discipline in
+Fieldwork's audit procedure is enforced by prose alone. The probe shows the fix
+is small and verifiable by the same engine. The write-up is in the Fieldwork
+repository at `docs/experiments/41-validation-lab.md`.
 
 Next: polygon area against `pyproj.Geod`, where disagreement is expected because
 Fieldwork records a spherical method and `Geod` is ellipsoidal.
