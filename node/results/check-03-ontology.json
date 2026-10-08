@@ -1,6 +1,6 @@
 {
   "check": "03-ontology-structure-and-meaning",
-  "ranAt": "2026-10-08T10:56:47.831Z",
+  "ranAt": "2026-10-08T12:49:14.440Z",
   "engine": {
     "reasoner": "Konclude via rdf-reasoner-konclude 0.7.2 (LGPL-3.0-or-later)",
     "parser": "n3 2.13.8",
@@ -16,18 +16,18 @@
       "runtime.ttl",
       "stac.ttl"
     ],
-    "triples": 917
+    "triples": 1026
   },
   "declared": {
-    "classes": 80,
+    "classes": 83,
     "objectProperties": 78,
     "datatypeProperties": 116,
-    "subClassOf": 171,
+    "subClassOf": 184,
     "domain": 65,
     "range": 133
   },
   "strongAxioms": {
-    "disjointWith": 0,
+    "disjointWith": 10,
     "equivalentClass": 0,
     "FunctionalProperty": 0,
     "InverseFunctionalProperty": 0,
@@ -43,84 +43,8 @@
   },
   "structure": {
     "undeclaredFieldworkTermsInDomainRangeOrSubclass": [],
-    "classesWithoutLabel": [
-      "urn:fieldwork:AreaBuffer",
-      "urn:fieldwork:AssetAcquisition",
-      "urn:fieldwork:AssetInspection",
-      "urn:fieldwork:BoundaryImport",
-      "urn:fieldwork:Catchment",
-      "urn:fieldwork:CatchmentDataset",
-      "urn:fieldwork:CountBin",
-      "urn:fieldwork:DonutGeomasking",
-      "urn:fieldwork:DownloadedAsset",
-      "urn:fieldwork:GenericInputConfiguration",
-      "urn:fieldwork:HexAggregation",
-      "urn:fieldwork:HexCell",
-      "urn:fieldwork:HexCellDataset",
-      "urn:fieldwork:ImportedBoundaryDataset",
-      "urn:fieldwork:ImportedFeatureDataset",
-      "urn:fieldwork:InputConfiguration",
-      "urn:fieldwork:Jurisdiction",
-      "urn:fieldwork:JurisdictionBoundary",
-      "urn:fieldwork:JurisdictionDataset",
-      "urn:fieldwork:JurisdictionSelection",
-      "urn:fieldwork:MeanCenterComputation",
-      "urn:fieldwork:MeanCenterResult",
-      "urn:fieldwork:MovedPoint",
-      "urn:fieldwork:MovedPointDataset",
-      "urn:fieldwork:NetworkEdge",
-      "urn:fieldwork:NetworkIsochrone",
-      "urn:fieldwork:NetworkSnap",
-      "urn:fieldwork:NetworkVertex",
-      "urn:fieldwork:PointComparisonResult",
-      "urn:fieldwork:PointDataset",
-      "urn:fieldwork:PointInput",
-      "urn:fieldwork:PointSetComparison",
-      "urn:fieldwork:PolygonClipping",
-      "urn:fieldwork:PolygonPointSummary",
-      "urn:fieldwork:ProcessingContract",
-      "urn:fieldwork:RoutingRequest",
-      "urn:fieldwork:STACInputConfiguration",
-      "urn:fieldwork:StreetNetwork",
-      "urn:fieldwork:VoronoiComputation",
-      "urn:fieldwork:WidgetDefinition",
-      "urn:fieldwork:WorkflowNodePlan",
-      "urn:fieldwork:WorkflowStep",
-      "urn:fieldwork:gadm:BoundaryDataset",
-      "urn:fieldwork:stac:Asset",
-      "urn:fieldwork:stac:Catalog",
-      "urn:fieldwork:stac:Collection",
-      "urn:fieldwork:stac:Item"
-    ],
-    "classesWithoutComment": [
-      "urn:fieldwork:AreaMeasurement",
-      "urn:fieldwork:CanvasConnection",
-      "urn:fieldwork:CatchmentDataset",
-      "urn:fieldwork:CountBin",
-      "urn:fieldwork:GenericInputConfiguration",
-      "urn:fieldwork:HexCell",
-      "urn:fieldwork:HexCellDataset",
-      "urn:fieldwork:InputConfiguration",
-      "urn:fieldwork:MeanCenterResult",
-      "urn:fieldwork:MovedPoint",
-      "urn:fieldwork:MovedPointDataset",
-      "urn:fieldwork:NetworkSnap",
-      "urn:fieldwork:NetworkVertex",
-      "urn:fieldwork:PointComparisonResult",
-      "urn:fieldwork:PointDataset",
-      "urn:fieldwork:PointInput",
-      "urn:fieldwork:PolygonClipping",
-      "urn:fieldwork:ProcessingContract",
-      "urn:fieldwork:RasterDataset",
-      "urn:fieldwork:RasterWindowAcquisition",
-      "urn:fieldwork:RoutingRequest",
-      "urn:fieldwork:STACInputConfiguration",
-      "urn:fieldwork:StreetNetwork",
-      "urn:fieldwork:WidgetDefinition",
-      "urn:fieldwork:WorkflowNodePlan",
-      "urn:fieldwork:stac:Catalog",
-      "urn:fieldwork:stac:Collection"
-    ],
+    "classesWithoutLabel": [],
+    "classesWithoutComment": [],
     "propertiesWithoutDomain": [
       "urn:fieldwork:administrativeLevel",
       "urn:fieldwork:administrativeType",
@@ -344,13 +268,13 @@
     },
     {
       "term": "Acquisition buffer",
-      "class": "urn:fieldwork:AreaBuffer",
+      "class": "urn:fieldwork:AcquisitionBoundary",
       "declared": true
     },
     {
       "term": "Clipping boundary",
-      "class": null,
-      "declared": false
+      "class": "urn:fieldwork:ClippingBoundary",
+      "declared": true
     },
     {
       "term": "Catchment",
@@ -369,8 +293,8 @@
     },
     {
       "term": "Presentation",
-      "class": null,
-      "declared": false
+      "class": "urn:fieldwork:Presentation",
+      "declared": true
     },
     {
       "term": "Chart specification",
@@ -405,12 +329,43 @@
     "inferredFieldworkSubsumptionsBeyondAsserted": []
   },
   "conflationProbe": {
-    "pairsConflated": [
-      "urn:fieldwork:Catchment + urn:fieldwork:NetworkIsochrone",
-      "urn:fieldwork:CanvasNodePlan + urn:fieldwork:WorkflowNodePlan",
-      "urn:fieldwork:StudyArea + urn:fieldwork:AreaBuffer"
+    "sameKindCaught": 5,
+    "sameKindTotal": 5,
+    "sameKind": [
+      {
+        "pair": "fw:StudyArea + fw:ClippingBoundary",
+        "consistent": false
+      },
+      {
+        "pair": "fw:StudyArea + fw:Catchment",
+        "consistent": false
+      },
+      {
+        "pair": "fw:CanvasNodePlan + fw:WorkflowNodePlan",
+        "consistent": false
+      },
+      {
+        "pair": "fw:WidgetDefinition + fw:WorkflowNodePlan",
+        "consistent": false
+      },
+      {
+        "pair": "fw:Presentation + fw:SpatialOperation",
+        "consistent": false
+      }
     ],
-    "consistentWithoutDisjointness": true,
-    "consistentWithDisjointness": false
+    "crossKindCaughtWithProv": 2,
+    "crossKindTotal": 2,
+    "crossKind": [
+      {
+        "pair": "fw:StudyArea + fw:AreaBuffer",
+        "consistentWithoutProv": true,
+        "consistentWithProv": false
+      },
+      {
+        "pair": "fw:Catchment + fw:NetworkIsochrone",
+        "consistentWithoutProv": true,
+        "consistentWithProv": false
+      }
+    ]
   }
 }

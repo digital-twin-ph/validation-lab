@@ -7,6 +7,12 @@ const dir=process.argv[2];
 const files=(await readdir(dir)).filter(f=>f.endsWith('.ttl')).sort();
 const store=new Store();
 for(const f of files)store.addQuads(new Parser({baseIRI:'file://'+dir+'/'+f}).parse(await readFile(dir+'/'+f,'utf8')));
+// Fieldwork reuses PROV-O terms but declares no owl:imports, so a reasoner given only its
+// files cannot see that prov:Entity and prov:Activity are disjoint. Merge a vendored copy so
+// cross-kind conflations are detectable; see vendor/NOTICE.
+const provPath=new URL('./vendor/prov.ttl',import.meta.url);
+const prov=new Parser({baseIRI:'http://www.w3.org/ns/prov#'}).parse(await readFile(provPath,'utf8'));
+const withProv=new Store(store.getQuads(null,null,null,null));withProv.addQuads(prov);
 const subjects=p=>new Set(store.getQuads(null,N(RDF+'type'),N(OWL+p),null).map(q=>q.subject.value));
 const classes=subjects('Class'),objectProps=subjects('ObjectProperty'),dataProps=subjects('DatatypeProperty');
 const external=i=>!i.startsWith(FW);
@@ -26,8 +32,8 @@ const propsWithoutRange=props.filter(p=>!has(p,RDFS+'range')).sort();
 // --- Can the ontology express the distinctions its audit insists on? --------
 const auditTerms={
   'Widget definition':'WidgetDefinition','Canvas node plan':'CanvasNodePlan','Workflow node plan':'WorkflowNodePlan',
-  'Workflow step':'WorkflowStep','Study area':'StudyArea','Acquisition buffer':'AreaBuffer','Clipping boundary':null,
-  'Catchment':'Catchment','Isochrone':'NetworkIsochrone','Evidence reference':'EvidenceReference','Presentation':null,
+  'Workflow step':'WorkflowStep','Study area':'StudyArea','Acquisition buffer':'AcquisitionBoundary','Clipping boundary':'ClippingBoundary',
+  'Catchment':'Catchment','Isochrone':'NetworkIsochrone','Evidence reference':'EvidenceReference','Presentation':'Presentation',
   'Chart specification':'ChartSpecification','Donut geomasking':'DonutGeomasking','H3 cell aggregate':'HexAggregation',
   'Mean center':'MeanCenterComputation','Point-set comparison':'PointSetComparison'};
 const termMapping=Object.entries(auditTerms).map(([term,local])=>({
@@ -47,16 +53,22 @@ const inferredSubsumptions=classified.filter(q=>q.predicate.value===RDFS+'subCla
   &&q.subject.value!==q.object.value&&!asserted.has(q.subject.value+' '+q.object.value));
 
 // --- Probe: conflate terms the audit says must remain distinct --------------
-const pairs=[[FW+'Catchment',FW+'NetworkIsochrone'],[FW+'CanvasNodePlan',FW+'WorkflowNodePlan'],[FW+'StudyArea',FW+'AreaBuffer']]
+// Same-kind pairs the vocabulary now asserts disjoint: each must be caught on its own.
+const sameKind=[[FW+'StudyArea',FW+'ClippingBoundary'],[FW+'StudyArea',FW+'Catchment'],
+  [FW+'CanvasNodePlan',FW+'WorkflowNodePlan'],[FW+'WidgetDefinition',FW+'WorkflowNodePlan'],
+  [FW+'Presentation',FW+'SpatialOperation']].filter(([a,b])=>classes.has(a)&&classes.has(b));
+// Cross-kind pairs, where the contradiction is PROV-O's rather than Fieldwork's.
+const crossKind=[[FW+'StudyArea',FW+'AreaBuffer'],[FW+'Catchment',FW+'NetworkIsochrone']]
   .filter(([a,b])=>classes.has(a)&&classes.has(b));
-const conflated=new Store(store.getQuads(null,null,null,null));
-pairs.forEach(([a,b],i)=>{const s=N(`urn:fieldwork:probe:conflation-${i}`);conflated.addQuad(Q(s,N(RDF+'type'),N(a)));conflated.addQuad(Q(s,N(RDF+'type'),N(b)));});
-const conflationConsistency=await reasoner.checkConsistency(conflated);
-
-// --- Probe: would disjointness axioms catch it? ----------------------------
-const withDisjoint=new Store(conflated.getQuads(null,null,null,null));
-for(const [a,b] of pairs)withDisjoint.addQuad(Q(N(a),N(OWL+'disjointWith'),N(b)));
-const disjointConsistency=await reasoner.checkConsistency(withDisjoint);
+const probe=async(base,[a,b])=>{
+  const graph=new Store(base.getQuads(null,null,null,null));
+  const s=N('urn:fieldwork:probe:conflation');
+  graph.addQuad(Q(s,N(RDF+'type'),N(a)));graph.addQuad(Q(s,N(RDF+'type'),N(b)));
+  return await reasoner.checkConsistency(graph)===true;
+};
+const sameKindResults=[];for(const p of sameKind)sameKindResults.push({pair:p.map(i=>i.replace(FW,'fw:')).join(' + '),consistent:await probe(store,p)});
+const crossKindResults=[];for(const p of crossKind)crossKindResults.push({pair:p.map(i=>i.replace(FW,'fw:')).join(' + '),
+  consistentWithoutProv:await probe(store,p),consistentWithProv:await probe(withProv,p)});
 await reasoner.terminate();
 
 const report={check:'03-ontology-structure-and-meaning',ranAt:new Date().toISOString(),
@@ -72,9 +84,9 @@ const report={check:'03-ontology-structure-and-meaning',ranAt:new Date().toISOSt
   auditTermCoverage:termMapping,
   reasoning:{inferredTriplesTotal:classified.length,consistent:consistency===true,unsatisfiableClasses:(unsatisfiable||[]).map(c=>c.value??c),
     inferredFieldworkSubsumptionsBeyondAsserted:inferredSubsumptions.map(q=>`${q.subject.value} rdfs:subClassOf ${q.object.value}`)},
-  conflationProbe:{pairsConflated:pairs.map(p=>p.join(' + ')),
-    consistentWithoutDisjointness:conflationConsistency===true,
-    consistentWithDisjointness:disjointConsistency===true}};
+  conflationProbe:{
+    sameKindCaught:sameKindResults.filter(r=>!r.consistent).length,sameKindTotal:sameKindResults.length,sameKind:sameKindResults,
+    crossKindCaughtWithProv:crossKindResults.filter(r=>!r.consistentWithProv).length,crossKindTotal:crossKindResults.length,crossKind:crossKindResults}};
 // Write the report, and print a summary, matching the Python checks.
 const out=new URL('./results/check-03-ontology.json',import.meta.url);
 await mkdir(new URL('./results/',import.meta.url),{recursive:true});
@@ -85,5 +97,8 @@ console.log(`strong axioms: ${Object.values(report.strongAxioms).reduce((a,b)=>a
 console.log(`consistent: ${report.reasoning.consistent} · unsatisfiable classes: ${report.reasoning.unsatisfiableClasses.length} · inferred subsumptions beyond asserted: ${report.reasoning.inferredFieldworkSubsumptionsBeyondAsserted.length}`);
 console.log(`structure: ${s.undeclaredFieldworkTermsInDomainRangeOrSubclass.length} undeclared terms · ${s.classesWithoutLabel.length} classes without a label · ${s.propertiesWithoutDomain.length} properties without a domain`);
 console.log(`audit terms with no class: ${report.auditTermCoverage.filter(t=>!t.declared).map(t=>t.term).join(', ')||'none'}`);
-console.log(`conflation probe: consistent without disjointness ${p.consistentWithoutDisjointness}, with disjointness ${p.consistentWithDisjointness}`);
+console.log(`conflation probe, same kind: ${p.sameKindCaught} of ${p.sameKindTotal} caught by Fieldwork's own axioms`);
+for(const r of p.sameKind)console.log(`   ${r.consistent?'MISSED':'caught'}  ${r.pair}`);
+console.log(`conflation probe, cross kind: ${p.crossKindCaughtWithProv} of ${p.crossKindTotal} caught once PROV-O is merged`);
+for(const r of p.crossKind)console.log(`   without PROV-O ${r.consistentWithoutProv?'missed':'caught'} · with PROV-O ${r.consistentWithProv?'MISSED':'caught'}  ${r.pair}`);
 console.log(`wrote results/check-03-ontology.json`);

@@ -1,0 +1,228 @@
+{
+  "check": "04-competency-questions",
+  "ranAt": "2026-10-08T13:02:50.164Z",
+  "environment": {
+    "engine": "Comunica 4.5.0 over an N3 store",
+    "runtime": "v22.23.3",
+    "reasoning": "none; asserted triples only"
+  },
+  "fixture": {
+    "receipt": "run-receipt-old-naledi.json",
+    "sha256": "fd42e0e817ace4efe1d957f56e704497b94b7571dcb9cf8810d8005c8ac6c2fe",
+    "schema": "fieldwork/run/1",
+    "runId": "d2a586e0-a997-426a-8a1c-70352c22554d",
+    "receipts": 8,
+    "executedNodes": 12,
+    "triples": 4280
+  },
+  "questions": [
+    {
+      "id": "P1",
+      "question": "Which widget, at which version and digest, produced this result?",
+      "expect": "some",
+      "rows": 12,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "plan": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:plan:area",
+          "version": "0.2.0",
+          "digest": "35c27341f2860d1a8e6f6b261f22fdeaa33472d34426f98ff718f6f374b5fb31",
+          "widget": "urn:fieldwork:widget:area"
+        },
+        {
+          "plan": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:plan:samples",
+          "version": "1.0.0",
+          "digest": "c9639e3c496f8b096ee35f695f668f55327df722e9514a0ed814cfed56433dcb",
+          "widget": "urn:fieldwork:widget:samples"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "P2",
+      "question": "What parameters did this execution use?",
+      "expect": "some",
+      "rows": 25,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "subject": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:selection:facilities",
+          "value": "6",
+          "parameter": "urn:fieldwork:searchRadiusKm"
+        },
+        {
+          "subject": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:grid:samples",
+          "value": "250",
+          "parameter": "urn:fieldwork:spacingMetres"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "P3",
+      "question": "Which upstream results did this one consume?",
+      "expect": "some",
+      "rows": 252,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "step": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:step:area",
+          "used": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:area"
+        },
+        {
+          "step": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:step:area",
+          "used": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:area"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "P5",
+      "question": "Is any individual both a draft canvas plan and an observed workflow plan?",
+      "expect": "none",
+      "rows": 0,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [],
+      "because": "The two are disjoint. A result here would mean a receipt conflates a draft with an execution."
+    },
+    {
+      "id": "S1",
+      "question": "What geographic scope does this analysis report on?",
+      "expect": "some",
+      "rows": 235,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "feature": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:facility-data:reco",
+          "geometry": "bc_0_n3-0"
+        },
+        {
+          "feature": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:facility-data:reco",
+          "geometry": "bc_0_n3-3"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "S1b",
+      "question": "Is that scope typed as a study area, rather than only as a feature?",
+      "expect": "some",
+      "rows": 0,
+      "expectationMet": false,
+      "documentedStatus": "answerable",
+      "sample": [],
+      "because": "A reviewer looking for the reporting boundary needs to find it by its role, not by guessing which feature it is."
+    },
+    {
+      "id": "S4",
+      "question": "In which CRS and axis order are these coordinates?",
+      "expect": "some",
+      "rows": 235,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "geometry": "bc_0_n3-0",
+          "wkt": "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT (25.979553086000067 -24.558"
+        },
+        {
+          "geometry": "bc_0_n3-3",
+          "wkt": "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT (25.91113785600004 -24.6410"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "S5",
+      "question": "Which transformation produced these coordinates, with which library and datum handling?",
+      "expect": "none",
+      "rows": 0,
+      "expectationMet": true,
+      "documentedStatus": null,
+      "sample": [],
+      "because": "Documented as not answerable: reprojection provenance travels as opaque JSON, not typed RDF. A result here would mean the gap has been closed and the list is stale."
+    },
+    {
+      "id": "D1",
+      "question": "How many records had no location, and were they retained?",
+      "expect": "some",
+      "rows": 1,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "dataset": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:selection:facilities",
+          "count": "0"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "E1",
+      "question": "What assertion did the reasoner derive about a subject?",
+      "expect": "some",
+      "rows": 122,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "subject": "urn:fieldwork:facility-2",
+          "level": "urn:fieldwork:None"
+        },
+        {
+          "subject": "urn:fieldwork:facility-3",
+          "level": "urn:fieldwork:None"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "V1",
+      "question": "Did this view only display existing results?",
+      "expect": "some",
+      "rows": 4,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [
+        {
+          "view": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:view:access-map"
+        },
+        {
+          "view": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:view:access-table"
+        }
+      ],
+      "because": null
+    },
+    {
+      "id": "V1b",
+      "question": "Is any view also a spatial operation?",
+      "expect": "none",
+      "rows": 0,
+      "expectationMet": true,
+      "documentedStatus": "answerable",
+      "sample": [],
+      "because": "Presentation and spatial operation are disjoint. A result would mean a view claims to have computed something."
+    },
+    {
+      "id": "R1",
+      "question": "How many people live in this catchment?",
+      "expect": "none",
+      "rows": 0,
+      "expectationMet": true,
+      "documentedStatus": null,
+      "sample": [],
+      "because": "Refused by design. Counts are of records or memberships, never of population, so no term should answer this."
+    }
+  ],
+  "summary": {
+    "total": 13,
+    "expectationsMet": 12,
+    "refusalsHeld": 4,
+    "refusalsTotal": 4
+  }
+}

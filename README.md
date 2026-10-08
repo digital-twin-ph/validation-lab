@@ -28,7 +28,9 @@ A notebook that reused the implementation under test would measure nothing.
       01-reproject-vs-pyproj.ipynb   check 01
       02-clip-vs-rasterio.ipynb      check 02
       checks/                        the Python comparisons, importable and runnable headlessly
-    node/                            Node-side checks; the OWL 2 DL reasoner is a JS/WASM package
+    node/                            Node-side checks: the OWL 2 DL reasoner and the SPARQL engine are JS packages
+      cq/                            the competency questions, as queries with their expectations
+      fixtures/                      an exported run receipt, hash-verified like the Python fixtures
       fixtures/                      exported from Fieldwork, with .sha256 beside each
       results/                       recorded reports, including the environment that produced them
 
@@ -47,6 +49,7 @@ kernel**:
     pip install -r requirements-checks.txt
     python content/checks/check_01_reproject.py
     python content/checks/check_02_clip.py
+    cd node && npm ci && npm run check:all        # ontology reasoning and competency questions
 
 Either way the recorded report names the runtime, so a CPython result is never
 mistaken for a Pyodide one.
@@ -72,6 +75,7 @@ edited by hand no longer describes what the application did.
 | 02 | Clip raster, all touched, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Differs.** Fieldwork includes 35 cells GDAL excludes and none the other way; all 35 sit beside a pixel-aligned cutline coordinate |
 | 02 | Clip raster, all touched, margin 1 | dilation model | **Inconclusive by construction.** `rasterio` has no margin parameter; the 61-cell gap is against a 3 × 3 dilation model, not a validated reference |
 | 03 | Ontology structure | own checks over the six `ontology/*.ttl` files | **Clean where checkable.** No fieldwork term is used in a domain, range or subClassOf without being declared. Annotation coverage is partial: 47 of 80 classes carry no label |
+| 04 | Competency questions, relevance | SPARQL over an exported run receipt, compared with the documented statuses | **12 of 13 expectations met, 4 of 4 refusals held, 1 drift found.** The reporting boundary is not typed `fw:StudyArea` in the Old Naledi receipt, so it cannot be found by its role |
 | 03 | Ontology meaning | Konclude OWL 2 DL | **Consistent, but unfalsifiably so.** Zero disjointness, cardinality or restriction axioms, and classification infers no subsumption beyond those asserted. A probe conflating terms the audit says must stay distinct stays consistent; adding three `owl:disjointWith` axioms makes it inconsistent |
 
 Both checks ran in CPython 3.13.3 on macOS arm64, **not** in Pyodide, so the
@@ -91,6 +95,14 @@ pad widens the crop by a further cell. The difference is one-sided, so an
 all-touched clip here retains more boundary cells than a GDAL-derived one. For
 count-valued rasters such as population that inflates any total. The write-up
 lives in the Fieldwork repository at `docs/experiments/29-raster-edge-inclusion.md`.
+
+Check 04 is the relevance dimension, and it is a developmental-evaluation
+instrument rather than a gate: its output is the list of questions the recorded
+knowledge cannot yet answer. It compares each measured answer with the status
+written in Fieldwork's competency-question list, so prose cannot drift away from
+what receipts carry, and it distinguishes a question refused by design from one
+unanswerable through a gap — the first must always return nothing, the second
+should one day return something.
 
 Check 03 is the one with the most actionable result. Fieldwork's ontology is an
 RDFS-expressive taxonomy declared with OWL vocabulary: classes, properties,
