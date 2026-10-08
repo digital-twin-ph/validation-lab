@@ -1,6 +1,6 @@
 {
   "check": "02-clip",
-  "ranAt": "2026-10-08T12:33:09.921423+00:00",
+  "ranAt": "2026-10-08T13:16:49.854642+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -13,7 +13,7 @@
   },
   "fixture": {
     "id": "clip-all-touched-001",
-    "sha256": "9873e66a033a03bcd07a12eae83a417567b64815ad07538b6654afa468738e85",
+    "sha256": "a109eafc0be8dada3d396b32bddb16947052954aee92e549cc0db3d74ae4597f",
     "rasterSHA256": "e2f68a8fa4860a75047d1b0d453959e451eb15023de10568e1b55d4a036632d6",
     "application": {
       "name": "Fieldwork",
@@ -21,7 +21,7 @@
     },
     "operation": {
       "widget": "urn:fieldwork:widget:clip_raster",
-      "release": "0.5.0",
+      "release": "1.0.0",
       "label": "Clip raster",
       "implementation": "src/raster-mask.ts#rasterCellPredicate"
     }

@@ -1,6 +1,6 @@
 {
   "check": "03-ontology-structure-and-meaning",
-  "ranAt": "2026-10-08T12:49:14.440Z",
+  "ranAt": "2026-10-08T13:16:52.028Z",
   "engine": {
     "reasoner": "Konclude via rdf-reasoner-konclude 0.7.2 (LGPL-3.0-or-later)",
     "parser": "n3 2.13.8",
@@ -16,12 +16,12 @@
       "runtime.ttl",
       "stac.ttl"
     ],
-    "triples": 1026
+    "triples": 1034
   },
   "declared": {
     "classes": 83,
     "objectProperties": 78,
-    "datatypeProperties": 116,
+    "datatypeProperties": 118,
     "subClassOf": 184,
     "domain": 65,
     "range": 133
@@ -123,6 +123,8 @@
       "urn:fieldwork:randomSeed",
       "urn:fieldwork:rasterCRS",
       "urn:fieldwork:rasterHeight",
+      "urn:fieldwork:rasterMaskConvention",
+      "urn:fieldwork:rasterMaskMarginPixels",
       "urn:fieldwork:rasterMaskMethod",
       "urn:fieldwork:rasterWidth",
       "urn:fieldwork:readyForSpatialAnalysis",
@@ -213,6 +215,8 @@
       "urn:fieldwork:randomSeed",
       "urn:fieldwork:rasterCRS",
       "urn:fieldwork:rasterHeight",
+      "urn:fieldwork:rasterMaskConvention",
+      "urn:fieldwork:rasterMaskMarginPixels",
       "urn:fieldwork:rasterMaskMethod",
       "urn:fieldwork:rasterWidth",
       "urn:fieldwork:referenceCount",
