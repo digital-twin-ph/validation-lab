@@ -1,0 +1,139 @@
+{
+  "check": "01-reproject",
+  "ranAt": "2026-10-08T09:29:09.978652+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pyproj": "3.8.0",
+    "proj": "9.8.1"
+  },
+  "fixture": {
+    "id": "reproject-utm35s-001",
+    "sha256": "7f5a4dda904a68f5dbaa4d6e6d945f974a7d0ca49749f6dc066edc10f22480e4",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.4.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:reproject",
+      "release": "0.1.0",
+      "label": "Reproject input",
+      "implementation": "src/reproject.ts#reprojectToCRS84"
+    },
+    "selfReportedMaxRoundTripM": 1e-09
+  },
+  "toleranceM": 0.001,
+  "points": 9,
+  "maxSeparationM": 6.701103617974568e-05,
+  "agrees": true,
+  "rows": [
+    {
+      "id": "p1",
+      "reference": {
+        "longitude": 24.271307307541036,
+        "latitude": -9.03640810539865
+      },
+      "fieldwork": {
+        "longitude": 24.271307308,
+        "latitude": -9.036408105
+      },
+      "separationM": 6.701074203443197e-05
+    },
+    {
+      "id": "p2",
+      "reference": {
+        "longitude": 27.0,
+        "latitude": -9.046562463768952
+      },
+      "fieldwork": {
+        "longitude": 27,
+        "latitude": -9.046562464
+      },
+      "separationM": 2.5554565923879386e-05
+    },
+    {
+      "id": "p3",
+      "reference": {
+        "longitude": 29.728692692458967,
+        "latitude": -9.03640810539865
+      },
+      "fieldwork": {
+        "longitude": 29.728692692,
+        "latitude": -9.036408105
+      },
+      "separationM": 6.701103617974568e-05
+    },
+    {
+      "id": "p4",
+      "reference": {
+        "longitude": 24.630161879698036,
+        "latitude": -24.57541135775953
+      },
+      "fieldwork": {
+        "longitude": 24.63016188,
+        "latitude": -24.575411358
+      },
+      "separationM": 4.0559307698490896e-05
+    },
+    {
+      "id": "p5",
+      "reference": {
+        "longitude": 27.0,
+        "latitude": -24.594061712781265
+      },
+      "fieldwork": {
+        "longitude": 27,
+        "latitude": -24.594061713
+      },
+      "separationM": 2.4228315987280943e-05
+    },
+    {
+      "id": "p6",
+      "reference": {
+        "longitude": 29.369838120301964,
+        "latitude": -24.57541135775953
+      },
+      "fieldwork": {
+        "longitude": 29.36983812,
+        "latitude": -24.575411358
+      },
+      "separationM": 4.0559307698490896e-05
+    },
+    {
+      "id": "p7",
+      "reference": {
+        "longitude": 24.777608614563437,
+        "latitude": -36.12409583213699
+      },
+      "fieldwork": {
+        "longitude": 24.777608615,
+        "latitude": -36.124095832
+      },
+      "separationM": 4.2137407141238183e-05
+    },
+    {
+      "id": "p8",
+      "reference": {
+        "longitude": 27.0,
+        "latitude": -36.14471809881776
+      },
+      "fieldwork": {
+        "longitude": 27,
+        "latitude": -36.144718099
+      },
+      "separationM": 2.0220940819275512e-05
+    },
+    {
+      "id": "p9",
+      "reference": {
+        "longitude": 29.22239138543656,
+        "latitude": -36.12409583213699
+      },
+      "fieldwork": {
+        "longitude": 29.222391385,
+        "latitude": -36.124095832
+      },
+      "separationM": 4.213710885272908e-05
+    }
+  ]
+}

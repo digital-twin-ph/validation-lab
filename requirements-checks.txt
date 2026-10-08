@@ -1,0 +1,4 @@
+# For running the checks headlessly in CPython, outside the browser kernel.
+# A CPython run is a different environment from Pyodide and must be labelled as such
+# in any recorded result. See content/results/*.json "environment".
+pyproj==3.8.0
