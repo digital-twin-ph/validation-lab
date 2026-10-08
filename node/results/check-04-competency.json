@@ -1,6 +1,6 @@
 {
   "check": "04-competency-questions",
-  "ranAt": "2026-10-08T13:05:18.195Z",
+  "ranAt": "2026-10-08T13:16:53.069Z",
   "environment": {
     "engine": "Comunica 4.5.0 over an N3 store",
     "runtime": "v22.23.3",
@@ -8,9 +8,9 @@
   },
   "fixture": {
     "receipt": "run-receipt-old-naledi.json",
-    "sha256": "fd42e0e817ace4efe1d957f56e704497b94b7571dcb9cf8810d8005c8ac6c2fe",
+    "sha256": "f62612fc07c758a1e7e118e3627868a6f0285b7ce88de4bdb69bf9f033f3c7a9",
     "schema": "fieldwork/run/1",
-    "runId": "d2a586e0-a997-426a-8a1c-70352c22554d",
+    "runId": "7b61790a-367b-4771-ad9c-2b0292bce83c",
     "receipts": 8,
     "executedNodes": 12,
     "triples": 4280
@@ -25,13 +25,13 @@
       "documentedStatus": "answerable",
       "sample": [
         {
-          "plan": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:plan:area",
+          "plan": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:plan:area",
           "version": "0.2.0",
           "digest": "35c27341f2860d1a8e6f6b261f22fdeaa33472d34426f98ff718f6f374b5fb31",
           "widget": "urn:fieldwork:widget:area"
         },
         {
-          "plan": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:plan:samples",
+          "plan": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:plan:samples",
           "version": "1.0.0",
           "digest": "c9639e3c496f8b096ee35f695f668f55327df722e9514a0ed814cfed56433dcb",
           "widget": "urn:fieldwork:widget:samples"
@@ -48,12 +48,12 @@
       "documentedStatus": "answerable",
       "sample": [
         {
-          "subject": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:selection:facilities",
+          "subject": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:selection:facilities",
           "value": "6",
           "parameter": "urn:fieldwork:searchRadiusKm"
         },
         {
-          "subject": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:grid:samples",
+          "subject": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:grid:samples",
           "value": "250",
           "parameter": "urn:fieldwork:spacingMetres"
         }
@@ -69,12 +69,12 @@
       "documentedStatus": "answerable",
       "sample": [
         {
-          "step": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:step:area",
-          "used": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:area"
+          "step": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:step:area",
+          "used": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:output:area"
         },
         {
-          "step": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:step:area",
-          "used": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:area"
+          "step": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:step:area",
+          "used": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:output:area"
         }
       ],
       "because": null
@@ -98,11 +98,11 @@
       "documentedStatus": "answerable",
       "sample": [
         {
-          "feature": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:facility-data:reco",
+          "feature": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:output:facility-data:reco",
           "geometry": "bc_0_n3-0"
         },
         {
-          "feature": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:output:facility-data:reco",
+          "feature": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:output:facility-data:reco",
           "geometry": "bc_0_n3-3"
         }
       ],
@@ -156,7 +156,7 @@
       "documentedStatus": "answerable",
       "sample": [
         {
-          "dataset": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:selection:facilities",
+          "dataset": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:selection:facilities",
           "count": "0"
         }
       ],
@@ -190,10 +190,10 @@
       "documentedStatus": "answerable",
       "sample": [
         {
-          "view": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:view:access-map"
+          "view": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:view:access-map"
         },
         {
-          "view": "urn:fieldwork:run:d2a586e0-a997-426a-8a1c-70352c22554d:view:access-table"
+          "view": "urn:fieldwork:run:7b61790a-367b-4771-ad9c-2b0292bce83c:view:access-table"
         }
       ],
       "because": null

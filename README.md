@@ -72,7 +72,7 @@ edited by hand no longer describes what the application did.
 | --- | --- | --- | --- |
 | 01 | Reproject input, WGS84 UTM 35S to CRS84 | `pyproj` 3.8.0 / PROJ 9.8.1 | **Agrees.** Maximum separation 6.70 × 10⁻⁵ m over 9 points against a 1 mm tolerance |
 | 02 | Clip raster, cell centre inside, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Agrees exactly.** Same window, same 132 cells, same retained values |
-| 02 | Clip raster, all touched, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Differs.** Fieldwork includes 35 cells GDAL excludes and none the other way; all 35 sit beside a pixel-aligned cutline coordinate |
+| 02 | Clip raster, all touched, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **2 of 146 cells differ**, both GDAL-only, after Fieldwork's rule was changed to match. The check found the original 35-cell divergence and then confirmed the fix |
 | 02 | Clip raster, all touched, margin 1 | dilation model | **Inconclusive by construction.** `rasterio` has no margin parameter; the 61-cell gap is against a 3 × 3 dilation model, not a validated reference |
 | 03 | Ontology structure | own checks over the six `ontology/*.ttl` files | **Clean where checkable.** No fieldwork term is used in a domain, range or subClassOf without being declared. Annotation coverage is partial: 47 of 80 classes carry no label |
 | 04 | Competency questions, relevance | SPARQL over an exported run receipt, compared with the documented statuses | **12 of 13 expectations met, 4 of 4 refusals held, 1 drift found.** The reporting boundary is not typed `fw:StudyArea` in the Old Naledi receipt, so it cannot be found by its role |
@@ -87,31 +87,15 @@ decimal places, whose worst case is about 7.8 × 10⁻⁵ m at the fixture's
 latitudes, above the observed separation. The agreement is limited by the
 documented rounding, not by the projection.
 
-Check 02's disagreement is also explained, and is a finding rather than a defect
-report. Fieldwork's all-touched test measures distance to a **closed** cell
-rectangle, so a cutline edge running exactly along the border between two cells
-touches both, while GDAL's ALL_TOUCHED assigns it to one; a 1e-9 pixel window
-pad widens the crop by a further cell. The difference is one-sided, so an
-all-touched clip here retains more boundary cells than a GDAL-derived one. For
-count-valued rasters such as population that inflates any total. The write-up
-lives in the Fieldwork repository at `docs/experiments/29-raster-edge-inclusion.md`.
-
-Check 04 is the relevance dimension, and it is a developmental-evaluation
-instrument rather than a gate: its output is the list of questions the recorded
-knowledge cannot yet answer. It compares each measured answer with the status
-written in Fieldwork's competency-question list, so prose cannot drift away from
-what receipts carry, and it distinguishes a question refused by design from one
-unanswerable through a gap — the first must always return nothing, the second
-should one day return something.
-
-Check 03 is the one with the most actionable result. Fieldwork's ontology is an
-RDFS-expressive taxonomy declared with OWL vocabulary: classes, properties,
-subClassOf, domain and range, and none of the axioms a description-logic
-reasoner needs in order to catch a modelling error. Its consistency therefore
-carries no information, and the "terms that must remain distinct" discipline in
-Fieldwork's audit procedure is enforced by prose alone. The probe shows the fix
-is small and verifiable by the same engine. The write-up is in the Fieldwork
-repository at `docs/experiments/41-validation-lab.md`.
+Check 02 is the clearest case of the lab working. It found a 35-cell divergence
+in all-touched clipping, which was attributed to two specific lines of Fieldwork's
+own code: an inclusion test measuring distance to a **closed** cell rectangle, and
+a fractional window pad. Fieldwork changed the rule to positive-area coverage,
+and this check confirmed the result — 2 differing cells instead of 35, with the
+cropped window now agreeing. Those 2 are GDAL-only and come from its line
+rasterizer burning cells at an exactly aligned cutline vertex, an artifact rather
+than a stateable rule, so they are recorded rather than chased. The write-up is in
+the Fieldwork repository at `docs/experiments/29-raster-edge-inclusion.md`.
 
 Next: polygon area against `pyproj.Geod`, where disagreement is expected because
 Fieldwork records a spherical method and `Geod` is ellipsoidal.
