@@ -104,6 +104,24 @@ repository at `docs/experiments/41-validation-lab.md`.
 Next: polygon area against `pyproj.Geod`, where disagreement is expected because
 Fieldwork records a spherical method and `Geod` is ellipsoidal.
 
+## Provisioning, and what that means for offline use
+
+The scientific packages are **not bundled in this site**. The published build
+ships four wheels (piplite, ipykernel, pyodide-kernel, widgetsnbextension); the
+kernel loads Pyodide **v314.0.6 from a CDN** and the notebooks request
+`pyproj`, `shapely`, `rasterio`, `geopandas`, `fiona`, `numpy`, `pandas`, `h3`
+and `scipy` from that distribution with `pyodide_js.loadPackage`. Those versions
+are the ones the design record names, confirmed against the distribution's own
+lock file rather than its documentation.
+
+Two consequences. **The published lab needs network access on first use** of a
+notebook, unlike Fieldwork itself, which precaches and reports *Available
+offline*. And `piplite.install` is the wrong mechanism for these packages: it
+resolves against the site's local wheel index, where they are absent, so it
+fails while a `loadPackage` request succeeds. The notebooks used to call
+`piplite.install`, which is why `00-kernel-check.ipynb` reported packages as
+absent on the published site.
+
 ## What a passing check does not establish
 
 That the declared CRS was the right one for a file, that the source coordinates
