@@ -1,0 +1,993 @@
+{
+  "check": "02-clip",
+  "ranAt": "2026-10-08T10:43:42.293551+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "rasterio": "1.5.2",
+    "gdal": "3.12.2",
+    "shapely": "2.2.0",
+    "geos": "3.14.1",
+    "scipy": "1.18.1",
+    "numpy": "2.5.3"
+  },
+  "fixture": {
+    "id": "clip-all-touched-001",
+    "sha256": "d7d3d26c90a1288b545f8bc9a9ee941a24cef1da142bd4151b2141ad5fbc220f",
+    "rasterSHA256": "e2f68a8fa4860a75047d1b0d453959e451eb15023de10568e1b55d4a036632d6",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.4.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:clip_raster",
+      "release": "0.5.0",
+      "label": "Clip raster",
+      "implementation": "src/raster-mask.ts#rasterCellPredicate"
+    }
+  },
+  "openedGrid": {
+    "width": 24,
+    "height": 18,
+    "origin": [
+      25.0,
+      -24.0
+    ],
+    "resolution": [
+      0.01,
+      -0.01
+    ],
+    "crs": "EPSG:4326",
+    "dtype": "float64"
+  },
+  "cases": [
+    {
+      "options": {
+        "method": "all-touched",
+        "marginPixels": 0
+      },
+      "marginModelledAs": null,
+      "referenceWindow": {
+        "origin": [
+          25.03,
+          -24.03
+        ],
+        "width": 17,
+        "height": 14
+      },
+      "fieldworkWindow": {
+        "origin": [
+          25.02,
+          -24.02
+        ],
+        "width": 18,
+        "height": 15
+      },
+      "windowAgrees": false,
+      "referenceIncluded": 146,
+      "fieldworkIncluded": 181,
+      "maskAgrees": false,
+      "differingCells": [
+        {
+          "row": 2,
+          "column": 2,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.025,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.035,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 4,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.044999999999998,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 5,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.055,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 6,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.064999999999998,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 7,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.075,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 8,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.084999999999997,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 9,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.095,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 10,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.105,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 12,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.125,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 13,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.134999999999998,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 14,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.145,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 15,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.154999999999998,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 16,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.165,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.025,
+          "latitude": -24.035,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 3,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.035,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 4,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.044999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 5,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.055,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 6,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.064999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 7,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.075,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 8,
+          "column": 3,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.035,
+          "latitude": -24.084999999999997,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 8,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.084999999999997,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 12,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.125,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 13,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.134999999999998,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 14,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.145,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 15,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.154999999999998,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 16,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.165,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 10,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.105,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 11,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.115,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 13,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.134999999999998,
+          "besidePixelAlignedCutline": true
+        }
+      ],
+      "differingCellCount": 35,
+      "retainedValuesAgree": null
+    },
+    {
+      "options": {
+        "method": "all-touched",
+        "marginPixels": 1
+      },
+      "marginModelledAs": "one-pixel binary dilation with a 3x3 square structuring element",
+      "referenceWindow": {
+        "origin": [
+          25.02,
+          -24.02
+        ],
+        "width": 17,
+        "height": 14
+      },
+      "fieldworkWindow": {
+        "origin": [
+          25.01,
+          -24.01
+        ],
+        "width": 20,
+        "height": 17
+      },
+      "windowAgrees": false,
+      "referenceIncluded": 195,
+      "fieldworkIncluded": 228,
+      "maskAgrees": false,
+      "differingCells": [
+        {
+          "row": 2,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 2,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.025,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 3,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.035,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 3,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.035,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 4,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.044999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 4,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.044999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 5,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.055,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 5,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.055,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 6,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.064999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 6,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.064999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 7,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.075,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 7,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.075,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 8,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.084999999999997,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 8,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.084999999999997,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 2,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.025,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 12,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.125,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 13,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.134999999999998,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 14,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.145,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 15,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.154999999999998,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 16,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.165,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 9,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.095,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 10,
+          "column": 2,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.025,
+          "latitude": -24.105,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 10,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.105,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 11,
+          "column": 2,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.025,
+          "latitude": -24.115,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 11,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.115,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 2,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.025,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 12,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.125,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 13,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.134999999999998,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 14,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.145,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 15,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.154999999999998,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 12,
+          "column": 16,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.165,
+          "latitude": -24.125,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 13,
+          "column": 3,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.035,
+          "latitude": -24.134999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 13,
+          "column": 17,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.175,
+          "latitude": -24.134999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 13,
+          "column": 18,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.185,
+          "latitude": -24.134999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 14,
+          "column": 3,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.035,
+          "latitude": -24.145,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 14,
+          "column": 19,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.195,
+          "latitude": -24.145,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 14,
+          "column": 20,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.205,
+          "latitude": -24.145,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 15,
+          "column": 3,
+          "reference": true,
+          "fieldwork": false,
+          "longitude": 25.035,
+          "latitude": -24.154999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 15,
+          "column": 19,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.195,
+          "latitude": -24.154999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 15,
+          "column": 20,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.205,
+          "latitude": -24.154999999999998,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 4,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.044999999999998,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 5,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.055,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 6,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.064999999999998,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 7,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.075,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 8,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.084999999999997,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 9,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.095,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 10,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.105,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 11,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.115,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 12,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.125,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 13,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.134999999999998,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 14,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.145,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 15,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.154999999999998,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 16,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.165,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 17,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.175,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 18,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.185,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 19,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.195,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 16,
+          "column": 20,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.205,
+          "latitude": -24.165,
+          "besidePixelAlignedCutline": true
+        },
+        {
+          "row": 17,
+          "column": 5,
+          "reference": false,
+          "fieldwork": true,
+          "longitude": 25.055,
+          "latitude": -24.175,
+          "besidePixelAlignedCutline": true
+        }
+      ],
+      "differingCellCount": 61,
+      "retainedValuesAgree": null
+    },
+    {
+      "options": {
+        "method": "cell-center",
+        "marginPixels": 0
+      },
+      "marginModelledAs": null,
+      "referenceWindow": {
+        "origin": [
+          25.03,
+          -24.03
+        ],
+        "width": 17,
+        "height": 14
+      },
+      "fieldworkWindow": {
+        "origin": [
+          25.03,
+          -24.03
+        ],
+        "width": 17,
+        "height": 14
+      },
+      "windowAgrees": true,
+      "referenceIncluded": 132,
+      "fieldworkIncluded": 132,
+      "maskAgrees": true,
+      "differingCells": [],
+      "differingCellCount": 0,
+      "retainedValuesAgree": true
+    }
+  ],
+  "agrees": false
+}

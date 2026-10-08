@@ -26,6 +26,7 @@ A notebook that reused the implementation under test would measure nothing.
     content/
       00-kernel-check.ipynb          which packages this kernel really has, and their versions
       01-reproject-vs-pyproj.ipynb   check 01
+      02-clip-vs-rasterio.ipynb      check 02
       checks/                        the comparison, importable and runnable headlessly
       fixtures/                      exported from Fieldwork, with .sha256 beside each
       results/                       recorded reports, including the environment that produced them
@@ -44,6 +45,7 @@ kernel**:
 
     pip install -r requirements-checks.txt
     python content/checks/check_01_reproject.py
+    python content/checks/check_02_clip.py
 
 Either way the recorded report names the runtime, so a CPython result is never
 mistaken for a Pyodide one.
@@ -53,9 +55,11 @@ mistaken for a Pyodide one.
 Fixtures are produced on the Fieldwork side, which is the direction the boundary
 allows. From a Fieldwork checkout:
 
-    node scripts/export-validation-fixture.mjs ../validation-lab/content/fixtures/reproject-utm35s-001.json
+    node scripts/export-validation-fixture.mjs reproject-utm35s-001 ../validation-lab/content/fixtures
+    node scripts/export-validation-fixture.mjs clip-all-touched-001 ../validation-lab/content/fixtures
 
-That writes the fixture and its `.sha256`. Regenerate rather than edit: a fixture
+That writes each fixture, any binary sidecar such as a GeoTIFF, and a `.sha256`
+for every file. Regenerate rather than edit: a fixture
 edited by hand no longer describes what the application did.
 
 ## Results so far
@@ -63,17 +67,30 @@ edited by hand no longer describes what the application did.
 | Check | Operation | Reference | Result |
 | --- | --- | --- | --- |
 | 01 | Reproject input, WGS84 UTM 35S to CRS84 | `pyproj` 3.8.0 / PROJ 9.8.1 | **Agrees.** Maximum separation 6.70 × 10⁻⁵ m over 9 points against a 1 mm tolerance |
+| 02 | Clip raster, cell centre inside, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Agrees exactly.** Same window, same 132 cells, same retained values |
+| 02 | Clip raster, all touched, margin 0 | `rasterio` 1.5.2 / GDAL 3.12.2 | **Differs.** Fieldwork includes 35 cells GDAL excludes and none the other way; all 35 sit beside a pixel-aligned cutline coordinate |
+| 02 | Clip raster, all touched, margin 1 | dilation model | **Inconclusive by construction.** `rasterio` has no margin parameter; the 61-cell gap is against a 3 × 3 dilation model, not a validated reference |
 
-Check 01 ran in CPython 3.13.3 on macOS arm64, **not** in Pyodide, so the first
-acceptance criterion in the design record is not yet met for a browser kernel.
-The residual is explained: Fieldwork stores coordinates rounded to nine decimal
-places, whose worst case is about 7.8 × 10⁻⁵ m at the fixture's latitudes, above
-the observed separation. The agreement is therefore limited by the documented
-rounding, not by the projection.
+Both checks ran in CPython 3.13.3 on macOS arm64, **not** in Pyodide, so the
+first acceptance criterion in the design record is unmet for a browser kernel
+and these figures should be reproduced there.
 
-Next: all-touched raster clipping against `rasterio.mask`, and polygon area
-against `pyproj.Geod`, where disagreement is expected because Fieldwork records
-a spherical method and `Geod` is ellipsoidal.
+Check 01's residual is explained: Fieldwork stores coordinates rounded to nine
+decimal places, whose worst case is about 7.8 × 10⁻⁵ m at the fixture's
+latitudes, above the observed separation. The agreement is limited by the
+documented rounding, not by the projection.
+
+Check 02's disagreement is also explained, and is a finding rather than a defect
+report. Fieldwork's all-touched test measures distance to a **closed** cell
+rectangle, so a cutline edge running exactly along the border between two cells
+touches both, while GDAL's ALL_TOUCHED assigns it to one; a 1e-9 pixel window
+pad widens the crop by a further cell. The difference is one-sided, so an
+all-touched clip here retains more boundary cells than a GDAL-derived one. For
+count-valued rasters such as population that inflates any total. The write-up
+lives in the Fieldwork repository at `docs/experiments/29-raster-edge-inclusion.md`.
+
+Next: polygon area against `pyproj.Geod`, where disagreement is expected because
+Fieldwork records a spherical method and `Geod` is ellipsoidal.
 
 ## What a passing check does not establish
 
