@@ -2,3 +2,7 @@
 # A CPython run is a different environment from Pyodide and must be labelled as such
 # in any recorded result. See content/results/*.json "environment".
 pyproj==3.8.0
+rasterio==1.5.2
+shapely==2.2.0
+scipy==1.18.1
+numpy==2.5.3
