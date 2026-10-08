@@ -1,0 +1,14 @@
+{
+  "name": "fieldwork-validation-lab-node",
+  "private": true,
+  "type": "module",
+  "description": "Node-side checks for the Fieldwork Validation Lab. Separate from the Python notebooks because the OWL 2 DL reasoner is a JavaScript/WASM package.",
+  "scripts": {
+    "check:ontology": "node check_03_ontology.mjs ../../fieldwork/ontology"
+  },
+  "dependencies": {
+    "n3": "2.13.8",
+    "rdf-reasoner-konclude": "0.7.2"
+  },
+  "engines": {"node": ">=22"}
+}
