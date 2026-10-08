@@ -1,0 +1,129 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "reproject-utm35s-001",
+  "exportedAt": "2026-10-08T09:28:03.416Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.4.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:reproject",
+    "release": "0.1.0",
+    "label": "Reproject input",
+    "implementation": "src/reproject.ts#reprojectToCRS84"
+  },
+  "declaredParameters": {
+    "sourceCRS": "EPSG:32735",
+    "definition": "+proj=utm +zone=35 +south +datum=WGS84 +units=m +no_defs",
+    "axisOrder": "easting-northing",
+    "units": "metre",
+    "targetCRS": "OGC:CRS84",
+    "targetAxisOrder": "longitude-latitude",
+    "datumShift": "none",
+    "zone": 35,
+    "hemisphere": "south",
+    "operation": "UTM inverse projection to geographic coordinates on the WGS84 datum",
+    "library": "proj4 2.19.10"
+  },
+  "selfReported": {
+    "transformed": 9,
+    "withoutCoordinates": 0,
+    "maxRoundTripM": 1e-9,
+    "coordinateDecimals": 9
+  },
+  "input": [
+    {
+      "id": "p1",
+      "easting": 200000,
+      "northing": 9000000
+    },
+    {
+      "id": "p2",
+      "easting": 500000,
+      "northing": 9000000
+    },
+    {
+      "id": "p3",
+      "easting": 800000,
+      "northing": 9000000
+    },
+    {
+      "id": "p4",
+      "easting": 260000,
+      "northing": 7280000
+    },
+    {
+      "id": "p5",
+      "easting": 500000,
+      "northing": 7280000
+    },
+    {
+      "id": "p6",
+      "easting": 740000,
+      "northing": 7280000
+    },
+    {
+      "id": "p7",
+      "easting": 300000,
+      "northing": 6000000
+    },
+    {
+      "id": "p8",
+      "easting": 500000,
+      "northing": 6000000
+    },
+    {
+      "id": "p9",
+      "easting": 700000,
+      "northing": 6000000
+    }
+  ],
+  "output": [
+    {
+      "id": "p1",
+      "longitude": 24.271307308,
+      "latitude": -9.036408105
+    },
+    {
+      "id": "p2",
+      "longitude": 27,
+      "latitude": -9.046562464
+    },
+    {
+      "id": "p3",
+      "longitude": 29.728692692,
+      "latitude": -9.036408105
+    },
+    {
+      "id": "p4",
+      "longitude": 24.63016188,
+      "latitude": -24.575411358
+    },
+    {
+      "id": "p5",
+      "longitude": 27,
+      "latitude": -24.594061713
+    },
+    {
+      "id": "p6",
+      "longitude": 29.36983812,
+      "latitude": -24.575411358
+    },
+    {
+      "id": "p7",
+      "longitude": 24.777608615,
+      "latitude": -36.124095832
+    },
+    {
+      "id": "p8",
+      "longitude": 27,
+      "latitude": -36.144718099
+    },
+    {
+      "id": "p9",
+      "longitude": 29.222391385,
+      "latitude": -36.124095832
+    }
+  ],
+  "note": "Recompute the output from declaredParameters and the input only. Fieldwork’s own intermediate values are deliberately absent."
+}
