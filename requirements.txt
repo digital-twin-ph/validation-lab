@@ -1,3 +1,5 @@
 # Build-time only: produces the static JupyterLite site. These do not run in the browser.
-jupyterlite-core==0.6.4
-jupyterlite-pyodide-kernel==0.6.3
+jupyterlite-core==0.8.6
+jupyterlite-pyodide-kernel==0.8.6
+# Required by jupyterlite-core to add custom content (our notebooks) to the site.
+jupyter-server==2.18.0
