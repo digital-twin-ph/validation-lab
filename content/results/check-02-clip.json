@@ -1,6 +1,6 @@
 {
   "check": "02-clip",
-  "ranAt": "2026-10-08T10:43:42.293551+00:00",
+  "ranAt": "2026-10-08T12:33:09.921423+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -13,7 +13,7 @@
   },
   "fixture": {
     "id": "clip-all-touched-001",
-    "sha256": "d7d3d26c90a1288b545f8bc9a9ee941a24cef1da142bd4151b2141ad5fbc220f",
+    "sha256": "9873e66a033a03bcd07a12eae83a417567b64815ad07538b6654afa468738e85",
     "rasterSHA256": "e2f68a8fa4860a75047d1b0d453959e451eb15023de10568e1b55d4a036632d6",
     "application": {
       "name": "Fieldwork",
@@ -57,334 +57,37 @@
       },
       "fieldworkWindow": {
         "origin": [
-          25.02,
-          -24.02
+          25.03,
+          -24.03
         ],
-        "width": 18,
-        "height": 15
+        "width": 17,
+        "height": 14
       },
-      "windowAgrees": false,
+      "windowAgrees": true,
       "referenceIncluded": 146,
-      "fieldworkIncluded": 181,
+      "fieldworkIncluded": 144,
       "maskAgrees": false,
       "differingCells": [
         {
-          "row": 2,
-          "column": 2,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.025,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 3,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.035,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 4,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.044999999999998,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
+          "row": 16,
           "column": 5,
-          "reference": false,
-          "fieldwork": true,
+          "reference": true,
+          "fieldwork": false,
           "longitude": 25.055,
-          "latitude": -24.025,
+          "latitude": -24.165,
           "besidePixelAlignedCutline": true
         },
         {
-          "row": 2,
+          "row": 16,
           "column": 6,
-          "reference": false,
-          "fieldwork": true,
+          "reference": true,
+          "fieldwork": false,
           "longitude": 25.064999999999998,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 7,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.075,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 8,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.084999999999997,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 9,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.095,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 10,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.105,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 11,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.115,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 12,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.125,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 13,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.134999999999998,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 14,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.145,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 15,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.154999999999998,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 16,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.165,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 2,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.025,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 3,
-          "column": 2,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.025,
-          "latitude": -24.035,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 3,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.035,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 4,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.044999999999998,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 5,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.055,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 6,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.064999999999998,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 7,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.075,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 8,
-          "column": 3,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.035,
-          "latitude": -24.084999999999997,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 8,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.084999999999997,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 11,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.115,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 12,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.125,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 13,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.134999999999998,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 14,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.145,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 15,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.154999999999998,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 16,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.165,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 9,
-          "column": 17,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.175,
-          "latitude": -24.095,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 10,
-          "column": 11,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.115,
-          "latitude": -24.105,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 11,
-          "column": 11,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.115,
-          "latitude": -24.115,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 12,
-          "column": 11,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.115,
-          "latitude": -24.125,
-          "besidePixelAlignedCutline": true
-        },
-        {
-          "row": 13,
-          "column": 11,
-          "reference": false,
-          "fieldwork": true,
-          "longitude": 25.115,
-          "latitude": -24.134999999999998,
+          "latitude": -24.165,
           "besidePixelAlignedCutline": true
         }
       ],
-      "differingCellCount": 35,
+      "differingCellCount": 2,
       "retainedValuesAgree": null
     },
     {
