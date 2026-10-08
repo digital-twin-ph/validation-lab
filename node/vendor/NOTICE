@@ -1,0 +1,8 @@
+prov.ttl is the W3C PROV-O ontology, retrieved from https://www.w3.org/ns/prov.ttl on
+2026-10-08 and redistributed under the W3C Software and Document Notice and License.
+
+It is vendored here, and deliberately not in Fieldwork, so that the ontology check can
+reason over the axioms Fieldwork's vocabulary relies on without the application fetching
+anything at run time. Fieldwork reuses PROV-O terms but declares no owl:imports, so a
+reasoner given only Fieldwork's files cannot see that prov:Entity and prov:Activity are
+disjoint. Merging this file is what makes a cross-kind conflation detectable.
