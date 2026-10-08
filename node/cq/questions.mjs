@@ -3,7 +3,7 @@
 // but to detect drift: if the markdown list claims a question is answerable and the query
 // returns nothing, one of the two is wrong.
 //
-// Documented statuses live in fieldwork/docs/competency-questions.md and are compared at run
+// Documented statuses live in fieldwork/docs/experiments/44-ontology-competency-questions.md and are compared at run
 // time. Queries match asserted triples only: no reasoning is applied here, so a query must
 // not rely on subclass inference.
 const PREFIXES=`

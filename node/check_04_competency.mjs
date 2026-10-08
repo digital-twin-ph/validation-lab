@@ -72,7 +72,7 @@ export async function run(receiptPath,questionsPath){
 }
 
 if(import.meta.url===`file://${process.argv[1]}`){
-  const report=await run('./fixtures/run-receipt-old-naledi.json','../../fieldwork/docs/competency-questions.md');
+  const report=await run('./fixtures/run-receipt-old-naledi.json','../../fieldwork/docs/experiments/44-ontology-competency-questions.md');
   await mkdir('./results',{recursive:true});
   await writeFile('./results/check-04-competency.json',JSON.stringify(report,null,2)+'\n');
   const f=report.fixture;

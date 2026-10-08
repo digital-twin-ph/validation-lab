@@ -1,6 +1,6 @@
 {
   "check": "04-competency-questions",
-  "ranAt": "2026-10-08T13:02:50.164Z",
+  "ranAt": "2026-10-08T13:05:18.195Z",
   "environment": {
     "engine": "Comunica 4.5.0 over an N3 store",
     "runtime": "v22.23.3",
