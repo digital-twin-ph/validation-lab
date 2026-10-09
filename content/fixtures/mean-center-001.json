@@ -1,0 +1,73 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "mean-center-001",
+  "exportedAt": "2026-10-09T00:41:06.015Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.6.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:mean_center",
+    "release": "0.1.0",
+    "label": "Mean center",
+    "implementation": "src/mean-center.ts#computeMeanCenter"
+  },
+  "declaredParameters": {
+    "zone": 35,
+    "hemisphere": "south",
+    "computationCRS": "EPSG:32735",
+    "sourceCRS": "OGC:CRS84",
+    "method": "Unweighted arithmetic mean of WGS84 UTM easting and northing; center returned in CRS84.",
+    "semantics": "Every point is projected to the stated WGS84 UTM CRS, easting and northing are averaged without weights, and the mean is converted back to CRS84. No point is excluded and no outlier is down-weighted."
+  },
+  "selfReported": {
+    "count": 6
+  },
+  "input": {
+    "points": [
+      {
+        "id": "c1",
+        "longitude": 25.87,
+        "latitude": -24.66
+      },
+      {
+        "id": "c2",
+        "longitude": 25.89,
+        "latitude": -24.67
+      },
+      {
+        "id": "c3",
+        "longitude": 25.91,
+        "latitude": -24.64
+      },
+      {
+        "id": "c4",
+        "longitude": 25.88,
+        "latitude": -24.63
+      },
+      {
+        "id": "c5",
+        "longitude": 25.9,
+        "latitude": -24.65
+      },
+      {
+        "id": "c6",
+        "longitude": 26.15,
+        "latitude": -24.4
+      }
+    ]
+  },
+  "output": {
+    "coordinates": [
+      25.933405345718498,
+      -24.60836795881989
+    ],
+    "projected": [
+      392027.48851484177,
+      7277997.451901149
+    ],
+    "crs": "EPSG:32735",
+    "count": 6
+  },
+  "note": "Project the input points to the declared CRS, average the coordinates without weights, and invert. Compare both the projected mean in metres and the returned CRS84 position as a ground separation."
+}
