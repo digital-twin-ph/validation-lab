@@ -1,0 +1,237 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "measure-area-001",
+  "exportedAt": "2026-10-09T00:36:19.514Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.6.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:measure_area",
+    "release": "0.1.0",
+    "label": "Calculate area",
+    "implementation": "src/area-computation.ts#calculateArea"
+  },
+  "declaredParameters": {
+    "method": "Turf 7.3.5 spherical polygon area; mean Earth radius 6371008.8 m",
+    "earthRadiusM": 6371008.8,
+    "model": "sphere",
+    "geometryCRS": "OGC:CRS84",
+    "axisOrder": "longitude-latitude",
+    "ringRule": "Exterior ring area minus the area of each interior ring.",
+    "semantics": "Area of a polygon on a sphere of the stated mean radius. No ellipsoidal correction is applied, and the widget reports the result as approximate."
+  },
+  "selfReported": {
+    "cases": 5
+  },
+  "input": {
+    "cases": [
+      {
+        "id": "equatorial-1deg",
+        "unit": "km2",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "gaborone-box",
+        "unit": "km2",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                25.7829,
+                -24.7082
+              ],
+              [
+                25.9821,
+                -24.7082
+              ],
+              [
+                25.9821,
+                -24.5438
+              ],
+              [
+                25.7829,
+                -24.5438
+              ],
+              [
+                25.7829,
+                -24.7082
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "high-latitude-box",
+        "unit": "km2",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                10,
+                60
+              ],
+              [
+                11,
+                60
+              ],
+              [
+                11,
+                61
+              ],
+              [
+                10,
+                61
+              ],
+              [
+                10,
+                60
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "triangle-mid-latitude",
+        "unit": "ha",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                25,
+                -24
+              ],
+              [
+                26,
+                -24
+              ],
+              [
+                25.5,
+                -23
+              ],
+              [
+                25,
+                -24
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "box-with-hole",
+        "unit": "km2",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                25,
+                -24
+              ],
+              [
+                26,
+                -24
+              ],
+              [
+                26,
+                -23
+              ],
+              [
+                25,
+                -23
+              ],
+              [
+                25,
+                -24
+              ]
+            ],
+            [
+              [
+                25.4,
+                -23.6
+              ],
+              [
+                25.6,
+                -23.6
+              ],
+              [
+                25.6,
+                -23.4
+              ],
+              [
+                25.4,
+                -23.4
+              ],
+              [
+                25.4,
+                -23.6
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "output": [
+    {
+      "id": "equatorial-1deg",
+      "squareMetres": 12363718145.180046,
+      "value": 12363.718145180046,
+      "unit": "km2"
+    },
+    {
+      "id": "gaborone-box",
+      "squareMetres": 368085352.34495085,
+      "value": 368.0853523449509,
+      "unit": "km2"
+    },
+    {
+      "id": "high-latitude-box",
+      "squareMetres": 6088417933.464369,
+      "value": 6088.417933464369,
+      "unit": "km2"
+    },
+    {
+      "id": "triangle-mid-latitude",
+      "squareMetres": 5669352012.500536,
+      "value": 566935.2012500536,
+      "unit": "ha"
+    },
+    {
+      "id": "box-with-hole",
+      "squareMetres": 10885150337.605934,
+      "value": 10885.150337605934,
+      "unit": "km2"
+    }
+  ],
+  "note": "Recompute each case from its geometry and the declared method. Two separate claims are available: that this implementation computes the stated spherical formula, and how far that formula sits from an ellipsoidal area, which is the approximation the widget declares."
+}
