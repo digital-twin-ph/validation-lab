@@ -1,0 +1,98 @@
+{
+ "check": "05-area",
+ "ranAt": "2026-10-09T00:39:29.345951+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "measure-area-001",
+  "sha256": "c7ce709c9af293384f1cb4301c4376135e533957689d3cf14825e8f630537249",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.6.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:measure_area",
+   "release": "0.1.0",
+   "label": "Calculate area",
+   "implementation": "src/area-computation.ts#calculateArea"
+  },
+  "declaredMethod": "Turf 7.3.5 spherical polygon area; mean Earth radius 6371008.8 m"
+ },
+ "criterion": "relative difference at most 1e-09 against an independent spherical area with parallel-and-meridian edges",
+ "reported": {
+  "edgeModel": "The widget's boundary follows parallels and meridians. A geodesic area uses great-circle edges; the difference is a modelling choice, not an error.",
+  "earthModel": "The widget declares a sphere of the stated radius. The WGS84 comparison quantifies that declared approximation."
+ },
+ "cases": [
+  {
+   "id": "equatorial-1deg",
+   "fieldworkSquareMetres": 12363718145.180046,
+   "referenceSquareMetres": 12363718145.179935,
+   "relativeDifference": 8.947649841585337e-15,
+   "agrees": true,
+   "context": {
+    "greatCircleEdgedSphereSquareMetres": 12364031909.465616,
+    "relativeToGreatCircleEdges": -2.5377181801830678e-05,
+    "wgs84EllipsoidalSquareMetres": 12308778361.469452,
+    "relativeToEllipsoidal": 0.004463463562117088
+   }
+  },
+  {
+   "id": "gaborone-box",
+   "fieldworkSquareMetres": 368085352.34495085,
+   "referenceSquareMetres": 368085352.3449333,
+   "relativeDifference": 4.7769817779281896e-14,
+   "agrees": true,
+   "context": {
+    "greatCircleEdgedSphereSquareMetres": 368085529.9789734,
+    "relativeToGreatCircleEdges": -4.825889856198389e-07,
+    "wgs84EllipsoidalSquareMetres": 367293400.35569,
+    "relativeToEllipsoidal": 0.0021561835537853916
+   }
+  },
+  {
+   "id": "high-latitude-box",
+   "fieldworkSquareMetres": 6088417933.464369,
+   "referenceSquareMetres": 6088417933.46465,
+   "relativeDifference": 4.6208050500854665e-14,
+   "agrees": true,
+   "context": {
+    "greatCircleEdgedSphereSquareMetres": 6088221277.830688,
+    "relativeToGreatCircleEdges": 3.230099970190547e-05,
+    "wgs84EllipsoidalSquareMetres": 6122943163.071411,
+    "relativeToEllipsoidal": -0.005638665701695597
+   }
+  },
+  {
+   "id": "triangle-mid-latitude",
+   "fieldworkSquareMetres": 5669352012.500536,
+   "referenceSquareMetres": 5669352012.500518,
+   "relativeDifference": 3.196099302312831e-15,
+   "agrees": true,
+   "context": {
+    "greatCircleEdgedSphereSquareMetres": 5652436181.222961,
+    "relativeToGreatCircleEdges": 0.0029926620549503716,
+    "wgs84EllipsoidalSquareMetres": 5639313745.211975,
+    "relativeToEllipsoidal": 0.005326582035635927
+   }
+  },
+  {
+   "id": "box-with-hole",
+   "fieldworkSquareMetres": 10885150337.605934,
+   "referenceSquareMetres": 10885150337.60581,
+   "relativeDifference": 1.1389614041847161e-14,
+   "agrees": true,
+   "context": {
+    "greatCircleEdgedSphereSquareMetres": 10885300623.421417,
+    "relativeToGreatCircleEdges": -1.3806308220806502e-05,
+    "wgs84EllipsoidalSquareMetres": 10859747750.086937,
+    "relativeToEllipsoidal": 0.0023391507890957995
+   }
+  }
+ ],
+ "agrees": true
+}

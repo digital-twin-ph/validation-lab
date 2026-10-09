@@ -1,6 +1,6 @@
 {
   "check": "03-ontology-structure-and-meaning",
-  "ranAt": "2026-10-08T13:16:52.028Z",
+  "ranAt": "2026-10-08T13:46:54.856Z",
   "engine": {
     "reasoner": "Konclude via rdf-reasoner-konclude 0.7.2 (LGPL-3.0-or-later)",
     "parser": "n3 2.13.8",
