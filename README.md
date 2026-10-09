@@ -28,6 +28,7 @@ A notebook that reused the implementation under test would measure nothing.
       01-reproject-vs-pyproj.ipynb   check 01
       02-clip-vs-rasterio.ipynb      check 02
       05-area-vs-geodesic.ipynb      check 05
+      06-mean-center-vs-pyproj.ipynb check 06
       checks/                        the Python comparisons, importable and runnable headlessly
     node/                            Node-side checks: the OWL 2 DL reasoner and the SPARQL engine are JS packages
       cq/                            the competency questions, as queries with their expectations
@@ -51,6 +52,7 @@ kernel**:
     python content/checks/check_01_reproject.py
     python content/checks/check_02_clip.py
     python content/checks/check_05_area.py
+    python content/checks/check_06_mean_center.py
     cd node && npm ci && npm run check:all        # ontology reasoning and competency questions
 
 Either way the recorded report names the runtime, so a CPython result is never
@@ -80,6 +82,7 @@ edited by hand no longer describes what the application did.
 | 05 | Calculate area, spherical implementation | independent closed form, same formula | **Agrees.** Relative difference at most 4.8 × 10⁻¹⁴ over 5 boundaries against a 10⁻⁹ criterion |
 | 05 | Calculate area, edge model | `pyproj` geodesic on the same sphere | **Reported, not failed.** Boxes differ by under 0.01 %; a mid-latitude triangle with oblique edges differs by **0.30 %** |
 | 05 | Calculate area, earth model | `pyproj` geodesic on WGS84 | **Reported.** The declared spherical approximation runs **+0.45 % at the equator to −0.56 % at 60° N**, so the sign changes with latitude and no single factor corrects it |
+| 06 | Mean center, UTM projection and unweighted average | `pyproj` 3.8.0 / PROJ 9.8.1 | **Agrees.** Easting exact, northing 9.3 × 10⁻¹⁰ m, returned position 4.1 × 10⁻¹⁰ m ground separation, against a 1 mm criterion |
 | 04 | Competency questions, relevance | SPARQL over an exported run receipt, compared with the documented statuses | **12 of 13 expectations met, 4 of 4 refusals held, 1 drift found.** The reporting boundary is not typed `fw:StudyArea` in the Old Naledi receipt, so it cannot be found by its role |
 | 03 | Ontology meaning | Konclude OWL 2 DL | **Consistent, but unfalsifiably so.** Zero disjointness, cardinality or restriction axioms, and classification infers no subsumption beyond those asserted. A probe conflating terms the audit says must stay distinct stays consistent; adding three `owl:disjointWith` axioms makes it inconsistent |
 

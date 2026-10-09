@@ -1,0 +1,53 @@
+{
+ "check": "06-mean-center",
+ "ranAt": "2026-10-09T00:41:30.275101+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "mean-center-001",
+  "sha256": "270e1ea87507372535d9ee67cd85d8193d3b5a9740b3735a7773d93b649d0e93",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.6.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:mean_center",
+   "release": "0.1.0",
+   "label": "Mean center",
+   "implementation": "src/mean-center.ts#computeMeanCenter"
+  },
+  "declaredMethod": "Unweighted arithmetic mean of WGS84 UTM easting and northing; center returned in CRS84."
+ },
+ "criterion": "projected mean within 0.001 m on both axes, returned position within 0.001 m ground separation, and the input count unchanged",
+ "points": 6,
+ "reference": {
+  "projected": [
+   392027.48851484177,
+   7277997.45190115
+  ],
+  "coordinates": [
+   25.9334053457185,
+   -24.608367958819887
+  ]
+ },
+ "fieldwork": {
+  "projected": [
+   392027.48851484177,
+   7277997.451901149
+  ],
+  "coordinates": [
+   25.933405345718498,
+   -24.60836795881989
+  ]
+ },
+ "eastingDifferenceM": 0.0,
+ "northingDifferenceM": 9.313225746154785e-10,
+ "separationM": 4.0849636598139197e-10,
+ "countAgrees": true,
+ "notEstablished": "Whether an unweighted mean centre is an appropriate summary. The fixture includes an outlier that pulls it, and both implementations are pulled identically.",
+ "agrees": true
+}
