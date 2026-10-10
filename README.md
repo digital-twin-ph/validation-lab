@@ -112,8 +112,16 @@ to the number it publishes. The notebook also shows how far the answer travels
 with its assumption: the same graph and origin reach 69 junctions at 3 km/h and
 246 at 6 km/h, against 142 at the case study's 4.5 km/h.
 
-Next: the corridor buffer against Shapely, which would close the last step of
-the isochrone decomposition.
+Check 08 compares `reachable_corridor` against Shapely, rebuilding the corridor
+from the widget's stated rule with GEOS rather than comparing geometry feature
+by feature. The street selection agrees exactly — 301 streets entered, 45 cut
+part-way — and the areas differ by 0.116%, which is two geometry engines
+approximating a 25 m radius in two different projections. The notebook also
+shows the corridor's area halving at a 10 m half-width and rising half again at
+60 m, against a figure the case study records no reason for.
+
+Next: a reference for the travel time bands, where NetworkX has no equivalent
+operation, so the comparison would have to be against plain arithmetic.
 
 ## Provisioning, and what that means for offline use
 
