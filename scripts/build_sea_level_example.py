@@ -9,7 +9,9 @@ from source rather than editing the JSON by hand.
 Inputs
   content/results/ar6-philippines-gauges-extract.csv   the AR6 extract this lab made
   ../widget-pack-sea-level-rise/examples/.../projection-sites-ph.csv   the published site list
-  a HOT OpenStreetMap health-facility export for the Philippines   (path given on the command line)
+(Facilities are no longer built here. The example carries them as the Find health
+facilities widget retrieved them, so the stored provenance is the widget's own
+rather than a relabelling of this script's output.)
 
 Licences travel with the outputs: AR6 is CC-BY-4.0 and obliges three citations;
 the facilities are OpenStreetMap-derived and ODbL, which is share-alike.
