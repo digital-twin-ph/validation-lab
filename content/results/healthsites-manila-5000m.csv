@@ -1,0 +1,132 @@
+id,name,kind,latitude,longitude,completeness
+node/6554476250,A.H. Lacson Health Center,clinic,14.580846,121.013618,18.75
+node/7123860186,Agoncillo Medical Clinic,clinic,14.57533,120.991295,28.125
+node/7123901186,American Out Patient Clinic,clinic,14.592982,120.973162,25.0
+node/7128394885,Asia Pacific Medical and Diagnostic Services Inc.,clinic,14.553649,121.003396,12.5
+node/10571434885,Associated Medical Services,clinic,14.558603,121.015698,12.5
+way/677233303,Aurora Health Center,clinic,14.61482,120.977394,18.75
+node/4198257889,Aventus,clinic,14.557925,121.014511,9.375
+node/7091095985,Avs Medical Clinic,clinic,14.577759,120.98016,12.5
+way/289145252,Barangay Magsaysay Health Center,clinic,14.618385,120.964907,15.625
+node/6031834029,Benavides Cancer Institute,clinic,14.610908,120.990466,9.375
+node/5377045523,Bio millenium Diagnostic,clinic,14.608221,120.974487,9.375
+node/14022997443,Bo. Fugoso HC,clinic,14.603583,120.963586,15.625
+node/11248508044,Borough Lasik Center,clinic,14.536573,120.981365,15.625
+node/11248508043,Borough Medical Clinics,clinic,14.536575,120.981266,15.625
+node/7039956885,CBZ Medical Clinic,clinic,14.578085,120.989678,31.25
+node/7039933087,Calpe Medical Services and Supplies,clinic,14.575748,120.98192,25.0
+node/4580287291,Cangco medical clinic,clinic,14.561806,121.011165,9.375
+node/4175928492,Cebu Health Center,clinic,14.610664,121.007086,12.5
+node/7091739288,Centerport Medical Services Inc.,clinic,14.579475,120.978738,25.0
+node/3736295048,Citimed Polyclinic,clinic,14.601309,121.004391,9.375
+way/1562711009,Clinic,clinic,14.597732,120.993029,12.5
+way/186594147,Clinica Binondo,clinic,14.600985,120.967302,25.0
+node/11037608805,Clinica Konsulta Medical Clinic,clinic,14.604185,120.97295,15.625
+way/250262600,Comprehensive Pulmonary Clinic,clinic,14.556536,121.005991,18.75
+way/361643308,Dagupan Health Center,clinic,14.61382,120.973006,18.75
+way/499411684,Dapitan Health Center,clinic,14.617397,120.996502,9.375
+node/11248508042,Dental World,clinic,14.536445,120.981306,15.625
+node/11994852958,Derm-Stress Clinic,clinic,14.618316,120.995493,15.625
+node/944867878,DermaClinic,clinic,14.603318,121.001854,12.5
+way/375361566,Dialysis Center,clinic,14.602079,121.005764,21.875
+node/13356065597,Dialysis Center,clinic,14.545192,120.991666,21.875
+node/14022997438,Dona Aurora Quezon HC,clinic,14.61746,120.967161,15.625
+node/5694600424,Dr. Tuquero,clinic,14.577805,121.013989,9.375
+way/844776778,Elicaño Cancer Clinic,clinic,14.618338,121.006008,21.875
+node/3601533587,Far Estern University Health Services,clinic,14.602888,120.987102,25.0
+node/7123658485,Halcyon Marine HealthCare Systems,clinic,14.557543,121.010664,25.0
+way/947270423,Hannah Medical Clinic,clinic,14.572312,120.992772,12.5
+node/7154387721,Health Port,clinic,14.558882,121.003149,9.375
+node/12683935558,Healthline Multispecialty Center,clinic,14.580284,120.982069,12.5
+node/11389903384,Healthway,clinic,14.578002,120.982694,21.875
+way/1415394779,Healthway Qualimed Manila,clinic,14.577174,120.98703,25.0
+node/3076961798,Herran Laboratory & Medical Clinic,clinic,14.581503,121.012652,9.375
+node/5800311853,IHADS - International Health Aide Diagnostic Services Inc.,clinic,14.578415,120.987239,25.0
+node/7880412218,"Javier's Ears, Nose, Throat",clinic,14.5818,121.01246,12.5
+node/7355043129,Kaiser Medical Center,clinic,14.55769,121.013563,15.625
+node/6556682426,Lord's Grace Medical Clinic,clinic,14.572095,121.01433,25.0
+node/6351454485,MMC Medical and Diagnostic Center,clinic,14.571559,120.988463,21.875
+node/4213401190,Maria Clara Health Center and Lying-in Clinic,clinic,14.618078,120.990769,9.375
+node/4491639392,Marine medical and laboratory clinic inc.,clinic,14.56834,120.993462,9.375
+node/10975922966,MediCard Clinic,clinic,14.558543,121.014678,25.0
+node/4614249389,Medisense Diagnostic Clinic,clinic,14.581476,120.980926,18.75
+node/4885421324,Merita Medical Center,clinic,14.570876,120.991664,9.375
+node/4614198991,Miraculous Mother Medical Clinic,clinic,14.615428,120.982814,15.625
+node/11499298247,Mothercare Women’s Clinic,clinic,14.614086,120.99827,18.75
+node/12363377917,New World Diagnostics,clinic,14.541143,120.984589,18.75
+node/11546812443,New World Diagnostics,clinic,14.578679,120.987052,21.875
+node/1268095743,Nordic Medical Clinic Manila,clinic,14.568577,120.984772,31.25
+node/4614208591,OurHealth Medical and Diagnostic Clinic,clinic,14.58222,120.983749,15.625
+way/223373126,Palomar Health Center,clinic,14.605932,120.975781,21.875
+way/711802555,Parola Health Centre,clinic,14.59994,120.961384,15.625
+node/5109117922,Philippine Orthopedic Institute,clinic,14.558623,121.015121,15.625
+node/6556682421,Pimentel Medical Clinic,clinic,14.572387,121.013749,21.875
+node/3639346379,Pinehurst Medical Services Inc.,clinic,14.619397,121.009663,12.5
+node/13256226056,Premiere Eye Center,clinic,14.579073,120.978598,15.625
+node/1590273133,RITM Satellite Clinic,clinic,14.573375,120.991005,18.75
+node/11994971608,RNV Ob-Gyne Clinic,clinic,14.618888,120.993593,15.625
+node/7564639005,Rockford Clinic,clinic,14.609504,120.979481,21.875
+way/267165540,Rosario Reyes Health Center,clinic,14.569582,120.987802,21.875
+way/267170877,S. M. Lazo Medical Clinic,clinic,14.573735,120.989272,21.875
+way/391796362,Saint Dymphna Medical Clinic,clinic,14.546635,120.993869,15.625
+node/7091568385,Sea Landers Diagnostic and Treatment Center,clinic,14.573414,120.984119,18.75
+node/4185393902,Skin Station,clinic,14.597196,120.976532,12.5
+node/6603179440,Skintelligence Dermatology,clinic,14.580794,121.010123,12.5
+node/4443255689,Smile Savers Dental Clinic,clinic,14.606074,120.999374,15.625
+node/3074418266,St. Anne Orthopedic,clinic,14.580782,121.013233,9.375
+node/6568964452,St. Camillus Polyclinic,clinic,14.568619,121.008357,15.625
+node/7039898986,St. Cecilia Polyclinic,clinic,14.57907,120.980478,25.0
+node/4177404041,St. John of God,clinic,14.598959,120.987938,15.625
+node/1377329390,St. Luke's Medical Center Extension Clinic,clinic,14.579147,120.981847,25.0
+node/5563317021,St. Martin Polyclinic. Inc,clinic,14.578103,120.988055,9.375
+node/4624145989,St.Peter-Paul Medical Clinic,clinic,14.579277,120.981319,21.875
+node/11994932496,TLC Ob-Gyn & Medical Clinic,clinic,14.620492,120.992051,15.625
+node/14022997449,Tayabas Health Center,clinic,14.621479,120.975977,15.625
+node/9969511817,The Lord's Grace Clinic,clinic,14.550958,120.985016,12.5
+node/11248508047,The Medical City Clinic,clinic,14.536572,120.9815,15.625
+way/178317127,Tondo Foreshore Clinic,clinic,14.61437,120.960853,18.75
+node/4416917789,Tongdetang Medical Laboratory Medical Center,clinic,14.535101,120.995082,9.375
+node/4319070289,Transglobal Medical Clinic,clinic,14.565367,121.008707,12.5
+node/11608235124,Unlab Medical Clinic,clinic,14.57887,120.987358,25.0
+way/355907183,Velasquez Health Centre,clinic,14.6214,120.964746,18.75
+node/7091616585,Vizcarra Diagnostic Center,clinic,14.579679,120.97981,12.5
+node/4430464489,"Windsor International Maritime Clinic, Inc.",clinic,14.59049,120.973947,21.875
+way/89564505,AMOSUP Seamen's Hospital,hospital,14.587473,120.977636,31.25
+way/84272189,Adventist Medical Center Manila,hospital,14.555958,120.995202,34.375
+node/6011953702,Ambulatory CPU Lingap Bata – UST Medical Social Service Dapartment,hospital,14.611503,120.990071,25.0
+way/184031593,De Ocampo Memorial Medical Center,hospital,14.599831,120.999627,15.625
+way/102682002,Fe Del Mundo Medical Center,hospital,14.620576,121.009203,28.125
+way/161306530,Gat Andres Bonifacio Medical Center,hospital,14.601098,120.964879,34.375
+way/291642917,Hospital of the Infant Jesus Medical Center,hospital,14.614013,120.989274,18.75
+way/115222320,Jose R. Reyes Memorial Medical Center,hospital,14.614129,120.98202,18.75
+way/161306364,Justice Jose Abad Santos General Hospital,hospital,14.597433,120.972018,21.875
+way/698167350,Makati Center for Elderly Healthcare,hospital,14.574539,121.014627,31.25
+way/49333995,Makati Medical Center,hospital,14.559187,121.014791,37.5
+way/182994404,Mary Chiles General Hospital,hospital,14.603188,120.989937,15.625
+way/161306372,Mary Johnston Hospital,hospital,14.609043,120.96618,28.125
+way/87741356,Medical Center Manila,hospital,14.582445,120.985488,31.25
+way/1271746131,Metro Pasay Hospital and Medical Center,hospital,14.53914,121.006266,25.0
+way/806655759,Metropolitan Medical Center,hospital,14.609567,120.978454,15.625
+node/5746203921,Micah Clinic,hospital,14.572805,120.992672,15.625
+node/255052495,Miraculous Medal Hospital,hospital,14.553641,120.992988,12.5
+way/1243950712,National Center for Geriatric Health,hospital,14.591808,120.991178,15.625
+way/122383431,Ospital ng Maynila,hospital,14.563955,120.986434,28.125
+way/127202854,Ospital ng Sampaloc,hospital,14.60783,120.996731,31.25
+way/79312531,Pasay City General Hospital,hospital,14.54932,121.001,28.125
+way/287975636,Perpetual Help Hospital,hospital,14.613392,120.988342,15.625
+node/4916564521,Perpetual Succor Maternity Hospital,hospital,14.6081,120.99233,12.5
+way/90316401,Philippine General Hospital,hospital,14.577815,120.985612,34.375
+way/1219924267,President Corazon C. Aquino General Hospital,hospital,14.591436,120.957219,25.0
+way/360817932,Presidential Security Group Station Hospital,hospital,14.593715,121.000688,25.0
+way/32596622,Quezon Institute,hospital,14.617697,121.013134,12.5
+way/1504104774,Quezon Institute Compound,hospital,14.616541,121.012152,18.75
+way/560063538,Quezon Institute Compound,hospital,14.616555,121.01217,12.5
+way/506543661,Saint Jude Hospital and Medical Center,hospital,14.615805,120.9894,15.625
+way/384932890,San Lazaro Hospital,hospital,14.613825,120.980719,31.25
+way/310796627,St. Francis General Hospital,hospital,14.608946,121.003949,15.625
+node/12981854729,Sta. Cruz Health Center - Makati City Health Department,hospital,14.568205,121.016074,21.875
+node/255051235,UST Hospital Clinical Division,hospital,14.612248,120.989819,21.875
+way/332083684,Unciano Paramedical General Hospital,hospital,14.600707,121.01623,15.625
+node/11082277450,Unciano Paramedical General Hospital,hospital,14.600722,121.016232,15.625
+way/1302980224,United Doctors Medical Center,hospital,14.617101,121.00183,28.125
+way/786331536,"Ygeia Medical Center, Inc.",hospital,14.588042,121.001682,31.25
