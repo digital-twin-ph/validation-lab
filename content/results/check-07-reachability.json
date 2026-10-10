@@ -1,0 +1,45 @@
+{
+ "check": "07-reachability",
+ "ranAt": "2026-10-10T20:15:00.712353+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "networkx": "3.6"
+ },
+ "fixture": {
+  "id": "reachability-soho-001",
+  "sha256": "5ca5217eb3ff28b1d3b560fa4ec07402b23c2a9b3bcf4152a09229ef16d12d4f",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:reachable_nodes",
+   "release": "0.2.0",
+   "label": "Reachable junctions",
+   "implementation": "src/reachable-nodes.ts#reachableNodes"
+  },
+  "declaredMethod": "Dijkstra over street lengths, outbound; budget 375 m from 5 min at 75 m/min (walking) over supplied street lengths. Budget 375 m, derived as 5 minutes \u00d7 75 m per minute (4.5 km/h, walking). Every time reported here is a street length divided by that one speed: there is no gradient, no crossing, no waiting and no difference between travellers in this graph. A speed is an assumption about a particular place in a particular period. It does not transfer between settings, and the mode above records only what kind of travel the number is meant to represent, not where the number came from. Each junction carries remainingM, the budget left on arrival, and travelDirection. Those are what fix where the edge of the time falls between junctions, so a corridor drawn from these points cannot disagree with the budget or the direction used here. This origin reached 142 junctions. A junction can be unreached because it is too far or because the downloaded network stops short of it. The two look the same here. The walk from the site to its own junction was not charged, so every distance here starts from the road and not from the site. Street lengths come from the network as supplied (OpenStreetMap contributors; Soho GraphML snapshot from PHI case study; date of OSM extraction unknown; not an 1854 street reconstruction) and are not re-measured here. If they are wrong, every distance and time above is wrong with them."
+ },
+ "criterion": "the same set of reached nodes exactly, every cost within 0.01 m, and every remaining budget within 0.01 m of the budget less the cost",
+ "networkNodes": 738,
+ "networkEdges": 1619,
+ "budgetMetres": 375,
+ "reference": {
+  "implementation": "networkx.single_source_dijkstra_path_length",
+  "reached": 142
+ },
+ "fieldwork": {
+  "reached": 142
+ },
+ "reachedOnlyByReference": [],
+ "reachedOnlyByFieldwork": [],
+ "setsAgree": true,
+ "worstCostDifferenceM": 0.0049999999999954525,
+ "worstCostDifferenceNode": "1330788578",
+ "costsAgree": true,
+ "worstRemainingDifferenceM": 0.0049999999999954525,
+ "remainingAgrees": true,
+ "notEstablished": "Whether the reached set is what anyone can walk in five minutes. The 375 m budget comes from assuming 4.5 km/h for pedestrians in Soho in 1854, and both implementations inherit that assumption identically. The edge lengths are taken as supplied by both, so neither checks the other's geometry.",
+ "agrees": true
+}

@@ -105,16 +105,23 @@ rasterizer burning cells at an exactly aligned cutline vertex, an artifact rathe
 than a stateable rule, so they are recorded rather than chased. The write-up is in
 the Fieldwork repository at `docs/experiments/29-raster-edge-inclusion.md`.
 
-Next: polygon area against `pyproj.Geod`, where disagreement is expected because
-Fieldwork records a spherical method and `Geod` is ellipsoidal.
+Check 07 compares `reachable_nodes` against NetworkX, which is the reference the
+original case study itself used. The reached sets agree exactly over 738
+junctions and the costs agree to 5 mm, which is the rounding Fieldwork applies
+to the number it publishes. The notebook also shows how far the answer travels
+with its assumption: the same graph and origin reach 69 junctions at 3 km/h and
+246 at 6 km/h, against 142 at the case study's 4.5 km/h.
+
+Next: the corridor buffer against Shapely, which would close the last step of
+the isochrone decomposition.
 
 ## Provisioning, and what that means for offline use
 
 The scientific packages are **not bundled in this site**. The published build
 ships four wheels (piplite, ipykernel, pyodide-kernel, widgetsnbextension); the
 kernel loads Pyodide **v314.0.6 from a CDN** and the notebooks request
-`pyproj`, `shapely`, `rasterio`, `geopandas`, `fiona`, `numpy`, `pandas`, `h3`
-and `scipy` from that distribution with `pyodide_js.loadPackage`. Those versions
+`pyproj`, `shapely`, `rasterio`, `geopandas`, `fiona`, `numpy`, `pandas`, `h3`,
+`networkx` and `scipy` from that distribution with `pyodide_js.loadPackage`. Those versions
 are the ones the design record names, confirmed against the distribution's own
 lock file rather than its documentation.
 
