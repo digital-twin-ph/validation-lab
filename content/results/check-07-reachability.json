@@ -1,6 +1,6 @@
 {
  "check": "07-reachability",
- "ranAt": "2026-10-10T20:15:00.712353+00:00",
+ "ranAt": "2026-10-10T20:32:38.419776+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -8,14 +8,14 @@
  },
  "fixture": {
   "id": "reachability-soho-001",
-  "sha256": "5ca5217eb3ff28b1d3b560fa4ec07402b23c2a9b3bcf4152a09229ef16d12d4f",
+  "sha256": "3b675ac29172421b190af0058b345f1350d8266aa171b71590dc0b3699716d8f",
   "application": {
    "name": "Fieldwork",
    "version": "0.7.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:reachable_nodes",
-   "release": "0.2.0",
+   "release": "0.3.0",
    "label": "Reachable junctions",
    "implementation": "src/reachable-nodes.ts#reachableNodes"
   },
@@ -36,7 +36,7 @@
  "reachedOnlyByFieldwork": [],
  "setsAgree": true,
  "worstCostDifferenceM": 0.0049999999999954525,
- "worstCostDifferenceNode": "1330788578",
+ "worstCostDifferenceNode": "4347844161",
  "costsAgree": true,
  "worstRemainingDifferenceM": 0.0049999999999954525,
  "remainingAgrees": true,

@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "reachability-soho-001",
-  "exportedAt": "2026-10-10T20:14:05.135Z",
+  "exportedAt": "2026-10-10T20:32:38.274Z",
   "application": {
     "name": "Fieldwork",
     "version": "0.7.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:reachable_nodes",
-    "release": "0.2.0",
+    "release": "0.3.0",
     "label": "Reachable junctions",
     "implementation": "src/reachable-nodes.ts#reachableNodes"
   },
