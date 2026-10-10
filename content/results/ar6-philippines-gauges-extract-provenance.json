@@ -1,0 +1,210 @@
+{
+  "schema": "fieldwork/pack-extract-provenance/2",
+  "extractedAt": "2026-10-09T19:31:15.155002+00:00",
+  "dataset": {
+    "name": "IPCC AR6 Sea Level Projections",
+    "conceptDOI": "10.5281/zenodo.5914709",
+    "versionDOI": "10.5281/zenodo.6382554",
+    "version": "20210809",
+    "licence": "CC-BY-4.0",
+    "format": "NetCDF4/HDF5"
+  },
+  "selection": {
+    "sites": [
+      145,
+      260,
+      394,
+      522,
+      537,
+      664,
+      1708,
+      1711
+    ],
+    "siteKind": "published tide gauges, Philippine",
+    "scenarios": [
+      "ssp126",
+      "ssp245",
+      "ssp585"
+    ],
+    "confidence": "medium",
+    "families": {
+      "vlm": "with_vlm",
+      "novlm": "without_vlm"
+    },
+    "years": [
+      2050,
+      2100
+    ],
+    "quantiles": [
+      0.17,
+      0.5,
+      0.83
+    ]
+  },
+  "basis": {
+    "column": "basis",
+    "value": "medium",
+    "basisKind": "confidence-pbox",
+    "note": "The basis column names the published derivation. Its kind is confidence-pbox: the file is a p-box combining workflow p-boxes, so no single workflow identifier would be true of it."
+  },
+  "quantileBasis": {
+    "kind": "p-box bound",
+    "note": "The medium-confidence files are p-boxes combining workflow p-boxes, named in each file's source attribute. A value is a bound on a quantile across the combined workflows, not a quantile of one distribution, and no workflow id is claimed. AR6 derives a likely range (17th-83rd) from medium confidence and states it cannot derive a very likely range (5th-95th).",
+    "extractedQuantiles": [
+      0.17,
+      0.5,
+      0.83
+    ],
+    "availableButNotExtracted": "the file publishes 107 quantiles including 0.0 and 1.0; these are not a range and not a worst case"
+  },
+  "units": {
+    "published": "mm",
+    "inThisFile": "mm",
+    "column": "value_mm",
+    "note": "Values are written as published. scale_factor is applied; the host declares the unit on import and converts for comparison."
+  },
+  "missingData": {
+    "fillValue": -32768,
+    "cellsMissing": 0,
+    "note": "A fill value is written as an empty cell. Never 0, never \"nan\"."
+  },
+  "baselinePeriod": {
+    "value": "1995-2014",
+    "source": "AR6 WG1 Chapter 9 documentation",
+    "note": "No file attribute carries the baseline period; it is stated from documentation and never inferred from the data."
+  },
+  "sourceFiles": {
+    "vlm/ssp126": {
+      "source": "Files Combined: /projects/kopp/ar6/regional/pboxes/pb_1f/ssp126/total-workflow.nc,/projects/kopp/ar6/regional/pboxes/pb_1e/ssp126/total-workflow.nc",
+      "description": "Combined confidence output file for AR6 sea-level change projections",
+      "history": "Created Wed Jul 14 13:48:57 2021",
+      "units": "mm",
+      "scale_factor": 1.0,
+      "fill_value": -32768,
+      "conventions": null,
+      "dimensions": {
+        "locations": 66190,
+        "quantiles": 107,
+        "years": 14
+      },
+      "dtype": "int16",
+      "file": "vlm_ssp126.nc",
+      "sha256": "28ca163c13470047aefb75ae8f4a8bc6e06c3e44b824ff37e8743ca8d3a1b716",
+      "bytes": 72061982
+    },
+    "vlm/ssp245": {
+      "source": "Files Combined: /projects/kopp/ar6/regional/pboxes/pb_1f/ssp245/total-workflow.nc,/projects/kopp/ar6/regional/pboxes/pb_1e/ssp245/total-workflow.nc",
+      "description": "Combined confidence output file for AR6 sea-level change projections",
+      "history": "Created Wed Jul 14 13:50:23 2021",
+      "units": "mm",
+      "scale_factor": 1.0,
+      "fill_value": -32768,
+      "conventions": null,
+      "dimensions": {
+        "locations": 66190,
+        "quantiles": 107,
+        "years": 14
+      },
+      "dtype": "int16",
+      "file": "vlm_ssp245.nc",
+      "sha256": "3f31aadb53b7962a729a839cd58e841f171e72575f9e2b802399be6656aa8cb8",
+      "bytes": 72943754
+    },
+    "vlm/ssp585": {
+      "source": "Files Combined: /projects/kopp/ar6/regional/pboxes/pb_1f/ssp585/total-workflow.nc,/projects/kopp/ar6/regional/pboxes/pb_1e/ssp585/total-workflow.nc",
+      "description": "Combined confidence output file for AR6 sea-level change projections",
+      "history": "Created Wed Jul 14 13:53:19 2021",
+      "units": "mm",
+      "scale_factor": 1.0,
+      "fill_value": -32768,
+      "conventions": null,
+      "dimensions": {
+        "locations": 66190,
+        "quantiles": 107,
+        "years": 14
+      },
+      "dtype": "int16",
+      "file": "vlm_ssp585.nc",
+      "sha256": "b3bcf98c6a17b43fbb24d0e60ede382886f3487883022aa88b513ea582a607e0",
+      "bytes": 74968632
+    },
+    "novlm/ssp126": {
+      "source": "Files Combined: /projects/kopp/ar6/regional_novlm/pboxes/pb_1f/ssp126/total-workflow.nc,/projects/kopp/ar6/regional_novlm/pboxes/pb_1e/ssp126/total-workflow.nc",
+      "description": "Combined confidence output file for AR6 sea-level change projections",
+      "history": "Created Fri Oct 15 15:25:05 2021",
+      "units": "mm",
+      "scale_factor": 1.0,
+      "fill_value": -32768,
+      "conventions": null,
+      "dimensions": {
+        "locations": 66190,
+        "quantiles": 107,
+        "years": 14
+      },
+      "dtype": "int16",
+      "file": "novlm_ssp126.nc",
+      "sha256": "a3c3c98eb3ad2fa2145fe84e4e78fc7fc927cca840d70bf5ab573779282d948b",
+      "bytes": 73364343
+    },
+    "novlm/ssp245": {
+      "source": "Files Combined: /projects/kopp/ar6/regional_novlm/pboxes/pb_1f/ssp245/total-workflow.nc,/projects/kopp/ar6/regional_novlm/pboxes/pb_1e/ssp245/total-workflow.nc",
+      "description": "Combined confidence output file for AR6 sea-level change projections",
+      "history": "Created Fri Oct 15 15:26:32 2021",
+      "units": "mm",
+      "scale_factor": 1.0,
+      "fill_value": -32768,
+      "conventions": null,
+      "dimensions": {
+        "locations": 66190,
+        "quantiles": 107,
+        "years": 14
+      },
+      "dtype": "int16",
+      "file": "novlm_ssp245.nc",
+      "sha256": "3d05e282941b5039d97f6fb80bde8529e8f81f807412847e7206aae5dc252ce9",
+      "bytes": 74936157
+    },
+    "novlm/ssp585": {
+      "source": "Files Combined: /projects/kopp/ar6/regional_novlm/pboxes/pb_1f/ssp585/total-workflow.nc,/projects/kopp/ar6/regional_novlm/pboxes/pb_1e/ssp585/total-workflow.nc",
+      "description": "Combined confidence output file for AR6 sea-level change projections",
+      "history": "Created Fri Oct 15 15:29:35 2021",
+      "units": "mm",
+      "scale_factor": 1.0,
+      "fill_value": -32768,
+      "conventions": null,
+      "dimensions": {
+        "locations": 66190,
+        "quantiles": 107,
+        "years": 14
+      },
+      "dtype": "int16",
+      "file": "novlm_ssp585.nc",
+      "sha256": "ff361a162a5d1a8c183c227476408a27f7101a31df37741ad2e226de4cff71a1",
+      "bytes": 78787047
+    }
+  },
+  "extract": {
+    "file": "ar6-philippines-gauges-extract.csv",
+    "rows": 288,
+    "sha256": "2f2180d62a5ed7cb8e255ded97b5c2d2944aefb4f22373779aecea9e03978e93"
+  },
+  "environment": {
+    "kind": "CPython",
+    "python": "3.13.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "netCDF4": "1.7.2",
+    "xarray": "2025.9.0",
+    "numpy": "2.5.3",
+    "note": "A CPython run is a different environment from the Pyodide kernel the notebooks use and is labelled as such."
+  },
+  "requiredCitations": [
+    "Fox-Kemper, B., et al. 2021: Ocean, Cryosphere and Sea Level Change. In Climate Change 2021: The Physical Science Basis. IPCC AR6 WG1, Chapter 9. doi:10.1017/9781009157896.011",
+    "Kopp, R. E., Garner, G. G., et al. 2023. The Framework for Assessing Changes To Sea-Level (FACTS) v1.0. Geoscientific Model Development 16, 7461-7489. doi:10.5194/gmd-16-7461-2023",
+    "Garner, G. G., et al. 2021. IPCC AR6 Sea Level Projections. Version 20210809. doi:10.5281/zenodo.5914709"
+  ],
+  "notEstablished": [
+    "that this extract preserves enough of the published uncertainty to be presented",
+    "any statement about inundation, flooding or exposure",
+    "that these values are comparable with an elevation on any datum other than the baseline sea surface"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "fieldwork/facility-extract-provenance/1",
+  "retrievedAt": "2026-10-09T20:23:04.737658+00:00",
+  "source": {
+    "name": "healthsites.io",
+    "endpoint": "https://healthsites.io/api/v3/facilities/",
+    "apiVersion": "v3",
+    "derivedFrom": "OpenStreetMap",
+    "licence": "ODbL",
+    "licenceUrl": "https://opendatacommons.org/licenses/odbl/",
+    "attribution": "Health facility data \u00a9 healthsites.io contributors and \u00a9 OpenStreetMap contributors, available under the Open Database License (ODbL). https://healthsites.io  https://www.openstreetmap.org/copyright",
+    "shareAlike": "ODbL attaches share-alike to a derivative database. An extract redistributed with a pack must be offered under ODbL and carry this attribution. A rendered map is a Produced Work and needs attribution only."
+  },
+  "selection": {
+    "gauge": "MANILA",
+    "gaugeLatLon": [
+      14.58,
+      120.97
+    ],
+    "radiusMetres": 5000,
+    "extent": "120.92354,14.53503,121.01646,14.62497",
+    "kindsKept": [
+      "hospital",
+      "clinic"
+    ],
+    "note": "The extent is a lon/lat box around the gauge, so a corner is farther than the radius. The study area itself is the circle, applied in the workflow."
+  },
+  "counts": {
+    "returned": 611,
+    "pagesFetched": 7,
+    "kept": 131,
+    "droppedNotRequestedKind": 472,
+    "droppedNoCoordinates": 0,
+    "droppedNoName": 57
+  },
+  "truncated": false,
+  "extract": {
+    "file": "healthsites-manila-5000m.csv",
+    "rows": 131,
+    "sha256": "8d97a66951feb77966da846896e8f104b984c6bcba3522a88df77ae87bf5ba72"
+  },
+  "environment": {
+    "kind": "CPython",
+    "python": "3.13.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "notEstablished": [
+    "that this is a complete list of facilities in the area",
+    "that any facility is operating, or offers the service its tags imply",
+    "that an elevation at a facility point represents the building"
+  ]
+}
