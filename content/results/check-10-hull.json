@@ -1,0 +1,47 @@
+{
+ "check": "10-hull",
+ "ranAt": "2026-10-11T20:27:47.774876+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "hull-soho-001",
+  "sha256": "ed4ef656d35f397e909fd130f96c912dbe65b5f1b7fc4b5a4fbf019cf038d424",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:summarize_hull",
+   "release": "0.1.0",
+   "label": "Convex hull",
+   "implementation": "src/convex-hull.ts#convexHull"
+  },
+  "declaredMethod": "Convex hull (monotone chain) in EPSG:32630. Encloses 139230.0 m\u00b2 across 498 m at its widest. A hull far longer than it is wide is a line the projection did not quite flatten, and should be read as one. A hull is convex. A distribution that is not \u2014 cases along a river, facilities along a coast \u2014 is filled in, so the hull asserts area where nothing was observed. It is an outline of what was observed, not a service area, a catchment or a boundary anyone agreed to."
+ },
+ "criterion": "the same number of hull vertices, every vertex within 0.001 m of one in the reference hull and vice versa, planar area within 0.05 m2, span within 0.1 m, and the located-point count unchanged",
+ "points": 250,
+ "unlocated": 0,
+ "reference": {
+  "vertexCount": 11,
+  "areaSquareMetres": 139230.01382157998,
+  "spanMetres": 498.01799310306484
+ },
+ "fieldwork": {
+  "vertexCount": 11,
+  "areaSquareMetres": 139230.01,
+  "spanMetres": 498
+ },
+ "vertexCountsAgree": true,
+ "worstVertexSeparationM": 1.951476397719259e-09,
+ "areaDifferenceSquareMetres": 0.003821579972282052,
+ "spanDifferenceM": 0.017993103064839033,
+ "countAgrees": true,
+ "notEstablished": "That a convex hull is a sensible summary of these deaths. It is convex, so it fills in ground the outbreak did not cross and asserts area where nothing was observed. Both implementations assert it identically.",
+ "agrees": true
+}
