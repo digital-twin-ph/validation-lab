@@ -59,8 +59,17 @@ const openNotebook = (page, name) => page.waitForFunction(
     return widget?.context?.path === expected && (widget.content?.model?.cells?.length ?? 0) > 0;
   }, name, {timeout: 120000});
 
-async function runNotebook(page, origin, name) {
+/** A Pyodide fatal error -- `null function` out of a wasm module, a failed assertion -- takes
+ *  the kernel down without producing an error output, so no cell ever gets an execution count
+ *  and a runner waiting for one waits for something that cannot happen. On 2026-10-11 that
+ *  cost 28 minutes on `02-clip-vs-rasterio` and reported a timeout, which says nothing about
+ *  the cause: the kernel had died within seconds, in GDAL, because fiona and rasterio both
+ *  ship it. A check whose only failure mode is a timeout cannot tell a crash from slow work. */
+const FATAL = /fatal error|null function|RuntimeError:|Aborted\(|unreachable executed/i;
+
+async function runNotebook(page, origin, name, fatal) {
   const started = Date.now();
+  const fatalFrom = fatal.length;
   await page.goto(`${origin}/lab/index.html?path=${encodeURIComponent(name)}`, {timeout: 120000});
   await page.waitForFunction(() => !!window.jupyterapp, null, {timeout: 120000});
   await openNotebook(page, name);
@@ -78,7 +87,15 @@ async function runNotebook(page, origin, name) {
   // The first version did exactly that and hung for the full fifteen minutes on each of the
   // two notebooks that actually fail -- a runner whose only failure mode is a timeout
   // cannot tell a broken notebook from a slow one.
-  await page.waitForFunction(() => {
+  // Raced against the kernel dying, so a crash is reported as a crash and in seconds. The
+  // watcher only ever rejects; the timer is cleared in the `finally` below either way.
+  let watcher;
+  const died = new Promise((_resolve, reject) => {
+    watcher = setInterval(() => {
+      if (fatal.length > fatalFrom) reject(new Error(`the kernel died: ${fatal[fatalFrom]}`));
+    }, 500);
+  });
+  const executed = page.waitForFunction(() => {
     const cells = window.jupyterapp.shell.currentWidget.content.model.cells;
     let pending = false;
     for (let index = 0; index < cells.length; index++) {
@@ -92,6 +109,11 @@ async function runNotebook(page, origin, name) {
     }
     return !pending;
   }, null, {timeout: perNotebook, polling: 1000});
+  try {
+    await Promise.race([executed, died]);
+  } finally {
+    clearInterval(watcher);
+  }
 
   // Errors are read from the cell outputs, as the CPython runner does, rather than from CSS
   // classes: the model is the same thing the notebook saves.
@@ -129,12 +151,17 @@ const browser = await chromium.launch();
 const page = await browser.newPage();
 const crashes = [];
 page.on('pageerror', error => crashes.push(error.message.slice(0, 160)));
+// Pyodide reports its fatal errors to the console, not as page errors, so both are watched.
+page.on('console', message => {
+  const text = message.text();
+  if (FATAL.test(text)) crashes.push(text.replace(/\s+/g, ' ').slice(0, 160));
+});
 
 console.log(`Running ${notebooks.length} notebooks in the browser kernel`);
 const failed = [];
 for (const name of notebooks) {
   try {
-    const {errors, seconds} = await runNotebook(page, origin, name);
+    const {errors, seconds} = await runNotebook(page, origin, name, crashes);
     const detail = errors.length
       ? `${errors.length} error cell${errors.length === 1 ? '' : 's'}; first at cell ${errors[0].cell}: ${errors[0].ename}: ${errors[0].evalue}`
       : '';
