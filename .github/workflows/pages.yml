@@ -41,6 +41,15 @@ jobs:
         run: python scripts/run_notebooks.py
       - name: Build the JupyterLite site
         run: jupyter lite build --contents content --output-dir _output
+      # CPython passing is necessary and not sufficient: the distribution the kernel loads
+      # carries different package versions, and on 2026-10-11 two notebooks that pass in
+      # CPython in eight seconds failed in the browser. This runs the built site in the
+      # kernel a learner actually gets.
+      - name: Execute every notebook in the browser kernel
+        working-directory: node
+        run: |
+          npx playwright install --with-deps chromium
+          npm run --silent check:notebooks-browser
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _output

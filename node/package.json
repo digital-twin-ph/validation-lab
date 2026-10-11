@@ -2,15 +2,17 @@
   "name": "fieldwork-validation-lab-node",
   "private": true,
   "type": "module",
-  "description": "Node-side checks for the Fieldwork Validation Lab. Separate from the Python notebooks because the OWL 2 DL reasoner is a JavaScript/WASM package.",
+  "description": "Node-side checks for the Fieldwork Validation Lab. Separate from the Python notebooks because the OWL 2 DL reasoner is a JavaScript/WASM package, and because executing the notebooks in the browser kernel needs a browser.",
   "scripts": {
     "check:ontology": "node check_03_ontology.mjs ../../fieldwork/ontology",
     "check:competency": "node check_04_competency.mjs",
-    "check:all": "npm run check:ontology && npm run check:competency"
+    "check:all": "npm run check:ontology && npm run check:competency && npm run check:notebooks-browser",
+    "check:notebooks-browser": "node check_09_notebooks_browser.mjs"
   },
   "dependencies": {
     "@comunica/query-sparql-rdfjs": "^4.5.0",
     "n3": "2.13.8",
+    "playwright": "^1.64.0",
     "rdf-reasoner-konclude": "0.7.2"
   },
   "engines": {
