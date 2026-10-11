@@ -1,0 +1,70 @@
+{
+ "check": "13-clip-polygons",
+ "ranAt": "2026-10-11T21:05:45.351537+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1"
+ },
+ "fixture": {
+  "id": "clip-polygons-soho-001",
+  "sha256": "bb8c4f97392949bda3d472ff72a225a4cafe011c61e20ebdd10b70ca480ee19f",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:clip_polygons",
+   "release": "0.1.0",
+   "label": "Clip polygons",
+   "implementation": "src/catchments.ts#clipPolygons"
+  },
+  "declaredRule": "Intersect every polygon with the boundary in CRS84 coordinate space. A polygon whose intersection is empty is omitted from the output rather than returned empty."
+ },
+ "criterion": "the same polygons surviving the clip, each within 1e-13 square degrees of shapely's intersection by symmetric difference, and no output polygon extending beyond the boundary",
+ "polygonsIn": 8,
+ "polygonsOut": 8,
+ "referenceOut": 8,
+ "worstSymmetricDifferenceSquareDegrees": 5.817620151472829e-18,
+ "perPolygon": [
+  {
+   "id": "pump-250",
+   "symmetricDifferenceSquareDegrees": 5.817620151472829e-18
+  },
+  {
+   "id": "pump-251",
+   "symmetricDifferenceSquareDegrees": 0.0
+  },
+  {
+   "id": "pump-252",
+   "symmetricDifferenceSquareDegrees": 3.500719651661631e-18
+  },
+  {
+   "id": "pump-253",
+   "symmetricDifferenceSquareDegrees": 9.024683173353566e-19
+  },
+  {
+   "id": "pump-254",
+   "symmetricDifferenceSquareDegrees": 0.0
+  },
+  {
+   "id": "pump-255",
+   "symmetricDifferenceSquareDegrees": 0.0
+  },
+  {
+   "id": "pump-256",
+   "symmetricDifferenceSquareDegrees": 2.446975887366186e-19
+  },
+  {
+   "id": "pump-257",
+   "symmetricDifferenceSquareDegrees": 2.3181876827679657e-19
+  }
+ ],
+ "missingFromOutput": [],
+ "notInReference": [],
+ "escapedTheBoundary": [],
+ "countsAgree": true,
+ "notEstablished": "That clipping to a reporting rectangle is the right thing to do. A clipped catchment is the part of that catchment the report covers, which is a different object from the catchment.",
+ "agrees": true
+}

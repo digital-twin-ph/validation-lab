@@ -1,0 +1,2392 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "summarize-polygons-soho-001",
+  "exportedAt": "2026-10-11T21:05:14.677Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.7.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:summarize_polygons",
+    "release": "0.1.0",
+    "label": "Summarize points in polygons",
+    "implementation": "src/catchments.ts#summarizePolygons"
+  },
+  "declaredParameters": {
+    "computationCRS": "OGC:CRS84",
+    "boundary": "include",
+    "valueField": "DEATHS",
+    "rule": "A location belongs to a polygon when it is strictly inside it, or on its boundary when the boundary policy is include. Every membership is retained: a location inside two polygons counts for both.",
+    "semantics": "Per-polygon counts and totals must not be added to a grand total, because overlapping memberships are counted more than once. The number of multiple memberships is reported for that reason.",
+    "valueRule": "The numeric total per polygon sums the named field over the locations in it. A location whose field is absent or non-numeric is counted in missingValueCount and contributes nothing."
+  },
+  "input": {
+    "polygons": [
+      {
+        "id": "pump-250",
+        "siteId": "pump-250",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.1385777431805839,
+                  51.51265135213652
+                ],
+                [
+                  -0.13729832215540888,
+                  51.512278615088235
+                ],
+                [
+                  -0.1352630278031092,
+                  51.51260853143284
+                ],
+                [
+                  -0.1332713715812961,
+                  51.51459149275398
+                ],
+                [
+                  -0.13205921072117427,
+                  51.517
+                ],
+                [
+                  -0.13431843870929994,
+                  51.517
+                ],
+                [
+                  -0.13772975716846672,
+                  51.51445198550001
+                ],
+                [
+                  -0.1385777431805839,
+                  51.51265135213652
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-251",
+        "siteId": "pump-251",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.142,
+                  51.51193525060162
+                ],
+                [
+                  -0.1385777431805843,
+                  51.512651352136515
+                ],
+                [
+                  -0.1377297571684671,
+                  51.5144519855
+                ],
+                [
+                  -0.142,
+                  51.514314757019626
+                ],
+                [
+                  -0.142,
+                  51.51193525060162
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-252",
+        "siteId": "pump-252",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.142,
+                  51.514314757019626
+                ],
+                [
+                  -0.1377297571684671,
+                  51.5144519855
+                ],
+                [
+                  -0.13431843870929622,
+                  51.517
+                ],
+                [
+                  -0.142,
+                  51.517
+                ],
+                [
+                  -0.142,
+                  51.514314757019626
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-253",
+        "siteId": "pump-253",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.1332713715812961,
+                  51.51459149275398
+                ],
+                [
+                  -0.13225479707004856,
+                  51.5109760408709
+                ],
+                [
+                  -0.128,
+                  51.509321309479105
+                ],
+                [
+                  -0.128,
+                  51.517
+                ],
+                [
+                  -0.13205921072117427,
+                  51.517
+                ],
+                [
+                  -0.1332713715812961,
+                  51.51459149275398
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-254",
+        "siteId": "pump-254",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.1352630278031096,
+                  51.51260853143283
+                ],
+                [
+                  -0.13427652405413484,
+                  51.51111269272816
+                ],
+                [
+                  -0.13225479707004936,
+                  51.51097604087089
+                ],
+                [
+                  -0.1332713715812961,
+                  51.51459149275398
+                ],
+                [
+                  -0.1352630278031096,
+                  51.51260853143283
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-255",
+        "siteId": "pump-255",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.13729832215540888,
+                  51.512278615088235
+                ],
+                [
+                  -0.13664430527494278,
+                  51.50992801681638
+                ],
+                [
+                  -0.13427652405413484,
+                  51.51111269272816
+                ],
+                [
+                  -0.1352630278031092,
+                  51.51260853143284
+                ],
+                [
+                  -0.13729832215540888,
+                  51.512278615088235
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-256",
+        "siteId": "pump-256",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.1373620178114019,
+                  51.509
+                ],
+                [
+                  -0.128,
+                  51.509
+                ],
+                [
+                  -0.128,
+                  51.509321309479105
+                ],
+                [
+                  -0.1322547970700084,
+                  51.51097604087088
+                ],
+                [
+                  -0.13427652405413484,
+                  51.51111269272816
+                ],
+                [
+                  -0.13664430527494237,
+                  51.50992801681638
+                ],
+                [
+                  -0.1373620178114019,
+                  51.509
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-257",
+        "siteId": "pump-257",
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.142,
+                  51.509
+                ],
+                [
+                  -0.13736201781140212,
+                  51.509
+                ],
+                [
+                  -0.13664430527494278,
+                  51.50992801681638
+                ],
+                [
+                  -0.13729832215540888,
+                  51.512278615088235
+                ],
+                [
+                  -0.1385777431805688,
+                  51.51265135213652
+                ],
+                [
+                  -0.142,
+                  51.51193525060162
+                ],
+                [
+                  -0.142,
+                  51.509
+                ]
+              ]
+            ]
+          ]
+        }
+      }
+    ],
+    "points": [
+      {
+        "id": "location-0",
+        "coordinates": [
+          -0.13793,
+          51.513418
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-1",
+        "coordinates": [
+          -0.137883,
+          51.513361
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-2",
+        "coordinates": [
+          -0.137853,
+          51.513317
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-3",
+        "coordinates": [
+          -0.137812,
+          51.513262
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-4",
+        "coordinates": [
+          -0.137767,
+          51.513204
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-5",
+        "coordinates": [
+          -0.137537,
+          51.513184
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-6",
+        "coordinates": [
+          -0.1382,
+          51.513359
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-7",
+        "coordinates": [
+          -0.138045,
+          51.513328
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-8",
+        "coordinates": [
+          -0.138276,
+          51.513323
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-9",
+        "coordinates": [
+          -0.138223,
+          51.513427
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-10",
+        "coordinates": [
+          -0.138337,
+          51.513381
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-11",
+        "coordinates": [
+          -0.138563,
+          51.513462
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-12",
+        "coordinates": [
+          -0.138426,
+          51.513216
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-13",
+        "coordinates": [
+          -0.138378,
+          51.513169
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-14",
+        "coordinates": [
+          -0.138337,
+          51.513116
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-15",
+        "coordinates": [
+          -0.138645,
+          51.51324
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-16",
+        "coordinates": [
+          -0.138698,
+          51.513164
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-17",
+        "coordinates": [
+          -0.137924,
+          51.513178
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-18",
+        "coordinates": [
+          -0.137865,
+          51.513111
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-19",
+        "coordinates": [
+          -0.137811,
+          51.513055
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-20",
+        "coordinates": [
+          -0.138762,
+          51.513441
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-21",
+        "coordinates": [
+          -0.138799,
+          51.513592
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-22",
+        "coordinates": [
+          -0.139045,
+          51.513402
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-23",
+        "coordinates": [
+          -0.13897,
+          51.51338
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-24",
+        "coordinates": [
+          -0.138863,
+          51.513411
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-25",
+        "coordinates": [
+          -0.138752,
+          51.513641
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-26",
+        "coordinates": [
+          -0.138808,
+          51.513693
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-27",
+        "coordinates": [
+          -0.138856,
+          51.513745
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-28",
+        "coordinates": [
+          -0.138887,
+          51.513676
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-29",
+        "coordinates": [
+          -0.139239,
+          51.51359
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-30",
+        "coordinates": [
+          -0.139321,
+          51.513663
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-31",
+        "coordinates": [
+          -0.139316,
+          51.513502
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-32",
+        "coordinates": [
+          -0.139616,
+          51.513583
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-33",
+        "coordinates": [
+          -0.139719,
+          51.513541
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-34",
+        "coordinates": [
+          -0.140074,
+          51.513298
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-35",
+        "coordinates": [
+          -0.139094,
+          51.513291
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-36",
+        "coordinates": [
+          -0.139697,
+          51.513013
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-37",
+        "coordinates": [
+          -0.139327,
+          51.512965
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-38",
+        "coordinates": [
+          -0.139317,
+          51.512893
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-39",
+        "coordinates": [
+          -0.139187,
+          51.512964
+        ],
+        "value": 8
+      },
+      {
+        "id": "location-40",
+        "coordinates": [
+          -0.139036,
+          51.513025
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-41",
+        "coordinates": [
+          -0.139209,
+          51.513027
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-42",
+        "coordinates": [
+          -0.138427,
+          51.512831
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-43",
+        "coordinates": [
+          -0.138624,
+          51.512885
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-44",
+        "coordinates": [
+          -0.138096,
+          51.512526
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-45",
+        "coordinates": [
+          -0.138035,
+          51.512465
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-46",
+        "coordinates": [
+          -0.137984,
+          51.512428
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-47",
+        "coordinates": [
+          -0.138065,
+          51.512415
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-48",
+        "coordinates": [
+          -0.138194,
+          51.51251
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-49",
+        "coordinates": [
+          -0.137818,
+          51.512378
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-50",
+        "coordinates": [
+          -0.137656,
+          51.512447
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-51",
+        "coordinates": [
+          -0.137584,
+          51.512491
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-52",
+        "coordinates": [
+          -0.13765,
+          51.512374
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-53",
+        "coordinates": [
+          -0.13745,
+          51.512339
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-54",
+        "coordinates": [
+          -0.137376,
+          51.512364
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-55",
+        "coordinates": [
+          -0.137327,
+          51.512319
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-56",
+        "coordinates": [
+          -0.13698,
+          51.51254
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-57",
+        "coordinates": [
+          -0.13718,
+          51.512649
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-58",
+        "coordinates": [
+          -0.137052,
+          51.512692
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-59",
+        "coordinates": [
+          -0.137695,
+          51.512957
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-60",
+        "coordinates": [
+          -0.137533,
+          51.512765
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-61",
+        "coordinates": [
+          -0.137419,
+          51.51278
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-62",
+        "coordinates": [
+          -0.137368,
+          51.512726
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-63",
+        "coordinates": [
+          -0.137325,
+          51.512681
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-64",
+        "coordinates": [
+          -0.137531,
+          51.512914
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-65",
+        "coordinates": [
+          -0.137562,
+          51.513046
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-66",
+        "coordinates": [
+          -0.137466,
+          51.513074
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-67",
+        "coordinates": [
+          -0.137386,
+          51.513087
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-68",
+        "coordinates": [
+          -0.137306,
+          51.513122
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-69",
+        "coordinates": [
+          -0.137089,
+          51.513187
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-70",
+        "coordinates": [
+          -0.136996,
+          51.513214
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-71",
+        "coordinates": [
+          -0.136859,
+          51.513249
+        ],
+        "value": 15
+      },
+      {
+        "id": "location-72",
+        "coordinates": [
+          -0.136778,
+          51.513271
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-73",
+        "coordinates": [
+          -0.136705,
+          51.5133
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-74",
+        "coordinates": [
+          -0.136493,
+          51.51316
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-75",
+        "coordinates": [
+          -0.13633,
+          51.513016
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-76",
+        "coordinates": [
+          -0.136424,
+          51.512921
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-77",
+        "coordinates": [
+          -0.136523,
+          51.51289
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-78",
+        "coordinates": [
+          -0.136599,
+          51.512859
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-79",
+        "coordinates": [
+          -0.136699,
+          51.51283
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-80",
+        "coordinates": [
+          -0.136819,
+          51.512782
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-81",
+        "coordinates": [
+          -0.136973,
+          51.512729
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-82",
+        "coordinates": [
+          -0.136358,
+          51.512868
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-83",
+        "coordinates": [
+          -0.13663,
+          51.512723
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-84",
+        "coordinates": [
+          -0.136584,
+          51.512654
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-85",
+        "coordinates": [
+          -0.136423,
+          51.512713
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-86",
+        "coordinates": [
+          -0.136345,
+          51.512615
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-87",
+        "coordinates": [
+          -0.136437,
+          51.512491
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-88",
+        "coordinates": [
+          -0.136377,
+          51.512449
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-89",
+        "coordinates": [
+          -0.136197,
+          51.512465
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-90",
+        "coordinates": [
+          -0.136142,
+          51.512413
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-91",
+        "coordinates": [
+          -0.136102,
+          51.512358
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-92",
+        "coordinates": [
+          -0.13603,
+          51.512271
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-93",
+        "coordinates": [
+          -0.13631,
+          51.512355
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-94",
+        "coordinates": [
+          -0.13594,
+          51.511991
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-95",
+        "coordinates": [
+          -0.135858,
+          51.512083
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-96",
+        "coordinates": [
+          -0.1358,
+          51.512031
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-97",
+        "coordinates": [
+          -0.135717,
+          51.51197
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-98",
+        "coordinates": [
+          -0.135119,
+          51.511882
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-99",
+        "coordinates": [
+          -0.135144,
+          51.51205
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-100",
+        "coordinates": [
+          -0.135394,
+          51.51225
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-101",
+        "coordinates": [
+          -0.135409,
+          51.512162
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-102",
+        "coordinates": [
+          -0.135472,
+          51.512212
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-103",
+        "coordinates": [
+          -0.135765,
+          51.512573
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-104",
+        "coordinates": [
+          -0.135871,
+          51.512575
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-105",
+        "coordinates": [
+          -0.135976,
+          51.512672
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-106",
+        "coordinates": [
+          -0.136033,
+          51.512727
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-107",
+        "coordinates": [
+          -0.136115,
+          51.512794
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-108",
+        "coordinates": [
+          -0.13618,
+          51.512846
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-109",
+        "coordinates": [
+          -0.136083,
+          51.512879
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-110",
+        "coordinates": [
+          -0.136139,
+          51.512939
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-111",
+        "coordinates": [
+          -0.135329,
+          51.512765
+        ],
+        "value": 7
+      },
+      {
+        "id": "location-112",
+        "coordinates": [
+          -0.135122,
+          51.512844
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-113",
+        "coordinates": [
+          -0.134645,
+          51.512532
+        ],
+        "value": 8
+      },
+      {
+        "id": "location-114",
+        "coordinates": [
+          -0.134522,
+          51.512198
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-115",
+        "coordinates": [
+          -0.134967,
+          51.512215
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-116",
+        "coordinates": [
+          -0.135098,
+          51.513154
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-117",
+        "coordinates": [
+          -0.134394,
+          51.513056
+        ],
+        "value": 8
+      },
+      {
+        "id": "location-118",
+        "coordinates": [
+          -0.134505,
+          51.513165
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-119",
+        "coordinates": [
+          -0.134437,
+          51.513098
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-120",
+        "coordinates": [
+          -0.134594,
+          51.513238
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-121",
+        "coordinates": [
+          -0.13464,
+          51.513293
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-122",
+        "coordinates": [
+          -0.134709,
+          51.513379
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-123",
+        "coordinates": [
+          -0.134756,
+          51.513431
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-124",
+        "coordinates": [
+          -0.135244,
+          51.513475
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-125",
+        "coordinates": [
+          -0.134897,
+          51.513422
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-126",
+        "coordinates": [
+          -0.135158,
+          51.513528
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-127",
+        "coordinates": [
+          -0.135344,
+          51.513481
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-128",
+        "coordinates": [
+          -0.135063,
+          51.513594
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-129",
+        "coordinates": [
+          -0.135801,
+          51.513227
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-130",
+        "coordinates": [
+          -0.135762,
+          51.51318
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-131",
+        "coordinates": [
+          -0.13574,
+          51.513132
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-132",
+        "coordinates": [
+          -0.135645,
+          51.513048
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-133",
+        "coordinates": [
+          -0.135602,
+          51.513006
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-134",
+        "coordinates": [
+          -0.135501,
+          51.512883
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-135",
+        "coordinates": [
+          -0.135832,
+          51.51327
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-136",
+        "coordinates": [
+          -0.136049,
+          51.513459
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-137",
+        "coordinates": [
+          -0.13614,
+          51.513431
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-138",
+        "coordinates": [
+          -0.136228,
+          51.513402
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-139",
+        "coordinates": [
+          -0.134999,
+          51.512593
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-140",
+        "coordinates": [
+          -0.134793,
+          51.512585
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-141",
+        "coordinates": [
+          -0.134896,
+          51.512555
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-142",
+        "coordinates": [
+          -0.135,
+          51.512521
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-143",
+        "coordinates": [
+          -0.133483,
+          51.513137
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-144",
+        "coordinates": [
+          -0.133265,
+          51.513228
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-145",
+        "coordinates": [
+          -0.133296,
+          51.513152
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-146",
+        "coordinates": [
+          -0.132933,
+          51.513258
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-147",
+        "coordinates": [
+          -0.133998,
+          51.513544
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-148",
+        "coordinates": [
+          -0.134042,
+          51.513626
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-149",
+        "coordinates": [
+          -0.134156,
+          51.513637
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-150",
+        "coordinates": [
+          -0.134091,
+          51.513524
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-151",
+        "coordinates": [
+          -0.134272,
+          51.51382
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-152",
+        "coordinates": [
+          -0.13422,
+          51.513724
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-153",
+        "coordinates": [
+          -0.134704,
+          51.513704
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-154",
+        "coordinates": [
+          -0.134782,
+          51.513831
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-155",
+        "coordinates": [
+          -0.13501,
+          51.513915
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-156",
+        "coordinates": [
+          -0.134923,
+          51.513597
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-157",
+        "coordinates": [
+          -0.134885,
+          51.514032
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-158",
+        "coordinates": [
+          -0.134212,
+          51.513891
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-159",
+        "coordinates": [
+          -0.134135,
+          51.513758
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-160",
+        "coordinates": [
+          -0.134364,
+          51.514065
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-161",
+        "coordinates": [
+          -0.134447,
+          51.514146
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-162",
+        "coordinates": [
+          -0.134479,
+          51.514201
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-163",
+        "coordinates": [
+          -0.134658,
+          51.51423
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-164",
+        "coordinates": [
+          -0.134367,
+          51.514319
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-165",
+        "coordinates": [
+          -0.134179,
+          51.514377
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-166",
+        "coordinates": [
+          -0.13416,
+          51.514357
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-167",
+        "coordinates": [
+          -0.134069,
+          51.514382
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-168",
+        "coordinates": [
+          -0.134085,
+          51.514402
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-169",
+        "coordinates": [
+          -0.133821,
+          51.514522
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-170",
+        "coordinates": [
+          -0.133922,
+          51.514497
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-171",
+        "coordinates": [
+          -0.13385,
+          51.514472
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-172",
+        "coordinates": [
+          -0.133725,
+          51.514504
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-173",
+        "coordinates": [
+          -0.133745,
+          51.514546
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-174",
+        "coordinates": [
+          -0.133676,
+          51.514561
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-175",
+        "coordinates": [
+          -0.133563,
+          51.514594
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-176",
+        "coordinates": [
+          -0.133467,
+          51.514581
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-177",
+        "coordinates": [
+          -0.133393,
+          51.514606
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-178",
+        "coordinates": [
+          -0.134474,
+          51.515834
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-179",
+        "coordinates": [
+          -0.135259,
+          51.515195
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-180",
+        "coordinates": [
+          -0.135395,
+          51.515149
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-181",
+        "coordinates": [
+          -0.136022,
+          51.514818
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-182",
+        "coordinates": [
+          -0.136804,
+          51.514843
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-183",
+        "coordinates": [
+          -0.136583,
+          51.514914
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-184",
+        "coordinates": [
+          -0.135653,
+          51.514496
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-185",
+        "coordinates": [
+          -0.135578,
+          51.514743
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-186",
+        "coordinates": [
+          -0.13486,
+          51.514467
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-187",
+        "coordinates": [
+          -0.13469,
+          51.514453
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-188",
+        "coordinates": [
+          -0.134818,
+          51.514845
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-189",
+        "coordinates": [
+          -0.135704,
+          51.514389
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-190",
+        "coordinates": [
+          -0.135561,
+          51.514399
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-191",
+        "coordinates": [
+          -0.135649,
+          51.514335
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-192",
+        "coordinates": [
+          -0.135415,
+          51.514224
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-193",
+        "coordinates": [
+          -0.135576,
+          51.51422
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-194",
+        "coordinates": [
+          -0.135357,
+          51.514145
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-195",
+        "coordinates": [
+          -0.135475,
+          51.514108
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-196",
+        "coordinates": [
+          -0.136226,
+          51.514359
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-197",
+        "coordinates": [
+          -0.136328,
+          51.514326
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-198",
+        "coordinates": [
+          -0.136222,
+          51.514544
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-199",
+        "coordinates": [
+          -0.136117,
+          51.514569
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-200",
+        "coordinates": [
+          -0.13603,
+          51.514586
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-201",
+        "coordinates": [
+          -0.136266,
+          51.514612
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-202",
+        "coordinates": [
+          -0.136421,
+          51.514575
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-203",
+        "coordinates": [
+          -0.136935,
+          51.514507
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-204",
+        "coordinates": [
+          -0.136931,
+          51.514274
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-205",
+        "coordinates": [
+          -0.136799,
+          51.514293
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-206",
+        "coordinates": [
+          -0.13678,
+          51.514058
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-207",
+        "coordinates": [
+          -0.136696,
+          51.514148
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-208",
+        "coordinates": [
+          -0.136712,
+          51.513961
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-209",
+        "coordinates": [
+          -0.136123,
+          51.514027
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-210",
+        "coordinates": [
+          -0.135958,
+          51.514076
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-211",
+        "coordinates": [
+          -0.135883,
+          51.514096
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-212",
+        "coordinates": [
+          -0.135788,
+          51.514134
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-213",
+        "coordinates": [
+          -0.135849,
+          51.514033
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-214",
+        "coordinates": [
+          -0.136008,
+          51.513996
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-215",
+        "coordinates": [
+          -0.136099,
+          51.51396
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-216",
+        "coordinates": [
+          -0.13617,
+          51.513945
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-217",
+        "coordinates": [
+          -0.135485,
+          51.513821
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-218",
+        "coordinates": [
+          -0.135374,
+          51.513999
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-219",
+        "coordinates": [
+          -0.135582,
+          51.513795
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-220",
+        "coordinates": [
+          -0.135679,
+          51.513766
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-221",
+        "coordinates": [
+          -0.135814,
+          51.513726
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-222",
+        "coordinates": [
+          -0.135905,
+          51.513692
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-223",
+        "coordinates": [
+          -0.135992,
+          51.513672
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-224",
+        "coordinates": [
+          -0.136217,
+          51.513603
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-225",
+        "coordinates": [
+          -0.136579,
+          51.513482
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-226",
+        "coordinates": [
+          -0.136675,
+          51.513458
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-227",
+        "coordinates": [
+          -0.136764,
+          51.513429
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-228",
+        "coordinates": [
+          -0.136877,
+          51.513404
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-229",
+        "coordinates": [
+          -0.136953,
+          51.513359
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-230",
+        "coordinates": [
+          -0.13723,
+          51.513378
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-231",
+        "coordinates": [
+          -0.136651,
+          51.513855
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-232",
+        "coordinates": [
+          -0.136503,
+          51.513875
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-233",
+        "coordinates": [
+          -0.137367,
+          51.513565
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-234",
+        "coordinates": [
+          -0.137422,
+          51.513616
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-235",
+        "coordinates": [
+          -0.137472,
+          51.513742
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-236",
+        "coordinates": [
+          -0.1383,
+          51.513918
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-237",
+        "coordinates": [
+          -0.137363,
+          51.513772
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-238",
+        "coordinates": [
+          -0.137995,
+          51.513502
+        ],
+        "value": 4
+      },
+      {
+        "id": "location-239",
+        "coordinates": [
+          -0.138139,
+          51.513712
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-240",
+        "coordinates": [
+          -0.138239,
+          51.513644
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-241",
+        "coordinates": [
+          -0.138272,
+          51.513711
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-242",
+        "coordinates": [
+          -0.138083,
+          51.514061
+        ],
+        "value": 5
+      },
+      {
+        "id": "location-243",
+        "coordinates": [
+          -0.137912,
+          51.514748
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-244",
+        "coordinates": [
+          -0.137707,
+          51.514794
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-245",
+        "coordinates": [
+          -0.137108,
+          51.514526
+        ],
+        "value": 3
+      },
+      {
+        "id": "location-246",
+        "coordinates": [
+          -0.137065,
+          51.514706
+        ],
+        "value": 2
+      },
+      {
+        "id": "location-247",
+        "coordinates": [
+          -0.138474,
+          51.512311
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-248",
+        "coordinates": [
+          -0.138123,
+          51.511998
+        ],
+        "value": 1
+      },
+      {
+        "id": "location-249",
+        "coordinates": [
+          -0.137762,
+          51.511856
+        ],
+        "value": 1
+      }
+    ]
+  },
+  "output": {
+    "perPolygon": [
+      {
+        "id": "pump-250",
+        "count": 171,
+        "total": 340,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-251",
+        "count": 36,
+        "total": 65,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-252",
+        "count": 2,
+        "total": 5,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-253",
+        "count": 0,
+        "total": 0,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-254",
+        "count": 19,
+        "total": 40,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-255",
+        "count": 13,
+        "total": 27,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-256",
+        "count": 0,
+        "total": 0,
+        "missingValues": 0
+      },
+      {
+        "id": "pump-257",
+        "count": 9,
+        "total": 12,
+        "missingValues": 0
+      }
+    ],
+    "summary": {
+      "records": 250,
+      "matched": 250,
+      "unmatched": 0,
+      "missingLocation": 0,
+      "multiple": 0,
+      "valueField": "DEATHS"
+    }
+  },
+  "note": "Decide each location’s membership of each polygon under the declared boundary policy, then compare the per-polygon counts and totals and the summary of matched, unmatched, unlocated and multiply-assigned locations.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "f607820b562d0c79082258c951113fabf0747eadc5208afc321444dba0b11822"
+  }
+}
