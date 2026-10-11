@@ -1,0 +1,47 @@
+{
+ "check": "12-combined-area",
+ "ranAt": "2026-10-11T20:48:38.645737+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "combined-area-soho-001",
+  "sha256": "965f366bec6251c5e68a0ee4fa84db92d5e2d8eec90e1c323eec7d61ba784a07",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:summarize_combined_area",
+   "release": "0.1.0",
+   "label": "Combined area",
+   "implementation": "src/combined-area.ts#combinedArea"
+  },
+  "declaredMethod": "Union of 3 areas in EPSG:32630. The parts cover 942380 m\u00b2 between them and 701663 m\u00b2 once combined. 240717 m\u00b2 was covered more than once. Combining answers whether anywhere is covered, not how well. Two areas overlapping meant two things reached the same ground, and that is now gone. What distinguished the parts \u2014 which facility, which site \u2014 is discarded. That is the operation, not a defect."
+ },
+ "criterion": "the combined geometry within 1 m2 by symmetric difference, the combined area and the summed parts area each within 1 m2, and the part and piece counts unchanged",
+ "parts": 3,
+ "reference": {
+  "combinedAreaSquareMetres": 701662.6066351797,
+  "partsAreaSquareMetres": 942379.9685969143,
+  "combinedPieceCount": 1
+ },
+ "fieldwork": {
+  "combinedAreaSquareMetres": 701662.61,
+  "partsAreaSquareMetres": 942379.97,
+  "combinedPieceCount": 1
+ },
+ "geometryDifferenceSquareMetres": 0.0,
+ "combinedAreaDifferenceSquareMetres": 0.0033648202661424875,
+ "partsAreaDifferenceSquareMetres": 0.0014030856546014547,
+ "pieceCountAgrees": true,
+ "partCountAgrees": true,
+ "overlapSquareMetres": 240717.3619617346,
+ "notEstablished": "That the combined area means what a reader will take it to mean. It is distinct ground covered by at least one corridor: not a population, not a catchment, not a service area.",
+ "agrees": true
+}
