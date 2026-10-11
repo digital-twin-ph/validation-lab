@@ -1,0 +1,60 @@
+{
+ "check": "21-hex",
+ "ranAt": "2026-10-11T22:41:29.311283+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "h3": "4.5.0",
+  "note": "h3-py and Fieldwork's h3-js are two bindings of the same C library, so the indexing is not independently verified."
+ },
+ "fixture": {
+  "id": "hex-soho-001",
+  "sha256": "ab3a1e54bff5b6429114905ebb3da5549a84a775e933170b6fcecc2ae6952fd0",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:hex_aggregate",
+   "release": "0.1.0",
+   "label": "Group points in H3 cells",
+   "implementation": "src/geoprivacy.ts#aggregateHex"
+  },
+  "declaredSparseRule": "A cell holding fewer than 2 points is omitted from the output entirely rather than returned with a small count, so its points are not represented at all. The number of omitted cells is reported."
+ },
+ "criterion": "per resolution: the same cells kept, the same count in each, each boundary and centre within 1e-09 degrees of h3-py's, the cells ordered by H3 index, and the matched and dropped point counts exact",
+ "points": 250,
+ "minOccupancy": 2,
+ "cases": [
+  {
+   "resolution": 9,
+   "cellsKeptFieldwork": 5,
+   "cellsKeptReference": 5,
+   "sameCells": true,
+   "countsAgree": true,
+   "orderedByIndex": true,
+   "worstBoundaryDifferenceDegrees": 2.1316282072803006e-14,
+   "worstCentreDifferenceDegrees": 2.1316282072803006e-14,
+   "cellsDroppedBySparseRule": 0,
+   "pointsDroppedBySparseRule": 0,
+   "accountingAgrees": true,
+   "agrees": true
+  },
+  {
+   "resolution": 11,
+   "cellsKeptFieldwork": 52,
+   "cellsKeptReference": 52,
+   "sameCells": true,
+   "countsAgree": true,
+   "orderedByIndex": true,
+   "worstBoundaryDifferenceDegrees": 2.842170943040401e-14,
+   "worstCentreDifferenceDegrees": 3.5665914666083154e-14,
+   "cellsDroppedBySparseRule": 13,
+   "pointsDroppedBySparseRule": 13,
+   "accountingAgrees": true,
+   "agrees": true
+  }
+ ],
+ "notEstablished": "That H3 indexing is correct: both sides call the same C library through different bindings, so agreement is expected and says nothing about the index itself. And that aggregating to cells protects anybody -- occupancy is not an anonymity guarantee, and at resolution 11 the rule silently removes 13 of 250 deaths from the output rather than disclosing them.",
+ "agrees": true
+}
