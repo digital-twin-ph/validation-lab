@@ -1,0 +1,102 @@
+{
+ "check": "15-voronoi",
+ "ranAt": "2026-10-11T21:25:23.644223+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "voronoi-soho-001",
+  "sha256": "4dfabcb8800efc0988e1da5ce93631ac45a88f1c5871b2bc35eabbfb357514c5",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:voronoi",
+   "release": "0.1.0",
+   "label": "Voronoi catchments",
+   "implementation": "src/catchments.ts#voronoi"
+  },
+  "declaredAlgorithm": "Start from the envelope rectangle and clip it with one half-plane per other site: the set of points at least as close to this site as to that one. Euclidean distance in projected metres."
+ },
+ "criterion": "each cell within 1 m2 of GEOS's Voronoi region for the same site by symmetric difference, the cells tiling the recomputed envelope to within 1 m2 with no overlap, and every cell containing its own site",
+ "sites": 8,
+ "envelopeSquareMetres": 1359850.7261248801,
+ "perCell": [
+  {
+   "siteId": "pump-250",
+   "symmetricDifferenceSquareMetres": 1.150245507149279e-06,
+   "areaSquareMetres": 138147.19041270466,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-251",
+   "symmetricDifferenceSquareMetres": 1.1449538195930928e-06,
+   "areaSquareMetres": 93870.02542317886,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-252",
+   "symmetricDifferenceSquareMetres": 1.5196303091766618e-06,
+   "areaSquareMetres": 239142.5013635458,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-253",
+   "symmetricDifferenceSquareMetres": 2.4836599536288647e-06,
+   "areaSquareMetres": 392364.07178093167,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-254",
+   "symmetricDifferenceSquareMetres": 4.181714068535766e-07,
+   "areaSquareMetres": 46759.90921700017,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-255",
+   "symmetricDifferenceSquareMetres": 4.0623886593044905e-07,
+   "areaSquareMetres": 37507.3757701649,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-256",
+   "symmetricDifferenceSquareMetres": 1.4793846286969788e-06,
+   "areaSquareMetres": 198695.6501465012,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  },
+  {
+   "siteId": "pump-257",
+   "symmetricDifferenceSquareMetres": 6.751153472468936e-07,
+   "areaSquareMetres": 213364.00201088836,
+   "holdsItsSite": true,
+   "present": true,
+   "inReference": true
+  }
+ ],
+ "worstSymmetricDifferenceSquareMetres": 2.4836599536288647e-06,
+ "unionAgainstEnvelopeSquareMetres": 2.095757448249006e-06,
+ "pairwiseOverlapSquareMetres": 6.022335805253021e-07,
+ "everyCellHoldsItsSite": true,
+ "notEstablished": "That a nearest-pump cell models which pump anybody drank from. Euclidean distance in a projection ignores streets, walls and the Thames, and the reference ignores them identically.",
+ "agrees": true
+}

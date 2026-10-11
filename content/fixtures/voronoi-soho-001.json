@@ -1,0 +1,410 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "voronoi-soho-001",
+  "exportedAt": "2026-10-11T21:24:47.419Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.7.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:voronoi",
+    "release": "0.1.0",
+    "label": "Voronoi catchments",
+    "implementation": "src/catchments.ts#voronoi"
+  },
+  "declaredParameters": {
+    "zone": 30,
+    "hemisphere": "north",
+    "metricCRS": "EPSG:32630",
+    "envelopeRule": "Project the reporting area’s bounding box corners into the metric CRS, then take the minimum and maximum easting and northing of those four points and expand by 100 m on every side.",
+    "algorithm": "Start from the envelope rectangle and clip it with one half-plane per other site: the set of points at least as close to this site as to that one. Euclidean distance in projected metres.",
+    "semantics": "A cell is the ground nearer this pump than any other, by straight-line distance in the projection. It is a model of proximity, not of which pump anybody used, and it ignores streets, walls and the river entirely.",
+    "envelopeNote": "Cells are finite because the envelope is. They extend past the reporting area and are clipped separately by clip_polygons."
+  },
+  "input": {
+    "boundary": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.142,
+            51.509
+          ],
+          [
+            -0.128,
+            51.509
+          ],
+          [
+            -0.128,
+            51.517
+          ],
+          [
+            -0.142,
+            51.517
+          ],
+          [
+            -0.142,
+            51.509
+          ]
+        ]
+      ]
+    },
+    "sites": [
+      {
+        "id": "pump-250",
+        "name": "Broadwick Street",
+        "coordinates": [
+          -0.136668,
+          51.513341
+        ]
+      },
+      {
+        "id": "pump-251",
+        "name": "Kingly Street",
+        "coordinates": [
+          -0.139586,
+          51.513876
+        ]
+      },
+      {
+        "id": "pump-252",
+        "name": "Ramillies Place",
+        "coordinates": [
+          -0.139671,
+          51.514906
+        ]
+      },
+      {
+        "id": "pump-253",
+        "name": "Dean Street",
+        "coordinates": [
+          -0.13163,
+          51.512354
+        ]
+      },
+      {
+        "id": "pump-254",
+        "name": "Rupert Street",
+        "coordinates": [
+          -0.133594,
+          51.512139
+        ]
+      },
+      {
+        "id": "pump-255",
+        "name": "Bridle Lane",
+        "coordinates": [
+          -0.135919,
+          51.511542
+        ]
+      },
+      {
+        "id": "pump-256",
+        "name": "Regent Street",
+        "coordinates": [
+          -0.133962,
+          51.510019
+        ]
+      },
+      {
+        "id": "pump-257",
+        "name": "Warwick Street",
+        "coordinates": [
+          -0.138199,
+          51.511295
+        ]
+      }
+    ]
+  },
+  "output": {
+    "cells": [
+      {
+        "id": "pump-250",
+        "siteId": "pump-250",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.1352630278031092,
+                51.51260853143284
+              ],
+              [
+                -0.1332713715812961,
+                51.51459149275398
+              ],
+              [
+                -0.13156264156817474,
+                51.51798665980935
+              ],
+              [
+                -0.13295197801234426,
+                51.518020649848786
+              ],
+              [
+                -0.13772975716846672,
+                51.51445198550001
+              ],
+              [
+                -0.1385777431805839,
+                51.51265135213652
+              ],
+              [
+                -0.13729832215540888,
+                51.512278615088235
+              ],
+              [
+                -0.1352630278031092,
+                51.51260853143284
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-251",
+        "siteId": "pump-251",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.1385777431805843,
+                51.512651352136515
+              ],
+              [
+                -0.1377297571684671,
+                51.5144519855
+              ],
+              [
+                -0.14361293868264527,
+                51.51426292363846
+              ],
+              [
+                -0.14378196638651053,
+                51.511562377105605
+              ],
+              [
+                -0.1385777431805843,
+                51.512651352136515
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-252",
+        "siteId": "pump-252",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.13295197801234426,
+                51.518020649848786
+              ],
+              [
+                -0.14336178580036413,
+                51.51827480012362
+              ],
+              [
+                -0.14361293868264527,
+                51.51426292363846
+              ],
+              [
+                -0.1377297571684671,
+                51.5144519855
+              ],
+              [
+                -0.13295197801234426,
+                51.518020649848786
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-253",
+        "siteId": "pump-253",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.12657335318162044,
+                51.5087664728473
+              ],
+              [
+                -0.12600130664362316,
+                51.51785043680068
+              ],
+              [
+                -0.13156264156817474,
+                51.51798665980935
+              ],
+              [
+                -0.1332713715812961,
+                51.51459149275398
+              ],
+              [
+                -0.13225479707004856,
+                51.5109760408709
+              ],
+              [
+                -0.12657335318162044,
+                51.5087664728473
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-254",
+        "siteId": "pump-254",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.13225479707004936,
+                51.51097604087089
+              ],
+              [
+                -0.1332713715812961,
+                51.51459149275398
+              ],
+              [
+                -0.1352630278031096,
+                51.51260853143283
+              ],
+              [
+                -0.13427652405413484,
+                51.51111269272816
+              ],
+              [
+                -0.13225479707004936,
+                51.51097604087089
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-255",
+        "siteId": "pump-255",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.13664430527494278,
+                51.50992801681638
+              ],
+              [
+                -0.13427652405413484,
+                51.51111269272816
+              ],
+              [
+                -0.1352630278031092,
+                51.51260853143284
+              ],
+              [
+                -0.13729832215540888,
+                51.512278615088235
+              ],
+              [
+                -0.13664430527494278,
+                51.50992801681638
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-256",
+        "siteId": "pump-256",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.13813063414213364,
+                51.508006163548735
+              ],
+              [
+                -0.1266389183323703,
+                51.50772500852868
+              ],
+              [
+                -0.12657335318162044,
+                51.5087664728473
+              ],
+              [
+                -0.1322547970700084,
+                51.51097604087088
+              ],
+              [
+                -0.13427652405413484,
+                51.51111269272816
+              ],
+              [
+                -0.13664430527494237,
+                51.50992801681638
+              ],
+              [
+                -0.13813063414213364,
+                51.508006163548735
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pump-257",
+        "siteId": "pump-257",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -0.14399555878432485,
+                51.50814921891014
+              ],
+              [
+                -0.13813063414213364,
+                51.508006163548735
+              ],
+              [
+                -0.13664430527494278,
+                51.50992801681638
+              ],
+              [
+                -0.13729832215540888,
+                51.512278615088235
+              ],
+              [
+                -0.1385777431805688,
+                51.51265135213652
+              ],
+              [
+                -0.14378196638651053,
+                51.511562377105605
+              ],
+              [
+                -0.14399555878432485,
+                51.50814921891014
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "note": "Recompute the envelope from the boundary, partition it by nearest site, and compare each cell with the one Fieldwork reports for the same site.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "4dfabcb8800efc0988e1da5ce93631ac45a88f1c5871b2bc35eabbfb357514c5"
+  }
+}
