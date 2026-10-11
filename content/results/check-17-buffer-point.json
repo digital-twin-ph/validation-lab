@@ -1,0 +1,47 @@
+{
+ "check": "17-buffer-point",
+ "ranAt": "2026-10-11T21:48:18.524100+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "buffer-point-soho-001",
+  "sha256": "dffbd45d4305a9b51e3a87427b55aa3a58246046828db14fae0d9a579caba4d3",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:buffer_point",
+   "release": "0.1.0",
+   "label": "Area around a point",
+   "implementation": "src/buffer-point.ts#bufferPoint"
+  },
+  "declaredCircleRule": "A circle is approximated by a polygon of 4 x steps vertices inscribed in it. The area of such a polygon is (n / 2\u03c0) sin(2\u03c0 / n) of the circle\u2019s, which is 0.99960 at 128 vertices."
+ },
+ "criterion": "exactly 128 vertices, the reported circle-area fraction within 5e-05 of the closed form for an inscribed polygon, and every vertex within 0.001 m of the stated 500 m on the sphere of radius 6.37101e+06 m that Turf buffers on",
+ "stepsPerQuadrant": 32,
+ "vertexCount": 128,
+ "expectedVertexCount": 128,
+ "vertexCountAgrees": true,
+ "reportedCircleAreaFraction": 0.9996,
+ "closedFormFraction": 0.9995984531496791,
+ "fractionDifference": 1.5468503209437046e-06,
+ "radiusMetres": 500,
+ "sphereRadiusMetres": 6371008.8,
+ "worstVertexRadiusErrorMetres": 2.397143816779135e-09,
+ "sphericalRadiusRangeMetres": [
+  499.999999997891,
+  500.00000000239714
+ ],
+ "ellipsoidalRadiusRangeMetres": [
+  500.28312862833644,
+  501.5891564802153
+ ],
+ "ellipsoidalExcessAtWorstMetres": 1.5891564802153084,
+ "notEstablished": "That a 500 m buffer is 500 m on the ground. It is 500 m on a sphere of radius 6,371,008.8 m and 500.28 to 501.59 m on the WGS84 ellipsoid at this latitude -- up to 1.59 m more, varying with direction. That is a property of the construction, reported rather than corrected. Nor whether the radius is the right radius: a buffered scope is a decision, not a surveyed boundary.",
+ "agrees": true
+}

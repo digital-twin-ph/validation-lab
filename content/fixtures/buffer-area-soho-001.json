@@ -1,0 +1,216 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "buffer-area-soho-001",
+  "exportedAt": "2026-10-11T21:47:26.199Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.7.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:buffer_area",
+    "release": "0.1.0",
+    "label": "Buffer study area",
+    "implementation": "src/area-buffer.ts#bufferedBoundary"
+  },
+  "declaredParameters": {
+    "computationCRS": "OGC:CRS84",
+    "projection": "Turf/JSTS local azimuthal equidistant, metres",
+    "stepsPerQuadrant": 8,
+    "distanceMetres": 500,
+    "semantics": "The buffered boundary is the acquisition extent, not the reporting extent. It exists so that a network or raster fetched for the study area reaches past its edge.",
+    "toleranceNote": "An exact match is not available. Turf buffers in a local azimuthal equidistant projection and a reference buffering in UTM uses a different one, so areas are compared relatively and the quadrant count is declared."
+  },
+  "input": {
+    "boundary": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.155,
+            51.502
+          ],
+          [
+            -0.119,
+            51.502
+          ],
+          [
+            -0.119,
+            51.525
+          ],
+          [
+            -0.155,
+            51.525
+          ],
+          [
+            -0.155,
+            51.502
+          ]
+        ]
+      ]
+    }
+  },
+  "output": {
+    "boundary": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.16222360382811118,
+            51.501999778194026
+          ],
+          [
+            -0.16208462461868497,
+            51.50112240759446
+          ],
+          [
+            -0.16167331782013628,
+            51.50027878030685
+          ],
+          [
+            -0.16100550781600628,
+            51.49950132383405
+          ],
+          [
+            -0.16010687496978243,
+            51.49881992061893
+          ],
+          [
+            -0.15901196709724608,
+            51.4982607599445
+          ],
+          [
+            -0.15776287093050795,
+            51.497845331916416
+          ],
+          [
+            -0.15640759471563045,
+            51.4975896020882
+          ],
+          [
+            -0.15499822404709357,
+            51.497503398345955
+          ],
+          [
+            -0.11900177595290641,
+            51.497503398345955
+          ],
+          [
+            -0.11759240528436954,
+            51.4975896020882
+          ],
+          [
+            -0.11623712906949205,
+            51.497845331916416
+          ],
+          [
+            -0.1149880329027539,
+            51.4982607599445
+          ],
+          [
+            -0.11389312503021756,
+            51.49881992061893
+          ],
+          [
+            -0.1129944921839937,
+            51.49950132383405
+          ],
+          [
+            -0.11232668217986372,
+            51.50027878030685
+          ],
+          [
+            -0.11191537538131503,
+            51.50112240759446
+          ],
+          [
+            -0.11177639617188881,
+            51.501999778194026
+          ],
+          [
+            -0.11177274801394359,
+            51.52499977794073
+          ],
+          [
+            -0.11191143772071929,
+            51.52587689430614
+          ],
+          [
+            -0.11232246741436161,
+            51.526720330036916
+          ],
+          [
+            -0.11299005955783797,
+            51.527497679750276
+          ],
+          [
+            -0.11388857577256188,
+            51.52817907555949
+          ],
+          [
+            -0.11498350045821433,
+            51.52873833514504
+          ],
+          [
+            -0.116232766321666,
+            51.52915396834812
+          ],
+          [
+            -0.11758837096370522,
+            51.52941000350346
+          ],
+          [
+            -0.11899822234723585,
+            51.52949660165398
+          ],
+          [
+            -0.15500177765276413,
+            51.52949660165398
+          ],
+          [
+            -0.15641162903629477,
+            51.52941000350346
+          ],
+          [
+            -0.15776723367833398,
+            51.52915396834812
+          ],
+          [
+            -0.15901649954178565,
+            51.52873833514504
+          ],
+          [
+            -0.1601114242274381,
+            51.52817907555949
+          ],
+          [
+            -0.16100994044216202,
+            51.527497679750276
+          ],
+          [
+            -0.16167753258563838,
+            51.526720330036916
+          ],
+          [
+            -0.1620885622792807,
+            51.52587689430614
+          ],
+          [
+            -0.1622272519860564,
+            51.52499977794073
+          ],
+          [
+            -0.16222360382811118,
+            51.501999778194026
+          ]
+        ]
+      ]
+    }
+  },
+  "note": "Buffer the same boundary by the same distance at the same quadrant count in a metric projection and compare the areas relatively, and check that the result contains the original.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "e4150f08a07319389a1a08a10c60b52df977cb26131a15c9815b3119d32b17b5"
+  }
+}
