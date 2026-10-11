@@ -1,0 +1,138 @@
+{
+ "check": "19-snap",
+ "ranAt": "2026-10-11T22:07:42.204889+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "snap-soho-001",
+  "sha256": "0742348a6fed9b2c4b28ca047c5986a2982089c454f18a563416bbe3b7e9836a",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:snap_to_network",
+   "release": "0.1.0",
+   "label": "Snap sites to the network",
+   "implementation": "src/network-snap.ts#snapToNetwork"
+  },
+  "declaredRule": "For each site, the network node at the smallest Euclidean distance in the metric CRS. A site further than maxSnapM from every node is refused rather than snapped."
+ },
+ "criterion": "the same node chosen for every site, the distance moved within 0.005 m -- half of the centimetre the widget reports it to -- the returned position being the node's and not the site's, the site and distinct-node counts exact, and no site beyond the 150 m limit",
+ "sites": 8,
+ "networkNodes": 738,
+ "perSite": [
+  {
+   "id": "pump-250",
+   "name": "Broadwick Street",
+   "referenceNode": "25473293",
+   "fieldworkNode": "25473293",
+   "nodeAgrees": true,
+   "referenceDistanceM": 10.910976513531152,
+   "fieldworkDistanceM": 10.91,
+   "distanceErrorM": 0.0009765135311514683,
+   "marginToSecondNearestM": 17.694765429349083,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-251",
+   "name": "Kingly Street",
+   "referenceNode": "21665926",
+   "fieldworkNode": "21665926",
+   "nodeAgrees": true,
+   "referenceDistanceM": 8.773733759795794,
+   "fieldworkDistanceM": 8.77,
+   "distanceErrorM": 0.003733759795794711,
+   "marginToSecondNearestM": 17.581737368377738,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-252",
+   "name": "Ramillies Place",
+   "referenceNode": "4684520654",
+   "fieldworkNode": "4684520654",
+   "nodeAgrees": true,
+   "referenceDistanceM": 17.127532407364196,
+   "fieldworkDistanceM": 17.13,
+   "distanceErrorM": 0.0024675926358028732,
+   "marginToSecondNearestM": 0.4261604781169126,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-253",
+   "name": "Dean Street",
+   "referenceNode": "107807",
+   "fieldworkNode": "107807",
+   "nodeAgrees": true,
+   "referenceDistanceM": 20.900541455656544,
+   "fieldworkDistanceM": 20.9,
+   "distanceErrorM": 0.0005414556565455086,
+   "marginToSecondNearestM": 0.6872553038422637,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-254",
+   "name": "Rupert Street",
+   "referenceNode": "348875443",
+   "fieldworkNode": "348875443",
+   "nodeAgrees": true,
+   "referenceDistanceM": 5.5976835229131146,
+   "fieldworkDistanceM": 5.6,
+   "distanceErrorM": 0.0023164770868850937,
+   "marginToSecondNearestM": 5.328649448816688,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-255",
+   "name": "Bridle Lane",
+   "referenceNode": "25473300",
+   "fieldworkNode": "25473300",
+   "nodeAgrees": true,
+   "referenceDistanceM": 18.823524525067786,
+   "fieldworkDistanceM": 18.82,
+   "distanceErrorM": 0.0035245250677853335,
+   "marginToSecondNearestM": 12.6043112603817,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-256",
+   "name": "Regent Street",
+   "referenceNode": "1663004187",
+   "fieldworkNode": "1663004187",
+   "nodeAgrees": true,
+   "referenceDistanceM": 11.960657865217089,
+   "fieldworkDistanceM": 11.96,
+   "distanceErrorM": 0.0006578652170876609,
+   "marginToSecondNearestM": 1.0765865742748453,
+   "positionIsTheNodeNotTheSite": true
+  },
+  {
+   "id": "pump-257",
+   "name": "Warwick Street",
+   "referenceNode": "25257692",
+   "fieldworkNode": "25257692",
+   "nodeAgrees": true,
+   "referenceDistanceM": 2.171014562907012,
+   "fieldworkDistanceM": 2.17,
+   "distanceErrorM": 0.0010145629070121842,
+   "marginToSecondNearestM": 45.384808109479,
+   "positionIsTheNodeNotTheSite": true
+  }
+ ],
+ "nodesAgree": true,
+ "positionsAreTheNodes": true,
+ "countsAgree": true,
+ "greatestDistanceAgrees": true,
+ "worstDistanceErrorMetres": 0.003733759795794711,
+ "reportedPrecisionM": 0.01,
+ "worstPositionErrorDegrees": 0.0,
+ "equidistantTies": 0,
+ "smallestMarginToSecondNearestM": 0.4261604781169126,
+ "sitesBeyondTheLimit": [],
+ "notEstablished": "That snapping is harmless. It moves the site: everything downstream starts from the junction rather than from where the pump stood, by 2.2 to 20.9 m here against a 375 m five-minute budget. Both implementations move it identically.",
+ "agrees": true
+}
