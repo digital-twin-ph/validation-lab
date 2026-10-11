@@ -1,0 +1,61 @@
+{
+ "check": "16-stack-polygons",
+ "ranAt": "2026-10-11T21:25:52.043065+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1"
+ },
+ "fixture": {
+  "id": "stack-polygons-soho-001",
+  "sha256": "082679fbcabcf30a89e752401e5c97de76557a49a43f185f1033c35730b31b12",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:stack_polygons",
+   "release": "0.1.0",
+   "label": "Collect polygon layers",
+   "implementation": "src/stack-polygons.ts#stackPolygons"
+  },
+  "declaredRule": "Extent is the sum over every ring of a polygon -- outer and interior alike -- of the absolute shoelace area of that ring, in square degrees. Holes are added, not subtracted."
+ },
+ "criterion": "the order of identifiers exactly as the declared extent rule gives it, the same multiset of identifiers in and out, and the layer, polygon and banded-polygon counts exact",
+ "layers": 3,
+ "polygons": 3,
+ "extents": [
+  {
+   "id": "corridor-pump-250-t10",
+   "minutes": 10,
+   "extentSquareDegrees": 9.769493404882542e-05
+  },
+  {
+   "id": "corridor-pump-250-t5",
+   "minutes": 5,
+   "extentSquareDegrees": 2.858065113258952e-05
+  },
+  {
+   "id": "corridor-pump-250-t2",
+   "minutes": 2,
+   "extentSquareDegrees": 5.403654112677831e-06
+  }
+ ],
+ "referenceOrder": [
+  "corridor-pump-250-t10",
+  "corridor-pump-250-t5",
+  "corridor-pump-250-t2"
+ ],
+ "fieldworkOrder": [
+  "corridor-pump-250-t10",
+  "corridor-pump-250-t5",
+  "corridor-pump-250-t2"
+ ],
+ "orderAgrees": true,
+ "samePolygonsInAndOut": true,
+ "countsAgree": true,
+ "extentTies": 0,
+ "notEstablished": "That largest-first is the right draw order, or that a reader will not mistake the extent for a measurement of ground. It is unprojected and counts holes positively, so it is a sort key only.",
+ "agrees": true
+}
