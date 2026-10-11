@@ -45,12 +45,15 @@ jobs:
       # carries different package versions, and on 2026-10-11 two notebooks that pass in
       # CPython in eight seconds failed in the browser. This runs the built site in the
       # kernel a learner actually gets.
-      # Reports without blocking, for now. 02-clip does not complete in the browser within
-      # twelve minutes and the cause is not established, so making this gate publishing
-      # would stop the site updating over one unresolved notebook. It becomes blocking when
-      # that is fixed; until then it is a check whose failures are visible in the log.
+      #
+      # Blocking since 2026-10-11, which it was not before. It reported without blocking
+      # while 02-clip-vs-rasterio did not complete in twelve minutes and the cause was
+      # unknown; gating publication on an unexplained notebook would have stopped the site
+      # updating. Both halves of that are now resolved: requesting pyproj alongside rasterio
+      # kills this kernel outright, 02 requests only the four it imports and passes in 12s,
+      # and the runner detects a dead kernel instead of waiting out its timeout. All seven
+      # run in under a minute. See 00-kernel-check for the measured map.
       - name: Execute every notebook in the browser kernel
-        continue-on-error: true
         working-directory: node
         run: |
           npx playwright install --with-deps chromium

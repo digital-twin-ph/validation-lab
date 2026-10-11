@@ -127,11 +127,18 @@ operation, so the comparison would have to be against plain arithmetic.
 
 The scientific packages are **not bundled in this site**. The published build
 ships four wheels (piplite, ipykernel, pyodide-kernel, widgetsnbextension); the
-kernel loads Pyodide **v314.0.6 from a CDN** and the notebooks request
-`pyproj`, `shapely`, `rasterio`, `geopandas`, `fiona`, `numpy`, `pandas`, `h3`,
-`networkx` and `scipy` from that distribution with `pyodide_js.loadPackage`. Those versions
-are the ones the design record names, confirmed against the distribution's own
-lock file rather than its documentation.
+kernel loads Pyodide **v314.0.6 from a CDN** and each notebook requests what it
+imports from that distribution with `pyodide_js.loadPackage`. Those versions are
+the ones the design record names, confirmed against the distribution's own lock
+file rather than its documentation.
+
+**Each notebook requests what it imports, and that is a requirement, not a
+preference.** Requesting `pyproj` alongside `rasterio` makes `rasterio.open`
+crash this kernel outright — `RuntimeError: null function` in the GDAL wasm
+module, fatal, with no error cell to show for it. `00-kernel-check.ipynb` carries
+the measured map of which combinations survive and states plainly that the
+mechanism is unexplained. A notebook that loads the whole set "to be safe" is the
+one that fails.
 
 Two consequences. **The published lab needs network access on first use** of a
 notebook, unlike Fieldwork itself, which precaches and reports *Available
@@ -141,7 +148,7 @@ fails while a `loadPackage` request succeeds. The notebooks used to call
 `piplite.install`, which is why `00-kernel-check.ipynb` reported packages as
 absent on the published site.
 
-## The published notebooks: fixed, with one still failing
+## The published notebooks: all seven pass, in both environments
 
 **Fixed 2026-10-11.** Integrity moved from a `.sha256` sidecar over the file's bytes to an
 `integrity` field inside the fixture, taken over a canonical form — the fixture with that
@@ -155,11 +162,25 @@ defined as ECMAScript's and Python normalises its exponents to match. That pins 
 divergence rather than implementing RFC 8785, and another would surface as a loud mismatch
 at export rather than as a fixture quietly passing.
 
-**Still failing: `02-clip-vs-rasterio` does not complete in the browser.** It ran for more
-than twelve minutes without finishing, where it takes 1.1 seconds in CPython. Every package
-it asks for is in the Pyodide distribution except `snuggs`, which recent rasterio may not
-need. The cause is not established. The browser check therefore reports without blocking
-publication until this is resolved.
+**And `02-clip-vs-rasterio` is fixed too, later the same day.** It had run for more than
+twelve minutes without finishing, where it takes 1.0 second in CPython, and the apparent
+timeout was two defects wearing one symptom.
+
+`rasterio.open` **crashes this kernel** when `pyproj` has been requested alongside it:
+`RuntimeError: null function` inside the GDAL wasm module, fatal, killing the kernel rather
+than raising. The notebook asked for all nine packages because a `piplite` fix on
+2026-10-08 copied one list into every notebook. It now asks for the four it imports and
+passes in 12 seconds. `00-kernel-check.ipynb` carries the measured map of which
+combinations survive, and says that the mechanism is unexplained.
+
+**A fatal kernel error produces no error cell**, so the runner was waiting for an execution
+count that could never arrive, and reported a timeout — which says nothing about the cause,
+when the kernel had died within seconds. It now watches the console and page errors for a
+fatal and fails in seconds with the message. A check whose only failure mode is a timeout
+cannot tell a crash from slow work.
+
+All seven notebooks now execute in the browser kernel in under a minute, and the check
+**blocks publication** as of 2026-10-11.
 
 ### What the original failure was
 
