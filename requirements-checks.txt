@@ -7,3 +7,5 @@ shapely==2.2.0
 scipy==1.18.1
 numpy==2.5.3
 networkx==3.6
+nbclient==0.11.0
+ipykernel==7.4.0

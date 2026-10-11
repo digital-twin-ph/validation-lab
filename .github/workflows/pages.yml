@@ -32,6 +32,13 @@ jobs:
         run: |
           npm ci
           npm run --silent check:ontology || echo "::warning::ontology check reported a non-zero exit; see the step log"
+      # The notebooks are the instrument that checks Fieldwork's computations. Until
+      # 2026-10-11 nothing executed them, so the site was built from notebooks nobody had
+      # run. A broken notebook now blocks publishing rather than being published.
+      - name: Install the check environment
+        run: pip install -r requirements-checks.txt
+      - name: Execute every notebook
+        run: python scripts/run_notebooks.py
       - name: Build the JupyterLite site
         run: jupyter lite build --contents content --output-dir _output
       - uses: actions/upload-pages-artifact@v3
