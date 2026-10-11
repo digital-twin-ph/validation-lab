@@ -1,0 +1,44 @@
+{
+ "check": "20-band",
+ "ranAt": "2026-10-11T22:08:17.123562+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "note": "No geometry library is needed: a band is a threshold on distances the junctions carry."
+ },
+ "fixture": {
+  "id": "band-soho-001",
+  "sha256": "8fd861d1f42cfe65e48979f5037678234f2e8b8b1ff612f438d280b3cdcff8d0",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:travel_time_band",
+   "release": "0.3.0",
+   "label": "Travel time band",
+   "implementation": "src/travel-time-band.ts#travelTimeBand"
+  },
+  "declaredRule": "The band budget is minutes x speed. A junction is in the band when the distance already travelled to it is at most that budget. Its remaining budget is recomputed against the band, not carried over from the traversal."
+ },
+ "criterion": "the band budget within 0.005 m of minutes x the speed carried on the junctions, the same junctions selected, every remaining budget recomputed against the band to within 0.005 m, the counts exact, every kept junction stamped with the band, and the band nested rather than a ring",
+ "bandMinutes": 5,
+ "speedFromTheJunctions": 75,
+ "directionFromTheJunctions": [
+  "outbound"
+ ],
+ "referenceBandBudgetMetres": 375,
+ "fieldworkBandBudgetMetres": 375,
+ "traversalBudgetMetres": 1125.01,
+ "junctionsOffered": 706,
+ "junctionsInBand": 142,
+ "budgetErrorMetres": 0,
+ "worstRemainingBudgetErrorMetres": 5.684341886080802e-14,
+ "missingFromOutput": [],
+ "notInReference": [],
+ "countsAgree": true,
+ "everyKeptJunctionStampedWithTheBand": true,
+ "nestedNotARing": true,
+ "notEstablished": "That 75 m per minute is the right walking speed, or that a band boundary falling between junctions is where the five-minute line really is. The speed is an assumption that travels on the junctions so nothing downstream can contradict it; the corridor widget addresses the boundary.",
+ "agrees": true
+}

@@ -1,0 +1,5694 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "band-soho-001",
+  "exportedAt": "2026-10-11T22:06:21.187Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.7.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:travel_time_band",
+    "release": "0.3.0",
+    "label": "Travel time band",
+    "implementation": "src/travel-time-band.ts#travelTimeBand"
+  },
+  "declaredParameters": {
+    "bandMinutes": 5,
+    "traversalMinutes": 15,
+    "speedMPerMin": 75,
+    "rule": "The band budget is minutes x speed. A junction is in the band when the distance already travelled to it is at most that budget. Its remaining budget is recomputed against the band, not carried over from the traversal.",
+    "inheritanceRule": "The speed and the direction are read from the junctions, not restated as parameters, so a band cannot disagree with the traversal that produced it.",
+    "semantics": "A band is nested, not a ring: the five minute band contains everything within five minutes, including everything within two."
+  },
+  "input": {
+    "junctions": [
+      {
+        "networkNodeId": "25473293",
+        "travelMetres": 0,
+        "remainingM": 1125,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108073",
+        "travelMetres": 20.69,
+        "remainingM": 1104.31,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501289",
+        "travelMetres": 40.01,
+        "remainingM": 1084.99,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473408",
+        "travelMetres": 59.06,
+        "remainingM": 1065.94,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "701608613",
+        "travelMetres": 64.08,
+        "remainingM": 1060.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "701608618",
+        "travelMetres": 80,
+        "remainingM": 1045,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25475478",
+        "travelMetres": 88.77,
+        "remainingM": 1036.23,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108072",
+        "travelMetres": 88.86,
+        "remainingM": 1036.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1324710127",
+        "travelMetres": 97.84,
+        "remainingM": 1027.16,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473409",
+        "travelMetres": 104.11,
+        "remainingM": 1020.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784682613",
+        "travelMetres": 110.03,
+        "remainingM": 1014.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "701600719",
+        "travelMetres": 115.8,
+        "remainingM": 1009.2,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784682614",
+        "travelMetres": 118.89,
+        "remainingM": 1006.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784682598",
+        "travelMetres": 119.94,
+        "remainingM": 1005.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473556",
+        "travelMetres": 123.19,
+        "remainingM": 1001.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "701608631",
+        "travelMetres": 123.98,
+        "remainingM": 1001.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784682596",
+        "travelMetres": 126.09,
+        "remainingM": 998.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21666019",
+        "travelMetres": 128.79,
+        "remainingM": 996.21,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501340",
+        "travelMetres": 136.49,
+        "remainingM": 988.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4728954676",
+        "travelMetres": 137.44,
+        "remainingM": 987.56,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "701600731",
+        "travelMetres": 138.07,
+        "remainingM": 986.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "734320209",
+        "travelMetres": 142.03,
+        "remainingM": 982.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784682639",
+        "travelMetres": 143.11,
+        "remainingM": 981.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473513",
+        "travelMetres": 146.81,
+        "remainingM": 978.19,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4709189403",
+        "travelMetres": 147.48,
+        "remainingM": 977.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784682616",
+        "travelMetres": 147.73,
+        "remainingM": 977.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1330788578",
+        "travelMetres": 149.99,
+        "remainingM": 975.01,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21666010",
+        "travelMetres": 157.21,
+        "remainingM": 967.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2784434327",
+        "travelMetres": 158.05,
+        "remainingM": 966.95,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845546",
+        "travelMetres": 158.82,
+        "remainingM": 966.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473288",
+        "travelMetres": 166.31,
+        "remainingM": 958.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501330",
+        "travelMetres": 170.36,
+        "remainingM": 954.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "499350858",
+        "travelMetres": 174.34,
+        "remainingM": 950.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845544",
+        "travelMetres": 181.79,
+        "remainingM": 943.21,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521025",
+        "travelMetres": 185.44,
+        "remainingM": 939.56,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1330788638",
+        "travelMetres": 185.99,
+        "remainingM": 939.01,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2770153342",
+        "travelMetres": 189.01,
+        "remainingM": 935.99,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5568839679",
+        "travelMetres": 189.05,
+        "remainingM": 935.95,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21666011",
+        "travelMetres": 191.22,
+        "remainingM": 933.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845547",
+        "travelMetres": 192.35,
+        "remainingM": 932.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473512",
+        "travelMetres": 196.98,
+        "remainingM": 928.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501328",
+        "travelMetres": 200.07,
+        "remainingM": 924.93,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3077397235",
+        "travelMetres": 200.74,
+        "remainingM": 924.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665930",
+        "travelMetres": 200.76,
+        "remainingM": 924.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1330788629",
+        "travelMetres": 213.42,
+        "remainingM": 911.58,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4702603702",
+        "travelMetres": 213.83,
+        "remainingM": 911.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5112906885",
+        "travelMetres": 214.29,
+        "remainingM": 910.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845543",
+        "travelMetres": 216.29,
+        "remainingM": 908.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4730390165",
+        "travelMetres": 219.32,
+        "remainingM": 905.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473287",
+        "travelMetres": 219.43,
+        "remainingM": 905.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1188939751",
+        "travelMetres": 219.56,
+        "remainingM": 905.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501325",
+        "travelMetres": 219.57,
+        "remainingM": 905.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5112906884",
+        "travelMetres": 222.75,
+        "remainingM": 902.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4702603654",
+        "travelMetres": 223.55,
+        "remainingM": 901.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108070",
+        "travelMetres": 226.76,
+        "remainingM": 898.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665931",
+        "travelMetres": 230.4,
+        "remainingM": 894.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4702603655",
+        "travelMetres": 231.11,
+        "remainingM": 893.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4702603652",
+        "travelMetres": 231.23,
+        "remainingM": 893.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4730390416",
+        "travelMetres": 234.04,
+        "remainingM": 890.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4730390156",
+        "travelMetres": 237.08,
+        "remainingM": 887.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4702603653",
+        "travelMetres": 238.58,
+        "remainingM": 886.42,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25475484",
+        "travelMetres": 241.04,
+        "remainingM": 883.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501320",
+        "travelMetres": 244.99,
+        "remainingM": 880.01,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4730390419",
+        "travelMetres": 245.32,
+        "remainingM": 879.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4702603699",
+        "travelMetres": 246.65,
+        "remainingM": 878.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665929",
+        "travelMetres": 247.89,
+        "remainingM": 877.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473371",
+        "travelMetres": 248.32,
+        "remainingM": 876.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4730390417",
+        "travelMetres": 248.69,
+        "remainingM": 876.31,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512928",
+        "travelMetres": 249.06,
+        "remainingM": 875.94,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926176",
+        "travelMetres": 250.23,
+        "remainingM": 874.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "772092173",
+        "travelMetres": 253.64,
+        "remainingM": 871.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4730390441",
+        "travelMetres": 256.53,
+        "remainingM": 868.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473373",
+        "travelMetres": 261.11,
+        "remainingM": 863.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2494845032",
+        "travelMetres": 262.3,
+        "remainingM": 862.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1906612406",
+        "travelMetres": 266.14,
+        "remainingM": 858.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926175",
+        "travelMetres": 269.21,
+        "remainingM": 855.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473295",
+        "travelMetres": 270.95,
+        "remainingM": 854.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473562",
+        "travelMetres": 272.64,
+        "remainingM": 852.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2941537163",
+        "travelMetres": 276.31,
+        "remainingM": 848.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4233926316",
+        "travelMetres": 276.61,
+        "remainingM": 848.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473284",
+        "travelMetres": 277.09,
+        "remainingM": 847.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473291",
+        "travelMetres": 281.74,
+        "remainingM": 843.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844160",
+        "travelMetres": 282.23,
+        "remainingM": 842.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1188939750",
+        "travelMetres": 287.87,
+        "remainingM": 837.13,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665965",
+        "travelMetres": 288.5,
+        "remainingM": 836.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5453319326",
+        "travelMetres": 290.56,
+        "remainingM": 834.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521031",
+        "travelMetres": 290.74,
+        "remainingM": 834.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844159",
+        "travelMetres": 290.93,
+        "remainingM": 834.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844147",
+        "travelMetres": 291.28,
+        "remainingM": 833.72,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5453319327",
+        "travelMetres": 292.08,
+        "remainingM": 832.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2941614011",
+        "travelMetres": 294.92,
+        "remainingM": 830.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6827965360",
+        "travelMetres": 296.28,
+        "remainingM": 828.72,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1493424643",
+        "travelMetres": 296.94,
+        "remainingM": 828.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250401305",
+        "travelMetres": 297.04,
+        "remainingM": 827.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665926",
+        "travelMetres": 297.66,
+        "remainingM": 827.34,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845548",
+        "travelMetres": 298.08,
+        "remainingM": 826.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473423",
+        "travelMetres": 300.72,
+        "remainingM": 824.28,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844161",
+        "travelMetres": 303.4,
+        "remainingM": 821.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047368",
+        "travelMetres": 305.76,
+        "remainingM": 819.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2941548715",
+        "travelMetres": 306.92,
+        "remainingM": 818.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926153",
+        "travelMetres": 309.51,
+        "remainingM": 815.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047369",
+        "travelMetres": 310,
+        "remainingM": 815,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844134",
+        "travelMetres": 310.89,
+        "remainingM": 814.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1493424644",
+        "travelMetres": 313.12,
+        "remainingM": 811.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "881888130",
+        "travelMetres": 316.84,
+        "remainingM": 808.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791152",
+        "travelMetres": 317.29,
+        "remainingM": 807.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "271949991",
+        "travelMetres": 320.22,
+        "remainingM": 804.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520669",
+        "travelMetres": 323.23,
+        "remainingM": 801.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250445848",
+        "travelMetres": 325.33,
+        "remainingM": 799.67,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926155",
+        "travelMetres": 326.13,
+        "remainingM": 798.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2949076333",
+        "travelMetres": 326.24,
+        "remainingM": 798.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520668",
+        "travelMetres": 327.18,
+        "remainingM": 797.82,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347870212",
+        "travelMetres": 329.06,
+        "remainingM": 795.94,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257657",
+        "travelMetres": 331.07,
+        "remainingM": 793.93,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347870211",
+        "travelMetres": 334.65,
+        "remainingM": 790.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473285",
+        "travelMetres": 335.69,
+        "remainingM": 789.31,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347870213",
+        "travelMetres": 337.88,
+        "remainingM": 787.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6065422037",
+        "travelMetres": 338.47,
+        "remainingM": 786.53,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5657844054",
+        "travelMetres": 338.9,
+        "remainingM": 786.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791491",
+        "travelMetres": 340.02,
+        "remainingM": 784.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473424",
+        "travelMetres": 340.54,
+        "remainingM": 784.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047332",
+        "travelMetres": 342.08,
+        "remainingM": 782.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473375",
+        "travelMetres": 344.86,
+        "remainingM": 780.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502544",
+        "travelMetres": 344.95,
+        "remainingM": 780.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047323",
+        "travelMetres": 346.52,
+        "remainingM": 778.48,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047333",
+        "travelMetres": 346.53,
+        "remainingM": 778.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1716099103",
+        "travelMetres": 346.94,
+        "remainingM": 778.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250401314",
+        "travelMetres": 347.64,
+        "remainingM": 777.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5518619474",
+        "travelMetres": 350.11,
+        "remainingM": 774.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6827965357",
+        "travelMetres": 352.96,
+        "remainingM": 772.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521029",
+        "travelMetres": 354.68,
+        "remainingM": 770.32,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5487714091",
+        "travelMetres": 358.26,
+        "remainingM": 766.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6827965355",
+        "travelMetres": 360.63,
+        "remainingM": 764.38,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512925",
+        "travelMetres": 363.43,
+        "remainingM": 761.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665934",
+        "travelMetres": 364.4,
+        "remainingM": 760.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26866991",
+        "travelMetres": 364.88,
+        "remainingM": 760.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2417299495",
+        "travelMetres": 364.94,
+        "remainingM": 760.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473300",
+        "travelMetres": 366.92,
+        "remainingM": 758.09,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926160",
+        "travelMetres": 369.01,
+        "remainingM": 755.99,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6827965347",
+        "travelMetres": 370.6,
+        "remainingM": 754.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473398",
+        "travelMetres": 372.3,
+        "remainingM": 752.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791153",
+        "travelMetres": 374.35,
+        "remainingM": 750.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844144",
+        "travelMetres": 376.97,
+        "remainingM": 748.03,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501184",
+        "travelMetres": 379.22,
+        "remainingM": 745.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845551",
+        "travelMetres": 382.66,
+        "remainingM": 742.34,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520665",
+        "travelMetres": 385.1,
+        "remainingM": 739.9,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520629",
+        "travelMetres": 386.04,
+        "remainingM": 738.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926159",
+        "travelMetres": 387.35,
+        "remainingM": 737.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684517986",
+        "travelMetres": 389.49,
+        "remainingM": 735.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520666",
+        "travelMetres": 390.56,
+        "remainingM": 734.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520630",
+        "travelMetres": 391.23,
+        "remainingM": 733.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2941537158",
+        "travelMetres": 391.83,
+        "remainingM": 733.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844128",
+        "travelMetres": 392.11,
+        "remainingM": 732.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684517987",
+        "travelMetres": 394.94,
+        "remainingM": 730.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "881888131",
+        "travelMetres": 395.03,
+        "remainingM": 729.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473286",
+        "travelMetres": 395.08,
+        "remainingM": 729.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3357928883",
+        "travelMetres": 395.57,
+        "remainingM": 729.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512926",
+        "travelMetres": 398.45,
+        "remainingM": 726.55,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26699544",
+        "travelMetres": 398.61,
+        "remainingM": 726.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2131644076",
+        "travelMetres": 399.78,
+        "remainingM": 725.22,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107820",
+        "travelMetres": 399.91,
+        "remainingM": 725.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791492",
+        "travelMetres": 402.68,
+        "remainingM": 722.32,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "771982865",
+        "travelMetres": 404.61,
+        "remainingM": 720.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2414133930",
+        "travelMetres": 405.58,
+        "remainingM": 719.42,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047383",
+        "travelMetres": 406.34,
+        "remainingM": 718.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21666007",
+        "travelMetres": 407.36,
+        "remainingM": 717.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844129",
+        "travelMetres": 407.6,
+        "remainingM": 717.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512927",
+        "travelMetres": 407.82,
+        "remainingM": 717.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2129184256",
+        "travelMetres": 409.37,
+        "remainingM": 715.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "771982972",
+        "travelMetres": 410.18,
+        "remainingM": 714.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4731047386",
+        "travelMetres": 410.23,
+        "remainingM": 714.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2425141030",
+        "travelMetres": 410.23,
+        "remainingM": 714.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108055",
+        "travelMetres": 411.73,
+        "remainingM": 713.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108053",
+        "travelMetres": 411.93,
+        "remainingM": 713.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501063",
+        "travelMetres": 413.56,
+        "remainingM": 711.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25473399",
+        "travelMetres": 415.25,
+        "remainingM": 709.75,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6827965349",
+        "travelMetres": 415.53,
+        "remainingM": 709.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502545",
+        "travelMetres": 416.76,
+        "remainingM": 708.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "771982929",
+        "travelMetres": 417.58,
+        "remainingM": 707.42,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1947324474",
+        "travelMetres": 418.31,
+        "remainingM": 706.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844152",
+        "travelMetres": 418.53,
+        "remainingM": 706.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926169",
+        "travelMetres": 419.71,
+        "remainingM": 705.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512930",
+        "travelMetres": 419.92,
+        "remainingM": 705.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "271949877",
+        "travelMetres": 420.71,
+        "remainingM": 704.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108062",
+        "travelMetres": 421.84,
+        "remainingM": 703.16,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521022",
+        "travelMetres": 423.49,
+        "remainingM": 701.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502541",
+        "travelMetres": 425.74,
+        "remainingM": 699.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2129184285",
+        "travelMetres": 428.09,
+        "remainingM": 696.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926170",
+        "travelMetres": 428.49,
+        "remainingM": 696.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520654",
+        "travelMetres": 431.94,
+        "remainingM": 693.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501182",
+        "travelMetres": 432.74,
+        "remainingM": 692.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520664",
+        "travelMetres": 434.72,
+        "remainingM": 690.28,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512933",
+        "travelMetres": 435.03,
+        "remainingM": 689.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926164",
+        "travelMetres": 435.55,
+        "remainingM": 689.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3357929264",
+        "travelMetres": 435.64,
+        "remainingM": 689.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520653",
+        "travelMetres": 437.49,
+        "remainingM": 687.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2480891605",
+        "travelMetres": 438.21,
+        "remainingM": 686.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26845553",
+        "travelMetres": 438.9,
+        "remainingM": 686.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520717",
+        "travelMetres": 438.98,
+        "remainingM": 686.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257692",
+        "travelMetres": 439.67,
+        "remainingM": 685.33,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107821",
+        "travelMetres": 441.39,
+        "remainingM": 683.61,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21666003",
+        "travelMetres": 442.56,
+        "remainingM": 682.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "466926165",
+        "travelMetres": 444.48,
+        "remainingM": 680.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257040",
+        "travelMetres": 444.48,
+        "remainingM": 680.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806092",
+        "travelMetres": 446.16,
+        "remainingM": 678.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347805228",
+        "travelMetres": 447.33,
+        "remainingM": 677.67,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3729216344",
+        "travelMetres": 448.37,
+        "remainingM": 676.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26699551",
+        "travelMetres": 449.12,
+        "remainingM": 675.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556848",
+        "travelMetres": 450.02,
+        "remainingM": 674.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556854",
+        "travelMetres": 454.21,
+        "remainingM": 670.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2480891617",
+        "travelMetres": 455.35,
+        "remainingM": 669.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791494",
+        "travelMetres": 455.53,
+        "remainingM": 669.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665937",
+        "travelMetres": 456.63,
+        "remainingM": 668.37,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512935",
+        "travelMetres": 459.6,
+        "remainingM": 665.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806133",
+        "travelMetres": 460.67,
+        "remainingM": 664.33,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410084",
+        "travelMetres": 460.85,
+        "remainingM": 664.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321604",
+        "travelMetres": 461.12,
+        "remainingM": 663.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2939877211",
+        "travelMetres": 461.41,
+        "remainingM": 663.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556876",
+        "travelMetres": 462.36,
+        "remainingM": 662.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2480891601",
+        "travelMetres": 464.96,
+        "remainingM": 660.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347880278",
+        "travelMetres": 469.21,
+        "remainingM": 655.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347805231",
+        "travelMetres": 470.31,
+        "remainingM": 654.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2131643980",
+        "travelMetres": 475.32,
+        "remainingM": 649.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806102",
+        "travelMetres": 475.79,
+        "remainingM": 649.21,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "700757166",
+        "travelMetres": 475.94,
+        "remainingM": 649.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108058",
+        "travelMetres": 478.64,
+        "remainingM": 646.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556857",
+        "travelMetres": 480.49,
+        "remainingM": 644.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "383974166",
+        "travelMetres": 481.03,
+        "remainingM": 643.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4739043742",
+        "travelMetres": 481.53,
+        "remainingM": 643.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501773",
+        "travelMetres": 483.49,
+        "remainingM": 641.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4739043743",
+        "travelMetres": 484.35,
+        "remainingM": 640.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556847",
+        "travelMetres": 484.93,
+        "remainingM": 640.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2398143027",
+        "travelMetres": 485.87,
+        "remainingM": 639.13,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501016",
+        "travelMetres": 486.33,
+        "remainingM": 638.67,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502540",
+        "travelMetres": 487.42,
+        "remainingM": 637.58,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108061",
+        "travelMetres": 488.02,
+        "remainingM": 636.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2480891611",
+        "travelMetres": 490.26,
+        "remainingM": 634.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844131",
+        "travelMetres": 492.81,
+        "remainingM": 632.19,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257041",
+        "travelMetres": 493.69,
+        "remainingM": 631.31,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5441757128",
+        "travelMetres": 493.97,
+        "remainingM": 631.03,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108054",
+        "travelMetres": 494.87,
+        "remainingM": 630.13,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "383974165",
+        "travelMetres": 495.29,
+        "remainingM": 629.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806108",
+        "travelMetres": 497.06,
+        "remainingM": 627.94,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "881888313",
+        "travelMetres": 497.96,
+        "remainingM": 627.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1089052862",
+        "travelMetres": 498.11,
+        "remainingM": 626.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2480891614",
+        "travelMetres": 499.71,
+        "remainingM": 625.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "496813005",
+        "travelMetres": 500.19,
+        "remainingM": 624.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665938",
+        "travelMetres": 500.34,
+        "remainingM": 624.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665577",
+        "travelMetres": 500.4,
+        "remainingM": 624.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2480891600",
+        "travelMetres": 500.51,
+        "remainingM": 624.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501065",
+        "travelMetres": 501.14,
+        "remainingM": 623.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806084",
+        "travelMetres": 502.32,
+        "remainingM": 622.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2249185407",
+        "travelMetres": 504.77,
+        "remainingM": 620.23,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791156",
+        "travelMetres": 504.8,
+        "remainingM": 620.2,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521035",
+        "travelMetres": 507.53,
+        "remainingM": 617.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "255566",
+        "travelMetres": 509.14,
+        "remainingM": 615.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257042",
+        "travelMetres": 509.85,
+        "remainingM": 615.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932875003",
+        "travelMetres": 510.17,
+        "remainingM": 614.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250340171",
+        "travelMetres": 512.22,
+        "remainingM": 612.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6264884981",
+        "travelMetres": 512.55,
+        "remainingM": 612.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198881218",
+        "travelMetres": 512.59,
+        "remainingM": 612.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5877152479",
+        "travelMetres": 515.83,
+        "remainingM": 609.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107813",
+        "travelMetres": 516.75,
+        "remainingM": 608.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "691084099",
+        "travelMetres": 519.55,
+        "remainingM": 605.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932875004",
+        "travelMetres": 521.98,
+        "remainingM": 603.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512937",
+        "travelMetres": 522.51,
+        "remainingM": 602.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501064",
+        "travelMetres": 522.86,
+        "remainingM": 602.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5877152478",
+        "travelMetres": 523.39,
+        "remainingM": 601.61,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2919558531",
+        "travelMetres": 523.68,
+        "remainingM": 601.32,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25531001",
+        "travelMetres": 524.9,
+        "remainingM": 600.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520702",
+        "travelMetres": 527.26,
+        "remainingM": 597.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501940",
+        "travelMetres": 528,
+        "remainingM": 597,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108060",
+        "travelMetres": 530.14,
+        "remainingM": 594.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4684520713",
+        "travelMetres": 530.59,
+        "remainingM": 594.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5244680786",
+        "travelMetres": 535.18,
+        "remainingM": 589.82,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108059",
+        "travelMetres": 535.85,
+        "remainingM": 589.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556963",
+        "travelMetres": 535.92,
+        "remainingM": 589.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5244680779",
+        "travelMetres": 536.6,
+        "remainingM": 588.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844140",
+        "travelMetres": 537.04,
+        "remainingM": 587.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107812",
+        "travelMetres": 538.05,
+        "remainingM": 586.95,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257046",
+        "travelMetres": 538.6,
+        "remainingM": 586.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "496812960",
+        "travelMetres": 539,
+        "remainingM": 586,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556962",
+        "travelMetres": 541.09,
+        "remainingM": 583.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806107",
+        "travelMetres": 542.46,
+        "remainingM": 582.54,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257043",
+        "travelMetres": 547.66,
+        "remainingM": 577.34,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257039",
+        "travelMetres": 547.71,
+        "remainingM": 577.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410076",
+        "travelMetres": 547.76,
+        "remainingM": 577.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4712556977",
+        "travelMetres": 547.87,
+        "remainingM": 577.13,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502834",
+        "travelMetres": 549.51,
+        "remainingM": 575.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665586",
+        "travelMetres": 549.74,
+        "remainingM": 575.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2398143017",
+        "travelMetres": 550.03,
+        "remainingM": 574.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806106",
+        "travelMetres": 551.13,
+        "remainingM": 573.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932856688",
+        "travelMetres": 551.26,
+        "remainingM": 573.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844156",
+        "travelMetres": 551.61,
+        "remainingM": 573.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6313625295",
+        "travelMetres": 553.17,
+        "remainingM": 571.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665945",
+        "travelMetres": 553.32,
+        "remainingM": 571.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "917763922",
+        "travelMetres": 556.65,
+        "remainingM": 568.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6313625296",
+        "travelMetres": 557.3,
+        "remainingM": 567.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1089052872",
+        "travelMetres": 557.33,
+        "remainingM": 567.67,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25531002",
+        "travelMetres": 560.41,
+        "remainingM": 564.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665578",
+        "travelMetres": 561.6,
+        "remainingM": 563.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "255563",
+        "travelMetres": 562.3,
+        "remainingM": 562.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "255576",
+        "travelMetres": 562.9,
+        "remainingM": 562.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932856690",
+        "travelMetres": 565.36,
+        "remainingM": 559.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257027",
+        "travelMetres": 566.74,
+        "remainingM": 558.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26652351",
+        "travelMetres": 566.97,
+        "remainingM": 558.03,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502866",
+        "travelMetres": 567.3,
+        "remainingM": 557.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6849009938",
+        "travelMetres": 570.71,
+        "remainingM": 554.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5758343877",
+        "travelMetres": 571.34,
+        "remainingM": 553.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "452219937",
+        "travelMetres": 571.53,
+        "remainingM": 553.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "385562683",
+        "travelMetres": 572.5,
+        "remainingM": 552.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932856691",
+        "travelMetres": 573.32,
+        "remainingM": 551.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "266481798",
+        "travelMetres": 578.14,
+        "remainingM": 546.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512939",
+        "travelMetres": 579.49,
+        "remainingM": 545.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "333722500",
+        "travelMetres": 579.56,
+        "remainingM": 545.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "255564",
+        "travelMetres": 582.13,
+        "remainingM": 542.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521011",
+        "travelMetres": 582.22,
+        "remainingM": 542.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870628",
+        "travelMetres": 582.91,
+        "remainingM": 542.09,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1938580061",
+        "travelMetres": 585.98,
+        "remainingM": 539.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6313627510",
+        "travelMetres": 586.44,
+        "remainingM": 538.56,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250340166",
+        "travelMetres": 588.03,
+        "remainingM": 536.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1089052858",
+        "travelMetres": 588.14,
+        "remainingM": 536.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410080",
+        "travelMetres": 588.71,
+        "remainingM": 536.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870639",
+        "travelMetres": 589.85,
+        "remainingM": 535.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870636",
+        "travelMetres": 590.58,
+        "remainingM": 534.42,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257044",
+        "travelMetres": 590.72,
+        "remainingM": 534.28,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25256840",
+        "travelMetres": 590.83,
+        "remainingM": 534.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "266481785",
+        "travelMetres": 591.85,
+        "remainingM": 533.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870645",
+        "travelMetres": 593.03,
+        "remainingM": 531.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410081",
+        "travelMetres": 593.88,
+        "remainingM": 531.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1938580083",
+        "travelMetres": 595.38,
+        "remainingM": 529.62,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107798",
+        "travelMetres": 595.83,
+        "remainingM": 529.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347844126",
+        "travelMetres": 595.9,
+        "remainingM": 529.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25529871",
+        "travelMetres": 596.69,
+        "remainingM": 528.31,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108263",
+        "travelMetres": 597.02,
+        "remainingM": 527.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1663004188",
+        "travelMetres": 597.22,
+        "remainingM": 527.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3693305990",
+        "travelMetres": 598.17,
+        "remainingM": 526.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870616",
+        "travelMetres": 598.45,
+        "remainingM": 526.55,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870637",
+        "travelMetres": 600.17,
+        "remainingM": 524.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2047806082",
+        "travelMetres": 600.55,
+        "remainingM": 524.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521006",
+        "travelMetres": 600.85,
+        "remainingM": 524.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107333",
+        "travelMetres": 603.25,
+        "remainingM": 521.75,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25496587",
+        "travelMetres": 603.38,
+        "remainingM": 521.62,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6313624586",
+        "travelMetres": 603.86,
+        "remainingM": 521.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1227938940",
+        "travelMetres": 604.54,
+        "remainingM": 520.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2398143010",
+        "travelMetres": 606.13,
+        "remainingM": 518.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107326",
+        "travelMetres": 606.16,
+        "remainingM": 518.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3069487523",
+        "travelMetres": 606.5,
+        "remainingM": 518.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870632",
+        "travelMetres": 606.9,
+        "remainingM": 518.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870630",
+        "travelMetres": 607.51,
+        "remainingM": 517.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347880279",
+        "travelMetres": 607.88,
+        "remainingM": 517.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6089225181",
+        "travelMetres": 608,
+        "remainingM": 517,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1663004181",
+        "travelMetres": 609.02,
+        "remainingM": 515.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107806",
+        "travelMetres": 609.86,
+        "remainingM": 515.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932883505",
+        "travelMetres": 611.1,
+        "remainingM": 513.9,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870634",
+        "travelMetres": 611.24,
+        "remainingM": 513.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870618",
+        "travelMetres": 611.36,
+        "remainingM": 513.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3069487527",
+        "travelMetres": 611.74,
+        "remainingM": 513.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "452209276",
+        "travelMetres": 612.31,
+        "remainingM": 512.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "385562685",
+        "travelMetres": 613.51,
+        "remainingM": 511.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4796603767",
+        "travelMetres": 613.55,
+        "remainingM": 511.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870623",
+        "travelMetres": 613.65,
+        "remainingM": 511.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870614",
+        "travelMetres": 614.67,
+        "remainingM": 510.33,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2129184196",
+        "travelMetres": 616.49,
+        "remainingM": 508.51,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4301399715",
+        "travelMetres": 616.87,
+        "remainingM": 508.13,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1080601933",
+        "travelMetres": 617.62,
+        "remainingM": 507.38,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "366906363",
+        "travelMetres": 618.19,
+        "remainingM": 506.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26652357",
+        "travelMetres": 618.25,
+        "remainingM": 506.75,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198870626",
+        "travelMetres": 618.56,
+        "remainingM": 506.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "692191040",
+        "travelMetres": 619.17,
+        "remainingM": 505.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25531181",
+        "travelMetres": 619.96,
+        "remainingM": 505.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5932883504",
+        "travelMetres": 620.88,
+        "remainingM": 504.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4301399719",
+        "travelMetres": 621.4,
+        "remainingM": 503.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "366905603",
+        "travelMetres": 621.7,
+        "remainingM": 503.3,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1663004187",
+        "travelMetres": 622.06,
+        "remainingM": 502.94,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1122301113",
+        "travelMetres": 623.16,
+        "remainingM": 501.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "255578",
+        "travelMetres": 623.23,
+        "remainingM": 501.77,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3985843678",
+        "travelMetres": 624.41,
+        "remainingM": 500.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2587253639",
+        "travelMetres": 624.52,
+        "remainingM": 500.48,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25502552",
+        "travelMetres": 625.05,
+        "remainingM": 499.95,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26652119",
+        "travelMetres": 625.51,
+        "remainingM": 499.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4303454977",
+        "travelMetres": 625.54,
+        "remainingM": 499.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4303454975",
+        "travelMetres": 629.13,
+        "remainingM": 495.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107809",
+        "travelMetres": 629.19,
+        "remainingM": 495.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1174906996",
+        "travelMetres": 629.47,
+        "remainingM": 495.53,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25256827",
+        "travelMetres": 630.56,
+        "remainingM": 494.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107322",
+        "travelMetres": 632.5,
+        "remainingM": 492.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1227938921",
+        "travelMetres": 633.16,
+        "remainingM": 491.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665581",
+        "travelMetres": 633.66,
+        "remainingM": 491.34,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2946815216",
+        "travelMetres": 635.75,
+        "remainingM": 489.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2417300730",
+        "travelMetres": 635.8,
+        "remainingM": 489.2,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6982828952",
+        "travelMetres": 636.48,
+        "remainingM": 488.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26241038",
+        "travelMetres": 636.86,
+        "remainingM": 488.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4303455889",
+        "travelMetres": 636.9,
+        "remainingM": 488.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "452589682",
+        "travelMetres": 637.08,
+        "remainingM": 487.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108245",
+        "travelMetres": 637.34,
+        "remainingM": 487.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26561311",
+        "travelMetres": 639.12,
+        "remainingM": 485.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321638",
+        "travelMetres": 639.26,
+        "remainingM": 485.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4303454988",
+        "travelMetres": 640.65,
+        "remainingM": 484.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665031",
+        "travelMetres": 642.97,
+        "remainingM": 482.03,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2946815210",
+        "travelMetres": 643.08,
+        "remainingM": 481.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "349284914",
+        "travelMetres": 643.76,
+        "remainingM": 481.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "255562",
+        "travelMetres": 645.22,
+        "remainingM": 479.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410049",
+        "travelMetres": 645.8,
+        "remainingM": 479.2,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26652126",
+        "travelMetres": 646.73,
+        "remainingM": 478.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "452209558",
+        "travelMetres": 646.73,
+        "remainingM": 478.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2205124769",
+        "travelMetres": 647,
+        "remainingM": 478,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "692191097",
+        "travelMetres": 647.6,
+        "remainingM": 477.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25417426",
+        "travelMetres": 648.18,
+        "remainingM": 476.82,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250359412",
+        "travelMetres": 649.9,
+        "remainingM": 475.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26559372",
+        "travelMetres": 650.2,
+        "remainingM": 474.8,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2205117795",
+        "travelMetres": 650.44,
+        "remainingM": 474.56,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321619",
+        "travelMetres": 652.1,
+        "remainingM": 472.9,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4796603759",
+        "travelMetres": 652.59,
+        "remainingM": 472.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "7045529689",
+        "travelMetres": 653.44,
+        "remainingM": 471.56,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4347899044",
+        "travelMetres": 653.83,
+        "remainingM": 471.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3985843683",
+        "travelMetres": 653.83,
+        "remainingM": 471.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "452589685",
+        "travelMetres": 655.71,
+        "remainingM": 469.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "333719185",
+        "travelMetres": 658.19,
+        "remainingM": 466.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2947858570",
+        "travelMetres": 658.31,
+        "remainingM": 466.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3985843680",
+        "travelMetres": 662.57,
+        "remainingM": 462.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2205117785",
+        "travelMetres": 663.11,
+        "remainingM": 461.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4303455916",
+        "travelMetres": 663.29,
+        "remainingM": 461.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "349284933",
+        "travelMetres": 663.52,
+        "remainingM": 461.48,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3069487440",
+        "travelMetres": 663.94,
+        "remainingM": 461.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107805",
+        "travelMetres": 665.66,
+        "remainingM": 459.34,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1663004143",
+        "travelMetres": 665.82,
+        "remainingM": 459.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "333722502",
+        "travelMetres": 666.12,
+        "remainingM": 458.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25472258",
+        "travelMetres": 666.65,
+        "remainingM": 458.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "452210967",
+        "travelMetres": 667.13,
+        "remainingM": 457.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4303455913",
+        "travelMetres": 667.43,
+        "remainingM": 457.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5392928741",
+        "travelMetres": 667.98,
+        "remainingM": 457.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1188983785",
+        "travelMetres": 668.5,
+        "remainingM": 456.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410079",
+        "travelMetres": 671.36,
+        "remainingM": 453.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107799",
+        "travelMetres": 671.92,
+        "remainingM": 453.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107807",
+        "travelMetres": 671.98,
+        "remainingM": 453.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1685938596",
+        "travelMetres": 672.25,
+        "remainingM": 452.75,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "725089550",
+        "travelMetres": 673.89,
+        "remainingM": 451.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2947858564",
+        "travelMetres": 675.84,
+        "remainingM": 449.16,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6250359413",
+        "travelMetres": 676.2,
+        "remainingM": 448.8,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321517",
+        "travelMetres": 676.51,
+        "remainingM": 448.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1080601938",
+        "travelMetres": 677.25,
+        "remainingM": 447.75,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321498",
+        "travelMetres": 678.3,
+        "remainingM": 446.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26559370",
+        "travelMetres": 679.41,
+        "remainingM": 445.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257058",
+        "travelMetres": 680.41,
+        "remainingM": 444.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107800",
+        "travelMetres": 680.96,
+        "remainingM": 444.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25256828",
+        "travelMetres": 682.62,
+        "remainingM": 442.38,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25256826",
+        "travelMetres": 683.29,
+        "remainingM": 441.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25500997",
+        "travelMetres": 683.79,
+        "remainingM": 441.21,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2205117797",
+        "travelMetres": 685.54,
+        "remainingM": 439.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512924",
+        "travelMetres": 686.35,
+        "remainingM": 438.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665367",
+        "travelMetres": 686.42,
+        "remainingM": 438.58,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "333722501",
+        "travelMetres": 686.73,
+        "remainingM": 438.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "725089563",
+        "travelMetres": 689.45,
+        "remainingM": 435.55,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107324",
+        "travelMetres": 689.85,
+        "remainingM": 435.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321532",
+        "travelMetres": 689.86,
+        "remainingM": 435.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3456413131",
+        "travelMetres": 690.43,
+        "remainingM": 434.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521018",
+        "travelMetres": 690.55,
+        "remainingM": 434.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321579",
+        "travelMetres": 691.15,
+        "remainingM": 433.85,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1174906940",
+        "travelMetres": 692.47,
+        "remainingM": 432.53,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25417428",
+        "travelMetres": 694.31,
+        "remainingM": 430.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321556",
+        "travelMetres": 694.37,
+        "remainingM": 430.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3985843682",
+        "travelMetres": 694.91,
+        "remainingM": 430.09,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257643",
+        "travelMetres": 696.34,
+        "remainingM": 428.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1174906970",
+        "travelMetres": 696.43,
+        "remainingM": 428.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2205117787",
+        "travelMetres": 696.87,
+        "remainingM": 428.13,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2129908162",
+        "travelMetres": 697.67,
+        "remainingM": 427.33,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410105",
+        "travelMetres": 699.47,
+        "remainingM": 425.53,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1227938937",
+        "travelMetres": 699.72,
+        "remainingM": 425.28,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665361",
+        "travelMetres": 699.95,
+        "remainingM": 425.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1694551556",
+        "travelMetres": 700.25,
+        "remainingM": 424.75,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107803",
+        "travelMetres": 703.21,
+        "remainingM": 421.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1813223023",
+        "travelMetres": 703.81,
+        "remainingM": 421.19,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26699537",
+        "travelMetres": 707.21,
+        "remainingM": 417.79,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107818",
+        "travelMetres": 707.41,
+        "remainingM": 417.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2205117801",
+        "travelMetres": 710.35,
+        "remainingM": 414.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107328",
+        "travelMetres": 712.93,
+        "remainingM": 412.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5337345854",
+        "travelMetres": 713.16,
+        "remainingM": 411.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107797",
+        "travelMetres": 713.51,
+        "remainingM": 411.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108247",
+        "travelMetres": 715.9,
+        "remainingM": 409.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "82710879",
+        "travelMetres": 720.07,
+        "remainingM": 404.93,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1938450893",
+        "travelMetres": 720.29,
+        "remainingM": 404.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198832377",
+        "travelMetres": 720.48,
+        "remainingM": 404.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4349648269",
+        "travelMetres": 721.14,
+        "remainingM": 403.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6311039270",
+        "travelMetres": 723.52,
+        "remainingM": 401.48,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3069487479",
+        "travelMetres": 723.91,
+        "remainingM": 401.09,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665360",
+        "travelMetres": 724.13,
+        "remainingM": 400.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321549",
+        "travelMetres": 725.27,
+        "remainingM": 399.73,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2214957481",
+        "travelMetres": 725.3,
+        "remainingM": 399.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321552",
+        "travelMetres": 726.92,
+        "remainingM": 398.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1322321545",
+        "travelMetres": 728.36,
+        "remainingM": 396.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198832384",
+        "travelMetres": 728.59,
+        "remainingM": 396.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410088",
+        "travelMetres": 730.6,
+        "remainingM": 394.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512915",
+        "travelMetres": 730.78,
+        "remainingM": 394.22,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1227938943",
+        "travelMetres": 730.84,
+        "remainingM": 394.16,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257463",
+        "travelMetres": 731.72,
+        "remainingM": 393.28,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3729362050",
+        "travelMetres": 731.8,
+        "remainingM": 393.2,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665363",
+        "travelMetres": 732.38,
+        "remainingM": 392.62,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1938450902",
+        "travelMetres": 732.74,
+        "remainingM": 392.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410087",
+        "travelMetres": 733.08,
+        "remainingM": 391.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665582",
+        "travelMetres": 735.13,
+        "remainingM": 389.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1663004118",
+        "travelMetres": 735.41,
+        "remainingM": 389.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4349648276",
+        "travelMetres": 735.99,
+        "remainingM": 389.01,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4349648272",
+        "travelMetres": 736.63,
+        "remainingM": 388.37,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1685938592",
+        "travelMetres": 736.7,
+        "remainingM": 388.3,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "333722494",
+        "travelMetres": 736.74,
+        "remainingM": 388.26,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1567896328",
+        "travelMetres": 737.75,
+        "remainingM": 387.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4349648270",
+        "travelMetres": 739.4,
+        "remainingM": 385.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "108249",
+        "travelMetres": 742.31,
+        "remainingM": 382.69,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198832372",
+        "travelMetres": 742.35,
+        "remainingM": 382.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1227938942",
+        "travelMetres": 743.2,
+        "remainingM": 381.8,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5877163201",
+        "travelMetres": 743.71,
+        "remainingM": 381.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1947324461",
+        "travelMetres": 744.98,
+        "remainingM": 380.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2198832381",
+        "travelMetres": 750.13,
+        "remainingM": 374.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665080",
+        "travelMetres": 750.55,
+        "remainingM": 374.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "691084080",
+        "travelMetres": 753.46,
+        "remainingM": 371.54,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25475069",
+        "travelMetres": 754.58,
+        "remainingM": 370.42,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26699545",
+        "travelMetres": 755.48,
+        "remainingM": 369.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "499122575",
+        "travelMetres": 755.57,
+        "remainingM": 369.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5239543922",
+        "travelMetres": 756.93,
+        "remainingM": 368.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "82710880",
+        "travelMetres": 756.94,
+        "remainingM": 368.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1694551553",
+        "travelMetres": 757.17,
+        "remainingM": 367.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "30939234",
+        "travelMetres": 771.37,
+        "remainingM": 353.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257045",
+        "travelMetres": 772.1,
+        "remainingM": 352.9,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25475083",
+        "travelMetres": 774.57,
+        "remainingM": 350.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "806827465",
+        "travelMetres": 775.77,
+        "remainingM": 349.23,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25417431",
+        "travelMetres": 776.56,
+        "remainingM": 348.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26559363",
+        "travelMetres": 776.85,
+        "remainingM": 348.15,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665909",
+        "travelMetres": 777.39,
+        "remainingM": 347.61,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25501000",
+        "travelMetres": 780.82,
+        "remainingM": 344.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107793",
+        "travelMetres": 781.6,
+        "remainingM": 343.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "30939235",
+        "travelMetres": 782.43,
+        "remainingM": 342.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410094",
+        "travelMetres": 784.59,
+        "remainingM": 340.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25257323",
+        "travelMetres": 785.03,
+        "remainingM": 339.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2214957488",
+        "travelMetres": 785.9,
+        "remainingM": 339.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1663004057",
+        "travelMetres": 786.22,
+        "remainingM": 338.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25503799",
+        "travelMetres": 787.39,
+        "remainingM": 337.61,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1238318167",
+        "travelMetres": 787.98,
+        "remainingM": 337.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1685751682",
+        "travelMetres": 790.48,
+        "remainingM": 334.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107345",
+        "travelMetres": 793.63,
+        "remainingM": 331.37,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2214952984",
+        "travelMetres": 797.89,
+        "remainingM": 327.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26699543",
+        "travelMetres": 802.65,
+        "remainingM": 322.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410086",
+        "travelMetres": 804.19,
+        "remainingM": 320.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9512917",
+        "travelMetres": 804.89,
+        "remainingM": 320.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3729362049",
+        "travelMetres": 805.95,
+        "remainingM": 319.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107824",
+        "travelMetres": 805.99,
+        "remainingM": 319.01,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2214952983",
+        "travelMetres": 807.02,
+        "remainingM": 317.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "500486430",
+        "travelMetres": 808.71,
+        "remainingM": 316.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6214704108",
+        "travelMetres": 809.33,
+        "remainingM": 315.67,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665006",
+        "travelMetres": 810.75,
+        "remainingM": 314.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665000",
+        "travelMetres": 811.3,
+        "remainingM": 313.7,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6214704111",
+        "travelMetres": 813.57,
+        "remainingM": 311.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "82710881",
+        "travelMetres": 814.04,
+        "remainingM": 310.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2214957485",
+        "travelMetres": 814.05,
+        "remainingM": 310.95,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2425138407",
+        "travelMetres": 819.64,
+        "remainingM": 305.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "380494797",
+        "travelMetres": 821.71,
+        "remainingM": 303.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461196612",
+        "travelMetres": 824.09,
+        "remainingM": 300.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5811148943",
+        "travelMetres": 824.16,
+        "remainingM": 300.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "348875443",
+        "travelMetres": 824.2,
+        "remainingM": 300.8,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9791482",
+        "travelMetres": 824.86,
+        "remainingM": 300.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26559362",
+        "travelMetres": 825.42,
+        "remainingM": 299.58,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "370712147",
+        "travelMetres": 826.9,
+        "remainingM": 298.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1617713594",
+        "travelMetres": 829.32,
+        "remainingM": 295.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5811153023",
+        "travelMetres": 829.55,
+        "remainingM": 295.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2910874877",
+        "travelMetres": 829.66,
+        "remainingM": 295.34,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26651416",
+        "travelMetres": 831.94,
+        "remainingM": 293.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461196609",
+        "travelMetres": 835.93,
+        "remainingM": 289.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "380494798",
+        "travelMetres": 835.95,
+        "remainingM": 289.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1617713596",
+        "travelMetres": 837.13,
+        "remainingM": 287.87,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461196611",
+        "travelMetres": 838.29,
+        "remainingM": 286.71,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25496592",
+        "travelMetres": 840.75,
+        "remainingM": 284.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "692129351",
+        "travelMetres": 841.93,
+        "remainingM": 283.07,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "370712149",
+        "travelMetres": 841.98,
+        "remainingM": 283.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2971399443",
+        "travelMetres": 842.04,
+        "remainingM": 282.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "370712146",
+        "travelMetres": 842.54,
+        "remainingM": 282.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "348876076",
+        "travelMetres": 845.75,
+        "remainingM": 279.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6214704103",
+        "travelMetres": 847.15,
+        "remainingM": 277.85,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665712",
+        "travelMetres": 848.56,
+        "remainingM": 276.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1685751692",
+        "travelMetres": 848.6,
+        "remainingM": 276.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6214704106",
+        "travelMetres": 850.06,
+        "remainingM": 274.94,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107339",
+        "travelMetres": 851.77,
+        "remainingM": 273.23,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "370712150",
+        "travelMetres": 852.57,
+        "remainingM": 272.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410116",
+        "travelMetres": 853.6,
+        "remainingM": 271.4,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3733175891",
+        "travelMetres": 853.71,
+        "remainingM": 271.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "692129349",
+        "travelMetres": 853.96,
+        "remainingM": 271.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "370712137",
+        "travelMetres": 853.98,
+        "remainingM": 271.02,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200387",
+        "travelMetres": 854.71,
+        "remainingM": 270.29,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "107801",
+        "travelMetres": 855.05,
+        "remainingM": 269.95,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6214704109",
+        "travelMetres": 855.42,
+        "remainingM": 269.58,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5393414955",
+        "travelMetres": 855.7,
+        "remainingM": 269.3,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5811164165",
+        "travelMetres": 855.77,
+        "remainingM": 269.23,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665587",
+        "travelMetres": 857.41,
+        "remainingM": 267.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25530376",
+        "travelMetres": 858.65,
+        "remainingM": 266.35,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5811174035",
+        "travelMetres": 859.89,
+        "remainingM": 265.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "692129358",
+        "travelMetres": 860.18,
+        "remainingM": 264.82,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200175",
+        "travelMetres": 860.32,
+        "remainingM": 264.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200382",
+        "travelMetres": 860.53,
+        "remainingM": 264.47,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1685751697",
+        "travelMetres": 861.4,
+        "remainingM": 263.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200174",
+        "travelMetres": 862.63,
+        "remainingM": 262.37,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6214704100",
+        "travelMetres": 863.11,
+        "remainingM": 261.89,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200177",
+        "travelMetres": 864.51,
+        "remainingM": 260.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1835298184",
+        "travelMetres": 865.16,
+        "remainingM": 259.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199612",
+        "travelMetres": 867.61,
+        "remainingM": 257.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410075",
+        "travelMetres": 867.82,
+        "remainingM": 257.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665910",
+        "travelMetres": 870.41,
+        "remainingM": 254.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26652137",
+        "travelMetres": 870.61,
+        "remainingM": 254.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6489561885",
+        "travelMetres": 870.83,
+        "remainingM": 254.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665713",
+        "travelMetres": 871.24,
+        "remainingM": 253.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6782338923",
+        "travelMetres": 873.88,
+        "remainingM": 251.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200378",
+        "travelMetres": 874.37,
+        "remainingM": 250.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199609",
+        "travelMetres": 875.64,
+        "remainingM": 249.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6173754807",
+        "travelMetres": 882.39,
+        "remainingM": 242.61,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199022",
+        "travelMetres": 884.72,
+        "remainingM": 240.28,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199610",
+        "travelMetres": 884.76,
+        "remainingM": 240.24,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "565545547",
+        "travelMetres": 885.43,
+        "remainingM": 239.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461196616",
+        "travelMetres": 885.54,
+        "remainingM": 239.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461196613",
+        "travelMetres": 887.28,
+        "remainingM": 237.72,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199611",
+        "travelMetres": 888.43,
+        "remainingM": 236.57,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199601",
+        "travelMetres": 890.94,
+        "remainingM": 234.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "2971399444",
+        "travelMetres": 891.7,
+        "remainingM": 233.3,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200384",
+        "travelMetres": 892.24,
+        "remainingM": 232.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "348814978",
+        "travelMetres": 893.12,
+        "remainingM": 231.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199046",
+        "travelMetres": 893.26,
+        "remainingM": 231.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "370712148",
+        "travelMetres": 894.89,
+        "remainingM": 230.11,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200373",
+        "travelMetres": 895.09,
+        "remainingM": 229.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199602",
+        "travelMetres": 895.5,
+        "remainingM": 229.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199603",
+        "travelMetres": 895.57,
+        "remainingM": 229.43,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200368",
+        "travelMetres": 895.94,
+        "remainingM": 229.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200383",
+        "travelMetres": 898.41,
+        "remainingM": 226.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "639259210",
+        "travelMetres": 899.75,
+        "remainingM": 225.25,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1684410113",
+        "travelMetres": 900.24,
+        "remainingM": 224.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6782338927",
+        "travelMetres": 902.2,
+        "remainingM": 222.8,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "26559582",
+        "travelMetres": 907.5,
+        "remainingM": 217.5,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "14791193",
+        "travelMetres": 907.95,
+        "remainingM": 217.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199045",
+        "travelMetres": 910.1,
+        "remainingM": 214.9,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "21665714",
+        "travelMetres": 911.62,
+        "remainingM": 213.38,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6782338922",
+        "travelMetres": 914.9,
+        "remainingM": 210.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199037",
+        "travelMetres": 915.41,
+        "remainingM": 209.59,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199351",
+        "travelMetres": 917.18,
+        "remainingM": 207.82,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200030",
+        "travelMetres": 917.95,
+        "remainingM": 207.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199789",
+        "travelMetres": 918.4,
+        "remainingM": 206.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "844784034",
+        "travelMetres": 918.61,
+        "remainingM": 206.39,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199352",
+        "travelMetres": 918.86,
+        "remainingM": 206.14,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199587",
+        "travelMetres": 919.42,
+        "remainingM": 205.58,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199349",
+        "travelMetres": 920.58,
+        "remainingM": 204.42,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200027",
+        "travelMetres": 920.79,
+        "remainingM": 204.21,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "3181698963",
+        "travelMetres": 922.9,
+        "remainingM": 202.1,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4239701247",
+        "travelMetres": 923.12,
+        "remainingM": 201.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200024",
+        "travelMetres": 923.34,
+        "remainingM": 201.66,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199350",
+        "travelMetres": 923.73,
+        "remainingM": 201.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199348",
+        "travelMetres": 929.35,
+        "remainingM": 195.65,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199347",
+        "travelMetres": 929.54,
+        "remainingM": 195.46,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200029",
+        "travelMetres": 929.55,
+        "remainingM": 195.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "9521034",
+        "travelMetres": 930.82,
+        "remainingM": 194.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4239701213",
+        "travelMetres": 932.14,
+        "remainingM": 192.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25500123",
+        "travelMetres": 932.96,
+        "remainingM": 192.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200034",
+        "travelMetres": 934.51,
+        "remainingM": 190.49,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5393414954",
+        "travelMetres": 936.79,
+        "remainingM": 188.21,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199614",
+        "travelMetres": 936.95,
+        "remainingM": 188.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200126",
+        "travelMetres": 939.64,
+        "remainingM": 185.36,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4239701276",
+        "travelMetres": 941.14,
+        "remainingM": 183.86,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200138",
+        "travelMetres": 944.36,
+        "remainingM": 180.64,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199615",
+        "travelMetres": 948.96,
+        "remainingM": 176.04,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199551",
+        "travelMetres": 954.32,
+        "remainingM": 170.68,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "380494808",
+        "travelMetres": 955.78,
+        "remainingM": 169.22,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199407",
+        "travelMetres": 957.2,
+        "remainingM": 167.8,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199596",
+        "travelMetres": 959.59,
+        "remainingM": 165.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199777",
+        "travelMetres": 959.62,
+        "remainingM": 165.38,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200124",
+        "travelMetres": 960.95,
+        "remainingM": 164.05,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "6311518054",
+        "travelMetres": 961.24,
+        "remainingM": 163.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199778",
+        "travelMetres": 961.63,
+        "remainingM": 163.37,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200031",
+        "travelMetres": 961.68,
+        "remainingM": 163.32,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199370",
+        "travelMetres": 961.92,
+        "remainingM": 163.08,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25500120",
+        "travelMetres": 966.04,
+        "remainingM": 158.96,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199779",
+        "travelMetres": 966.17,
+        "remainingM": 158.83,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199406",
+        "travelMetres": 969.73,
+        "remainingM": 155.27,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "14791186",
+        "travelMetres": 971.08,
+        "remainingM": 153.92,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461200035",
+        "travelMetres": 974.37,
+        "remainingM": 150.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199025",
+        "travelMetres": 979.24,
+        "remainingM": 145.76,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199772",
+        "travelMetres": 981.4,
+        "remainingM": 143.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199781",
+        "travelMetres": 983.84,
+        "remainingM": 141.16,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199024",
+        "travelMetres": 984.4,
+        "remainingM": 140.6,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199023",
+        "travelMetres": 984.45,
+        "remainingM": 140.55,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199773",
+        "travelMetres": 986.59,
+        "remainingM": 138.41,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199774",
+        "travelMetres": 986.82,
+        "remainingM": 138.18,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199783",
+        "travelMetres": 988.16,
+        "remainingM": 136.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199782",
+        "travelMetres": 988.19,
+        "remainingM": 136.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199386",
+        "travelMetres": 990.07,
+        "remainingM": 134.93,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199780",
+        "travelMetres": 993.88,
+        "remainingM": 131.12,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199784",
+        "travelMetres": 998.22,
+        "remainingM": 126.78,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199785",
+        "travelMetres": 998.27,
+        "remainingM": 126.73,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199755",
+        "travelMetres": 998.55,
+        "remainingM": 126.45,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199756",
+        "travelMetres": 1003.16,
+        "remainingM": 121.84,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "1685751696",
+        "travelMetres": 1003.37,
+        "remainingM": 121.63,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199757",
+        "travelMetres": 1003.83,
+        "remainingM": 121.17,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "25500126",
+        "travelMetres": 1004.84,
+        "remainingM": 120.16,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199740",
+        "travelMetres": 1008.12,
+        "remainingM": 116.88,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199741",
+        "travelMetres": 1009.94,
+        "remainingM": 115.06,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "4243601481",
+        "travelMetres": 1012.44,
+        "remainingM": 112.56,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199742",
+        "travelMetres": 1015.48,
+        "remainingM": 109.52,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "14791190",
+        "travelMetres": 1020.02,
+        "remainingM": 104.98,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5630569824",
+        "travelMetres": 1032.56,
+        "remainingM": 92.44,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5935736817",
+        "travelMetres": 1038.26,
+        "remainingM": 86.74,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199382",
+        "travelMetres": 1061.09,
+        "remainingM": 63.91,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199384",
+        "travelMetres": 1065.19,
+        "remainingM": 59.81,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      },
+      {
+        "networkNodeId": "5461199383",
+        "travelMetres": 1066.03,
+        "remainingM": 58.97,
+        "assumedSpeedMetresPerMinute": 75,
+        "travelDirection": "outbound"
+      }
+    ]
+  },
+  "output": {
+    "inBand": [
+      {
+        "networkNodeId": "25473293",
+        "remainingM": 375,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "108073",
+        "remainingM": 354.31,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25501289",
+        "remainingM": 334.99,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473408",
+        "remainingM": 315.94,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "701608613",
+        "remainingM": 310.92,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "701608618",
+        "remainingM": 295,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25475478",
+        "remainingM": 286.23,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "108072",
+        "remainingM": 286.14,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1324710127",
+        "remainingM": 277.16,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473409",
+        "remainingM": 270.89,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784682613",
+        "remainingM": 264.97,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "701600719",
+        "remainingM": 259.2,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784682614",
+        "remainingM": 256.11,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784682598",
+        "remainingM": 255.06,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473556",
+        "remainingM": 251.81,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "701608631",
+        "remainingM": 251.02,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784682596",
+        "remainingM": 248.91,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21666019",
+        "remainingM": 246.21,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25501340",
+        "remainingM": 238.51,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4728954676",
+        "remainingM": 237.56,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "701600731",
+        "remainingM": 236.93,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "734320209",
+        "remainingM": 232.97,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784682639",
+        "remainingM": 231.89,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473513",
+        "remainingM": 228.19,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4709189403",
+        "remainingM": 227.52,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784682616",
+        "remainingM": 227.27,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1330788578",
+        "remainingM": 225.01,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21666010",
+        "remainingM": 217.79,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2784434327",
+        "remainingM": 216.95,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "26845546",
+        "remainingM": 216.18,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473288",
+        "remainingM": 208.69,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25501330",
+        "remainingM": 204.64,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "499350858",
+        "remainingM": 200.66,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "26845544",
+        "remainingM": 193.21,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9521025",
+        "remainingM": 189.56,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1330788638",
+        "remainingM": 189.01,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2770153342",
+        "remainingM": 185.99,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5568839679",
+        "remainingM": 185.95,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21666011",
+        "remainingM": 183.78,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "26845547",
+        "remainingM": 182.65,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473512",
+        "remainingM": 178.02,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25501328",
+        "remainingM": 174.93,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "3077397235",
+        "remainingM": 174.26,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21665930",
+        "remainingM": 174.24,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1330788629",
+        "remainingM": 161.58,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4702603702",
+        "remainingM": 161.17,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5112906885",
+        "remainingM": 160.71,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "26845543",
+        "remainingM": 158.71,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4730390165",
+        "remainingM": 155.68,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473287",
+        "remainingM": 155.57,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1188939751",
+        "remainingM": 155.44,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25501325",
+        "remainingM": 155.43,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5112906884",
+        "remainingM": 152.25,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4702603654",
+        "remainingM": 151.45,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "108070",
+        "remainingM": 148.24,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21665931",
+        "remainingM": 144.6,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4702603655",
+        "remainingM": 143.89,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4702603652",
+        "remainingM": 143.77,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4730390416",
+        "remainingM": 140.96,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4730390156",
+        "remainingM": 137.92,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4702603653",
+        "remainingM": 136.42,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25475484",
+        "remainingM": 133.96,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25501320",
+        "remainingM": 130.01,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4730390419",
+        "remainingM": 129.68,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4702603699",
+        "remainingM": 128.35,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21665929",
+        "remainingM": 127.11,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473371",
+        "remainingM": 126.68,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4730390417",
+        "remainingM": 126.31,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9512928",
+        "remainingM": 125.94,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "466926176",
+        "remainingM": 124.77,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "772092173",
+        "remainingM": 121.36,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4730390441",
+        "remainingM": 118.47,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473373",
+        "remainingM": 113.89,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2494845032",
+        "remainingM": 112.7,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1906612406",
+        "remainingM": 108.86,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "466926175",
+        "remainingM": 105.79,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473295",
+        "remainingM": 104.05,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473562",
+        "remainingM": 102.36,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2941537163",
+        "remainingM": 98.69,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4233926316",
+        "remainingM": 98.39,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473284",
+        "remainingM": 97.91,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473291",
+        "remainingM": 93.26,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347844160",
+        "remainingM": 92.77,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1188939750",
+        "remainingM": 87.13,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21665965",
+        "remainingM": 86.5,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5453319326",
+        "remainingM": 84.44,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9521031",
+        "remainingM": 84.26,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347844159",
+        "remainingM": 84.07,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347844147",
+        "remainingM": 83.72,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5453319327",
+        "remainingM": 82.92,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2941614011",
+        "remainingM": 80.08,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6827965360",
+        "remainingM": 78.72,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1493424643",
+        "remainingM": 78.06,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6250401305",
+        "remainingM": 77.96,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21665926",
+        "remainingM": 77.34,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "26845548",
+        "remainingM": 76.92,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473423",
+        "remainingM": 74.28,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347844161",
+        "remainingM": 71.6,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4731047368",
+        "remainingM": 69.24,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2941548715",
+        "remainingM": 68.08,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "466926153",
+        "remainingM": 65.49,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4731047369",
+        "remainingM": 65,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347844134",
+        "remainingM": 64.11,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1493424644",
+        "remainingM": 61.88,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "881888130",
+        "remainingM": 58.16,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9791152",
+        "remainingM": 57.71,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "271949991",
+        "remainingM": 54.78,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4684520669",
+        "remainingM": 51.77,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6250445848",
+        "remainingM": 49.67,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "466926155",
+        "remainingM": 48.87,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2949076333",
+        "remainingM": 48.76,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4684520668",
+        "remainingM": 47.82,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347870212",
+        "remainingM": 45.94,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25257657",
+        "remainingM": 43.93,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347870211",
+        "remainingM": 40.35,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473285",
+        "remainingM": 39.31,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4347870213",
+        "remainingM": 37.12,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6065422037",
+        "remainingM": 36.53,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5657844054",
+        "remainingM": 36.1,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9791491",
+        "remainingM": 34.98,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473424",
+        "remainingM": 34.46,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4731047332",
+        "remainingM": 32.92,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473375",
+        "remainingM": 30.14,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25502544",
+        "remainingM": 30.05,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4731047323",
+        "remainingM": 28.48,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "4731047333",
+        "remainingM": 28.47,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "1716099103",
+        "remainingM": 28.06,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6250401314",
+        "remainingM": 27.36,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5518619474",
+        "remainingM": 24.89,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6827965357",
+        "remainingM": 22.04,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9521029",
+        "remainingM": 20.32,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "5487714091",
+        "remainingM": 16.74,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6827965355",
+        "remainingM": 14.37,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9512925",
+        "remainingM": 11.57,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "21665934",
+        "remainingM": 10.6,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "26866991",
+        "remainingM": 10.12,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "2417299495",
+        "remainingM": 10.06,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473300",
+        "remainingM": 8.08,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "466926160",
+        "remainingM": 5.99,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "6827965347",
+        "remainingM": 4.4,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "25473398",
+        "remainingM": 2.7,
+        "bandMinutes": 5
+      },
+      {
+        "networkNodeId": "9791153",
+        "remainingM": 0.65,
+        "bandMinutes": 5
+      }
+    ],
+    "bandBudgetMetres": 375,
+    "traversalBudgetMetres": 1125.01,
+    "junctionsOffered": 706,
+    "junctionsInBand": 142
+  },
+  "note": "Recompute the band budget from the speed the junctions carry, select the junctions within it, and compare the selection, each junction’s recomputed remaining budget, and the counts.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "8fd861d1f42cfe65e48979f5037678234f2e8b8b1ff612f438d280b3cdcff8d0"
+  }
+}
