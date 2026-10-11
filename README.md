@@ -141,6 +141,34 @@ fails while a `loadPackage` request succeeds. The notebooks used to call
 `piplite.install`, which is why `00-kernel-check.ipynb` reported packages as
 absent on the published site.
 
+## The published notebooks do not currently run
+
+Found 2026-10-11 by executing them in the browser kernel for the first time
+(`node/check_09_notebooks_browser.mjs`). **Six of the seven fail**, every one at
+the same line, while all seven pass in CPython in eight seconds.
+
+Two defects, and the second survives any fix to the first.
+
+**The digest sidecars cannot be read.** `open('/drive/fixtures/x.json.sha256')`
+raises `FileNotFoundError` although `os.listdir` shows the file. The contents
+index gives it `mimetype: null`, where the fixture beside it gets
+`application/json`. Renaming one to `.sha256.txt` — which the index then typed
+`text/plain` — did not fix it, so the cause is not only the extension and is not
+yet established.
+
+**And byte-identity digests cannot work through this transport at all.** The
+fixture is 2,724 bytes on disk and the kernel reads **1,926**: JupyterLite
+serves a `.json` as parsed JSON and the driver re-serialises it. The content is
+the same and the bytes are not, so `sha256(raw)` cannot match a digest taken
+over the file. The check's own identity rule — "the notebook records the
+fixture's hash and fails if it does not match" — is unsatisfiable in a browser
+as written.
+
+The honest options are to digest a **canonical form** of the JSON rather than
+its bytes, computed the same way by Fieldwork's exporter and the check, or to
+carry fixtures in a format the transport does not rewrite. Both change the
+fixture contract across repositories, so neither is done here.
+
 ## What a passing check does not establish
 
 That the declared CRS was the right one for a file, that the source coordinates
