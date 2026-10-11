@@ -12,6 +12,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .fixtures import load_fixture, verified_asset
+
 import numpy as np
 import rasterio
 import rasterio.mask
@@ -22,13 +24,6 @@ from scipy.ndimage import binary_dilation
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def verified(path: Path) -> bytes:
-    raw = path.read_bytes()
-    digest = hashlib.sha256(raw).hexdigest()
-    expected = (path.parent / (path.name + ".sha256")).read_text().split()[0]
-    if digest != expected:
-        raise SystemExit(f"Hash mismatch for {path.name}: {digest} != {expected}")
-    return raw
 
 
 def rows_to_mask(rows: list[str]) -> np.ndarray:
@@ -128,11 +123,12 @@ def compare_case(case: dict, tif: Path, cutline: dict, grid: dict, p_cutline: di
 
 
 def run(fixture_path: Path) -> dict:
-    raw = verified(fixture_path)
-    fixture = json.loads(raw)
+    fixture, digest = load_fixture(fixture_path)
     p = fixture["declaredParameters"]
     tif = fixture_path.parent / p["sourceRaster"]
-    verified(tif)
+    # The raster is checked by its bytes, which survive the transport; only JSON is
+    # re-serialised. Its digest is declared in the fixture rather than in a sidecar.
+    verified_asset(fixture, tif)
 
     grid = p["sourceGrid"]
     with rasterio.open(tif) as dataset:
@@ -156,7 +152,7 @@ def run(fixture_path: Path) -> dict:
             "shapely": shapely.__version__, "geos": shapely.geos_version_string,
             "scipy": scipy.__version__, "numpy": np.__version__,
         },
-        "fixture": {"id": fixture["fixtureId"], "sha256": hashlib.sha256(raw).hexdigest(),
+        "fixture": {"id": fixture["fixtureId"], "sha256": digest,
                     "rasterSHA256": fixture["input"]["rasterSHA256"],
                     "application": fixture["application"], "operation": fixture["operation"]},
         "openedGrid": opened,

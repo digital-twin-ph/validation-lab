@@ -1,6 +1,6 @@
 {
  "check": "05-area",
- "ranAt": "2026-10-09T00:39:29.345951+00:00",
+ "ranAt": "2026-10-11T15:31:45.916652+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,10 +9,10 @@
  },
  "fixture": {
   "id": "measure-area-001",
-  "sha256": "c7ce709c9af293384f1cb4301c4376135e533957689d3cf14825e8f630537249",
+  "sha256": "f440968a56a28df5d1153711640dedb1e04c7f1260ba427e5564adaf89816d62",
   "application": {
    "name": "Fieldwork",
-   "version": "0.6.0"
+   "version": "0.7.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:measure_area",

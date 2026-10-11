@@ -22,19 +22,14 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .fixtures import load_fixture, verified_asset
+
 import pyproj
 
 RELATIVE_TOLERANCE = 1e-9  # Stated before running: same formula, so agreement should be near machine precision.
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def load_fixture(path: Path):
-    raw = path.read_bytes()
-    digest = hashlib.sha256(raw).hexdigest()
-    expected = (path.parent / (path.name + ".sha256")).read_text().split()[0]
-    if digest != expected:
-        raise SystemExit(f"Fixture hash mismatch: {digest} != {expected}")
-    return json.loads(raw), digest
 
 
 def ring_area_parallels(ring, radius):

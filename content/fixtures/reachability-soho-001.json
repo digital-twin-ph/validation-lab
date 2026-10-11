@@ -1,7 +1,7 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "reachability-soho-001",
-  "exportedAt": "2026-10-10T20:32:38.274Z",
+  "exportedAt": "2026-10-11T15:29:33.394Z",
   "application": {
     "name": "Fieldwork",
     "version": "0.7.0"
@@ -14016,5 +14016,11 @@
         "remainingM": 0.65
       }
     ]
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "48fba084f9e35c9c8e9bed3a88029991abed51416845c5fe137a8cce75d6fa8b"
   }
 }

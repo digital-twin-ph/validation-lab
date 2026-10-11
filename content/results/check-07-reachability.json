@@ -1,6 +1,6 @@
 {
  "check": "07-reachability",
- "ranAt": "2026-10-10T20:32:38.419776+00:00",
+ "ranAt": "2026-10-11T15:31:46.251974+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -8,7 +8,7 @@
  },
  "fixture": {
   "id": "reachability-soho-001",
-  "sha256": "3b675ac29172421b190af0058b345f1350d8266aa171b71590dc0b3699716d8f",
+  "sha256": "48fba084f9e35c9c8e9bed3a88029991abed51416845c5fe137a8cce75d6fa8b",
   "application": {
    "name": "Fieldwork",
    "version": "0.7.0"
@@ -36,7 +36,7 @@
  "reachedOnlyByFieldwork": [],
  "setsAgree": true,
  "worstCostDifferenceM": 0.0049999999999954525,
- "worstCostDifferenceNode": "4347844161",
+ "worstCostDifferenceNode": "5112906885",
  "costsAgree": true,
  "worstRemainingDifferenceM": 0.0049999999999954525,
  "remainingAgrees": true,

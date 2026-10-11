@@ -141,7 +141,29 @@ fails while a `loadPackage` request succeeds. The notebooks used to call
 `piplite.install`, which is why `00-kernel-check.ipynb` reported packages as
 absent on the published site.
 
-## The published notebooks do not currently run
+## The published notebooks: fixed, with one still failing
+
+**Fixed 2026-10-11.** Integrity moved from a `.sha256` sidecar over the file's bytes to an
+`integrity` field inside the fixture, taken over a canonical form — the fixture with that
+field removed, object keys sorted, no whitespace, UTF-8. Fieldwork's exporter computes the
+same string in JavaScript and writes no sidecars. `01-reproject-vs-pyproj`, the notebook
+reported as broken, now passes in the browser kernel, and all seven pass in CPython.
+
+One cost worth knowing: the canonical form has to be byte-identical in two languages and
+was not. The exporter wrote `1e-9` where Python produced `1e-09`. The canonical form is now
+defined as ECMAScript's and Python normalises its exponents to match. That pins one known
+divergence rather than implementing RFC 8785, and another would surface as a loud mismatch
+at export rather than as a fixture quietly passing.
+
+**Still failing: `02-clip-vs-rasterio` does not complete in the browser.** It ran for more
+than twelve minutes without finishing, where it takes 1.1 seconds in CPython. Every package
+it asks for is in the Pyodide distribution except `snuggs`, which recent rasterio may not
+need. The cause is not established. The browser check therefore reports without blocking
+publication until this is resolved.
+
+### What the original failure was
+
+
 
 Found 2026-10-11 by executing them in the browser kernel for the first time
 (`node/check_09_notebooks_browser.mjs`). **Six of the seven fail**, every one at

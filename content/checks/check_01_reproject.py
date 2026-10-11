@@ -12,19 +12,14 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .fixtures import load_fixture, verified_asset
+
 import pyproj
 
 TOLERANCE_M = 1e-3  # Stated before running: agreement required below one millimetre.
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def load_fixture(path: Path) -> dict:
-    raw = path.read_bytes()
-    digest = hashlib.sha256(raw).hexdigest()
-    expected = (path.parent / (path.name + ".sha256")).read_text().split()[0]
-    if digest != expected:
-        raise SystemExit(f"Fixture hash mismatch: {digest} != {expected}")
-    return json.loads(raw), digest
 
 
 def run(fixture_path: Path) -> dict:

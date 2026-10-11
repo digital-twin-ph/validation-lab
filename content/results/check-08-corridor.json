@@ -1,6 +1,6 @@
 {
  "check": "08-corridor",
- "ranAt": "2026-10-10T21:46:16.184488+00:00",
+ "ranAt": "2026-10-11T15:31:46.610399+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -10,7 +10,7 @@
  },
  "fixture": {
   "id": "corridor-soho-001",
-  "sha256": "3c4775feb05a11657ae045eb72acd25983599a7287d5d3c06f57ecd8b1a67972",
+  "sha256": "2536bbe6927a7f4cbbfca85a108028ff959a6ea63c1b9227731079e717c428a5",
   "application": {
    "name": "Fieldwork",
    "version": "0.7.0"

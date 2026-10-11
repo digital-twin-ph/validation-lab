@@ -1,7 +1,7 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "corridor-soho-001",
-  "exportedAt": "2026-10-10T21:45:27.380Z",
+  "exportedAt": "2026-10-11T15:29:34.530Z",
   "application": {
     "name": "Fieldwork",
     "version": "0.7.0"
@@ -32770,5 +32770,11 @@
     },
     "enteredSegmentCount": 301,
     "partialSegmentCount": 45
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "2536bbe6927a7f4cbbfca85a108028ff959a6ea63c1b9227731079e717c428a5"
   }
 }
