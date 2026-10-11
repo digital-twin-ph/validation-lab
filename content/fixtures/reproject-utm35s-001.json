@@ -1,10 +1,10 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "reproject-utm35s-001",
-  "exportedAt": "2026-10-08T09:28:03.416Z",
+  "exportedAt": "2026-10-11T15:27:59.373Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.4.0"
+    "version": "0.7.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:reproject",
@@ -125,5 +125,11 @@
       "latitude": -36.124095832
     }
   ],
-  "note": "Recompute the output from declaredParameters and the input only. Fieldwork’s own intermediate values are deliberately absent."
+  "note": "Recompute the output from declaredParameters and the input only. Fieldwork’s own intermediate values are deliberately absent.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "c283488566a56465e6917943826aa99ae2eb6952f702980d68407b9128220d7b"
+  }
 }

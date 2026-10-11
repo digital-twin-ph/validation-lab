@@ -1,10 +1,10 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "clip-all-touched-001",
-  "exportedAt": "2026-10-08T13:16:45.887Z",
+  "exportedAt": "2026-10-11T15:29:33.134Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.4.0"
+    "version": "0.7.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:clip_raster",
@@ -784,5 +784,16 @@
       ]
     }
   ],
-  "note": "Rebuild the clip from the GeoTIFF, the cutline and each case’s options. Row strings are one character per cell, 1 included and 0 excluded, within that case’s cropped window."
+  "note": "Rebuild the clip from the GeoTIFF, the cutline and each case’s options. Row strings are one character per cell, 1 included and 0 excluded, within that case’s cropped window.",
+  "assets": {
+    "clip-all-touched-001.tif": {
+      "sha256": "e2f68a8fa4860a75047d1b0d453959e451eb15023de10568e1b55d4a036632d6",
+      "bytes": 4456
+    }
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "298cd398a748e91df941831b430945e15e2dcdf4ce7e6db7d82f1a4af2e072c9"
+  }
 }

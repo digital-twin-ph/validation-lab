@@ -29,6 +29,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .fixtures import load_fixture, verified_asset
+
 import networkx as nx
 
 # Fieldwork rounds the reported cost to two decimals, so agreement is asserted at the
@@ -37,13 +39,6 @@ COST_TOLERANCE_M = 1e-2
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def load_fixture(path: Path):
-    raw = path.read_bytes()
-    digest = hashlib.sha256(raw).hexdigest()
-    expected = (path.parent / (path.name + ".sha256")).read_text().split()[0]
-    if digest != expected:
-        raise SystemExit(f"Fixture hash mismatch: {digest} != {expected}")
-    return json.loads(raw), digest
 
 
 def run(fixture_path: Path) -> dict:

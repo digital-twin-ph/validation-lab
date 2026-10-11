@@ -1,10 +1,10 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "measure-area-001",
-  "exportedAt": "2026-10-09T00:36:19.514Z",
+  "exportedAt": "2026-10-11T15:29:33.219Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.6.0"
+    "version": "0.7.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:measure_area",
@@ -233,5 +233,11 @@
       "unit": "km2"
     }
   ],
-  "note": "Recompute each case from its geometry and the declared method. Two separate claims are available: that this implementation computes the stated spherical formula, and how far that formula sits from an ellipsoidal area, which is the approximation the widget declares."
+  "note": "Recompute each case from its geometry and the declared method. Two separate claims are available: that this implementation computes the stated spherical formula, and how far that formula sits from an ellipsoidal area, which is the approximation the widget declares.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "f440968a56a28df5d1153711640dedb1e04c7f1260ba427e5564adaf89816d62"
+  }
 }

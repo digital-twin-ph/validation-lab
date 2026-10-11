@@ -1,10 +1,10 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "mean-center-001",
-  "exportedAt": "2026-10-09T00:41:06.015Z",
+  "exportedAt": "2026-10-11T15:29:33.300Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.6.0"
+    "version": "0.7.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:mean_center",
@@ -69,5 +69,11 @@
     "crs": "EPSG:32735",
     "count": 6
   },
-  "note": "Project the input points to the declared CRS, average the coordinates without weights, and invert. Compare both the projected mean in metres and the returned CRS84 position as a ground separation."
+  "note": "Project the input points to the declared CRS, average the coordinates without weights, and invert. Compare both the projected mean in metres and the returned CRS84 position as a ground separation.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "66e7c1cb5f638e218ac0d097a3f600b978f04d0dcf94bd7da4e10ccda768123a"
+  }
 }

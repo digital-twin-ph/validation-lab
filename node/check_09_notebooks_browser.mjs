@@ -141,8 +141,16 @@ for (const name of notebooks) {
     console.log(`  ${errors.length ? 'FAIL' : 'ok  '} ${name.padEnd(34)} ${seconds.toFixed(1).padStart(6)}s  ${detail}`);
     if (errors.length) failed.push(name);
   } catch (error) {
-    console.log(`  FAIL ${name.padEnd(34)}         ${String(error.message).split('\n')[0].slice(0, 160)}`);
+    const message = String(error.message).split('\n')[0];
+    console.log(`  FAIL ${name.padEnd(34)}         ${message.slice(0, 160)}`);
     failed.push(name);
+    // A dead browser is not a verdict on the remaining notebooks. Without this, killing the
+    // run mid-way reported five false failures that read exactly like real ones.
+    if (/Target page, context or browser has been closed|browserContext.*closed/.test(message)) {
+      const remaining = notebooks.slice(notebooks.indexOf(name) + 1);
+      if (remaining.length) console.log(`  -- browser gone; ${remaining.length} not attempted: ${remaining.join(', ')}`);
+      break;
+    }
   }
 }
 await browser.close();
