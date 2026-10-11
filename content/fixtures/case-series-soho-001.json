@@ -1,0 +1,444 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "case-series-soho-001",
+  "exportedAt": "2026-10-11T22:39:52.076Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.7.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:case_series",
+    "release": "0.1.0",
+    "label": "Cases by period",
+    "implementation": "src/case-series.ts#caseSeries"
+  },
+  "declaredParameters": {
+    "dateField": "date",
+    "dateKind": "death",
+    "weightField": "deaths",
+    "periods": [
+      "day",
+      "week",
+      "month"
+    ],
+    "dateRule": "A date is read only as ISO yyyy-mm-dd and is checked against the calendar, so 2024-02-30 is undated rather than rolled forward. Anything unparseable is counted as an undated record and reported, never guessed.",
+    "keyRule": "A day is keyed yyyy-mm-dd, a month yyyy-mm, and a week by the Monday of its ISO week as yyyy-mm-dd, so the key’s order is the period’s order.",
+    "weightRule": "Each row contributes its value in the weight field, not 1. A weight that is not a number of at least zero is refused rather than treated as zero.",
+    "fillRule": "Every period between the first and the last is present, including those with no cases. An epidemic curve with gaps omitted misreads as continuous.",
+    "semantics": "The declared kind of date is part of the result: a curve by date of death is not a curve by date of onset, and the widget carries the kind so a chart cannot relabel it."
+  },
+  "input": {
+    "rows": [
+      {
+        "date": "1854-08-19",
+        "deaths": 1
+      },
+      {
+        "date": "1854-08-20",
+        "deaths": 0
+      },
+      {
+        "date": "1854-08-21",
+        "deaths": 2
+      },
+      {
+        "date": "1854-08-22",
+        "deaths": 0
+      },
+      {
+        "date": "1854-08-23",
+        "deaths": 0
+      },
+      {
+        "date": "1854-08-24",
+        "deaths": 2
+      },
+      {
+        "date": "1854-08-25",
+        "deaths": 0
+      },
+      {
+        "date": "1854-08-26",
+        "deaths": 0
+      },
+      {
+        "date": "1854-08-27",
+        "deaths": 1
+      },
+      {
+        "date": "1854-08-28",
+        "deaths": 0
+      },
+      {
+        "date": "1854-08-29",
+        "deaths": 1
+      },
+      {
+        "date": "1854-08-30",
+        "deaths": 2
+      },
+      {
+        "date": "1854-08-31",
+        "deaths": 3
+      },
+      {
+        "date": "1854-09-01",
+        "deaths": 70
+      },
+      {
+        "date": "1854-09-02",
+        "deaths": 127
+      },
+      {
+        "date": "1854-09-03",
+        "deaths": 76
+      },
+      {
+        "date": "1854-09-04",
+        "deaths": 71
+      },
+      {
+        "date": "1854-09-05",
+        "deaths": 45
+      },
+      {
+        "date": "1854-09-06",
+        "deaths": 37
+      },
+      {
+        "date": "1854-09-07",
+        "deaths": 32
+      },
+      {
+        "date": "1854-09-08",
+        "deaths": 30
+      },
+      {
+        "date": "1854-09-09",
+        "deaths": 24
+      },
+      {
+        "date": "1854-09-10",
+        "deaths": 18
+      },
+      {
+        "date": "1854-09-11",
+        "deaths": 15
+      },
+      {
+        "date": "1854-09-12",
+        "deaths": 6
+      },
+      {
+        "date": "1854-09-13",
+        "deaths": 13
+      },
+      {
+        "date": "1854-09-14",
+        "deaths": 6
+      },
+      {
+        "date": "1854-09-15",
+        "deaths": 8
+      },
+      {
+        "date": "1854-09-16",
+        "deaths": 6
+      },
+      {
+        "date": "1854-09-17",
+        "deaths": 5
+      },
+      {
+        "date": "1854-09-18",
+        "deaths": 2
+      },
+      {
+        "date": "1854-09-19",
+        "deaths": 3
+      },
+      {
+        "date": "1854-09-20",
+        "deaths": 0
+      },
+      {
+        "date": "1854-09-21",
+        "deaths": 0
+      },
+      {
+        "date": "1854-09-22",
+        "deaths": 2
+      },
+      {
+        "date": "1854-09-23",
+        "deaths": 3
+      },
+      {
+        "date": "1854-09-24",
+        "deaths": 0
+      },
+      {
+        "date": "1854-09-25",
+        "deaths": 0
+      },
+      {
+        "date": "1854-09-26",
+        "deaths": 2
+      },
+      {
+        "date": "1854-09-27",
+        "deaths": 0
+      },
+      {
+        "date": "1854-09-28",
+        "deaths": 2
+      },
+      {
+        "date": "1854-09-29",
+        "deaths": 1
+      },
+      {
+        "date": "1854-09-30",
+        "deaths": 0
+      }
+    ]
+  },
+  "output": {
+    "day": {
+      "bins": [
+        {
+          "key": "1854-08-19",
+          "count": 1
+        },
+        {
+          "key": "1854-08-20",
+          "count": 0
+        },
+        {
+          "key": "1854-08-21",
+          "count": 2
+        },
+        {
+          "key": "1854-08-22",
+          "count": 0
+        },
+        {
+          "key": "1854-08-23",
+          "count": 0
+        },
+        {
+          "key": "1854-08-24",
+          "count": 2
+        },
+        {
+          "key": "1854-08-25",
+          "count": 0
+        },
+        {
+          "key": "1854-08-26",
+          "count": 0
+        },
+        {
+          "key": "1854-08-27",
+          "count": 1
+        },
+        {
+          "key": "1854-08-28",
+          "count": 0
+        },
+        {
+          "key": "1854-08-29",
+          "count": 1
+        },
+        {
+          "key": "1854-08-30",
+          "count": 2
+        },
+        {
+          "key": "1854-08-31",
+          "count": 3
+        },
+        {
+          "key": "1854-09-01",
+          "count": 70
+        },
+        {
+          "key": "1854-09-02",
+          "count": 127
+        },
+        {
+          "key": "1854-09-03",
+          "count": 76
+        },
+        {
+          "key": "1854-09-04",
+          "count": 71
+        },
+        {
+          "key": "1854-09-05",
+          "count": 45
+        },
+        {
+          "key": "1854-09-06",
+          "count": 37
+        },
+        {
+          "key": "1854-09-07",
+          "count": 32
+        },
+        {
+          "key": "1854-09-08",
+          "count": 30
+        },
+        {
+          "key": "1854-09-09",
+          "count": 24
+        },
+        {
+          "key": "1854-09-10",
+          "count": 18
+        },
+        {
+          "key": "1854-09-11",
+          "count": 15
+        },
+        {
+          "key": "1854-09-12",
+          "count": 6
+        },
+        {
+          "key": "1854-09-13",
+          "count": 13
+        },
+        {
+          "key": "1854-09-14",
+          "count": 6
+        },
+        {
+          "key": "1854-09-15",
+          "count": 8
+        },
+        {
+          "key": "1854-09-16",
+          "count": 6
+        },
+        {
+          "key": "1854-09-17",
+          "count": 5
+        },
+        {
+          "key": "1854-09-18",
+          "count": 2
+        },
+        {
+          "key": "1854-09-19",
+          "count": 3
+        },
+        {
+          "key": "1854-09-20",
+          "count": 0
+        },
+        {
+          "key": "1854-09-21",
+          "count": 0
+        },
+        {
+          "key": "1854-09-22",
+          "count": 2
+        },
+        {
+          "key": "1854-09-23",
+          "count": 3
+        },
+        {
+          "key": "1854-09-24",
+          "count": 0
+        },
+        {
+          "key": "1854-09-25",
+          "count": 0
+        },
+        {
+          "key": "1854-09-26",
+          "count": 2
+        },
+        {
+          "key": "1854-09-27",
+          "count": 0
+        },
+        {
+          "key": "1854-09-28",
+          "count": 2
+        },
+        {
+          "key": "1854-09-29",
+          "count": 1
+        },
+        {
+          "key": "1854-09-30",
+          "count": 0
+        }
+      ],
+      "total": 616,
+      "datedRecords": 43,
+      "undatedRecords": 0
+    },
+    "week": {
+      "bins": [
+        {
+          "key": "1854-08-14",
+          "count": 1
+        },
+        {
+          "key": "1854-08-21",
+          "count": 5
+        },
+        {
+          "key": "1854-08-28",
+          "count": 279
+        },
+        {
+          "key": "1854-09-04",
+          "count": 257
+        },
+        {
+          "key": "1854-09-11",
+          "count": 59
+        },
+        {
+          "key": "1854-09-18",
+          "count": 10
+        },
+        {
+          "key": "1854-09-25",
+          "count": 5
+        }
+      ],
+      "total": 616,
+      "datedRecords": 43,
+      "undatedRecords": 0
+    },
+    "month": {
+      "bins": [
+        {
+          "key": "1854-08",
+          "count": 12
+        },
+        {
+          "key": "1854-09",
+          "count": 604
+        }
+      ],
+      "total": 616,
+      "datedRecords": 43,
+      "undatedRecords": 0
+    }
+  },
+  "note": "Bin the same rows by day, week and month with pandas, weighting by the deaths column, filling empty periods, and compare every bin key and count, the totals, and the dated and undated record counts.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "8b877abba461f72c446596ea38be4556391a95202a13ae0c6d1cc207ef2a7267"
+  }
+}

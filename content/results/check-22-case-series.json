@@ -1,0 +1,96 @@
+{
+ "check": "22-case-series",
+ "ranAt": "2026-10-11T22:42:46.665061+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "pandas": "2.3.3"
+ },
+ "fixture": {
+  "id": "case-series-soho-001",
+  "sha256": "8b877abba461f72c446596ea38be4556391a95202a13ae0c6d1cc207ef2a7267",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:case_series",
+   "release": "0.1.0",
+   "label": "Cases by period",
+   "implementation": "src/case-series.ts#caseSeries"
+  },
+  "declaredKeyRule": "A day is keyed yyyy-mm-dd, a month yyyy-mm, and a week by the Monday of its ISO week as yyyy-mm-dd, so the key\u2019s order is the period\u2019s order.",
+  "dateKind": "death"
+ },
+ "criterion": "per period: every bin key in order exactly, every weighted count exactly, the total exactly, every period between the first and last present including empty ones, and the dated and undated record counts exact",
+ "rows": 43,
+ "datedRows": 43,
+ "undatedRows": 0,
+ "periods": [
+  {
+   "period": "day",
+   "resampleRule": "D",
+   "binsFieldwork": 43,
+   "binsReference": 43,
+   "emptyBins": 12,
+   "keysAgree": true,
+   "countsAgree": true,
+   "totalFieldwork": 616,
+   "totalReference": 616.0,
+   "totalAgrees": true,
+   "noGaps": true,
+   "accountingAgrees": true,
+   "firstKey": "1854-08-19",
+   "lastKey": "1854-09-30",
+   "peak": [
+    "1854-09-02",
+    127.0
+   ],
+   "agrees": true
+  },
+  {
+   "period": "week",
+   "resampleRule": "W-MON, label=left, closed=left",
+   "binsFieldwork": 7,
+   "binsReference": 7,
+   "emptyBins": 0,
+   "keysAgree": true,
+   "countsAgree": true,
+   "totalFieldwork": 616,
+   "totalReference": 616.0,
+   "totalAgrees": true,
+   "noGaps": true,
+   "accountingAgrees": true,
+   "firstKey": "1854-08-14",
+   "lastKey": "1854-09-25",
+   "peak": [
+    "1854-08-28",
+    279.0
+   ],
+   "agrees": true
+  },
+  {
+   "period": "month",
+   "resampleRule": "MS",
+   "binsFieldwork": 2,
+   "binsReference": 2,
+   "emptyBins": 0,
+   "keysAgree": true,
+   "countsAgree": true,
+   "totalFieldwork": 616,
+   "totalReference": 616.0,
+   "totalAgrees": true,
+   "noGaps": true,
+   "accountingAgrees": true,
+   "firstKey": "1854-08",
+   "lastKey": "1854-09",
+   "peak": [
+    "1854-09",
+    604.0
+   ],
+   "agrees": true
+  }
+ ],
+ "notEstablished": "That a curve by date of death says what a reader will take it to say. Snow's table records deaths by the date of death; the outbreak's shape by date of onset would be shifted earlier by the course of the illness. The widget carries the declared kind so a chart cannot relabel it, and no check can supply the onset dates nobody recorded.",
+ "agrees": true
+}
