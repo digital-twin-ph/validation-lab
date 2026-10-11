@@ -1,0 +1,134 @@
+{
+ "check": "14-summarize-polygons",
+ "ranAt": "2026-10-11T21:06:17.277525+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1"
+ },
+ "fixture": {
+  "id": "summarize-polygons-soho-001",
+  "sha256": "f607820b562d0c79082258c951113fabf0747eadc5208afc321444dba0b11822",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:summarize_polygons",
+   "release": "0.1.0",
+   "label": "Summarize points in polygons",
+   "implementation": "src/catchments.ts#summarizePolygons"
+  },
+  "declaredRule": "A location belongs to a polygon when it is strictly inside it, or on its boundary when the boundary policy is include. Every membership is retained: a location inside two polygons counts for both."
+ },
+ "criterion": "every per-polygon count, numeric total and missing-value count exact, and the summary of records, matched, unmatched, unlocated and multiply-assigned locations exact, with boundary policy 'include' read as GEOS covers",
+ "polygons": 8,
+ "points": 250,
+ "boundaryPolicy": "include",
+ "locationsOnAPolygonEdge": 0,
+ "perPolygon": [
+  {
+   "id": "pump-250",
+   "countAgrees": true,
+   "fieldworkCount": 171,
+   "referenceCount": 171,
+   "fieldworkTotal": 340,
+   "referenceTotal": 340,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-251",
+   "countAgrees": true,
+   "fieldworkCount": 36,
+   "referenceCount": 36,
+   "fieldworkTotal": 65,
+   "referenceTotal": 65,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-252",
+   "countAgrees": true,
+   "fieldworkCount": 2,
+   "referenceCount": 2,
+   "fieldworkTotal": 5,
+   "referenceTotal": 5,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-253",
+   "countAgrees": true,
+   "fieldworkCount": 0,
+   "referenceCount": 0,
+   "fieldworkTotal": 0,
+   "referenceTotal": 0,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-254",
+   "countAgrees": true,
+   "fieldworkCount": 19,
+   "referenceCount": 19,
+   "fieldworkTotal": 40,
+   "referenceTotal": 40,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-255",
+   "countAgrees": true,
+   "fieldworkCount": 13,
+   "referenceCount": 13,
+   "fieldworkTotal": 27,
+   "referenceTotal": 27,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-256",
+   "countAgrees": true,
+   "fieldworkCount": 0,
+   "referenceCount": 0,
+   "fieldworkTotal": 0,
+   "referenceTotal": 0,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  },
+  {
+   "id": "pump-257",
+   "countAgrees": true,
+   "fieldworkCount": 9,
+   "referenceCount": 9,
+   "fieldworkTotal": 12,
+   "referenceTotal": 12,
+   "totalDifference": 0,
+   "missingValuesAgree": true
+  }
+ ],
+ "reference": {
+  "records": 250,
+  "matched": 250,
+  "unmatched": 0,
+  "missingLocation": 0,
+  "multiple": 0,
+  "valueField": "DEATHS"
+ },
+ "fieldwork": {
+  "records": 250,
+  "matched": 250,
+  "unmatched": 0,
+  "missingLocation": 0,
+  "multiple": 0,
+  "valueField": "DEATHS"
+ },
+ "countsAgree": true,
+ "missingValueCountsAgree": true,
+ "summaryAgrees": true,
+ "worstTotalDifference": 0.0,
+ "notEstablished": "That nearest-pump assignment models which pump anybody drank from. It assumes the nearest pump by straight-line distance, which is what the widget computes and not what anybody did. And the per-polygon totals must not be added: every membership is retained, so an overlapping location counts more than once.",
+ "agrees": true
+}
