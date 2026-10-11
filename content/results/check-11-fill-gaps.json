@@ -1,0 +1,49 @@
+{
+ "check": "11-fill-gaps",
+ "ranAt": "2026-10-11T20:48:38.525152+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "fill-gaps-soho-001",
+  "sha256": "21a6523fa513dd9919fa178484ab1a410e81c98e5fab37e00005a2b983742c01",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:fill_interior_gaps",
+   "release": "0.1.0",
+   "label": "Fill interior gaps",
+   "implementation": "src/fill-interior-gaps.ts#fillInteriorGaps"
+  },
+  "declaredMethod": "Interior gap fill: outer rings kept, 69 gaps filled, 37293 m\u00b2 added in EPSG:32630. That added ground was never computed as covered. Whatever the gaps meant upstream \u2014 streets no route reached, land outside every radius \u2014 this asserts the opposite of it. Anything measuring or summarising these polygons afterwards counts the filled ground too. Use the unfilled polygons for coverage and these for a map that should read solid. Separate polygons stay separate. Gaps between polygons are not interior, so they are untouched: this fills enclosed space, it does not join things up."
+ },
+ "criterion": "the same number of gaps filled, no interior ring left in the output, the filled geometry within 0.05 m2 by symmetric difference, and the areas before, after and added each within 0.05 m2",
+ "parts": 2,
+ "reference": {
+  "gapsFilled": 69,
+  "areaBeforeSquareMetres": 900872.8975711575,
+  "areaAfterSquareMetres": 938165.9610707131,
+  "areaAddedSquareMetres": 37293.063499555574
+ },
+ "fieldwork": {
+  "gapsFilled": 69,
+  "areaBeforeSquareMetres": 900872.9,
+  "areaAfterSquareMetres": 938165.96,
+  "areaAddedSquareMetres": 37293.06
+ },
+ "gapsAgree": true,
+ "interiorRingsRemaining": 0,
+ "geometryDifferenceSquareMetres": 0.0,
+ "areaBeforeDifferenceSquareMetres": 0.0024288424756377935,
+ "areaAfterDifferenceSquareMetres": 0.0010707131586968899,
+ "areaAddedDifferenceSquareMetres": 0.0034995555761270225,
+ "notEstablished": "Whether filling is the right thing to do. The added ground was never computed as reachable, and the reference asserts it identically because it is the same operation.",
+ "agrees": true
+}
