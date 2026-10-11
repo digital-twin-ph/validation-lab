@@ -1,0 +1,38 @@
+{
+ "check": "18-buffer-area",
+ "ranAt": "2026-10-11T21:48:18.678187+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "fixture": {
+  "id": "buffer-area-soho-001",
+  "sha256": "e4150f08a07319389a1a08a10c60b52df977cb26131a15c9815b3119d32b17b5",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.7.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:buffer_area",
+   "release": "0.1.0",
+   "label": "Buffer study area",
+   "implementation": "src/area-buffer.ts#bufferedBoundary"
+  },
+  "declaredProjection": "Turf/JSTS local azimuthal equidistant, metres"
+ },
+ "criterion": "the buffered area within 0.5% of a EPSG:32630 reference buffer at the same 8 segments per quadrant, and the result containing the original boundary",
+ "distanceMetres": 500,
+ "stepsPerQuadrant": 8,
+ "referenceCRS": "EPSG:32630",
+ "fieldworkAreaSquareMetres": 12248048.99935311,
+ "referenceAreaSquareMetres": 12235014.109166658,
+ "sourceAreaSquareMetres": 6396169.227304774,
+ "relativeAreaDifference": 0.001065375983235467,
+ "containsTheOriginal": true,
+ "notEstablished": "Whether 500 m is the right distance. The buffered boundary is an acquisition extent, and how far past the study area it should reach is a judgement about the data being fetched. Nor is exact agreement available or claimed: the two sides buffer in different projections.",
+ "agrees": true
+}
