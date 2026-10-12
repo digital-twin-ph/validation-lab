@@ -1,0 +1,302 @@
+{
+ "schema": "fieldwork/validation-fixture/1",
+ "fixtureId": "ruleset-access-review-001",
+ "exportedAt": "2026-10-12T15:40:31.817Z",
+ "application": {
+  "name": "Fieldwork",
+  "version": "0.7.0"
+ },
+ "operation": {
+  "ruleset": "urn:fieldwork:ruleset:access-review",
+  "release": "1.0.0",
+  "label": "Access review",
+  "implementation": "src/old-naledi.ts#accessN3"
+ },
+ "declaredParameters": {
+  "threshold": 20,
+  "unit": "minutes",
+  "rulesetId": "urn:fieldwork:ruleset:access-review",
+  "rulesetVersion": "1.0.0",
+  "basisStatus": "proxy",
+  "resolvableEvidence": 0,
+  "unresolvedCitations": [],
+  "outputVocabulary": {
+   "predicates": [
+    {
+     "predicate": "fw:decision",
+     "values": [
+      "Review",
+      "NoFlag",
+      "Unknown"
+     ],
+     "unknownValue": "Unknown"
+    },
+    {
+     "predicate": "fw:zone",
+     "values": [
+      "Within5",
+      "Within15",
+      "Within30",
+      "Over30",
+      "Unknown"
+     ],
+     "unknownValue": "Unknown"
+    }
+   ],
+   "unmatchedSubjectsExpected": false,
+   "note": "Two predicates from one ruleset, and one rule concludes both. This is why a rule form with a single conclusion was refuted by the rulesets that exist."
+  },
+  "expects": [
+   {
+    "predicate": "fw:accessKnown",
+    "type": "boolean"
+   },
+   {
+    "predicate": "fw:proxyMinutes",
+    "type": "number",
+    "unit": "http://qudt.org/vocab/unit/MIN"
+   }
+  ],
+  "subjectPrefix": "",
+  "mustNotBeReadAs": "A clinical recommendation, or a routed travel time. The minutes are a straight-line proxy at a stated walking speed."
+ },
+ "input": {
+  "cells": [
+   {
+    "id": "c1",
+    "accessKnown": false,
+    "minutes": null
+   },
+   {
+    "id": "c2",
+    "accessKnown": true,
+    "minutes": 0
+   },
+   {
+    "id": "c3",
+    "accessKnown": true,
+    "minutes": 5
+   },
+   {
+    "id": "c4",
+    "accessKnown": true,
+    "minutes": 5.5
+   },
+   {
+    "id": "c5",
+    "accessKnown": true,
+    "minutes": 15
+   },
+   {
+    "id": "c6",
+    "accessKnown": true,
+    "minutes": 15.5
+   },
+   {
+    "id": "c7",
+    "accessKnown": true,
+    "minutes": 20
+   },
+   {
+    "id": "c8",
+    "accessKnown": true,
+    "minutes": 25
+   },
+   {
+    "id": "c9",
+    "accessKnown": true,
+    "minutes": 30
+   },
+   {
+    "id": "c10",
+    "accessKnown": true,
+    "minutes": 30.5
+   }
+  ]
+ },
+ "output": {
+  "decisions": [
+   {
+    "id": "c1",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c2",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within5"
+     }
+    ]
+   },
+   {
+    "id": "c3",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within5"
+     }
+    ]
+   },
+   {
+    "id": "c4",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within15"
+     }
+    ]
+   },
+   {
+    "id": "c5",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within15"
+     }
+    ]
+   },
+   {
+    "id": "c6",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within30"
+     }
+    ]
+   },
+   {
+    "id": "c7",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within30"
+     }
+    ]
+   },
+   {
+    "id": "c8",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Review"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within30"
+     }
+    ]
+   },
+   {
+    "id": "c9",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Review"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Within30"
+     }
+    ]
+   },
+   {
+    "id": "c10",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Review"
+     },
+     {
+      "predicate": "fw:zone",
+      "value": "fw:Over30"
+     }
+    ]
+   }
+  ],
+  "receipt": {
+   "rules": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n# Proxy access review; not a clinical recommendation or routed travel time.\n{ ?p fw:accessKnown false. } => { ?p fw:decision fw:Unknown; fw:zone fw:Unknown. }.\n{ ?p fw:proxyMinutes ?m. ?m math:greaterThan 20.000000000. } => { ?p fw:decision fw:Review. }.\n{ ?p fw:proxyMinutes ?m. ?m math:notGreaterThan 20.000000000. } => { ?p fw:decision fw:NoFlag. }.\n{ ?p fw:proxyMinutes ?m. ?m math:notGreaterThan 5. } => { ?p fw:zone fw:Within5. }.\n{ ?p fw:proxyMinutes ?m. ?m math:greaterThan 5; math:notGreaterThan 15. } => { ?p fw:zone fw:Within15. }.\n{ ?p fw:proxyMinutes ?m. ?m math:greaterThan 15; math:notGreaterThan 30. } => { ?p fw:zone fw:Within30. }.\n{ ?p fw:proxyMinutes ?m. ?m math:greaterThan 30. } => { ?p fw:zone fw:Over30. }.\n",
+   "factsByCell": [
+    {
+     "id": "c1",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c1 fw:accessKnown false."
+    },
+    {
+     "id": "c2",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c2 fw:accessKnown true.\nfw:c2 fw:proxyMinutes 0.000000000."
+    },
+    {
+     "id": "c3",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c3 fw:accessKnown true.\nfw:c3 fw:proxyMinutes 5.000000000."
+    },
+    {
+     "id": "c4",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c4 fw:accessKnown true.\nfw:c4 fw:proxyMinutes 5.500000000."
+    },
+    {
+     "id": "c5",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c5 fw:accessKnown true.\nfw:c5 fw:proxyMinutes 15.000000000."
+    },
+    {
+     "id": "c6",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c6 fw:accessKnown true.\nfw:c6 fw:proxyMinutes 15.500000000."
+    },
+    {
+     "id": "c7",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c7 fw:accessKnown true.\nfw:c7 fw:proxyMinutes 20.000000000."
+    },
+    {
+     "id": "c8",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c8 fw:accessKnown true.\nfw:c8 fw:proxyMinutes 25.000000000."
+    },
+    {
+     "id": "c9",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c9 fw:accessKnown true.\nfw:c9 fw:proxyMinutes 30.000000000."
+    },
+    {
+     "id": "c10",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:c10 fw:accessKnown true.\nfw:c10 fw:proxyMinutes 30.500000000."
+    }
+   ]
+  }
+ },
+ "note": "Exhaustive decision table: 10 cells, the complete input space of this ruleset. Conclusions are from the real EYE reasoner, the same engine and version the browser runs, loaded in node. The receipt is carried so the lab can check the facts and rules as well as the conclusions.",
+ "assets": [],
+ "integrity": {
+  "algorithm": "sha-256",
+  "canonicalJSON": "3af65e8604fccc0b67534eb8e716ff2d1e87681d9afe3976f8387e4d1bb3a0e3"
+ }
+}

@@ -1,0 +1,697 @@
+{
+ "schema": "fieldwork/validation-fixture/1",
+ "fixtureId": "ruleset-nb06-evidence-001",
+ "exportedAt": "2026-10-12T15:40:32.576Z",
+ "application": {
+  "name": "Fieldwork",
+  "version": "0.7.0"
+ },
+ "operation": {
+  "ruleset": "urn:fieldwork:ruleset:nb06-evidence",
+  "release": "1.0.0",
+  "label": "Diagnostic evidence grading",
+  "implementation": "src/old-naledi.ts#facilityN3"
+ },
+ "declaredParameters": {
+  "rulesetId": "urn:fieldwork:ruleset:nb06-evidence",
+  "rulesetVersion": "1.0.0",
+  "basisStatus": "published",
+  "resolvableEvidence": 0,
+  "unresolvedCitations": [
+   "Baik 2019",
+   "Mokomane 2024",
+   "Dickinson 2017"
+  ],
+  "outputVocabulary": {
+   "predicates": [
+    {
+     "predicate": "fw:evidenceLevel",
+     "values": [
+      "Direct",
+      "Contextual",
+      "Inferential",
+      "None"
+     ],
+     "unknownValue": "None"
+    },
+    {
+     "predicate": "fw:service",
+     "values": [
+      "Onsite",
+      "OnsiteOrReferral",
+      "ReferralOnly",
+      "Unknown"
+     ],
+     "unknownValue": "Unknown"
+    }
+   ],
+   "unmatchedSubjectsExpected": false
+  },
+  "expects": [
+   {
+    "predicate": "fw:namedRule",
+    "type": "category",
+    "values": [
+     "Marina",
+     "Broadhurst",
+     "None"
+    ]
+   },
+   {
+    "predicate": "fw:government",
+    "type": "boolean"
+   },
+   {
+    "predicate": "fw:facilityKind",
+    "type": "category",
+    "values": [
+     "Hospital",
+     "Clinic",
+     "HealthPost",
+     "Other"
+    ]
+   }
+  ],
+  "subjectPrefix": "",
+  "mustNotBeReadAs": "The NB06 hierarchy itself. This applies a published hierarchy; applying it is not the same as being it."
+ },
+ "input": {
+  "cells": [
+   {
+    "id": "c1",
+    "namedRule": "Marina",
+    "government": true,
+    "facilityKind": "Hospital",
+    "serviceType": "Referral Hospital",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c2",
+    "namedRule": "Marina",
+    "government": true,
+    "facilityKind": "Clinic",
+    "serviceType": "Clinic",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c3",
+    "namedRule": "Marina",
+    "government": true,
+    "facilityKind": "HealthPost",
+    "serviceType": "Health Post",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c4",
+    "namedRule": "Marina",
+    "government": true,
+    "facilityKind": "Other",
+    "serviceType": "Pharmacy",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c5",
+    "namedRule": "Marina",
+    "government": false,
+    "facilityKind": "Hospital",
+    "serviceType": "Referral Hospital",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c6",
+    "namedRule": "Marina",
+    "government": false,
+    "facilityKind": "Clinic",
+    "serviceType": "Clinic",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c7",
+    "namedRule": "Marina",
+    "government": false,
+    "facilityKind": "HealthPost",
+    "serviceType": "Health Post",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c8",
+    "namedRule": "Marina",
+    "government": false,
+    "facilityKind": "Other",
+    "serviceType": "Pharmacy",
+    "subjectId": "facility-158"
+   },
+   {
+    "id": "c9",
+    "namedRule": "Broadhurst",
+    "government": true,
+    "facilityKind": "Hospital",
+    "serviceType": "Referral Hospital",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c10",
+    "namedRule": "Broadhurst",
+    "government": true,
+    "facilityKind": "Clinic",
+    "serviceType": "Clinic",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c11",
+    "namedRule": "Broadhurst",
+    "government": true,
+    "facilityKind": "HealthPost",
+    "serviceType": "Health Post",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c12",
+    "namedRule": "Broadhurst",
+    "government": true,
+    "facilityKind": "Other",
+    "serviceType": "Pharmacy",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c13",
+    "namedRule": "Broadhurst",
+    "government": false,
+    "facilityKind": "Hospital",
+    "serviceType": "Referral Hospital",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c14",
+    "namedRule": "Broadhurst",
+    "government": false,
+    "facilityKind": "Clinic",
+    "serviceType": "Clinic",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c15",
+    "namedRule": "Broadhurst",
+    "government": false,
+    "facilityKind": "HealthPost",
+    "serviceType": "Health Post",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c16",
+    "namedRule": "Broadhurst",
+    "government": false,
+    "facilityKind": "Other",
+    "serviceType": "Pharmacy",
+    "subjectId": "facility-25"
+   },
+   {
+    "id": "c17",
+    "namedRule": "None",
+    "government": true,
+    "facilityKind": "Hospital",
+    "serviceType": "Referral Hospital",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c18",
+    "namedRule": "None",
+    "government": true,
+    "facilityKind": "Clinic",
+    "serviceType": "Clinic",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c19",
+    "namedRule": "None",
+    "government": true,
+    "facilityKind": "HealthPost",
+    "serviceType": "Health Post",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c20",
+    "namedRule": "None",
+    "government": true,
+    "facilityKind": "Other",
+    "serviceType": "Pharmacy",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c21",
+    "namedRule": "None",
+    "government": false,
+    "facilityKind": "Hospital",
+    "serviceType": "Referral Hospital",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c22",
+    "namedRule": "None",
+    "government": false,
+    "facilityKind": "Clinic",
+    "serviceType": "Clinic",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c23",
+    "namedRule": "None",
+    "government": false,
+    "facilityKind": "HealthPost",
+    "serviceType": "Health Post",
+    "subjectId": "facility-999"
+   },
+   {
+    "id": "c24",
+    "namedRule": "None",
+    "government": false,
+    "facilityKind": "Other",
+    "serviceType": "Pharmacy",
+    "subjectId": "facility-999"
+   }
+  ]
+ },
+ "output": {
+  "decisions": [
+   {
+    "id": "c1",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c2",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c3",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c4",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c5",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c6",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c7",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c8",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Direct"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c9",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c10",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c11",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c12",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c13",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c14",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c15",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c16",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c17",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Contextual"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Onsite"
+     }
+    ]
+   },
+   {
+    "id": "c18",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Inferential"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:OnsiteOrReferral"
+     }
+    ]
+   },
+   {
+    "id": "c19",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:Inferential"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:ReferralOnly"
+     }
+    ]
+   },
+   {
+    "id": "c20",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:None"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c21",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:None"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c22",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:None"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c23",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:None"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c24",
+    "conclusions": [
+     {
+      "predicate": "fw:evidenceLevel",
+      "value": "fw:None"
+     },
+     {
+      "predicate": "fw:service",
+      "value": "fw:Unknown"
+     }
+    ]
+   }
+  ],
+  "receipt": {
+   "rules": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n# NB06 hierarchy: named evidence, then government facility type, then unknown.\n{ ?f fw:namedRule fw:Marina. } => { ?f fw:evidenceLevel fw:Direct; fw:service fw:Onsite. }.\n{ ?f fw:namedRule fw:Broadhurst. } => { ?f fw:evidenceLevel fw:Contextual; fw:service fw:OnsiteOrReferral. }.\n{ ?f fw:namedRule fw:None; fw:government true; fw:facilityKind fw:Hospital. } => { ?f fw:evidenceLevel fw:Contextual; fw:service fw:Onsite. }.\n{ ?f fw:namedRule fw:None; fw:government true; fw:facilityKind fw:Clinic. } => { ?f fw:evidenceLevel fw:Inferential; fw:service fw:OnsiteOrReferral. }.\n{ ?f fw:namedRule fw:None; fw:government true; fw:facilityKind fw:HealthPost. } => { ?f fw:evidenceLevel fw:Inferential; fw:service fw:ReferralOnly. }.\n{ ?f fw:namedRule fw:None; fw:government false. } => { ?f fw:evidenceLevel fw:None; fw:service fw:Unknown. }.\n{ ?f fw:namedRule fw:None; fw:government true; fw:facilityKind fw:Other. } => { ?f fw:evidenceLevel fw:None; fw:service fw:Unknown. }.\n",
+   "factsByCell": [
+    {
+     "id": "c1",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government true; fw:facilityKind fw:Hospital."
+    },
+    {
+     "id": "c2",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government true; fw:facilityKind fw:Clinic."
+    },
+    {
+     "id": "c3",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government true; fw:facilityKind fw:HealthPost."
+    },
+    {
+     "id": "c4",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government true; fw:facilityKind fw:Other."
+    },
+    {
+     "id": "c5",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government false; fw:facilityKind fw:Hospital."
+    },
+    {
+     "id": "c6",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government false; fw:facilityKind fw:Clinic."
+    },
+    {
+     "id": "c7",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government false; fw:facilityKind fw:HealthPost."
+    },
+    {
+     "id": "c8",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-158 fw:namedRule fw:Marina; fw:government false; fw:facilityKind fw:Other."
+    },
+    {
+     "id": "c9",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government true; fw:facilityKind fw:Hospital."
+    },
+    {
+     "id": "c10",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government true; fw:facilityKind fw:Clinic."
+    },
+    {
+     "id": "c11",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government true; fw:facilityKind fw:HealthPost."
+    },
+    {
+     "id": "c12",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government true; fw:facilityKind fw:Other."
+    },
+    {
+     "id": "c13",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government false; fw:facilityKind fw:Hospital."
+    },
+    {
+     "id": "c14",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government false; fw:facilityKind fw:Clinic."
+    },
+    {
+     "id": "c15",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government false; fw:facilityKind fw:HealthPost."
+    },
+    {
+     "id": "c16",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-25 fw:namedRule fw:Broadhurst; fw:government false; fw:facilityKind fw:Other."
+    },
+    {
+     "id": "c17",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government true; fw:facilityKind fw:Hospital."
+    },
+    {
+     "id": "c18",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government true; fw:facilityKind fw:Clinic."
+    },
+    {
+     "id": "c19",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government true; fw:facilityKind fw:HealthPost."
+    },
+    {
+     "id": "c20",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government true; fw:facilityKind fw:Other."
+    },
+    {
+     "id": "c21",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government false; fw:facilityKind fw:Hospital."
+    },
+    {
+     "id": "c22",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government false; fw:facilityKind fw:Clinic."
+    },
+    {
+     "id": "c23",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government false; fw:facilityKind fw:HealthPost."
+    },
+    {
+     "id": "c24",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\nfw:facility-999 fw:namedRule fw:None; fw:government false; fw:facilityKind fw:Other."
+    }
+   ]
+  }
+ },
+ "note": "Exhaustive decision table: 24 cells, the complete input space of this ruleset. Conclusions are from the real EYE reasoner, the same engine and version the browser runs, loaded in node. The receipt is carried so the lab can check the facts and rules as well as the conclusions.",
+ "assets": [],
+ "integrity": {
+  "algorithm": "sha-256",
+  "canonicalJSON": "2d89b8be3d28ebbf667019211852a852eaf33ea56774aef93e4bdacd0fdb55da"
+ }
+}

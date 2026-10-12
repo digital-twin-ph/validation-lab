@@ -1,0 +1,326 @@
+{
+ "schema": "fieldwork/validation-fixture/1",
+ "fixtureId": "ruleset-outreach-criteria-001",
+ "exportedAt": "2026-10-12T15:40:31.480Z",
+ "application": {
+  "name": "Fieldwork",
+  "version": "0.7.0"
+ },
+ "operation": {
+  "ruleset": "urn:fieldwork:ruleset:outreach-criteria",
+  "release": "1.0.0",
+  "label": "Outreach criteria",
+  "implementation": "src/core.ts#makeN3"
+ },
+ "declaredParameters": {
+  "threshold": 5,
+  "unit": "kilometres",
+  "rulesetId": "urn:fieldwork:ruleset:outreach-criteria",
+  "rulesetVersion": "1.0.0",
+  "basisStatus": "illustrative",
+  "resolvableEvidence": 0,
+  "unresolvedCitations": [],
+  "outputVocabulary": {
+   "predicate": "fw:decision",
+   "values": [
+    "Review",
+    "NoFlag",
+    "Unknown"
+   ],
+   "unknownValue": "Unknown",
+   "unmatchedSubjectsExpected": false
+  },
+  "expects": [
+   {
+    "predicate": "fw:distanceKnown",
+    "type": "boolean"
+   },
+   {
+    "predicate": "fw:alertKnown",
+    "type": "boolean"
+   },
+   {
+    "predicate": "fw:distanceKm",
+    "type": "number",
+    "unit": "http://qudt.org/vocab/unit/KM"
+   },
+   {
+    "predicate": "fw:heatAlert",
+    "type": "boolean"
+   }
+  ],
+  "subjectPrefix": "place:",
+  "mustNotBeReadAs": "A recommendation to visit or not visit anywhere. The threshold is a practitioner judgement, and this ruleset as shipped has no published basis for any particular value."
+ },
+ "input": {
+  "cells": [
+   {
+    "id": "c1",
+    "distanceKnown": true,
+    "alertKnown": true,
+    "alertActive": true,
+    "relation": "below",
+    "distance": 4
+   },
+   {
+    "id": "c2",
+    "distanceKnown": true,
+    "alertKnown": true,
+    "alertActive": true,
+    "relation": "equal",
+    "distance": 5
+   },
+   {
+    "id": "c3",
+    "distanceKnown": true,
+    "alertKnown": true,
+    "alertActive": true,
+    "relation": "above",
+    "distance": 6
+   },
+   {
+    "id": "c4",
+    "distanceKnown": true,
+    "alertKnown": true,
+    "alertActive": false,
+    "relation": "below",
+    "distance": 4
+   },
+   {
+    "id": "c5",
+    "distanceKnown": true,
+    "alertKnown": true,
+    "alertActive": false,
+    "relation": "equal",
+    "distance": 5
+   },
+   {
+    "id": "c6",
+    "distanceKnown": true,
+    "alertKnown": true,
+    "alertActive": false,
+    "relation": "above",
+    "distance": 6
+   },
+   {
+    "id": "c7",
+    "distanceKnown": true,
+    "alertKnown": false,
+    "alertActive": null,
+    "relation": "below",
+    "distance": 4
+   },
+   {
+    "id": "c8",
+    "distanceKnown": true,
+    "alertKnown": false,
+    "alertActive": null,
+    "relation": "equal",
+    "distance": 5
+   },
+   {
+    "id": "c9",
+    "distanceKnown": true,
+    "alertKnown": false,
+    "alertActive": null,
+    "relation": "above",
+    "distance": 6
+   },
+   {
+    "id": "c10",
+    "distanceKnown": false,
+    "alertKnown": true,
+    "alertActive": true,
+    "relation": "absent",
+    "distance": null
+   },
+   {
+    "id": "c11",
+    "distanceKnown": false,
+    "alertKnown": true,
+    "alertActive": false,
+    "relation": "absent",
+    "distance": null
+   },
+   {
+    "id": "c12",
+    "distanceKnown": false,
+    "alertKnown": false,
+    "alertActive": null,
+    "relation": "absent",
+    "distance": null
+   }
+  ]
+ },
+ "output": {
+  "decisions": [
+   {
+    "id": "c1",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     }
+    ]
+   },
+   {
+    "id": "c2",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     }
+    ]
+   },
+   {
+    "id": "c3",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Review"
+     }
+    ]
+   },
+   {
+    "id": "c4",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     }
+    ]
+   },
+   {
+    "id": "c5",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     }
+    ]
+   },
+   {
+    "id": "c6",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:NoFlag"
+     }
+    ]
+   },
+   {
+    "id": "c7",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c8",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c9",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c10",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c11",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     }
+    ]
+   },
+   {
+    "id": "c12",
+    "conclusions": [
+     {
+      "predicate": "fw:decision",
+      "value": "fw:Unknown"
+     }
+    ]
+   }
+  ],
+  "receipt": {
+   "rules": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n# Missing evidence stays unknown. Threshold is illustrative.\n{ ?p fw:distanceKnown false. } => { ?p fw:decision fw:Unknown. }.\n{ ?p fw:alertKnown false. } => { ?p fw:decision fw:Unknown. }.\n{ ?p fw:distanceKm ?d; fw:heatAlert true. ?d math:greaterThan 5.000000000. } => { ?p fw:decision fw:Review. }.\n{ ?p fw:distanceKm ?d; fw:heatAlert true. ?d math:notGreaterThan 5.000000000. } => { ?p fw:decision fw:NoFlag. }.\n{ ?p fw:distanceKnown true; fw:heatAlert false. } => { ?p fw:decision fw:NoFlag. }.\n",
+   "factsByCell": [
+    {
+     "id": "c1",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c1> fw:distanceKnown true; fw:alertKnown true.\n<urn:fieldwork:place:c1> fw:distanceKm 4.000000000.\n<urn:fieldwork:place:c1> fw:heatAlert true.\n"
+    },
+    {
+     "id": "c2",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c2> fw:distanceKnown true; fw:alertKnown true.\n<urn:fieldwork:place:c2> fw:distanceKm 5.000000000.\n<urn:fieldwork:place:c2> fw:heatAlert true.\n"
+    },
+    {
+     "id": "c3",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c3> fw:distanceKnown true; fw:alertKnown true.\n<urn:fieldwork:place:c3> fw:distanceKm 6.000000000.\n<urn:fieldwork:place:c3> fw:heatAlert true.\n"
+    },
+    {
+     "id": "c4",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c4> fw:distanceKnown true; fw:alertKnown true.\n<urn:fieldwork:place:c4> fw:distanceKm 4.000000000.\n<urn:fieldwork:place:c4> fw:heatAlert false.\n"
+    },
+    {
+     "id": "c5",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c5> fw:distanceKnown true; fw:alertKnown true.\n<urn:fieldwork:place:c5> fw:distanceKm 5.000000000.\n<urn:fieldwork:place:c5> fw:heatAlert false.\n"
+    },
+    {
+     "id": "c6",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c6> fw:distanceKnown true; fw:alertKnown true.\n<urn:fieldwork:place:c6> fw:distanceKm 6.000000000.\n<urn:fieldwork:place:c6> fw:heatAlert false.\n"
+    },
+    {
+     "id": "c7",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c7> fw:distanceKnown true; fw:alertKnown false.\n<urn:fieldwork:place:c7> fw:distanceKm 4.000000000.\n"
+    },
+    {
+     "id": "c8",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c8> fw:distanceKnown true; fw:alertKnown false.\n<urn:fieldwork:place:c8> fw:distanceKm 5.000000000.\n"
+    },
+    {
+     "id": "c9",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c9> fw:distanceKnown true; fw:alertKnown false.\n<urn:fieldwork:place:c9> fw:distanceKm 6.000000000.\n"
+    },
+    {
+     "id": "c10",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c10> fw:distanceKnown false; fw:alertKnown true.\n<urn:fieldwork:place:c10> fw:heatAlert true.\n"
+    },
+    {
+     "id": "c11",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c11> fw:distanceKnown false; fw:alertKnown true.\n<urn:fieldwork:place:c11> fw:heatAlert false.\n"
+    },
+    {
+     "id": "c12",
+     "facts": "@prefix fw: <urn:fieldwork:>.\n@prefix math: <http://www.w3.org/2000/10/swap/math#>.\n<urn:fieldwork:place:c12> fw:distanceKnown false; fw:alertKnown false.\n"
+    }
+   ]
+  }
+ },
+ "note": "Exhaustive decision table: 12 cells, the complete input space of this ruleset. Conclusions are from the real EYE reasoner, the same engine and version the browser runs, loaded in node. The receipt is carried so the lab can check the facts and rules as well as the conclusions.",
+ "assets": [],
+ "integrity": {
+  "algorithm": "sha-256",
+  "canonicalJSON": "512653022894ada5f2bff14e7d93003b00b747d9885c7aca0cbbc354fa92c546"
+ }
+}

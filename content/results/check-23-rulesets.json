@@ -1,0 +1,72 @@
+{
+ "check": "23-rulesets",
+ "ranAt": "2026-10-12T15:44:44.436232+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "parser": "local N3 subset reader in checks/check_23_rulesets.py; no RDF library"
+ },
+ "fixtures": [
+  {
+   "id": "ruleset-outreach-criteria-001",
+   "declaredIntegrity": "512653022894ada5f2bff14e7d93003b00b747d9885c7aca0cbbc354fa92c546",
+   "ruleset": "urn:fieldwork:ruleset:outreach-criteria",
+   "version": "1.0.0",
+   "cells": 12,
+   "logicAgrees": true,
+   "receiptAgrees": true,
+   "ruleCount": 5,
+   "builtins": [
+    "math:greaterThan",
+    "math:notGreaterThan"
+   ],
+   "basisStatus": "illustrative",
+   "resolvableEvidence": 0,
+   "unresolvedCitations": []
+  },
+  {
+   "id": "ruleset-access-review-001",
+   "declaredIntegrity": "3af65e8604fccc0b67534eb8e716ff2d1e87681d9afe3976f8387e4d1bb3a0e3",
+   "ruleset": "urn:fieldwork:ruleset:access-review",
+   "version": "1.0.0",
+   "cells": 10,
+   "logicAgrees": true,
+   "receiptAgrees": true,
+   "ruleCount": 7,
+   "builtins": [
+    "math:greaterThan",
+    "math:notGreaterThan"
+   ],
+   "basisStatus": "proxy",
+   "resolvableEvidence": 0,
+   "unresolvedCitations": []
+  },
+  {
+   "id": "ruleset-nb06-evidence-001",
+   "declaredIntegrity": "2d89b8be3d28ebbf667019211852a852eaf33ea56774aef93e4bdacd0fdb55da",
+   "ruleset": "urn:fieldwork:ruleset:nb06-evidence",
+   "version": "1.0.0",
+   "cells": 24,
+   "logicAgrees": true,
+   "receiptAgrees": true,
+   "ruleCount": 7,
+   "builtins": [],
+   "basisStatus": "published",
+   "resolvableEvidence": 0,
+   "unresolvedCitations": [
+    "Baik 2019",
+    "Mokomane 2024",
+    "Dickinson 2017"
+   ]
+  }
+ ],
+ "twoClaims": {
+  "logicProducesTheSameResult": true,
+  "theReceiptIsTheSameReceipt": true
+ },
+ "totalCells": 46,
+ "exhaustive": true,
+ "rulesetsWithResolvableEvidence": 0,
+ "agrees": true,
+ "note": "Exhaustive rather than sampled: 46 cells are the complete input space of all three rulesets. Two separate claims are recorded because they fail differently -- a right answer nobody can audit, against a well-formed receipt for the wrong conclusion. One ruleset claims a published basis and none of the three carries evidence a reader can open, which no parity check can fix."
+}
