@@ -1,0 +1,136 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "project-forward-utm30n-001",
+  "exportedAt": "2026-10-14T12:59:15.115Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.7.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:reproject",
+    "release": "0.2.0",
+    "label": "Reproject points",
+    "implementation": "src/reproject.ts#projectFromCRS84"
+  },
+  "declaredParameters": {
+    "sourceCRS": "OGC:CRS84",
+    "definition": "+proj=utm +zone=30 +datum=WGS84 +units=m +no_defs",
+    "axisOrder": "longitude-latitude",
+    "units": "degree",
+    "targetCRS": "EPSG:32630",
+    "targetAxisOrder": "easting-northing",
+    "targetUnits": "metre",
+    "datumShift": "none",
+    "zone": 30,
+    "hemisphere": "north",
+    "operation": "Forward UTM projection to EPSG:32630 on the WGS84 datum",
+    "library": "proj4 2.19.10"
+  },
+  "selfReported": {
+    "transformed": 9,
+    "withoutCoordinates": 0,
+    "maxRoundTripM": 2e-9,
+    "coordinateDecimals": 3
+  },
+  "input": [
+    {
+      "id": "p1",
+      "longitude": -3,
+      "latitude": 0.5
+    },
+    {
+      "id": "p2",
+      "longitude": -3,
+      "latitude": 51.5
+    },
+    {
+      "id": "p3",
+      "longitude": -3,
+      "latitude": 70
+    },
+    {
+      "id": "p4",
+      "longitude": -5.9,
+      "latitude": 0.5
+    },
+    {
+      "id": "p5",
+      "longitude": -5.9,
+      "latitude": 51.5
+    },
+    {
+      "id": "p6",
+      "longitude": -5.9,
+      "latitude": 70
+    },
+    {
+      "id": "p7",
+      "longitude": -0.1,
+      "latitude": 0.5
+    },
+    {
+      "id": "p8",
+      "longitude": -0.1,
+      "latitude": 51.5
+    },
+    {
+      "id": "p9",
+      "longitude": -0.1,
+      "latitude": 70
+    }
+  ],
+  "output": [
+    {
+      "id": "p1",
+      "easting": 500000,
+      "northing": 55265.037
+    },
+    {
+      "id": "p2",
+      "easting": 500000,
+      "northing": 5705429.167
+    },
+    {
+      "id": "p3",
+      "easting": 500000,
+      "northing": 7765873.135
+    },
+    {
+      "id": "p4",
+      "easting": 177176.037,
+      "northing": 55336.378
+    },
+    {
+      "id": "p5",
+      "easting": 298722.335,
+      "northing": 5709417.125
+    },
+    {
+      "id": "p6",
+      "easting": 389339.535,
+      "northing": 7768505.452
+    },
+    {
+      "id": "p7",
+      "easting": 822823.963,
+      "northing": 55336.378
+    },
+    {
+      "id": "p8",
+      "easting": 701277.665,
+      "northing": 5709417.125
+    },
+    {
+      "id": "p9",
+      "easting": 610660.465,
+      "northing": 7768505.452
+    }
+  ],
+  "note": "Recompute the output from declaredParameters and the input only. Fieldwork’s own intermediate values are deliberately absent. Coordinates are stored to three decimals, so agreement is expected at the millimetre rather than exactly.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "c86aa645b5c1fdf664c127f151dfc02f67ea62a8bd513a78ba0e2c5c3ba1c8d9"
+  }
+}

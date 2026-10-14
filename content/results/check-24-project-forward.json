@@ -1,0 +1,177 @@
+{
+  "check": "24-project-forward",
+  "ranAt": "2026-10-14T12:59:53.753881+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pyproj": "3.8.0",
+    "proj": "9.8.1"
+  },
+  "fixture": {
+    "id": "project-forward-utm30n-001",
+    "sha256": "c86aa645b5c1fdf664c127f151dfc02f67ea62a8bd513a78ba0e2c5c3ba1c8d9",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.7.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:reproject",
+      "release": "0.2.0",
+      "label": "Reproject points",
+      "implementation": "src/reproject.ts#projectFromCRS84"
+    },
+    "selfReportedMaxRoundTripM": 2e-09,
+    "coordinateDecimals": 3
+  },
+  "toleranceM": 0.001,
+  "points": 9,
+  "maxSeparationM": 0.0006230745655779945,
+  "declaredCodeMatchesDefinition": true,
+  "agrees": true,
+  "rows": [
+    {
+      "id": "p1",
+      "input": {
+        "longitude": -3,
+        "latitude": 0.5
+      },
+      "reference": {
+        "easting": 499999.999999999,
+        "northing": 55265.037142649104
+      },
+      "fieldwork": {
+        "easting": 500000,
+        "northing": 55265.037
+      },
+      "separationM": 0.00014264910715044028
+    },
+    {
+      "id": "p2",
+      "input": {
+        "longitude": -3,
+        "latitude": 51.5
+      },
+      "reference": {
+        "easting": 499999.9999999994,
+        "northing": 5705429.166769802
+      },
+      "fieldwork": {
+        "easting": 500000,
+        "northing": 5705429.167
+      },
+      "separationM": 0.0002301987260587422
+    },
+    {
+      "id": "p3",
+      "input": {
+        "longitude": -3,
+        "latitude": 70
+      },
+      "reference": {
+        "easting": 499999.99999999965,
+        "northing": 7765873.135479086
+      },
+      "fieldwork": {
+        "easting": 500000,
+        "northing": 7765873.135
+      },
+      "separationM": 0.00047908630222094867
+    },
+    {
+      "id": "p4",
+      "input": {
+        "longitude": -5.9,
+        "latitude": 0.5
+      },
+      "reference": {
+        "easting": 177176.0374467515,
+        "northing": 55336.377565680705
+      },
+      "fieldwork": {
+        "easting": 177176.037,
+        "northing": 55336.378
+      },
+      "separationM": 0.000623073136421032
+    },
+    {
+      "id": "p5",
+      "input": {
+        "longitude": -5.9,
+        "latitude": 51.5
+      },
+      "reference": {
+        "easting": 298722.3348729715,
+        "northing": 5709417.124847525
+      },
+      "fieldwork": {
+        "easting": 298722.335,
+        "northing": 5709417.125
+      },
+      "separationM": 0.00019845635898441764
+    },
+    {
+      "id": "p6",
+      "input": {
+        "longitude": -5.9,
+        "latitude": 70
+      },
+      "reference": {
+        "easting": 389339.5350989473,
+        "northing": 7768505.452278187
+      },
+      "fieldwork": {
+        "easting": 389339.535,
+        "northing": 7768505.452
+      },
+      "separationM": 0.00029526017382085147
+    },
+    {
+      "id": "p7",
+      "input": {
+        "longitude": -0.1,
+        "latitude": 0.5
+      },
+      "reference": {
+        "easting": 822823.9625532465,
+        "northing": 55336.37756568069
+      },
+      "fieldwork": {
+        "easting": 822823.963,
+        "northing": 55336.378
+      },
+      "separationM": 0.0006230745655779945
+    },
+    {
+      "id": "p8",
+      "input": {
+        "longitude": -0.1,
+        "latitude": 51.5
+      },
+      "reference": {
+        "easting": 701277.6651270273,
+        "northing": 5709417.124847525
+      },
+      "fieldwork": {
+        "easting": 701277.665,
+        "northing": 5709417.125
+      },
+      "separationM": 0.00019845557657448208
+    },
+    {
+      "id": "p9",
+      "input": {
+        "longitude": -0.1,
+        "latitude": 70
+      },
+      "reference": {
+        "easting": 610660.4649010521,
+        "northing": 7768505.452278187
+      },
+      "fieldwork": {
+        "easting": 610660.465,
+        "northing": 7768505.452
+      },
+      "separationM": 0.0002952603688863413
+    }
+  ]
+}
