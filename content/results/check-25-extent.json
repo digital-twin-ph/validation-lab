@@ -1,0 +1,56 @@
+{
+ "check": "25-extent",
+ "ranAt": "2026-10-14T22:14:51.637692+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "numpy": "2.5.3"
+ },
+ "fixture": {
+  "id": "extent-soho-001",
+  "sha256": "3b3401e86bcccefa7e1f84a8a06a47a9e63c793f203b3884e03d5dda23e046b8",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.8.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:apply_ruleset",
+   "release": "0.1.0",
+   "label": "Apply ruleset",
+   "implementation": "src/rule-application.ts#extentProjection"
+  },
+  "declaredMethod": "Extent review against 0.250 km\u00b2",
+  "ruleset": {
+   "id": "urn:fieldwork:ruleset:extent-review",
+   "version": "1.1.0",
+   "title": "Extent review"
+  }
+ },
+ "criterion": "hull ring vertex for vertex within 1e-06 degrees, area within 0.01%, and the same status for the same stated comparison",
+ "points": 250,
+ "thresholdSquareMetres": 250000,
+ "reference": {
+  "implementation": "shapely MultiPoint.convex_hull + .area in EPSG:32630",
+  "hullVertices": 11,
+  "areaSquareMetres": 139230.01382157998,
+  "status": "NoFlag"
+ },
+ "fieldwork": {
+  "hullVertices": 11,
+  "areaSquareMetres": 139230.01,
+  "status": "NoFlag",
+  "explanation": "Encloses 0.139 km\u00b2 \u2264 0.250 km\u00b2 threshold.",
+  "statusCounts": {
+   "NoFlag": 1
+  }
+ },
+ "ringsAgree": true,
+ "areaDifferenceFraction": 2.7447960877022664e-08,
+ "statusAgrees": true,
+ "reasonAgrees": true,
+ "notEstablished": "That 250,000 m2 is the right threshold, or that a convex hull is the right outline: both are the practitioner's to choose and neither Fieldwork nor this check ships a basis for either. Nor that the rule fired in the reasoner -- the fixture records what EYE concluded and this file recomputes the same comparison in Python, which is a check of the derivation and the threshold, not of the inference. A hull is also an outline of what was OBSERVED: it encloses ground where nothing was recorded, and says nothing about what lies outside it.",
+ "agrees": true
+}
