@@ -1,28 +1,47 @@
 """Check 08: Fieldwork Reachable corridor against Shapely.
 
-The corridor is rebuilt from the declared rule with GEOS through Shapely: for each
-directed edge leaving a reached junction, take the first `remainingM / lengthM` of its
-length from that junction, buffer the collected lines by `bufferM`, and union them.
+Rewritten 2026-10-14. Fieldwork stopped drawing the corridor as a constant strip: the walk
+off the street at the end of a route is now charged, so the buffer at any point is
+`min(bufferM, the budget left there)` and the corridor tapers to nothing where the time
+runs out. The route also begins at the site rather than at the junction it was snapped to.
+The previous version of this check rebuilt a constant-width strip and agreed with a
+Fieldwork that drew one; both have changed, and the fixture with them.
+
+The corridor is rebuilt from the declared rule with GEOS through Shapely: walk the first
+`remainingM / lengthM` of each directed edge leaving a reached junction, plus the straight
+first leg from the site, and buffer every metre of that route by what the budget allows
+there.
+
+**This reference is deliberately finer than Fieldwork.** It steps the route in 1 m pieces
+and uses the exact remaining budget at each, where Fieldwork cuts at 12.5 m and rounds the
+radius down into six steps. So the reference is the rule as stated and Fieldwork is a
+conservative discretisation of it, which makes the comparison one-sided and says so.
 
 Criteria fixed before running, with reasons:
 
 1. **Entered and partial segment counts, exactly.** Both implementations select edges by
    the same stated arithmetic over the same numbers, so a difference here is a difference
    in the rule rather than in the geometry engine.
-2. **Area within 1%.** Not tighter, deliberately. Fieldwork buffers through Turf/JSTS in a
-   local azimuthal equidistant projection; this buffers through GEOS in UTM zone 30N. Two
-   projections and two engines at 8 segments per quadrant will not agree to the micrometre,
-   and a criterion that pretended otherwise would be measuring the difference between
-   map projections and calling it a defect.
-3. **Symmetric difference at most 2% of the Fieldwork area.** Equal areas can still be
-   different shapes, so the overlap is checked and not just the total.
+2. **Fieldwork's area at most 100.5% of the reference.** Its discretisation pulls both ways:
+   rounding the radius down removes ground, while buffering each chunk separately gives the
+   chunk's far end a round cap at the chunk's radius, where the rule gives a smaller one. The
+   first is bounded by one step of bufferM/6 and the second by one cap per chunk, so neither
+   can be large, and a Fieldwork corridor materially larger than the stated rule would mean
+   the taper is not tracking the budget. The half per cent also absorbs the two engines and
+   two projections, which is what the old 1% criterion was for.
+3. **Fieldwork's area at least 85% of the reference.** A deficit beyond that would mean the
+   taper is biting somewhere the rule does not put it.
+4. **Symmetric difference at most 8% of the Fieldwork area.** Equal areas can still be
+   different shapes. It is looser than the 2% the constant-width check used because the
+   discretisations differ along the whole frontier by construction, not only in total.
 
-What this cannot establish: that a 25 m half-width is right, or that the streets exist.
-Both implementations trust the same edge geometry and the same lengths.
+What this cannot establish: that a 25 m final walk is right, that the ground beside a
+street can be walked at all, or that the streets exist. Both implementations trust the
+same edge geometry and the same lengths.
 
 Independent by construction: nothing here imports Fieldwork code, and the corridor is
 rebuilt from `declaredParameters` rather than compared feature by feature.
-Design record: fieldwork/docs/experiments/84-reachable-corridor.md
+Design record: fieldwork/docs/experiments/114-the-three-segments-of-a-walk.md
 """
 import hashlib
 import json
@@ -39,9 +58,32 @@ import shapely
 from shapely.geometry import LineString, MultiLineString, shape
 from shapely.ops import substring, unary_union
 
-AREA_TOLERANCE = 0.01          # 1% of area
-SYMMETRIC_TOLERANCE = 0.02     # 2% of the Fieldwork area
+AREA_AT_MOST = 1.005           # Fieldwork may not exceed the stated rule by more than 0.5%
+AREA_AT_LEAST = 0.85           # nor fall more than 15% short of it
+SYMMETRIC_TOLERANCE = 0.08     # 8% of the Fieldwork area
+STEP_M = 1.0                   # the reference walks the route in 1 m pieces
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def tapered(line, remaining_m, final_leg_m, quad_segs):
+    """Buffer a reached stretch by the walk its budget allows, a metre at a time.
+
+    The rule as declared, at the finest step this check can afford: at distance d along the
+    line the walk off the street is min(final_leg_m, remaining_m - d), and the corridor is
+    the union of those discs. Fieldwork approximates the same shape with coarser pieces.
+    """
+    pieces = []
+    walked = 0.0
+    usable = min(line.length, remaining_m)
+    while walked < usable:
+        step = min(STEP_M, usable - walked)
+        piece = substring(line, walked, walked + step)
+        radius = min(final_leg_m, remaining_m - (walked + step))
+        walked += step
+        if radius <= 0 or piece.is_empty:
+            continue
+        pieces.append(piece.buffer(radius, quad_segs=quad_segs))
+    return pieces
 
 
 
@@ -62,7 +104,18 @@ def run(fixture_path: Path) -> dict:
 
     # Edges leaving each reached junction, oriented to start at that junction. A stated
     # geometry may be given either way round, so it is oriented by which end is nearer.
-    entered, partial_count, lines = 0, 0, []
+    entered, partial_count, pieces = 0, 0, []
+    final_leg_m = declared["bufferM"]
+    quad_segs = declared["quadrantSegments"]
+    # The first leg: the straight walk from the site to the junction it entered at, charged
+    # against the budget like any other metre. Absent from fixtures exported before
+    # 2026-10-14, where the corridor began at the junction.
+    origin = fixture["input"].get("origin")
+    if origin:
+        entry = project(shapely.Point(nodes[origin["networkNodeId"]]))
+        site = project(shapely.Point(origin["coordinates"]))
+        budget_at_site = remaining[origin["networkNodeId"]] + origin["snapDistanceM"]
+        pieces += tapered(LineString([site, entry]), budget_at_site, final_leg_m, quad_segs)
     for edge in fixture["input"]["network"]["edges"]:
         left = remaining.get(edge["from"])
         if left is None or left <= 0:
@@ -81,19 +134,21 @@ def run(fixture_path: Path) -> dict:
         piece = substring(line, 0.0, fraction, normalized=True)
         if piece.is_empty or piece.length <= 0:
             continue
-        lines.append(piece)
+        pieces += tapered(piece, left, final_leg_m, quad_segs)
         entered += 1
 
-    reference = unary_union(MultiLineString(lines).buffer(
-        declared["bufferM"], quad_segs=declared["quadrantSegments"]))
+    reference = unary_union(pieces)
     reported = project(shape(fixture["output"]["corridor"]))
 
     counts_agree = (entered == fixture["output"]["enteredSegmentCount"]
                     and partial_count == fixture["output"]["partialSegmentCount"])
+    # One-sided: the fraction of the stated rule's ground that Fieldwork draws. Above 1 it
+    # claims ground the rule does not allow; below 1 it is the coarser discretisation.
+    area_ratio = reported.area / reference.area
     area_difference = abs(reference.area - reported.area) / reported.area
     symmetric = reference.symmetric_difference(reported).area / reported.area
     agrees = (counts_agree
-              and area_difference <= AREA_TOLERANCE
+              and AREA_AT_LEAST <= area_ratio <= AREA_AT_MOST
               and symmetric <= SYMMETRIC_TOLERANCE)
 
     return {
@@ -114,12 +169,15 @@ def run(fixture_path: Path) -> dict:
             "declaredMethod": declared["method"],
         },
         "criterion": (
-            f"entered and partial segment counts exactly, area within {AREA_TOLERANCE:.0%}, "
-            f"and symmetric difference at most {SYMMETRIC_TOLERANCE:.0%} of the reported area"
+            f"entered and partial segment counts exactly, Fieldwork's area between "
+            f"{AREA_AT_LEAST:.0%} and {AREA_AT_MOST:.1%} of the rule rebuilt at {STEP_M:.0f} m "
+            f"steps, and symmetric difference at most {SYMMETRIC_TOLERANCE:.0%} of it"
         ),
         "reachedJunctions": len(remaining),
+        "areaRatio": area_ratio,
+        "firstLegIncluded": bool(origin),
         "reference": {
-            "implementation": "shapely.ops.substring + buffer + unary_union in EPSG:32630",
+            "implementation": f"shapely.ops.substring + tapered buffer at {STEP_M:.0f} m steps + unary_union in EPSG:32630",
             "enteredSegments": entered, "partialSegments": partial_count,
             "areaSquareMetres": reference.area,
         },
@@ -132,11 +190,12 @@ def run(fixture_path: Path) -> dict:
         "areaDifferenceFraction": area_difference,
         "symmetricDifferenceFraction": symmetric,
         "notEstablished": (
-            "Whether a 25 m half-width is right, or whether the streets exist and are passable. "
-            "Both implementations trust the same edge geometry and the same lengths, so a wrong "
-            "network is wrong in both and this check still passes. The buffers are also taken in "
-            "different projections -- Turf/JSTS local azimuthal equidistant against GEOS in UTM "
-            "zone 30N -- which is why the area criterion is 1% rather than tighter."
+            "Whether a 25 m final walk off the street is right, whether the ground beside a "
+            "street can be walked at all, or whether the streets exist and are passable. Both "
+            "implementations trust the same edge geometry and the same lengths, so a wrong "
+            "network is wrong in both and this check still passes. Nor does it establish that "
+            "Fieldwork's discretisation is close enough for any particular use: it establishes "
+            "that Fieldwork draws no more ground than the rule allows, and how much less."
         ),
         "agrees": bool(agrees),
     }

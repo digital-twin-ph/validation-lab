@@ -1,6 +1,6 @@
 {
  "check": "08-corridor",
- "ranAt": "2026-10-11T15:31:46.610399+00:00",
+ "ranAt": "2026-10-14T20:48:46.100413+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -10,10 +10,10 @@
  },
  "fixture": {
   "id": "corridor-soho-001",
-  "sha256": "2536bbe6927a7f4cbbfca85a108028ff959a6ea63c1b9227731079e717c428a5",
+  "sha256": "a3b749381fd2f8cdb66c5fba8e007fdb8cd796a7086b10331b6ec28d18f724dd",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.8.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:reachable_corridor",
@@ -21,24 +21,26 @@
    "label": "Reachable corridor",
    "implementation": "src/reachable-corridor.ts#reachableCorridor"
   },
-  "declaredMethod": "Reachable street corridor, outbound, 25 m either side, 8 segments per quadrant. 25 m either side is a 50 m wide strip, and it is a claim: anywhere within it counts as reached. That includes the insides of buildings, locked yards and the far side of walls, none of which this knows about. 45 segments were entered part-way, where the budget ran out mid-block. That is what puts the edge of the time between junctions rather than at them. Travel was outbound. The budget and the direction came from the junctions themselves, so this corridor cannot disagree with the traversal that produced them. Drawn for the 5 minute band, which the junctions state. A band's corridor contains every shorter band's corridor: these are nested, not rings. Holes are kept. A gap inside a corridor is ground no street reaches, not an error, and filling it would assert reach where none was computed. Buffered with 8 segments per quadrant, so a corner is an eight-sided approximation of a curve, not a curve."
+  "declaredMethod": "Reachable street corridor, outbound, 25 m either side, 8 segments per quadrant. 25 m either side is the final walk off the street, and it is charged: it is the full 25 m only where that much budget is left, and narrows to nothing where the time runs out. Before 2026-10-14 it was a constant strip, which claimed 25 m of ground beyond the budget all the way round. Within that width anywhere counts as reached, which is a claim about ground this knows nothing about: the insides of buildings, locked yards and the far side of walls. 38 segments were entered part-way, where the budget ran out mid-block. That is what puts the edge of the time between junctions rather than at them. Travel was outbound. The budget and the direction came from the junctions themselves, so this corridor cannot disagree with the traversal that produced them. Drawn for the 5 minute band, which the junctions state. A band's corridor contains every shorter band's corridor: these are nested, not rings. Holes are kept. A gap inside a corridor is ground no street reaches, not an error, and filling it would assert reach where none was computed. Buffered with 8 segments per quadrant, so a corner is an eight-sided approximation of a curve, not a curve."
  },
- "criterion": "entered and partial segment counts exactly, area within 1%, and symmetric difference at most 2% of the reported area",
- "reachedJunctions": 142,
+ "criterion": "entered and partial segment counts exactly, Fieldwork's area between 85% and 100.5% of the rule rebuilt at 1 m steps, and symmetric difference at most 8% of it",
+ "reachedJunctions": 134,
+ "areaRatio": 1.0016073438803892,
+ "firstLegIncluded": true,
  "reference": {
-  "implementation": "shapely.ops.substring + buffer + unary_union in EPSG:32630",
-  "enteredSegments": 301,
-  "partialSegments": 45,
-  "areaSquareMetres": 198980.18124692046
+  "implementation": "shapely.ops.substring + tapered buffer at 1 m steps + unary_union in EPSG:32630",
+  "enteredSegments": 283,
+  "partialSegments": 38,
+  "areaSquareMetres": 160785.36204399593
  },
  "fieldwork": {
-  "enteredSegments": 301,
-  "partialSegments": 45,
-  "areaSquareMetres": 199210.2909676895
+  "enteredSegments": 283,
+  "partialSegments": 38,
+  "areaSquareMetres": 161043.79941173352
  },
  "countsAgree": true,
- "areaDifferenceFraction": 0.0011551096062922242,
- "symmetricDifferenceFraction": 0.0011551096062933817,
- "notEstablished": "Whether a 25 m half-width is right, or whether the streets exist and are passable. Both implementations trust the same edge geometry and the same lengths, so a wrong network is wrong in both and this check still passes. The buffers are also taken in different projections -- Turf/JSTS local azimuthal equidistant against GEOS in UTM zone 30N -- which is why the area criterion is 1% rather than tighter.",
+ "areaDifferenceFraction": 0.0016047644720356415,
+ "symmetricDifferenceFraction": 0.001627627593365239,
+ "notEstablished": "Whether a 25 m final walk off the street is right, whether the ground beside a street can be walked at all, or whether the streets exist and are passable. Both implementations trust the same edge geometry and the same lengths, so a wrong network is wrong in both and this check still passes. Nor does it establish that Fieldwork's discretisation is close enough for any particular use: it establishes that Fieldwork draws no more ground than the rule allows, and how much less.",
  "agrees": true
 }
