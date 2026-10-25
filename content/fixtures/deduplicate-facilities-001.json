@@ -1,0 +1,673 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "deduplicate-facilities-001",
+  "exportedAt": "2026-10-25T03:54:51.938Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.11.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:deduplicate_points",
+    "release": "0.1.0",
+    "label": "Deduplicate point records",
+    "implementation": "src/deduplicate-points.ts#deduplicatePoints"
+  },
+  "declaredParameters": {
+    "nameField": "name",
+    "nameMatch": "fuzzy",
+    "fuzzyThreshold": 0.88,
+    "blockDistanceM": 500,
+    "nearDistanceM": 50,
+    "matchThreshold": 2,
+    "reviewThreshold": 1,
+    "distanceRule": "Great-circle (haversine) on a sphere of radius 6371.0088 km, in metres. A geodesic will differ by up to about 0.56%; every pair here is at least 10 m clear of both distance thresholds so no classification turns on that difference.",
+    "blockingRule": "Only pairs within blockDistanceM are compared. Every other pair is counted as blocked and never compared.",
+    "sourceRule": "Cross-source only. Two records from the same layer are neither compared nor counted as blocked.",
+    "normalisationRule": "NFKC, trimmed, lower case. Fuzzy comparison also replaces every run of characters that are neither letters nor numbers with one space, so punctuation and spacing stop being a disagreement.",
+    "nameRule": "Fuzzy: Jaro similarity with the Winkler prefix adjustment -- prefix at most 4 characters, scaling 0.1, applied only when the Jaro similarity exceeds 0.7 -- and the name agrees when that value is at least fuzzyThreshold. A name missing on either side is not comparable: similarity is absent, and the comparison contributes zero rather than agreeing or disagreeing.",
+    "scoreRule": "Two binary contributions, not a blended score: the name agreement and the near agreement each contribute 1 or 0. A similarity of 0.87 against a threshold of 0.88 contributes nothing rather than 0.87.",
+    "classRule": "At or above matchThreshold the pair is a match; at or above reviewThreshold it waits for a person; below that it is not a match. Three classes, not merge-or-not.",
+    "clusterRule": "Matched pairs are accepted in order of score descending, then distance ascending, then key. A cluster holds at most one record from each source: an edge that would add a second is refused and the pair stays reported as a match that did not merge. A pair in the review band merges only when a person decides, and no decision is supplied here.",
+    "outputRule": "One record per cluster, the first of the cluster kept, carrying mergedFrom when it stands for more than one. Records with no usable location were never candidates and are carried through untouched."
+  },
+  "input": {
+    "layers": [
+      {
+        "sourceNodeId": "osm",
+        "label": "OpenStreetMap",
+        "features": [
+          {
+            "id": "osm-1",
+            "name": "Ospital ng Maynila Medical Center",
+            "coordinates": [
+              120.9842,
+              14.5995
+            ]
+          },
+          {
+            "id": "osm-2",
+            "name": "Ospital ng Maynila Medical Center Annex",
+            "coordinates": [
+              120.98438565683998,
+              14.5995
+            ]
+          },
+          {
+            "id": "osm-3",
+            "name": "St. Mary's Clinic",
+            "coordinates": [
+              120.98791313679962,
+              14.5995
+            ]
+          },
+          {
+            "id": "osm-4",
+            "name": "Mercury Drug Clinic",
+            "coordinates": [
+              120.9842,
+              14.607639345596615
+            ]
+          },
+          {
+            "id": "osm-5",
+            "name": null,
+            "coordinates": [
+              120.98791313679962,
+              14.607639345596615
+            ]
+          },
+          {
+            "id": "osm-6",
+            "name": "Barangay Health Station 12",
+            "coordinates": [
+              121.00276568399806,
+              14.617587434659143
+            ]
+          },
+          {
+            "id": "osm-7",
+            "name": "Pasay City Clinic",
+            "coordinates": null
+          }
+        ]
+      },
+      {
+        "sourceNodeId": "overture",
+        "label": "Overture Places",
+        "features": [
+          {
+            "id": "ovt-1",
+            "name": "Ospital ng Maynila Med Ctr",
+            "coordinates": [
+              120.98436709115599,
+              14.5995
+            ]
+          },
+          {
+            "id": "ovt-2",
+            "name": "Ospital ng Maynila Medical Center",
+            "coordinates": [
+              120.9842,
+              14.599771311519888
+            ]
+          },
+          {
+            "id": "ovt-3",
+            "name": "St Marys Clinic",
+            "coordinates": [
+              120.98791313679962,
+              14.599698961781252
+            ]
+          },
+          {
+            "id": "ovt-4",
+            "name": "St. Mary's Clinic",
+            "coordinates": [
+              120.98791313679962,
+              14.59678688480113
+            ]
+          },
+          {
+            "id": "ovt-5",
+            "name": "Rizal Memorial Coliseum",
+            "coordinates": [
+              120.9842,
+              14.607775001356558
+            ]
+          },
+          {
+            "id": "ovt-6",
+            "name": "Manila Doctors Hospital",
+            "coordinates": [
+              120.9842,
+              14.610804646661965
+            ]
+          },
+          {
+            "id": "ovt-7",
+            "name": "Health Center",
+            "coordinates": [
+              120.9880245309036,
+              14.607639345596615
+            ]
+          }
+        ]
+      }
+    ],
+    "namePairs": [
+      {
+        "a": "martha",
+        "b": "marhta"
+      },
+      {
+        "a": "dwayne",
+        "b": "duane"
+      },
+      {
+        "a": "dixon",
+        "b": "dicksonx"
+      },
+      {
+        "a": "jones",
+        "b": "johnson"
+      },
+      {
+        "a": "abcvwxyz",
+        "b": "cabvwxyz"
+      },
+      {
+        "a": "",
+        "b": ""
+      },
+      {
+        "a": "a",
+        "b": "a"
+      }
+    ]
+  },
+  "output": {
+    "counts": {
+      "inputCount": 14,
+      "compared": 16,
+      "blocked": 26,
+      "matched": 5,
+      "awaiting": 3,
+      "merged": 3,
+      "outputRecords": 11
+    },
+    "candidates": [
+      {
+        "key": "osm:osm-2|overture:ovt-1",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-2",
+          "name": "Ospital ng Maynila Medical Center Annex"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-1",
+          "name": "Ospital ng Maynila Med Ctr"
+        },
+        "metres": 1.9977556624198953,
+        "nameSimilarity": 0.9256410256410257,
+        "nameAgrees": true,
+        "nearAgrees": true,
+        "score": 2,
+        "classification": "match"
+      },
+      {
+        "key": "osm:osm-1|overture:ovt-1",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-1",
+          "name": "Ospital ng Maynila Medical Center"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-1",
+          "name": "Ospital ng Maynila Med Ctr"
+        },
+        "metres": 17.979800972482746,
+        "nameSimilarity": 0.9498834498834499,
+        "nameAgrees": true,
+        "nearAgrees": true,
+        "score": 2,
+        "classification": "match"
+      },
+      {
+        "key": "osm:osm-3|overture:ovt-3",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-3",
+          "name": "St. Mary's Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-3",
+          "name": "St Marys Clinic"
+        },
+        "metres": 22.123571229636905,
+        "nameSimilarity": 0.9741666666666667,
+        "nameAgrees": true,
+        "nearAgrees": true,
+        "score": 2,
+        "classification": "match"
+      },
+      {
+        "key": "osm:osm-1|overture:ovt-2",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-1",
+          "name": "Ospital ng Maynila Medical Center"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-2",
+          "name": "Ospital ng Maynila Medical Center"
+        },
+        "metres": 30.168506222106448,
+        "nameSimilarity": 1,
+        "nameAgrees": true,
+        "nearAgrees": true,
+        "score": 2,
+        "classification": "match"
+      },
+      {
+        "key": "osm:osm-2|overture:ovt-2",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-2",
+          "name": "Ospital ng Maynila Medical Center Annex"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-2",
+          "name": "Ospital ng Maynila Medical Center"
+        },
+        "metres": 36.18343605182042,
+        "nameSimilarity": 0.9692307692307692,
+        "nameAgrees": true,
+        "nearAgrees": true,
+        "score": 2,
+        "classification": "match"
+      },
+      {
+        "key": "osm:osm-5|overture:ovt-7",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-5",
+          "name": null
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-7",
+          "name": "Health Center"
+        },
+        "metres": 11.986090332611736,
+        "nameSimilarity": null,
+        "nameAgrees": false,
+        "nearAgrees": true,
+        "score": 1,
+        "classification": "review"
+      },
+      {
+        "key": "osm:osm-4|overture:ovt-5",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-4",
+          "name": "Mercury Drug Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-5",
+          "name": "Rizal Memorial Coliseum"
+        },
+        "metres": 15.084253110954464,
+        "nameSimilarity": 0.5036994660564454,
+        "nameAgrees": false,
+        "nearAgrees": true,
+        "score": 1,
+        "classification": "review"
+      },
+      {
+        "key": "osm:osm-3|overture:ovt-4",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-3",
+          "name": "St. Mary's Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-4",
+          "name": "St. Mary's Clinic"
+        },
+        "metres": 301.685062221262,
+        "nameSimilarity": 1,
+        "nameAgrees": true,
+        "nearAgrees": false,
+        "score": 1,
+        "classification": "review"
+      },
+      {
+        "key": "osm:osm-4|overture:ovt-6",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-4",
+          "name": "Mercury Drug Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-6",
+          "name": "Manila Doctors Hospital"
+        },
+        "metres": 351.9659059248386,
+        "nameSimilarity": 0.464626239511823,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-2|overture:ovt-3",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-2",
+          "name": "Ospital ng Maynila Medical Center Annex"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-3",
+          "name": "St Marys Clinic"
+        },
+        "metres": 380.21759788315467,
+        "nameSimilarity": 0.5923076923076923,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-3|overture:ovt-1",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-3",
+          "name": "St. Mary's Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-1",
+          "name": "Ospital ng Maynila Med Ctr"
+        },
+        "metres": 381.571331735471,
+        "nameSimilarity": 0.6426282051282052,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-5|overture:ovt-5",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-5",
+          "name": null
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-5",
+          "name": "Rizal Memorial Coliseum"
+        },
+        "metres": 399.8208682885389,
+        "nameSimilarity": null,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-1|overture:ovt-3",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-1",
+          "name": "Ospital ng Maynila Medical Center"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-3",
+          "name": "St Marys Clinic"
+        },
+        "metres": 400.16298636468866,
+        "nameSimilarity": 0.6125097125097125,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-3|overture:ovt-2",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-3",
+          "name": "St. Mary's Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-2",
+          "name": "Ospital ng Maynila Medical Center"
+        },
+        "metres": 400.6882198321917,
+        "nameSimilarity": 0.6473665223665224,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-4|overture:ovt-7",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-4",
+          "name": "Mercury Drug Clinic"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-7",
+          "name": "Health Center"
+        },
+        "metres": 411.52243477210357,
+        "nameSimilarity": 0.41592442645074224,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      },
+      {
+        "key": "osm:osm-2|overture:ovt-4",
+        "a": {
+          "sourceNodeId": "osm",
+          "id": "osm-2",
+          "name": "Ospital ng Maynila Medical Center Annex"
+        },
+        "b": {
+          "sourceNodeId": "overture",
+          "id": "ovt-4",
+          "name": "St. Mary's Clinic"
+        },
+        "metres": 484.8626128633796,
+        "nameSimilarity": 0.6256105006105006,
+        "nameAgrees": false,
+        "nearAgrees": false,
+        "score": 0,
+        "classification": "non-match"
+      }
+    ],
+    "records": [
+      {
+        "id": "osm-1",
+        "name": "Ospital ng Maynila Medical Center",
+        "mergedFrom": "osm:osm-1 overture:ovt-2"
+      },
+      {
+        "id": "osm-2",
+        "name": "Ospital ng Maynila Medical Center Annex",
+        "mergedFrom": "osm:osm-2 overture:ovt-1"
+      },
+      {
+        "id": "osm-3",
+        "name": "St. Mary's Clinic",
+        "mergedFrom": "osm:osm-3 overture:ovt-3"
+      },
+      {
+        "id": "osm-4",
+        "name": "Mercury Drug Clinic",
+        "mergedFrom": null
+      },
+      {
+        "id": "osm-5",
+        "name": null,
+        "mergedFrom": null
+      },
+      {
+        "id": "osm-6",
+        "name": "Barangay Health Station 12",
+        "mergedFrom": null
+      },
+      {
+        "id": "ovt-4",
+        "name": "St. Mary's Clinic",
+        "mergedFrom": null
+      },
+      {
+        "id": "ovt-5",
+        "name": "Rizal Memorial Coliseum",
+        "mergedFrom": null
+      },
+      {
+        "id": "ovt-6",
+        "name": "Manila Doctors Hospital",
+        "mergedFrom": null
+      },
+      {
+        "id": "ovt-7",
+        "name": "Health Center",
+        "mergedFrom": null
+      },
+      {
+        "id": "osm-7",
+        "name": "Pasay City Clinic",
+        "mergedFrom": null
+      }
+    ],
+    "normalisedNames": [
+      {
+        "id": "osm-1",
+        "exact": "ospital ng maynila medical center",
+        "fuzzy": "ospital ng maynila medical center"
+      },
+      {
+        "id": "osm-2",
+        "exact": "ospital ng maynila medical center annex",
+        "fuzzy": "ospital ng maynila medical center annex"
+      },
+      {
+        "id": "osm-3",
+        "exact": "st. mary's clinic",
+        "fuzzy": "st mary s clinic"
+      },
+      {
+        "id": "osm-4",
+        "exact": "mercury drug clinic",
+        "fuzzy": "mercury drug clinic"
+      },
+      {
+        "id": "osm-6",
+        "exact": "barangay health station 12",
+        "fuzzy": "barangay health station 12"
+      },
+      {
+        "id": "osm-7",
+        "exact": "pasay city clinic",
+        "fuzzy": "pasay city clinic"
+      },
+      {
+        "id": "ovt-1",
+        "exact": "ospital ng maynila med ctr",
+        "fuzzy": "ospital ng maynila med ctr"
+      },
+      {
+        "id": "ovt-2",
+        "exact": "ospital ng maynila medical center",
+        "fuzzy": "ospital ng maynila medical center"
+      },
+      {
+        "id": "ovt-3",
+        "exact": "st marys clinic",
+        "fuzzy": "st marys clinic"
+      },
+      {
+        "id": "ovt-4",
+        "exact": "st. mary's clinic",
+        "fuzzy": "st mary s clinic"
+      },
+      {
+        "id": "ovt-5",
+        "exact": "rizal memorial coliseum",
+        "fuzzy": "rizal memorial coliseum"
+      },
+      {
+        "id": "ovt-6",
+        "exact": "manila doctors hospital",
+        "fuzzy": "manila doctors hospital"
+      },
+      {
+        "id": "ovt-7",
+        "exact": "health center",
+        "fuzzy": "health center"
+      }
+    ],
+    "nameSimilarities": [
+      {
+        "a": "martha",
+        "b": "marhta",
+        "similarity": 0.9611111111111111
+      },
+      {
+        "a": "dwayne",
+        "b": "duane",
+        "similarity": 0.8400000000000001
+      },
+      {
+        "a": "dixon",
+        "b": "dicksonx",
+        "similarity": 0.8133333333333332
+      },
+      {
+        "a": "jones",
+        "b": "johnson",
+        "similarity": 0.8323809523809523
+      },
+      {
+        "a": "abcvwxyz",
+        "b": "cabvwxyz",
+        "similarity": 0.9375
+      },
+      {
+        "a": "",
+        "b": "",
+        "similarity": 0
+      },
+      {
+        "a": "a",
+        "b": "a",
+        "similarity": 1
+      }
+    ]
+  },
+  "note": "Recompute the linkage from the two layers and the declared parameters with an independent Jaro-Winkler (jellyfish) and an independent distance (a WGS84 geodesic), and compare: every published name similarity, the normalised form of every name, the two agreements and the class of every pair, the blocked and compared counts, the refusal by the cluster rule of a second record from one source, and the output record set with its mergedFrom. What this cannot establish is what the thresholds should be: that needs records whose true identity is known, and these are constructed.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "6d1310281865b5503967af9df536f5c75cf7dd4e86d2fcc32e2abe55feb4d86f"
+  }
+}
