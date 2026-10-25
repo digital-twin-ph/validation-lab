@@ -1,0 +1,475 @@
+{
+ "check": "26-deduplicate",
+ "ranAt": "2026-10-25T04:00:29.260704+00:00",
+ "environment": {
+  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "isPyodide": false,
+  "rapidfuzz": "3.14.6",
+  "jellyfish": "1.3.0",
+  "pyproj": "3.8.0"
+ },
+ "fixture": {
+  "id": "deduplicate-facilities-001",
+  "sha256": "6d1310281865b5503967af9df536f5c75cf7dd4e86d2fcc32e2abe55feb4d86f",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.11.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:deduplicate_points",
+   "release": "0.1.0",
+   "label": "Deduplicate point records",
+   "implementation": "src/deduplicate-points.ts#deduplicatePoints"
+  },
+  "declaredThresholds": {
+   "fuzzyThreshold": 0.88,
+   "blockDistanceM": 500,
+   "nearDistanceM": 50,
+   "matchThreshold": 2,
+   "reviewThreshold": 1
+  }
+ },
+ "criterion": "name similarity within 1e-9 of rapidfuzz; normalised names exact in both modes; distances within 1% of a WGS84 geodesic; blocked and compared counts exact; each pair's two agreements, score and class exact; and the merged count, output record set and every mergedFrom exact",
+ "records": 14,
+ "placedRecords": 13,
+ "nameSimilarities": [
+  {
+   "a": "martha",
+   "b": "marhta",
+   "fieldwork": 0.9611111111111111,
+   "rapidfuzz": 0.9611111111111111,
+   "jellyfish": 0.9611111111111111,
+   "agreesWithRapidfuzz": true,
+   "referencesAgree": true
+  },
+  {
+   "a": "dwayne",
+   "b": "duane",
+   "fieldwork": 0.8400000000000001,
+   "rapidfuzz": 0.8400000000000001,
+   "jellyfish": 0.8400000000000001,
+   "agreesWithRapidfuzz": true,
+   "referencesAgree": true
+  },
+  {
+   "a": "dixon",
+   "b": "dicksonx",
+   "fieldwork": 0.8133333333333332,
+   "rapidfuzz": 0.8133333333333332,
+   "jellyfish": 0.8133333333333332,
+   "agreesWithRapidfuzz": true,
+   "referencesAgree": true
+  },
+  {
+   "a": "jones",
+   "b": "johnson",
+   "fieldwork": 0.8323809523809523,
+   "rapidfuzz": 0.8323809523809523,
+   "jellyfish": 0.8323809523809523,
+   "agreesWithRapidfuzz": true,
+   "referencesAgree": true
+  },
+  {
+   "a": "abcvwxyz",
+   "b": "cabvwxyz",
+   "fieldwork": 0.9375,
+   "rapidfuzz": 0.9583333333333334,
+   "jellyfish": 0.9583333333333334,
+   "agreesWithRapidfuzz": false,
+   "referencesAgree": true
+  },
+  {
+   "a": "",
+   "b": "",
+   "fieldwork": 0,
+   "rapidfuzz": 0.0,
+   "jellyfish": 0.0,
+   "agreesWithRapidfuzz": true,
+   "referencesAgree": true
+  },
+  {
+   "a": "a",
+   "b": "a",
+   "fieldwork": 1,
+   "rapidfuzz": 1.0,
+   "jellyfish": 1.0,
+   "agreesWithRapidfuzz": true,
+   "referencesAgree": true
+  }
+ ],
+ "normalisation": [
+  {
+   "id": "osm-1",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "ospital ng maynila medical center",
+   "fuzzyFieldwork": "ospital ng maynila medical center"
+  },
+  {
+   "id": "osm-2",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "ospital ng maynila medical center annex",
+   "fuzzyFieldwork": "ospital ng maynila medical center annex"
+  },
+  {
+   "id": "osm-3",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "st mary s clinic",
+   "fuzzyFieldwork": "st mary s clinic"
+  },
+  {
+   "id": "osm-4",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "mercury drug clinic",
+   "fuzzyFieldwork": "mercury drug clinic"
+  },
+  {
+   "id": "osm-6",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "barangay health station 12",
+   "fuzzyFieldwork": "barangay health station 12"
+  },
+  {
+   "id": "osm-7",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "pasay city clinic",
+   "fuzzyFieldwork": "pasay city clinic"
+  },
+  {
+   "id": "ovt-1",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "ospital ng maynila med ctr",
+   "fuzzyFieldwork": "ospital ng maynila med ctr"
+  },
+  {
+   "id": "ovt-2",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "ospital ng maynila medical center",
+   "fuzzyFieldwork": "ospital ng maynila medical center"
+  },
+  {
+   "id": "ovt-3",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "st marys clinic",
+   "fuzzyFieldwork": "st marys clinic"
+  },
+  {
+   "id": "ovt-4",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "st mary s clinic",
+   "fuzzyFieldwork": "st mary s clinic"
+  },
+  {
+   "id": "ovt-5",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "rizal memorial coliseum",
+   "fuzzyFieldwork": "rizal memorial coliseum"
+  },
+  {
+   "id": "ovt-6",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "manila doctors hospital",
+   "fuzzyFieldwork": "manila doctors hospital"
+  },
+  {
+   "id": "ovt-7",
+   "exactAgrees": true,
+   "fuzzyAgrees": true,
+   "fuzzyReference": "health center",
+   "fuzzyFieldwork": "health center"
+  }
+ ],
+ "counts": {
+  "comparedReference": 16,
+  "blockedReference": 26,
+  "comparedFieldwork": 16,
+  "blockedFieldwork": 26,
+  "agree": {
+   "compared": true,
+   "blocked": true,
+   "inputCount": true,
+   "candidateRows": true
+  }
+ },
+ "pairs": [
+  {
+   "key": "osm:osm-2|overture:ovt-1",
+   "present": true,
+   "metresFieldwork": 1.9977556624198953,
+   "metresReference": 2.000416309570153,
+   "metresRelative": 0.001330046719539808,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "match",
+   "classReference": "match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-1|overture:ovt-1",
+   "present": true,
+   "metresFieldwork": 17.979800972482746,
+   "metresReference": 18.00374679684932,
+   "metresRelative": 0.00133004671953979,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "match",
+   "classReference": "match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-3|overture:ovt-3",
+   "present": true,
+   "metresFieldwork": 22.123571229636905,
+   "metresReference": 22.014098306208798,
+   "metresRelative": 0.0049728552087564765,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "match",
+   "classReference": "match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-1|overture:ovt-2",
+   "present": true,
+   "metresFieldwork": 30.168506222106448,
+   "metresReference": 30.019225056039797,
+   "metresRelative": 0.004972852090217946,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "match",
+   "classReference": "match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-2|overture:ovt-2",
+   "present": true,
+   "metresFieldwork": 36.18343605182042,
+   "metresReference": 36.07381216444455,
+   "metresRelative": 0.003038877257445047,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "match",
+   "classReference": "match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-5|overture:ovt-7",
+   "present": true,
+   "metresFieldwork": 11.986090332611736,
+   "metresReference": 12.00205641065205,
+   "metresRelative": 0.001330278536780094,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "review",
+   "classReference": "review",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-4|overture:ovt-5",
+   "present": true,
+   "metresFieldwork": 15.084253110954464,
+   "metresReference": 15.009622892651905,
+   "metresRelative": 0.004972158117249902,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "review",
+   "classReference": "review",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-3|overture:ovt-4",
+   "present": true,
+   "metresFieldwork": 301.685062221262,
+   "metresReference": 300.19221224397063,
+   "metresRelative": 0.0049729803652538125,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "review",
+   "classReference": "review",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-4|overture:ovt-6",
+   "present": true,
+   "metresFieldwork": 351.9659059248386,
+   "metresReference": 350.2245795792438,
+   "metresRelative": 0.004972027799096136,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-2|overture:ovt-3",
+   "present": true,
+   "metresFieldwork": 380.21759788315467,
+   "metresReference": 380.7159206024931,
+   "metresRelative": 0.0013089095894645627,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-3|overture:ovt-1",
+   "present": true,
+   "metresFieldwork": 381.571331735471,
+   "metresReference": 382.0795153414542,
+   "metresRelative": 0.0013300467195397005,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-5|overture:ovt-5",
+   "present": true,
+   "metresFieldwork": 399.8208682885389,
+   "metresReference": 400.34988818203107,
+   "metresRelative": 0.0013213938834712824,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-1|overture:ovt-3",
+   "present": true,
+   "metresFieldwork": 400.16298636468866,
+   "metresReference": 400.6882744659434,
+   "metresRelative": 0.0013109644946681946,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-3|overture:ovt-2",
+   "present": true,
+   "metresFieldwork": 400.6882198321917,
+   "metresReference": 401.2076448997689,
+   "metresRelative": 0.001294653963303704,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-4|overture:ovt-7",
+   "present": true,
+   "metresFieldwork": 411.52243477210357,
+   "metresReference": 412.0706034515129,
+   "metresRelative": 0.0013302785367795467,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  },
+  {
+   "key": "osm:osm-2|overture:ovt-4",
+   "present": true,
+   "metresFieldwork": 484.8626128633796,
+   "metresReference": 484.33176264566055,
+   "metresRelative": 0.0010960466743276704,
+   "metresAgrees": true,
+   "nameAgreesAgrees": true,
+   "nearAgreesAgrees": true,
+   "scoreAgrees": true,
+   "classFieldwork": "non-match",
+   "classReference": "non-match",
+   "classAgrees": true,
+   "agrees": true
+  }
+ ],
+ "cluster": {
+  "mergedFieldwork": 3,
+  "mergedReference": 3,
+  "mergedAgrees": true,
+  "refusedEdges": [
+   "osm:osm-1|overture:ovt-1",
+   "osm:osm-2|overture:ovt-2"
+  ],
+  "refusedCount": 2,
+  "outputRecordsAgree": true,
+  "mergedFromAgrees": true,
+  "outputCountFieldwork": 11,
+  "outputCountReference": 11
+ },
+ "nameSimilarityAgrees": false,
+ "pipelineAgrees": true,
+ "divergences": [
+  {
+   "case": "abcvwxyz / cabvwxyz",
+   "fieldwork": 0.9375,
+   "rapidfuzz": 0.9583333333333334,
+   "jellyfish": 0.9583333333333334,
+   "difference": 0.02083333333333337,
+   "cause": "The raw count of matched characters in a different order is halved. Fieldwork halves it exactly (3 becomes 1.5); rapidfuzz and jellyfish halve it with integer division (3 becomes 1). The two references agree with each other, so this is a convention and not a slip in either. It can only arise when that raw count is odd, which needs a cycle of odd length among the matched characters: every published reference pair has an even count, so no published value can detect it. Unreached by any name pair in this fixture's two layers."
+  }
+ ],
+ "notEstablished": "What the thresholds should be. 0.88, 500 m and 50 m are proposals in the release, not measurements, and measuring them needs records whose true identity is known. These are constructed so that every branch fires. Nor does it establish that the greedy cluster order picks the right partner: osm-2 'Ospital ng Maynila Medical Center Annex' sits 2 m from the Overture record for the main hospital and 20 m from its own layer's record for it, and distance-first ordering pairs the Annex with the main hospital while refusing the pair a reader would choose. Both implementations do this, because both follow the declared rule. It is a finding about the rule.",
+ "agrees": false
+}
