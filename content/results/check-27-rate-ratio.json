@@ -1,0 +1,159 @@
+{
+  "check": "27-rate-ratio",
+  "ranAt": "2026-10-26T12:19:08.825322+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "statsmodels": "0.15.0",
+    "scipy": "1.18.1"
+  },
+  "fixture": {
+    "id": "rate-ratio-snow-001",
+    "sha256": "028d1534ea5c3be013d908503e96ffffc635111c8ca098b0fcc3e8229acd047d",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.11.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:rate_ratio",
+      "release": "0.1.0",
+      "label": "Rate ratio with an interval",
+      "implementation": "src/rate-ratio.ts#computeRateRatio"
+    }
+  },
+  "criterion": {
+    "ratio": "within 1e-09 of statsmodels",
+    "bounds": "within 1e-06 of confint_poisson_2indep(method='wald-log')",
+    "z": "1.9600 within 5e-5 of scipy.stats.norm.ppf(0.975)"
+  },
+  "zQuantile": {
+    "fieldwork": 1.96,
+    "scipy": 1.959963984540054,
+    "agrees": true
+  },
+  "comparisons": [
+    {
+      "note": "Snow Table IX, per house",
+      "denominatorUnit": "houses",
+      "counts": {
+        "comparedEvents": 1263,
+        "comparedUnits": 40046,
+        "referenceEvents": 98,
+        "referenceUnits": 26107
+      },
+      "fieldwork": {
+        "ratio": 8.401853429780243,
+        "lower": 6.84096208049671,
+        "upper": 10.31889085553658
+      },
+      "statsmodels": {
+        "ratio": 8.401853429780243,
+        "lower": 6.840962080496711,
+        "upper": 10.318890855536583
+      },
+      "scoreMethod": {
+        "lower": 6.843425371921615,
+        "upper": 10.315176574529854
+      },
+      "methodDifference": {
+        "lower": 0.0003599500675511315,
+        "upper": 0.0003600792463311493
+      },
+      "agrees": true
+    },
+    {
+      "note": "Table XII supply groups, per person",
+      "denominatorUnit": "people",
+      "counts": {
+        "comparedEvents": 844,
+        "comparedUnits": 167654,
+        "referenceEvents": 18,
+        "referenceUnits": 19133
+      },
+      "fieldwork": {
+        "ratio": 5.351051040303906,
+        "lower": 3.3549096722616762,
+        "upper": 8.534878739860195
+      },
+      "statsmodels": {
+        "ratio": 5.351051040303906,
+        "lower": 3.354909672261676,
+        "upper": 8.534878739860197
+      },
+      "scoreMethod": {
+        "lower": 3.3688255523920487,
+        "upper": 8.499623028586175
+      },
+      "methodDifference": {
+        "lower": 0.004130780865305387,
+        "upper": 0.004147914696387022
+      },
+      "agrees": true
+    },
+    {
+      "note": "the intermingled area against Lambeth only",
+      "denominatorUnit": "people",
+      "counts": {
+        "comparedEvents": 652,
+        "comparedUnits": 300149,
+        "referenceEvents": 18,
+        "referenceUnits": 19133
+      },
+      "fieldwork": {
+        "ratio": 2.3089857963137566,
+        "lower": 1.4455747512095978,
+        "upper": 3.6880938900721407
+      },
+      "statsmodels": {
+        "ratio": 2.3089857963137566,
+        "lower": 1.4455747512095978,
+        "upper": 3.688093890072141
+      },
+      "scoreMethod": {
+        "lower": 1.4516255035046213,
+        "upper": 3.6727209594641885
+      },
+      "methodDifference": {
+        "lower": 0.004168259844164577,
+        "upper": 0.004185706122959962
+      },
+      "agrees": true
+    },
+    {
+      "note": "S&V only against the intermingled area",
+      "denominatorUnit": "people",
+      "counts": {
+        "comparedEvents": 844,
+        "comparedUnits": 167654,
+        "referenceEvents": 652,
+        "referenceUnits": 300149
+      },
+      "fieldwork": {
+        "ratio": 2.317489803898637,
+        "lower": 2.0923590380884383,
+        "upper": 2.566843879758239
+      },
+      "statsmodels": {
+        "ratio": 2.317489803898637,
+        "lower": 2.0923590380884383,
+        "upper": 2.566843879758239
+      },
+      "scoreMethod": {
+        "lower": 2.0924519724855015,
+        "upper": 2.5667298765853896
+      },
+      "methodDifference": {
+        "lower": 4.4414112383601704e-05,
+        "upper": 4.441572675389922e-05
+      },
+      "agrees": true
+    }
+  ],
+  "divergences": [],
+  "notEstablished": [
+    "That the comparison is fair: no interval speaks to confounding, and these customers were not randomised.",
+    "That the log-normal interval is adequate at small counts. The Lambeth-only group has 18 events; a score interval is reported beside it rather than asserted equal. An exact conditional interval would be the better comparison and statsmodels documents that method as not yet implemented.",
+    "What the right denominator is. Houses and people give different ratios over the same outbreak, and choosing between them is the practitioner's."
+  ],
+  "agrees": true
+}
