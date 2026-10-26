@@ -1,0 +1,148 @@
+{
+  "id": "two-by-two-snow-001",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.12.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:two_by_two",
+    "release": "0.1.0",
+    "label": "Two-by-two table",
+    "implementation": "src/two-by-two.ts#computeTwoByTwo"
+  },
+  "source": "John Snow, On the Mode of Communication of Cholera, 2nd ed., 1855: Table VIII with Table XII's declared water supply, for people; Table IX for houses. The people-denominated table is derived inside Fieldwork by relate_table, group_table, derive_value and select_rows -- it is not transcribed.",
+  "output": {
+    "tables": [
+      {
+        "note": "Snow Tables VIII and XII, on people: one company against the other",
+        "request": {
+          "exposureColumn": "water_supply",
+          "exposed": "Southwark and Vauxhall Company only",
+          "unexposed": "Lambeth Company only",
+          "outcomeColumn": "measure",
+          "caseValue": "deaths_seven_weeks",
+          "nonCaseValue": "survived",
+          "level": 95
+        },
+        "cells": {
+          "exposedCases": 844,
+          "exposedNonCases": 166810,
+          "unexposedCases": 18,
+          "unexposedNonCases": 19115
+        },
+        "exposedTotal": 167654,
+        "unexposedTotal": 19133,
+        "riskExposed": 0.0050341775322986625,
+        "riskUnexposed": 0.0009407829404693462,
+        "estimates": [
+          {
+            "name": "risk ratio",
+            "value": 5.351051040303906,
+            "lower": 3.3557136905521703,
+            "upper": 8.532833810153194,
+            "level": 95,
+            "method": "Katz log",
+            "epiInfoLabel": null,
+            "unavailable": null,
+            "notes": [
+              "A ratio of risks, not of rates: both denominators are the groups themselves, so this is not comparable with a rate ratio computed per house or per person-time."
+            ]
+          },
+          {
+            "name": "odds ratio",
+            "value": 5.373065830052822,
+            "lower": 3.367904307171166,
+            "upper": 8.57204771305694,
+            "level": 95,
+            "method": "Wald log",
+            "epiInfoLabel": null,
+            "unavailable": null,
+            "notes": [
+              "Both risks are under 10%, so the odds ratio is close to the risk ratio here. They are still different quantities."
+            ]
+          },
+          {
+            "name": "risk difference",
+            "value": 0.004093394591829317,
+            "lower": 0.003542507114247166,
+            "upper": 0.0046442820694114675,
+            "level": 95,
+            "method": "Wald unpooled",
+            "epiInfoLabel": null,
+            "unavailable": null,
+            "notes": [
+              "A difference of risks, on the same scale as the risks themselves. Unpooled: each group contributes its own variance rather than a common one."
+            ]
+          }
+        ],
+        "strataLeftOut": [
+          "Lambeth Company and Southwark and Vauxhall Company"
+        ]
+      },
+      {
+        "note": "Snow Table IX, on houses: the same contrast with a house as the subject",
+        "request": {
+          "exposureColumn": "supplier",
+          "exposed": "Southwark and Vauxhall Company",
+          "unexposed": "Lambeth Company",
+          "outcomeColumn": "measure",
+          "caseValue": "deaths",
+          "nonCaseValue": "houses without a death",
+          "level": 95
+        },
+        "cells": {
+          "exposedCases": 1263,
+          "exposedNonCases": 38783,
+          "unexposedCases": 98,
+          "unexposedNonCases": 26009
+        },
+        "exposedTotal": 40046,
+        "unexposedTotal": 26107,
+        "riskExposed": 0.031538730459971034,
+        "riskUnexposed": 0.0037537825104378138,
+        "estimates": [
+          {
+            "name": "risk ratio",
+            "value": 8.401853429780243,
+            "lower": 6.845014450533914,
+            "upper": 10.31278188901469,
+            "level": 95,
+            "method": "Katz log",
+            "epiInfoLabel": null,
+            "unavailable": null,
+            "notes": [
+              "A ratio of risks, not of rates: both denominators are the groups themselves, so this is not comparable with a rate ratio computed per house or per person-time."
+            ]
+          },
+          {
+            "name": "odds ratio",
+            "value": 8.642900818631349,
+            "lower": 7.033010876121419,
+            "upper": 10.621302295197644,
+            "level": 95,
+            "method": "Wald log",
+            "epiInfoLabel": null,
+            "unavailable": null,
+            "notes": [
+              "Both risks are under 10%, so the odds ratio is close to the risk ratio here. They are still different quantities."
+            ]
+          },
+          {
+            "name": "risk difference",
+            "value": 0.02778494794953322,
+            "lower": 0.025919407498684703,
+            "upper": 0.029650488400381737,
+            "level": 95,
+            "method": "Wald unpooled",
+            "epiInfoLabel": null,
+            "unavailable": null,
+            "notes": [
+              "A difference of risks, on the same scale as the risks themselves. Unpooled: each group contributes its own variance rather than a common one."
+            ]
+          }
+        ],
+        "strataLeftOut": []
+      }
+    ]
+  }
+}
