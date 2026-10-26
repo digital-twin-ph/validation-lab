@@ -1,0 +1,238 @@
+{
+  "check": "30-two-by-two",
+  "ranAt": "2026-10-26T23:47:26.592366+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "statsmodels": "0.15.0",
+    "scipy": "1.18.1"
+  },
+  "fixture": {
+    "id": "two-by-two-snow-001",
+    "sha256": "0c3407afd21de41fb2f0d0b56c9f7b32b5142ed9135405b6e84dc753d6d9eb5c",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.12.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:two_by_two",
+      "release": "0.1.0",
+      "label": "Two-by-two table",
+      "implementation": "src/two-by-two.ts#computeTwoByTwo"
+    }
+  },
+  "criterion": {
+    "estimates": "within 1e-09 of statsmodels Table2x2",
+    "bounds": "within 1e-09 of the matching Table2x2 confint at alpha=0.05",
+    "orientation": "risks recomputed from the fixture's cells match the reported risks",
+    "epiInfoLabel": "null on every estimate, because nobody has verified what Epi Info displays"
+  },
+  "zQuantile": {
+    "shared": 1.959963984540054,
+    "scipy": 1.959963984540054,
+    "agrees": true
+  },
+  "tables": [
+    {
+      "note": "Snow Tables VIII and XII, on people: one company against the other",
+      "cells": {
+        "exposedCases": 844,
+        "exposedNonCases": 166810,
+        "unexposedCases": 18,
+        "unexposedNonCases": 19115
+      },
+      "subjects": {
+        "exposed": 167654,
+        "unexposed": 19133
+      },
+      "strataLeftOut": [
+        "Lambeth Company and Southwark and Vauxhall Company"
+      ],
+      "orientation": {
+        "riskExposed": {
+          "fieldwork": 0.0050341775322986625,
+          "recomputed": 0.0050341775322986625
+        },
+        "riskUnexposed": {
+          "fieldwork": 0.0009407829404693462,
+          "recomputed": 0.0009407829404693462
+        },
+        "agrees": true
+      },
+      "estimates": [
+        {
+          "name": "risk ratio",
+          "method": {
+            "fieldwork": "Katz log",
+            "expected": "Katz log"
+          },
+          "fieldwork": {
+            "value": 5.351051040303906,
+            "lower": 3.3557136905521703,
+            "upper": 8.532833810153194
+          },
+          "statsmodels": {
+            "value": 5.351051040303906,
+            "lower": 3.3557136905521694,
+            "upper": 8.532833810153198
+          },
+          "epiInfoLabel": null,
+          "thirdOpinion": null,
+          "agrees": true
+        },
+        {
+          "name": "odds ratio",
+          "method": {
+            "fieldwork": "Wald log",
+            "expected": "Wald log"
+          },
+          "fieldwork": {
+            "value": 5.373065830052822,
+            "lower": 3.367904307171166,
+            "upper": 8.57204771305694
+          },
+          "statsmodels": {
+            "value": 5.373065830052822,
+            "lower": 3.367904307171164,
+            "upper": 8.572047713056936
+          },
+          "epiInfoLabel": null,
+          "thirdOpinion": null,
+          "agrees": true
+        },
+        {
+          "name": "risk difference",
+          "method": {
+            "fieldwork": "Wald unpooled",
+            "expected": "Wald unpooled"
+          },
+          "fieldwork": {
+            "value": 0.004093394591829317,
+            "lower": 0.003542507114247166,
+            "upper": 0.0046442820694114675
+          },
+          "statsmodels": {
+            "value": 0.004093394591829317,
+            "lower": 0.003542507114247166,
+            "upper": 0.0046442820694114675
+          },
+          "epiInfoLabel": null,
+          "thirdOpinion": {
+            "method": "agresti-caffo",
+            "lower": 0.003486743242212888,
+            "upper": 0.0046075311725589626
+          },
+          "agrees": true
+        }
+      ]
+    },
+    {
+      "note": "Snow Table IX, on houses: the same contrast with a house as the subject",
+      "cells": {
+        "exposedCases": 1263,
+        "exposedNonCases": 38783,
+        "unexposedCases": 98,
+        "unexposedNonCases": 26009
+      },
+      "subjects": {
+        "exposed": 40046,
+        "unexposed": 26107
+      },
+      "strataLeftOut": [],
+      "orientation": {
+        "riskExposed": {
+          "fieldwork": 0.031538730459971034,
+          "recomputed": 0.031538730459971034
+        },
+        "riskUnexposed": {
+          "fieldwork": 0.0037537825104378138,
+          "recomputed": 0.0037537825104378138
+        },
+        "agrees": true
+      },
+      "estimates": [
+        {
+          "name": "risk ratio",
+          "method": {
+            "fieldwork": "Katz log",
+            "expected": "Katz log"
+          },
+          "fieldwork": {
+            "value": 8.401853429780243,
+            "lower": 6.845014450533914,
+            "upper": 10.31278188901469
+          },
+          "statsmodels": {
+            "value": 8.401853429780243,
+            "lower": 6.845014450533912,
+            "upper": 10.31278188901469
+          },
+          "epiInfoLabel": null,
+          "thirdOpinion": null,
+          "agrees": true
+        },
+        {
+          "name": "odds ratio",
+          "method": {
+            "fieldwork": "Wald log",
+            "expected": "Wald log"
+          },
+          "fieldwork": {
+            "value": 8.642900818631349,
+            "lower": 7.033010876121419,
+            "upper": 10.621302295197644
+          },
+          "statsmodels": {
+            "value": 8.642900818631349,
+            "lower": 7.033010876121413,
+            "upper": 10.621302295197633
+          },
+          "epiInfoLabel": null,
+          "thirdOpinion": null,
+          "agrees": true
+        },
+        {
+          "name": "risk difference",
+          "method": {
+            "fieldwork": "Wald unpooled",
+            "expected": "Wald unpooled"
+          },
+          "fieldwork": {
+            "value": 0.02778494794953322,
+            "lower": 0.025919407498684703,
+            "upper": 0.029650488400381737
+          },
+          "statsmodels": {
+            "value": 0.02778494794953322,
+            "lower": 0.025919407498684703,
+            "upper": 0.029650488400381737
+          },
+          "epiInfoLabel": null,
+          "thirdOpinion": {
+            "method": "agresti-caffo",
+            "lower": 0.02590278943760273,
+            "upper": 0.02963786959644438
+          },
+          "agrees": true
+        }
+      ]
+    }
+  ],
+  "denominatorFinding": {
+    "riskRatios": {
+      "Snow Tables VIII and XII, on people: one company against the other": 5.351051040303906,
+      "Snow Table IX, on houses: the same contrast with a house as the subject": 8.401853429780243
+    },
+    "rateRatioOnHouses": 8.401853429780243,
+    "note": "The houses risk ratio and the rate ratio over the same houses are the SAME NUMBER, bit for bit: deaths per house is a risk when a house can hold at most one death, so the two are the same division. Only the intervals differ, and only in the second decimal. What moves the number to the people figure is the subject counted, which no part of the layout names."
+  },
+  "divergences": [],
+  "epiInfoLabelLeaks": [],
+  "notEstablished": [
+    "Agreement with Epi Info. statsmodels is not Epi Info and this project makes no parity claim.",
+    "That the comparison is fair. The both-companies stratum, 16 of 32 sub-districts, is excluded by name and not controlled for -- Snow's own confounding, and the reason he went to the house level.",
+    "That the normal approximations are adequate. The Lambeth-only group has 18 deaths; an exact interval would be the better comparison there.",
+    "Which denominator is right. Houses and people give 8.40 and 5.35 over the same outbreak, and choosing between them is the practitioner's."
+  ],
+  "agrees": true
+}
