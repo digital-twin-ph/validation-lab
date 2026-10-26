@@ -1,0 +1,118 @@
+{
+  "id": "rate-ratio-snow-001",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.11.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:rate_ratio",
+    "release": "0.1.0",
+    "label": "Rate ratio with an interval",
+    "implementation": "src/rate-ratio.ts#computeRateRatio"
+  },
+  "source": "John Snow, On the Mode of Communication of Cholera, 2nd ed., 1855: Table IX for houses; Table VIII with Table XII's declared water supply for people.",
+  "output": {
+    "comparisons": [
+      {
+        "note": "Snow Table IX, per house",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "houses",
+        "compared": {
+          "name": "Southwark and Vauxhall Company",
+          "label": "Southwark and Vauxhall Company",
+          "events": 1263,
+          "unitsAtRisk": 40046,
+          "rate": 0.031538730459971034
+        },
+        "reference": {
+          "name": "Lambeth Company",
+          "label": "Lambeth Company",
+          "events": 98,
+          "unitsAtRisk": 26107,
+          "rate": 0.0037537825104378138
+        },
+        "ratio": 8.401853429780243,
+        "lower": 6.84096208049671,
+        "upper": 10.31889085553658,
+        "smallCountWarning": null,
+        "sentence": "Southwark and Vauxhall Company against Lambeth Company: rate ratio 8.40 (95% interval 6.84 to 10.32), comparing 1263 events in 40,046 houses with 98 in 26,107."
+      },
+      {
+        "note": "Table XII supply groups, per person",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "people",
+        "compared": {
+          "name": "Southwark and Vauxhall only",
+          "label": "Southwark and Vauxhall only",
+          "events": 844,
+          "unitsAtRisk": 167654,
+          "rate": 0.0050341775322986625
+        },
+        "reference": {
+          "name": "Lambeth only",
+          "label": "Lambeth only",
+          "events": 18,
+          "unitsAtRisk": 19133,
+          "rate": 0.0009407829404693462
+        },
+        "ratio": 5.351051040303906,
+        "lower": 3.3549096722616762,
+        "upper": 8.534878739860195,
+        "smallCountWarning": null,
+        "sentence": "Southwark and Vauxhall only against Lambeth only: rate ratio 5.35 (95% interval 3.35 to 8.53), comparing 844 events in 167,654 people with 18 in 19,133."
+      },
+      {
+        "note": "the intermingled area against Lambeth only",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "people",
+        "compared": {
+          "name": "both intermingled",
+          "label": "both intermingled",
+          "events": 652,
+          "unitsAtRisk": 300149,
+          "rate": 0.0021722544469580107
+        },
+        "reference": {
+          "name": "Lambeth only",
+          "label": "Lambeth only",
+          "events": 18,
+          "unitsAtRisk": 19133,
+          "rate": 0.0009407829404693462
+        },
+        "ratio": 2.3089857963137566,
+        "lower": 1.4455747512095978,
+        "upper": 3.6880938900721407,
+        "smallCountWarning": null,
+        "sentence": "both intermingled against Lambeth only: rate ratio 2.31 (95% interval 1.45 to 3.69), comparing 652 events in 300,149 people with 18 in 19,133."
+      },
+      {
+        "note": "S&V only against the intermingled area",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "people",
+        "compared": {
+          "name": "Southwark and Vauxhall only",
+          "label": "Southwark and Vauxhall only",
+          "events": 844,
+          "unitsAtRisk": 167654,
+          "rate": 0.0050341775322986625
+        },
+        "reference": {
+          "name": "both intermingled",
+          "label": "both intermingled",
+          "events": 652,
+          "unitsAtRisk": 300149,
+          "rate": 0.0021722544469580107
+        },
+        "ratio": 2.317489803898637,
+        "lower": 2.0923590380884383,
+        "upper": 2.566843879758239,
+        "smallCountWarning": null,
+        "sentence": "Southwark and Vauxhall only against both intermingled: rate ratio 2.32 (95% interval 2.09 to 2.57), comparing 844 events in 167,654 people with 652 in 300,149."
+      }
+    ]
+  }
+}
