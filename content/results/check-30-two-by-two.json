@@ -1,6 +1,6 @@
 {
   "check": "30-two-by-two",
-  "ranAt": "2026-10-26T23:47:26.592366+00:00",
+  "ranAt": "2026-10-27T03:05:58.060784+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -9,7 +9,7 @@
   },
   "fixture": {
     "id": "two-by-two-snow-001",
-    "sha256": "0c3407afd21de41fb2f0d0b56c9f7b32b5142ed9135405b6e84dc753d6d9eb5c",
+    "sha256": "4c1f884fe6114c37bf059046ad36bf5b12d6e61e9e7fee555a548ec3367d2878",
     "application": {
       "name": "Fieldwork",
       "version": "0.12.0"
@@ -25,7 +25,7 @@
     "estimates": "within 1e-09 of statsmodels Table2x2",
     "bounds": "within 1e-09 of the matching Table2x2 confint at alpha=0.05",
     "orientation": "risks recomputed from the fixture's cells match the reported risks",
-    "epiInfoLabel": "null on every estimate, because nobody has verified what Epi Info displays"
+    "epiInfoLabel": "present on every estimate, with epiInfoLabelSource naming the Epi Info AI results panel and never Epi Info itself, which nobody has read"
   },
   "zQuantile": {
     "shared": 1.959963984540054,
@@ -76,7 +76,8 @@
             "lower": 3.3557136905521694,
             "upper": 8.532833810153198
           },
-          "epiInfoLabel": null,
+          "epiInfoLabel": "Risk Ratio (RR)",
+          "epiInfoLabelSource": "epi-info-ai-results-panel",
           "thirdOpinion": null,
           "agrees": true
         },
@@ -96,7 +97,8 @@
             "lower": 3.367904307171164,
             "upper": 8.572047713056936
           },
-          "epiInfoLabel": null,
+          "epiInfoLabel": "Odds Ratio (cross product)",
+          "epiInfoLabelSource": "epi-info-ai-results-panel",
           "thirdOpinion": null,
           "agrees": true
         },
@@ -116,7 +118,8 @@
             "lower": 0.003542507114247166,
             "upper": 0.0046442820694114675
           },
-          "epiInfoLabel": null,
+          "epiInfoLabel": "Risk Difference (RD%)",
+          "epiInfoLabelSource": "epi-info-ai-results-panel",
           "thirdOpinion": {
             "method": "agresti-caffo",
             "lower": 0.003486743242212888,
@@ -167,7 +170,8 @@
             "lower": 6.845014450533912,
             "upper": 10.31278188901469
           },
-          "epiInfoLabel": null,
+          "epiInfoLabel": "Risk Ratio (RR)",
+          "epiInfoLabelSource": "epi-info-ai-results-panel",
           "thirdOpinion": null,
           "agrees": true
         },
@@ -187,7 +191,8 @@
             "lower": 7.033010876121413,
             "upper": 10.621302295197633
           },
-          "epiInfoLabel": null,
+          "epiInfoLabel": "Odds Ratio (cross product)",
+          "epiInfoLabelSource": "epi-info-ai-results-panel",
           "thirdOpinion": null,
           "agrees": true
         },
@@ -207,7 +212,8 @@
             "lower": 0.025919407498684703,
             "upper": 0.029650488400381737
           },
-          "epiInfoLabel": null,
+          "epiInfoLabel": "Risk Difference (RD%)",
+          "epiInfoLabelSource": "epi-info-ai-results-panel",
           "thirdOpinion": {
             "method": "agresti-caffo",
             "lower": 0.02590278943760273,
@@ -229,7 +235,7 @@
   "divergences": [],
   "epiInfoLabelLeaks": [],
   "notEstablished": [
-    "Agreement with Epi Info. statsmodels is not Epi Info and this project makes no parity claim.",
+    "Agreement with Epi Info. statsmodels is not Epi Info and this project makes no parity claim. Nor do the labels establish it: they were read from Epi Info AI's results panel, a sibling project synthesized from Epi Info, which makes them a deduction about what Epi Info prints and not a reading of it.",
     "That the comparison is fair. The both-companies stratum, 16 of 32 sub-districts, is excluded by name and not controlled for -- Snow's own confounding, and the reason he went to the house level.",
     "That the normal approximations are adequate. The Lambeth-only group has 18 deaths; an exact interval would be the better comparison there.",
     "Which denominator is right. Houses and people give 8.40 and 5.35 over the same outbreak, and choosing between them is the practitioner's."

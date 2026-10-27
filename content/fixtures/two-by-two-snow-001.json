@@ -42,10 +42,11 @@
             "upper": 8.532833810153194,
             "level": 95,
             "method": "Katz log",
-            "epiInfoLabel": null,
+            "epiInfoLabel": "Risk Ratio (RR)",
+            "epiInfoLabelSource": "epi-info-ai-results-panel",
             "unavailable": null,
             "notes": [
-              "A ratio of risks, not of rates: both denominators are the groups themselves, so this is not comparable with a rate ratio computed per house or per person-time."
+              "A risk per people. A ratio computed over a different subject -- a house rather than a person -- is a different quantity even when the arithmetic looks the same."
             ]
           },
           {
@@ -55,7 +56,8 @@
             "upper": 8.57204771305694,
             "level": 95,
             "method": "Wald log",
-            "epiInfoLabel": null,
+            "epiInfoLabel": "Odds Ratio (cross product)",
+            "epiInfoLabelSource": "epi-info-ai-results-panel",
             "unavailable": null,
             "notes": [
               "Both risks are under 10%, so the odds ratio is close to the risk ratio here. They are still different quantities."
@@ -68,10 +70,12 @@
             "upper": 0.0046442820694114675,
             "level": 95,
             "method": "Wald unpooled",
-            "epiInfoLabel": null,
+            "epiInfoLabel": "Risk Difference (RD%)",
+            "epiInfoLabelSource": "epi-info-ai-results-panel",
             "unavailable": null,
             "notes": [
-              "A difference of risks, on the same scale as the risks themselves. Unpooled: each group contributes its own variance rather than a common one."
+              "A difference of risks, on the same scale as the risks themselves. Unpooled: each group contributes its own variance rather than a common one.",
+              "Epi Info AI's panel prints this as a percentage under \"Risk Difference (RD%)\": 0.4093% for the same figure. Same quantity, different scale."
             ]
           }
         ],
@@ -108,10 +112,11 @@
             "upper": 10.31278188901469,
             "level": 95,
             "method": "Katz log",
-            "epiInfoLabel": null,
+            "epiInfoLabel": "Risk Ratio (RR)",
+            "epiInfoLabelSource": "epi-info-ai-results-panel",
             "unavailable": null,
             "notes": [
-              "A ratio of risks, not of rates: both denominators are the groups themselves, so this is not comparable with a rate ratio computed per house or per person-time."
+              "A risk per houses. A ratio computed over a different subject -- a house rather than a person -- is a different quantity even when the arithmetic looks the same."
             ]
           },
           {
@@ -121,7 +126,8 @@
             "upper": 10.621302295197644,
             "level": 95,
             "method": "Wald log",
-            "epiInfoLabel": null,
+            "epiInfoLabel": "Odds Ratio (cross product)",
+            "epiInfoLabelSource": "epi-info-ai-results-panel",
             "unavailable": null,
             "notes": [
               "Both risks are under 10%, so the odds ratio is close to the risk ratio here. They are still different quantities."
@@ -134,10 +140,12 @@
             "upper": 0.029650488400381737,
             "level": 95,
             "method": "Wald unpooled",
-            "epiInfoLabel": null,
+            "epiInfoLabel": "Risk Difference (RD%)",
+            "epiInfoLabelSource": "epi-info-ai-results-panel",
             "unavailable": null,
             "notes": [
-              "A difference of risks, on the same scale as the risks themselves. Unpooled: each group contributes its own variance rather than a common one."
+              "A difference of risks, on the same scale as the risks themselves. Unpooled: each group contributes its own variance rather than a common one.",
+              "Epi Info AI's panel prints this as a percentage under \"Risk Difference (RD%)\": 2.7785% for the same figure. Same quantity, different scale."
             ]
           }
         ],
