@@ -50,9 +50,16 @@ Criteria, fixed before running:
    and disagrees on everything else, so this separates the two failures.
 4. **The denominator finding** is recorded as a comparison between the two tables and never
    asserted equal: 8.4019 against 5.3511 is the point.
-5. **The Epi Info label** on every estimate must be null. The widget declares the field and
-   leaves it empty because nobody has read Epi Info's displayed labels off Epi Info, and a check
-   that let a label appear without that verification would defeat the field's purpose.
+5. **The Epi Info label** on every estimate must be present AND must name its source. Changed
+   2026-10-26: the labels were previously required to be null, because nobody had read Epi Info's
+   displayed labels. They have since been transcribed from the classic TABLES estimate table in
+   `epi-info-ai/wasm/demo/app.ts` -- `Risk Ratio (RR)`, `Odds Ratio (cross product)`,
+   `Risk Difference (RD%)`. That is a sibling project's rendering of Epi Info, so the criterion is
+   now that `epiInfoLabelSource` says `epi-info-ai-results-panel` and NOT `epi-info`: this check
+   fails if a label ever claims to have been verified against Epi Info itself, which nobody has
+   done. A bare label with no source fails too. The purpose is unchanged -- a field that can be
+   filled unverifiably is worse than no field -- but what it polices is now the provenance rather
+   than the absence.
 
 What this cannot establish: **agreement with Epi Info.** statsmodels is not Epi Info, and this
 project makes no parity claim -- see fieldwork/docs/directions.json,
@@ -137,9 +144,18 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
                 value = float(getattr(sm, point_attr))
                 lo, hi = (float(v) for v in getattr(sm, confint_attr)(alpha=ALPHA))
 
-            if estimate["epiInfoLabel"] is not None:
+            # A label must be present and must say where it came from, and it must not claim Epi
+            # Info itself. A "leak" is now an unsourced or over-claimed label rather than any
+            # label at all -- see criterion 5.
+            source = estimate.get("epiInfoLabelSource")
+            if not estimate["epiInfoLabel"]:
                 label_leaks.append({"note": t["note"], "estimate": name,
-                                    "label": estimate["epiInfoLabel"]})
+                                    "problem": "no label"})
+            elif source != "epi-info-ai-results-panel":
+                label_leaks.append({"note": t["note"], "estimate": name,
+                                    "label": estimate["epiInfoLabel"],
+                                    "problem": f"source is {source!r}, and only the Epi Info AI "
+                                               "results panel has been read"})
 
             agrees = bool(
                 estimate["method"] == method
@@ -161,6 +177,7 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
                               "upper": estimate["upper"]},
                 "statsmodels": {"value": value, "lower": lo, "upper": hi},
                 "epiInfoLabel": estimate["epiInfoLabel"],
+                "epiInfoLabelSource": source,
                 # Never asserted equal. Reported so the declared choice has a visible cost.
                 "thirdOpinion": third,
                 "agrees": agrees,
@@ -206,8 +223,9 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
             "estimates": f"within {TOL} of statsmodels Table2x2",
             "bounds": f"within {TOL} of the matching Table2x2 confint at alpha={ALPHA}",
             "orientation": "risks recomputed from the fixture's cells match the reported risks",
-            "epiInfoLabel": "null on every estimate, because nobody has verified what Epi Info "
-                            "displays",
+            "epiInfoLabel": "present on every estimate, with epiInfoLabelSource naming the "
+                            "Epi Info AI results panel and never Epi Info itself, which "
+                            "nobody has read",
         },
         "zQuantile": {"shared": 1.959963984540054, "scipy": z,
                       "agrees": bool(abs(z - 1.959963984540054) <= 1e-12)},
@@ -217,7 +235,9 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
         "epiInfoLabelLeaks": label_leaks,
         "notEstablished": [
             "Agreement with Epi Info. statsmodels is not Epi Info and this project makes no "
-            "parity claim.",
+            "parity claim. Nor do the labels establish it: they were read from Epi Info AI's "
+            "results panel, a sibling project synthesized from Epi Info, which makes them a "
+            "deduction about what Epi Info prints and not a reading of it.",
             "That the comparison is fair. The both-companies stratum, 16 of 32 sub-districts, is "
             "excluded by name and not controlled for -- Snow's own confounding, and the reason he "
             "went to the house level.",
