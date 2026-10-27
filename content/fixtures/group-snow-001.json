@@ -1,0 +1,702 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "group-snow-001",
+  "exportedAt": "2026-10-27T11:35:15.864Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.12.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:group_table",
+    "release": "0.1.0",
+    "label": "Total a table within groups",
+    "implementation": "src/group-table.ts#groupTable"
+  },
+  "source": "John Snow, On the Mode of Communication of Cholera, 2nd ed., 1855: Table VIII related to Table XII's declared water supply. The input here is the OUTPUT of relate_table over that pair, which is what the example feeds this step.",
+  "declaredParameters": {
+    "by": [
+      "water_supply",
+      "measure"
+    ],
+    "operation": "sum",
+    "semantics": "Rows agreeing on every column in `by` become one row whose value is their total. The columns to KEEP are named; every other key column is dropped. Sum and nothing else -- no mean, no count -- because this step cannot tell a count from a rate and summing rates gives a number with no referent. A group holding ANY empty cell totals to null and is reported by name: not to the sum of the cells that were present.",
+    "equivalentTo": "A pandas groupby(by).sum() over the value column, EXCEPT for the empty cell: pandas sums over NaN as though it were zero by default, and `min_count=1` is the option that reproduces this behaviour. That difference is case 2."
+  },
+  "input": {
+    "relatedFrom": "relate-snow-001 case 1",
+    "table": {
+      "keys": [
+        "sub_district",
+        "measure",
+        "water_supply"
+      ],
+      "valueField": "people",
+      "rowCount": 64,
+      "missingValueCount": 0,
+      "rows": [
+        {
+          "key": {
+            "sub_district": "St. Saviour, Southwark",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 19709
+        },
+        {
+          "key": {
+            "sub_district": "St. Saviour, Southwark",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 125
+        },
+        {
+          "key": {
+            "sub_district": "St. Olave, Southwark",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 8015
+        },
+        {
+          "key": {
+            "sub_district": "St. Olave, Southwark",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 53
+        },
+        {
+          "key": {
+            "sub_district": "St. John, Horsleydown",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 11360
+        },
+        {
+          "key": {
+            "sub_district": "St. John, Horsleydown",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 51
+        },
+        {
+          "key": {
+            "sub_district": "St. James, Bermondsey",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 18899
+        },
+        {
+          "key": {
+            "sub_district": "St. James, Bermondsey",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 123
+        },
+        {
+          "key": {
+            "sub_district": "St. Mary Magdalen",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 13934
+        },
+        {
+          "key": {
+            "sub_district": "St. Mary Magdalen",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 87
+        },
+        {
+          "key": {
+            "sub_district": "Leather Market",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 15295
+        },
+        {
+          "key": {
+            "sub_district": "Leather Market",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 81
+        },
+        {
+          "key": {
+            "sub_district": "Rotherhithe",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 17805
+        },
+        {
+          "key": {
+            "sub_district": "Rotherhithe",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 103
+        },
+        {
+          "key": {
+            "sub_district": "Battersea",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 10560
+        },
+        {
+          "key": {
+            "sub_district": "Battersea",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 54
+        },
+        {
+          "key": {
+            "sub_district": "Wandsworth",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 9611
+        },
+        {
+          "key": {
+            "sub_district": "Wandsworth",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 11
+        },
+        {
+          "key": {
+            "sub_district": "Putney",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 5280
+        },
+        {
+          "key": {
+            "sub_district": "Putney",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 1
+        },
+        {
+          "key": {
+            "sub_district": "Camberwell",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 17742
+        },
+        {
+          "key": {
+            "sub_district": "Camberwell",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 96
+        },
+        {
+          "key": {
+            "sub_district": "Peckham",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 19444
+        },
+        {
+          "key": {
+            "sub_district": "Peckham",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "value": 59
+        },
+        {
+          "key": {
+            "sub_district": "Christchurch, Southwark",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 16022
+        },
+        {
+          "key": {
+            "sub_district": "Christchurch, Southwark",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 25
+        },
+        {
+          "key": {
+            "sub_district": "Kent Road",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 18126
+        },
+        {
+          "key": {
+            "sub_district": "Kent Road",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 57
+        },
+        {
+          "key": {
+            "sub_district": "Borough Road",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 15862
+        },
+        {
+          "key": {
+            "sub_district": "Borough Road",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 71
+        },
+        {
+          "key": {
+            "sub_district": "London Road",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 17836
+        },
+        {
+          "key": {
+            "sub_district": "London Road",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 29
+        },
+        {
+          "key": {
+            "sub_district": "Trinity, Newington",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 20922
+        },
+        {
+          "key": {
+            "sub_district": "Trinity, Newington",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 58
+        },
+        {
+          "key": {
+            "sub_district": "St. Peter, Walworth",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 29861
+        },
+        {
+          "key": {
+            "sub_district": "St. Peter, Walworth",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 90
+        },
+        {
+          "key": {
+            "sub_district": "St. Mary, Newington",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 14033
+        },
+        {
+          "key": {
+            "sub_district": "St. Mary, Newington",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 21
+        },
+        {
+          "key": {
+            "sub_district": "Waterloo Road (1st)",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 14088
+        },
+        {
+          "key": {
+            "sub_district": "Waterloo Road (1st)",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 10
+        },
+        {
+          "key": {
+            "sub_district": "Waterloo Road (2nd)",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 18348
+        },
+        {
+          "key": {
+            "sub_district": "Waterloo Road (2nd)",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 36
+        },
+        {
+          "key": {
+            "sub_district": "Lambeth Church (1st)",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 18409
+        },
+        {
+          "key": {
+            "sub_district": "Lambeth Church (1st)",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 18
+        },
+        {
+          "key": {
+            "sub_district": "Lambeth Church (2nd)",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 26784
+        },
+        {
+          "key": {
+            "sub_district": "Lambeth Church (2nd)",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 53
+        },
+        {
+          "key": {
+            "sub_district": "Kennington (1st)",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 24261
+        },
+        {
+          "key": {
+            "sub_district": "Kennington (1st)",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 71
+        },
+        {
+          "key": {
+            "sub_district": "Kennington (2nd)",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 18848
+        },
+        {
+          "key": {
+            "sub_district": "Kennington (2nd)",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 38
+        },
+        {
+          "key": {
+            "sub_district": "Brixton",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 14610
+        },
+        {
+          "key": {
+            "sub_district": "Brixton",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 9
+        },
+        {
+          "key": {
+            "sub_district": "Clapham",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 16290
+        },
+        {
+          "key": {
+            "sub_district": "Clapham",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 24
+        },
+        {
+          "key": {
+            "sub_district": "St. George, Camberwell",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 15849
+        },
+        {
+          "key": {
+            "sub_district": "St. George, Camberwell",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company"
+          },
+          "value": 42
+        },
+        {
+          "key": {
+            "sub_district": "Norwood",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 3977
+        },
+        {
+          "key": {
+            "sub_district": "Norwood",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 8
+        },
+        {
+          "key": {
+            "sub_district": "Streatham",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 9023
+        },
+        {
+          "key": {
+            "sub_district": "Streatham",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 6
+        },
+        {
+          "key": {
+            "sub_district": "Dulwich",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 1632
+        },
+        {
+          "key": {
+            "sub_district": "Dulwich",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 0
+        },
+        {
+          "key": {
+            "sub_district": "Sydenham",
+            "measure": "population_1851",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 4501
+        },
+        {
+          "key": {
+            "sub_district": "Sydenham",
+            "measure": "deaths_seven_weeks",
+            "water_supply": "Lambeth Company only"
+          },
+          "value": 4
+        }
+      ]
+    }
+  },
+  "output": {
+    "cases": [
+      {
+        "note": "The six totals of the Snow contingency table: three companies against two measures",
+        "emptied": null,
+        "table": {
+          "keys": [
+            "water_supply",
+            "measure"
+          ],
+          "rowCount": 6,
+          "missingValueCount": 0,
+          "rows": [
+            {
+              "key": {
+                "water_supply": "Southwark and Vauxhall Company only",
+                "measure": "population_1851"
+              },
+              "value": 167654
+            },
+            {
+              "key": {
+                "water_supply": "Southwark and Vauxhall Company only",
+                "measure": "deaths_seven_weeks"
+              },
+              "value": 844
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+                "measure": "population_1851"
+              },
+              "value": 300149
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+                "measure": "deaths_seven_weeks"
+              },
+              "value": 652
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company only",
+                "measure": "population_1851"
+              },
+              "value": 19133
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company only",
+                "measure": "deaths_seven_weeks"
+              },
+              "value": 18
+            }
+          ]
+        },
+        "groups": 6,
+        "collapsedFrom": 64,
+        "dropped": [
+          "sub_district"
+        ],
+        "gaps": []
+      },
+      {
+        "note": "One cell emptied: that group totals to nothing known, and the other five are unchanged",
+        "emptied": {
+          "key": {
+            "sub_district": "St. Saviour, Southwark",
+            "measure": "population_1851",
+            "water_supply": "Southwark and Vauxhall Company only"
+          },
+          "wasValue": 19709
+        },
+        "sumIgnoringTheEmptyCell": 147945,
+        "whyItIsNotThat": "That number is what a default sum returns and it is wrong here by exactly the population of one sub-district, which nobody recorded in this case. A total too small by an unknown amount reads as a finding.",
+        "table": {
+          "keys": [
+            "water_supply",
+            "measure"
+          ],
+          "rowCount": 6,
+          "missingValueCount": 1,
+          "rows": [
+            {
+              "key": {
+                "water_supply": "Southwark and Vauxhall Company only",
+                "measure": "population_1851"
+              },
+              "value": null
+            },
+            {
+              "key": {
+                "water_supply": "Southwark and Vauxhall Company only",
+                "measure": "deaths_seven_weeks"
+              },
+              "value": 844
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+                "measure": "population_1851"
+              },
+              "value": 300149
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+                "measure": "deaths_seven_weeks"
+              },
+              "value": 652
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company only",
+                "measure": "population_1851"
+              },
+              "value": 19133
+            },
+            {
+              "key": {
+                "water_supply": "Lambeth Company only",
+                "measure": "deaths_seven_weeks"
+              },
+              "value": 18
+            }
+          ]
+        },
+        "groups": 6,
+        "collapsedFrom": 64,
+        "dropped": [
+          "sub_district"
+        ],
+        "gaps": [
+          {
+            "group": "Southwark and Vauxhall Company only · population_1851",
+            "rowsSummed": 11,
+            "rowsEmpty": 1
+          }
+        ]
+      }
+    ]
+  },
+  "note": "Recompute both cases from `input` and `declaredParameters`. Case 2 empties the row named in `emptied` and is the case where the two implementations are meant to disagree under pandas' default.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "d02392f7c059c66f63ba06edf8434edf36ac1c29ba92822b68ac15b87173406d"
+  }
+}
