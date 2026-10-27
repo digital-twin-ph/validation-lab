@@ -1,0 +1,140 @@
+{
+  "check": "28-relate-table",
+  "ranAt": "2026-10-27T11:40:43.555329+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3"
+  },
+  "fixture": {
+    "id": "relate-snow-001",
+    "sha256": "2e37f7071add6c431b97d377a6ca9b80eed74d51425d18f3b3db4ebd5a50c6e6",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.12.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:relate_table",
+      "release": "0.1.0",
+      "label": "Relate a table",
+      "implementation": "src/relate-table.ts#relateTable"
+    }
+  },
+  "criterion": {
+    "rows": "every related row identical to a pandas left merge, compared as an ordered set of records",
+    "rowCount": "unchanged by relating: a relate that multiplied rows would be a merge",
+    "values": "the distinct brought categories, in first-seen order",
+    "gaps": "the same rows dropped as a merge drops, and each unmatched key named with its count",
+    "ambiguous": "refused, with the key and both values named; a merge multiplies rows instead"
+  },
+  "comparisons": [
+    {
+      "note": "The relate the example runs: Table XII's company onto all 64 rows of Table VIII",
+      "leftRows": 64,
+      "rightRows": 32,
+      "fieldwork": {
+        "rowCount": 64,
+        "related": 64,
+        "dropped": 0,
+        "gaps": [],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only"
+        ]
+      },
+      "pandas": {
+        "rowCount": 64,
+        "dropped": 0,
+        "gaps": [],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only"
+        ]
+      },
+      "checks": {
+        "rowsMatch": true,
+        "rowCountUnchanged": true,
+        "relatedCount": true,
+        "droppedCount": true,
+        "valuesInOrder": true,
+        "gapsNamed": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "A key the right table does not carry: St. Saviour, Southwark withheld, so its rows are dropped and named",
+      "leftRows": 64,
+      "rightRows": 31,
+      "fieldwork": {
+        "rowCount": 62,
+        "related": 62,
+        "dropped": 2,
+        "gaps": [
+          {
+            "key": "St. Saviour, Southwark",
+            "rows": 2
+          }
+        ],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only"
+        ]
+      },
+      "pandas": {
+        "rowCount": 62,
+        "dropped": 2,
+        "gaps": [
+          {
+            "key": "St. Saviour, Southwark",
+            "rows": 2
+          }
+        ],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only"
+        ]
+      },
+      "checks": {
+        "rowsMatch": true,
+        "rowCountUnchanged": true,
+        "relatedCount": true,
+        "droppedCount": true,
+        "valuesInOrder": true,
+        "gapsNamed": true
+      },
+      "agrees": true
+    }
+  ],
+  "ambiguousKey": {
+    "note": "An ambiguous key, constructed: one sub-district given a second, different company",
+    "constructed": "No sub-district in Table XII carries two companies. The row is added here because the case cannot be drawn from the data.",
+    "key": "St. Saviour, Southwark",
+    "values": [
+      "Southwark and Vauxhall Company only",
+      "Lambeth Company only"
+    ],
+    "fieldworkRefused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Check whether \"sub_district\" identifies one row of the second table.",
+    "pandasRowCount": 66,
+    "pandasRowsForThatKey": 4,
+    "leftRowsForThatKey": 2,
+    "whatTheRefusalBuys": "A merge returns 66 rows where the left table has 64, because the 2 rows for that key each match twice. Both companies would then appear in the stratification, each carrying the same population, and no total in the result reveals it.",
+    "checks": {
+      "refused": true,
+      "namesTheKey": true,
+      "namesBothValues": true,
+      "returnedNoTable": true
+    },
+    "agrees": true
+  },
+  "divergences": [],
+  "notEstablished": [
+    "That exact matching is the right matching. Snow's two tables spell every sub-district identically, so this data never exercises a name that differs by punctuation or case -- the case a practitioner will actually meet. Fieldwork folds surrounding whitespace and nothing else, by decision rather than by this result.",
+    "That relating is right for bringing MEASURES across. That adds rows rather than a column and is deliberately not built, so nothing here speaks to it.",
+    "That the category is the right stratifier. Snow's third group -- sub-districts supplied by both companies -- is 300,149 of the 486,936 people in the table, and what to do with it is the practitioner's judgement, not an outcome of the join."
+  ],
+  "agrees": true
+}

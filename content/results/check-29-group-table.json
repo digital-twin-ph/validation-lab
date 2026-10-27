@@ -1,0 +1,155 @@
+{
+  "check": "29-group-table",
+  "ranAt": "2026-10-27T11:40:43.905450+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3"
+  },
+  "fixture": {
+    "id": "group-snow-001",
+    "sha256": "d02392f7c059c66f63ba06edf8434edf36ac1c29ba92822b68ac15b87173406d",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.12.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:group_table",
+      "release": "0.1.0",
+      "label": "Total a table within groups",
+      "implementation": "src/group-table.ts#groupTable"
+    }
+  },
+  "criterion": {
+    "totals": "exactly equal to groupby(by).sum(); these are integer counts and nothing is approximated",
+    "shape": "6 groups from 64 rows, with sub_district reported as the dropped column",
+    "emptyCell": "that group null, equal to a per-group sum(skipna=False), with the other five unchanged",
+    "gap": "the group named, with the rows summed and the rows empty adding to its row count",
+    "default": "the size of the disagreement with sum() recorded in people, with what min_count=1 returns beside it; neither asserted equal"
+  },
+  "comparisons": [
+    {
+      "note": "The six totals of the Snow contingency table: three companies against two measures",
+      "rowsIn": 64,
+      "groupsOut": 6,
+      "dropped": [
+        "sub_district"
+      ],
+      "totals": [
+        {
+          "group": [
+            "Southwark and Vauxhall Company only",
+            "population_1851"
+          ],
+          "fieldwork": 167654,
+          "pandas": 167654,
+          "agrees": true
+        },
+        {
+          "group": [
+            "Southwark and Vauxhall Company only",
+            "deaths_seven_weeks"
+          ],
+          "fieldwork": 844,
+          "pandas": 844,
+          "agrees": true
+        },
+        {
+          "group": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "population_1851"
+          ],
+          "fieldwork": 300149,
+          "pandas": 300149,
+          "agrees": true
+        },
+        {
+          "group": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "deaths_seven_weeks"
+          ],
+          "fieldwork": 652,
+          "pandas": 652,
+          "agrees": true
+        },
+        {
+          "group": [
+            "Lambeth Company only",
+            "population_1851"
+          ],
+          "fieldwork": 19133,
+          "pandas": 19133,
+          "agrees": true
+        },
+        {
+          "group": [
+            "Lambeth Company only",
+            "deaths_seven_weeks"
+          ],
+          "fieldwork": 18,
+          "pandas": 18,
+          "agrees": true
+        }
+      ],
+      "checks": {
+        "totalsMatch": true,
+        "groupCount": true,
+        "collapsedFrom": true,
+        "droppedColumn": true,
+        "noGaps": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "One cell emptied: that group totals to nothing known, and the other five are unchanged",
+      "emptied": {
+        "key": {
+          "sub_district": "St. Saviour, Southwark",
+          "measure": "population_1851",
+          "water_supply": "Southwark and Vauxhall Company only"
+        },
+        "wasValue": 19709
+      },
+      "group": [
+        "Southwark and Vauxhall Company only",
+        "population_1851"
+      ],
+      "fieldwork": null,
+      "pandasSkipnaFalse": null,
+      "pandasDefault": 147945,
+      "pandasMinCount1": 147945,
+      "pandasMinCountGroupSize": null,
+      "whyNotMinCount": "min_count bounds how many values must be PRESENT, not whether any are ABSENT, so min_count=1 returns 147945 -- the default's answer -- on a group holding eleven numbers and one empty cell. min_count=12 does return nothing known here, and only because this group has twelve rows: it would null every smaller group too. sum(skipna=False) per group is the rule itself, and the group size does not enter it.",
+      "whatTheDefaultWouldHide": {
+        "total": 147945,
+        "insteadOf": 167654,
+        "shortBy": 19709,
+        "unit": "people",
+        "note": "A default sum reports that number as the group's population. It is short by the one cell nobody recorded, and no total in the result says so."
+      },
+      "gaps": [
+        {
+          "group": "Southwark and Vauxhall Company only \u00b7 population_1851",
+          "rowsSummed": 11,
+          "rowsEmpty": 1
+        }
+      ],
+      "checks": {
+        "matchesAllOrNothing": true,
+        "thatGroupIsNull": true,
+        "othersUnchanged": true,
+        "groupCount": true,
+        "oneGapNamed": true,
+        "gapCounts": true
+      },
+      "agrees": true
+    }
+  ],
+  "divergences": [],
+  "notEstablished": [
+    "That summing is right for these columns. It is right for counts and wrong for rates, and neither implementation can tell which it has been given. Fieldwork offers sum and nothing else for that reason; the protection is the absence of the other option, which no check can verify.",
+    "That nothing known is the right answer rather than the honest one. It refuses to guess; a practitioner who needs the number still has to find the missing cell.",
+    "That the three supply categories are the right strata. The both-companies group is 300,149 of 486,936 people, and what to do with it is the practitioner's judgement."
+  ],
+  "agrees": true
+}
