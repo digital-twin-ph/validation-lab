@@ -1,0 +1,281 @@
+{
+  "check": "31-area-join",
+  "ranAt": "2026-10-27T12:10:57.756716+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3"
+  },
+  "fixture": {
+    "id": "area-join-snow-001",
+    "sha256": "47d41dd84c317d3e3cf62a59f587ef5da28fbf64e391ed27bc6659d5d9fd800f",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.12.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:join_table_to_area",
+      "release": "0.1.0",
+      "label": "Join a table to the study area",
+      "implementation": "src/area-join.ts#joinTableToAreas"
+    },
+    "boundaryProvenance": {
+      "boundaryID": "csds:snow8-subdistricts",
+      "source": "Koch and Denike (2006), modified by the Center for Spatial Data Science after georeferencing Snow Map 2 in QGIS",
+      "licence": "BSD-2-Clause",
+      "licenceSource": "https://geodacenter.github.io/data-and-lab/snow8/",
+      "canonical": "registration sub-district",
+      "yearRepresented": "1855"
+    }
+  },
+  "criterion": {
+    "values": "every part's value equal to a pandas left merge on the folded key, nulls included",
+    "counts": "parts, rows, matched parts, matched rows, unmatched and shared all equal",
+    "raw": "23 of 32 rows match on unfolded equality, and the 9 that do not differ from their row only in non-alphanumerics",
+    "folding": "every folded key equals its name's alphanumeric reduction, and no two distinct names fold together",
+    "control": "a part renamed to a place the table does not carry is reported unmatched and named, with the other 32 unchanged"
+  },
+  "declaredParameters": {
+    "keyField": "group",
+    "normalisation": "fuzzy",
+    "rate": {
+      "numeratorField": "deaths",
+      "denominatorField": "population",
+      "groupBy": "sub_district",
+      "multiplier": 1000,
+      "minimumDenominator": 1000,
+      "rateKind": "proportion",
+      "measureKey": "measure",
+      "denominatorUnit": "people"
+    },
+    "semantics": "Each part of the study area takes the value of the one table row whose key matches its name, compared for EQUALITY after a declared folding. `fuzzy` folds every run of non-alphanumeric characters to one space and lowercases; `exact` only trims and lowercases. There is no similarity, no threshold and no review band: a name differing by more than the folding is reported unmatched rather than resolved. A part no row names keeps its place with a null value, because a boundary with no data is a fact about the data and not a reason to leave a hole in the map. Two parts sharing one name both take that value and are flagged `shared`.",
+    "equivalentTo": "A pandas merge of the rate table onto the parts on a folded key, left on the parts so every part survives. The folding itself is NOT independently reimplemented here -- see notEstablished."
+  },
+  "folding": {
+    "partsChecked": 33,
+    "problems": [],
+    "agrees": true,
+    "criterion": "every folded key equals its name with all non-alphanumerics deleted and lowercased, and no two distinct names share a folded key"
+  },
+  "foldingGain": {
+    "rawMatchedRows": 23,
+    "foldedMatchedRows": 32,
+    "rowsTheFoldingWon": 9,
+    "shareOfRows": 0.2812,
+    "pairs": [
+      {
+        "boundary": "St. James Bermondsey",
+        "row": "St. James, Bermondsey",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "St. Saviour Southwark",
+        "row": "St. Saviour, Southwark",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "St. Olave Southwark",
+        "row": "St. Olave, Southwark",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "St. John Horsleydown",
+        "row": "St. John, Horsleydown",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "Christchurch Southwark",
+        "row": "Christchurch, Southwark",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "St. George  Camberwell",
+        "row": "St. George, Camberwell",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "St. Peter Walworth",
+        "row": "St. Peter, Walworth",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "St. Mary Newington",
+        "row": "St. Mary, Newington",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      },
+      {
+        "boundary": "Trinity Newington",
+        "row": "Trinity, Newington",
+        "equalOnceReduced": true,
+        "differsOnlyInPunctuation": true
+      }
+    ],
+    "agrees": true,
+    "note": "A join on the raw strings would have left these unmatched and drawn a choropleth missing them -- every one of them a sub-district whose name carries a comma in the table and not in the boundary file."
+  },
+  "comparisons": [
+    {
+      "note": "The join the example runs, folding punctuation",
+      "normalisation": "fuzzy",
+      "fieldwork": {
+        "parts": 33,
+        "rows": 32,
+        "matchedParts": 33,
+        "matchedRows": 32,
+        "unmatchedParts": 0,
+        "unmatchedRows": 0,
+        "sharedParts": 2
+      },
+      "pandas": {
+        "parts": 33,
+        "rows": 32,
+        "matchedParts": 33,
+        "matchedRows": 32,
+        "unmatchedParts": 0,
+        "sharedParts": 2
+      },
+      "unmatchedPartNames": [],
+      "diagnosticCodes": [
+        "duplicate-boundary-key"
+      ],
+      "checks": {
+        "valuesMatch": true,
+        "partCount": true,
+        "rowCount": true,
+        "matchedParts": true,
+        "matchedRows": true,
+        "unmatchedParts": true,
+        "sharedParts": true,
+        "noDuplicateTableKeys": true,
+        "sharedFlagged": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "The same join on the raw strings, which needs no normalisation to recompute",
+      "normalisation": "exact",
+      "fieldwork": {
+        "parts": 33,
+        "rows": 32,
+        "matchedParts": 24,
+        "matchedRows": 23,
+        "unmatchedParts": 9,
+        "unmatchedRows": 9,
+        "sharedParts": 2
+      },
+      "pandas": {
+        "parts": 33,
+        "rows": 32,
+        "matchedParts": 24,
+        "matchedRows": 23,
+        "unmatchedParts": 9,
+        "sharedParts": 2
+      },
+      "unmatchedPartNames": [
+        "St. James Bermondsey",
+        "St. Saviour Southwark",
+        "St. Olave Southwark",
+        "St. John Horsleydown",
+        "Christchurch Southwark",
+        "St. George  Camberwell",
+        "St. Peter Walworth",
+        "St. Mary Newington",
+        "Trinity Newington"
+      ],
+      "diagnosticCodes": [
+        "duplicate-boundary-key",
+        "unmatched-boundary",
+        "unmatched-data-key"
+      ],
+      "checks": {
+        "valuesMatch": true,
+        "partCount": true,
+        "rowCount": true,
+        "matchedParts": true,
+        "matchedRows": true,
+        "unmatchedParts": true,
+        "sharedParts": true,
+        "noDuplicateTableKeys": true,
+        "sharedFlagged": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "A negative control, constructed: one part renamed to a place the table does not carry",
+      "normalisation": "fuzzy",
+      "fieldwork": {
+        "parts": 33,
+        "rows": 32,
+        "matchedParts": 32,
+        "matchedRows": 31,
+        "unmatchedParts": 1,
+        "unmatchedRows": 1,
+        "sharedParts": 2
+      },
+      "pandas": {
+        "parts": 33,
+        "rows": 32,
+        "matchedParts": 32,
+        "matchedRows": 31,
+        "unmatchedParts": 1,
+        "sharedParts": 2
+      },
+      "unmatchedPartNames": [
+        "Camberwell Green"
+      ],
+      "diagnosticCodes": [
+        "duplicate-boundary-key",
+        "unmatched-boundary",
+        "unmatched-data-key"
+      ],
+      "checks": {
+        "valuesMatch": true,
+        "partCount": true,
+        "rowCount": true,
+        "matchedParts": true,
+        "matchedRows": true,
+        "unmatchedParts": true,
+        "sharedParts": true,
+        "noDuplicateTableKeys": true,
+        "sharedFlagged": true
+      },
+      "agrees": true
+    }
+  ],
+  "negativeControl": {
+    "note": "A negative control, constructed: one part renamed to a place the table does not carry",
+    "constructed": "Snow's table and these boundaries have no pair that differs by more than punctuation, so nothing in the data tests a name that OUGHT not to match. Without this case, 32 of 32 is also the score of a rule that matched too readily.",
+    "renamedFrom": "Camberwell",
+    "renamedTo": "Camberwell Green",
+    "unmatched": [
+      "Camberwell Green"
+    ],
+    "similarityToTheNameItReplaced": {
+      "rapidfuzzJaroWinkler": 0.925,
+      "jellyfishJaroWinkler": 0.925
+    },
+    "whatTheRefusalIsWorth": "'Camberwell Green' and 'Camberwell' are close enough that a similarity-based linkage would plausibly accept them -- the Jaro-Winkler figures above say how close. This widget has no threshold and no review band, so it reports the part unmatched and draws it empty. The graded machinery exists in deduplicate_points and is deliberately not reached for here.",
+    "checks": {
+      "reportedUnmatched": true,
+      "diagnosticNamesIt": true,
+      "othersUnchanged": true
+    },
+    "agrees": true
+  },
+  "divergences": [],
+  "notEstablished": [
+    "That folding punctuation is the right rule for names. It is right for these two files, where every difference is a comma or a doubled space. A boundary spelling 'St Mary' against a table's 'Saint Mary' would fail this join, and whether failing is right there is a judgement about the data rather than an outcome of this check.",
+    "That the folding itself is correctly implemented. It is not independently reimplemented here, on purpose: a second copy written by the same author is not a second opinion. What is checked is a property it must satisfy -- that it changed nothing but non-alphanumerics and folded no two distinct names together.",
+    "That the 33 parts are the right geography. Streatham being two polygons is a fact about the digitisation. Both parts take the same rate, which is correct for a rate and would be wrong for a count.",
+    "That a sub-district rate measures an exposure. In the middle 16 sub-districts both companies supplied the same streets, so the rate there mixes two exposures -- Snow's own confounding, and why he went house to house."
+  ],
+  "agrees": true
+}

@@ -1,0 +1,1500 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "area-join-snow-001",
+  "exportedAt": "2026-10-27T12:08:53.346Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.12.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:join_table_to_area",
+    "release": "0.1.0",
+    "label": "Join a table to the study area",
+    "implementation": "src/area-join.ts#joinTableToAreas"
+  },
+  "source": "John Snow, On the Mode of Communication of Cholera, 2nd ed., 1855, Table VIII, through the rate the example declares over it. The part names are the study area's, digitised by Koch and Denike (2006) and modified by the Center for Spatial Data Science; see boundaryProvenance. Read from the example-1855-cholera-south-london checkout, not retyped.",
+  "boundaryProvenance": {
+    "boundaryID": "csds:snow8-subdistricts",
+    "source": "Koch and Denike (2006), modified by the Center for Spatial Data Science after georeferencing Snow Map 2 in QGIS",
+    "licence": "BSD-2-Clause",
+    "licenceSource": "https://geodacenter.github.io/data-and-lab/snow8/",
+    "canonical": "registration sub-district",
+    "yearRepresented": "1855"
+  },
+  "declaredParameters": {
+    "keyField": "group",
+    "normalisation": "fuzzy",
+    "rate": {
+      "numeratorField": "deaths",
+      "denominatorField": "population",
+      "groupBy": "sub_district",
+      "multiplier": 1000,
+      "minimumDenominator": 1000,
+      "rateKind": "proportion",
+      "measureKey": "measure",
+      "denominatorUnit": "people"
+    },
+    "semantics": "Each part of the study area takes the value of the one table row whose key matches its name, compared for EQUALITY after a declared folding. `fuzzy` folds every run of non-alphanumeric characters to one space and lowercases; `exact` only trims and lowercases. There is no similarity, no threshold and no review band: a name differing by more than the folding is reported unmatched rather than resolved. A part no row names keeps its place with a null value, because a boundary with no data is a fact about the data and not a reason to leave a hole in the map. Two parts sharing one name both take that value and are flagged `shared`.",
+    "equivalentTo": "A pandas merge of the rate table onto the parts on a folded key, left on the parts so every part survives. The folding itself is NOT independently reimplemented here -- see notEstablished."
+  },
+  "input": {
+    "units": [
+      {
+        "index": 0,
+        "id": "St. James Bermondsey",
+        "name": "St. James Bermondsey"
+      },
+      {
+        "index": 1,
+        "id": "St. Saviour Southwark",
+        "name": "St. Saviour Southwark"
+      },
+      {
+        "index": 2,
+        "id": "St. Olave Southwark",
+        "name": "St. Olave Southwark"
+      },
+      {
+        "index": 3,
+        "id": "St. John Horsleydown",
+        "name": "St. John Horsleydown"
+      },
+      {
+        "index": 4,
+        "id": "Christchurch Southwark",
+        "name": "Christchurch Southwark"
+      },
+      {
+        "index": 5,
+        "id": "Waterloo Road (1st)",
+        "name": "Waterloo Road (1st)"
+      },
+      {
+        "index": 6,
+        "id": "Waterloo Road (2nd)",
+        "name": "Waterloo Road (2nd)"
+      },
+      {
+        "index": 7,
+        "id": "Borough Road",
+        "name": "Borough Road"
+      },
+      {
+        "index": 8,
+        "id": "Kent Road",
+        "name": "Kent Road"
+      },
+      {
+        "index": 9,
+        "id": "Lambeth Church (1st)",
+        "name": "Lambeth Church (1st)"
+      },
+      {
+        "index": 10,
+        "id": "London Road",
+        "name": "London Road"
+      },
+      {
+        "index": 11,
+        "id": "Lambeth Church (2nd)",
+        "name": "Lambeth Church (2nd)"
+      },
+      {
+        "index": 12,
+        "id": "Kennington (1st)",
+        "name": "Kennington (1st)"
+      },
+      {
+        "index": 13,
+        "id": "St. George  Camberwell",
+        "name": "St. George  Camberwell"
+      },
+      {
+        "index": 14,
+        "id": "Kennington (2nd)",
+        "name": "Kennington (2nd)"
+      },
+      {
+        "index": 15,
+        "id": "Battersea",
+        "name": "Battersea"
+      },
+      {
+        "index": 16,
+        "id": "Camberwell",
+        "name": "Camberwell"
+      },
+      {
+        "index": 17,
+        "id": "Brixton",
+        "name": "Brixton"
+      },
+      {
+        "index": 18,
+        "id": "Clapham",
+        "name": "Clapham"
+      },
+      {
+        "index": 19,
+        "id": "Dulwich",
+        "name": "Dulwich"
+      },
+      {
+        "index": 20,
+        "id": "Norwood",
+        "name": "Norwood"
+      },
+      {
+        "index": 21,
+        "id": "St. Peter Walworth",
+        "name": "St. Peter Walworth"
+      },
+      {
+        "index": 22,
+        "id": "Leather Market",
+        "name": "Leather Market"
+      },
+      {
+        "index": 23,
+        "id": "St. Mary Newington",
+        "name": "St. Mary Newington"
+      },
+      {
+        "index": 24,
+        "id": "Trinity Newington",
+        "name": "Trinity Newington"
+      },
+      {
+        "index": 25,
+        "id": "St. Mary Magdalen",
+        "name": "St. Mary Magdalen"
+      },
+      {
+        "index": 26,
+        "id": "Rotherhithe",
+        "name": "Rotherhithe"
+      },
+      {
+        "index": 27,
+        "id": "Peckham",
+        "name": "Peckham"
+      },
+      {
+        "index": 28,
+        "id": "Putney",
+        "name": "Putney"
+      },
+      {
+        "index": 29,
+        "id": "Wandsworth",
+        "name": "Wandsworth"
+      },
+      {
+        "index": 30,
+        "id": "Sydenham",
+        "name": "Sydenham"
+      },
+      {
+        "index": 31,
+        "id": "Streatham",
+        "name": "Streatham"
+      },
+      {
+        "index": 32,
+        "id": "Streatham",
+        "name": "Streatham"
+      }
+    ],
+    "table": {
+      "keys": [
+        "group"
+      ],
+      "valueField": "per 1,000 people",
+      "rowCount": 32,
+      "rows": [
+        {
+          "key": {
+            "group": "Battersea"
+          },
+          "value": 5.113636363636363
+        },
+        {
+          "key": {
+            "group": "Borough Road"
+          },
+          "value": 4.47610641785399
+        },
+        {
+          "key": {
+            "group": "Brixton"
+          },
+          "value": 0.6160164271047228
+        },
+        {
+          "key": {
+            "group": "Camberwell"
+          },
+          "value": 5.410889414947582
+        },
+        {
+          "key": {
+            "group": "Christchurch, Southwark"
+          },
+          "value": 1.5603545125452503
+        },
+        {
+          "key": {
+            "group": "Clapham"
+          },
+          "value": 1.4732965009208103
+        },
+        {
+          "key": {
+            "group": "Dulwich"
+          },
+          "value": 0
+        },
+        {
+          "key": {
+            "group": "Kennington (1st)"
+          },
+          "value": 2.926507563579407
+        },
+        {
+          "key": {
+            "group": "Kennington (2nd)"
+          },
+          "value": 2.0161290322580645
+        },
+        {
+          "key": {
+            "group": "Kent Road"
+          },
+          "value": 3.1446540880503147
+        },
+        {
+          "key": {
+            "group": "Lambeth Church (1st)"
+          },
+          "value": 0.9777826063338585
+        },
+        {
+          "key": {
+            "group": "Lambeth Church (2nd)"
+          },
+          "value": 1.9787933094384709
+        },
+        {
+          "key": {
+            "group": "Leather Market"
+          },
+          "value": 5.295848316443282
+        },
+        {
+          "key": {
+            "group": "London Road"
+          },
+          "value": 1.6259250953128503
+        },
+        {
+          "key": {
+            "group": "Norwood"
+          },
+          "value": 2.0115665074176516
+        },
+        {
+          "key": {
+            "group": "Peckham"
+          },
+          "value": 3.0343550709730507
+        },
+        {
+          "key": {
+            "group": "Putney"
+          },
+          "value": 0.1893939393939394
+        },
+        {
+          "key": {
+            "group": "Rotherhithe"
+          },
+          "value": 5.784891884302162
+        },
+        {
+          "key": {
+            "group": "St. George, Camberwell"
+          },
+          "value": 2.6500094643195156
+        },
+        {
+          "key": {
+            "group": "St. James, Bermondsey"
+          },
+          "value": 6.508280861421239
+        },
+        {
+          "key": {
+            "group": "St. John, Horsleydown"
+          },
+          "value": 4.48943661971831
+        },
+        {
+          "key": {
+            "group": "St. Mary Magdalen"
+          },
+          "value": 6.243720396153294
+        },
+        {
+          "key": {
+            "group": "St. Mary, Newington"
+          },
+          "value": 1.4964726002992945
+        },
+        {
+          "key": {
+            "group": "St. Olave, Southwark"
+          },
+          "value": 6.6126013724267
+        },
+        {
+          "key": {
+            "group": "St. Peter, Walworth"
+          },
+          "value": 3.0139647031244765
+        },
+        {
+          "key": {
+            "group": "St. Saviour, Southwark"
+          },
+          "value": 6.34228017656908
+        },
+        {
+          "key": {
+            "group": "Streatham"
+          },
+          "value": 0.6649673057741329
+        },
+        {
+          "key": {
+            "group": "Sydenham"
+          },
+          "value": 0.8886914019106865
+        },
+        {
+          "key": {
+            "group": "Trinity, Newington"
+          },
+          "value": 2.7722015103718576
+        },
+        {
+          "key": {
+            "group": "Wandsworth"
+          },
+          "value": 1.144521901987306
+        },
+        {
+          "key": {
+            "group": "Waterloo Road (1st)"
+          },
+          "value": 0.7098239636570131
+        },
+        {
+          "key": {
+            "group": "Waterloo Road (2nd)"
+          },
+          "value": 1.962066710268149
+        }
+      ]
+    }
+  },
+  "output": {
+    "cases": [
+      {
+        "note": "The join the example runs, folding punctuation",
+        "normalisation": "fuzzy",
+        "units": "input.units",
+        "counts": {
+          "parts": 33,
+          "rows": 32,
+          "matchedParts": 33,
+          "matchedRows": 32,
+          "unmatchedParts": 0,
+          "unmatchedRows": 0,
+          "sharedParts": 2
+        },
+        "declared": {
+          "keyField": "group",
+          "valueField": "per 1,000 people",
+          "normalisation": "fuzzy"
+        },
+        "parts": [
+          {
+            "index": 0,
+            "id": "St. James Bermondsey",
+            "name": "St. James Bermondsey",
+            "key": "st james bermondsey",
+            "value": 6.508280861421239,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 1,
+            "id": "St. Saviour Southwark",
+            "name": "St. Saviour Southwark",
+            "key": "st saviour southwark",
+            "value": 6.34228017656908,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 2,
+            "id": "St. Olave Southwark",
+            "name": "St. Olave Southwark",
+            "key": "st olave southwark",
+            "value": 6.6126013724267,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 3,
+            "id": "St. John Horsleydown",
+            "name": "St. John Horsleydown",
+            "key": "st john horsleydown",
+            "value": 4.48943661971831,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 4,
+            "id": "Christchurch Southwark",
+            "name": "Christchurch Southwark",
+            "key": "christchurch southwark",
+            "value": 1.5603545125452503,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 5,
+            "id": "Waterloo Road (1st)",
+            "name": "Waterloo Road (1st)",
+            "key": "waterloo road 1st",
+            "value": 0.7098239636570131,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 6,
+            "id": "Waterloo Road (2nd)",
+            "name": "Waterloo Road (2nd)",
+            "key": "waterloo road 2nd",
+            "value": 1.962066710268149,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 7,
+            "id": "Borough Road",
+            "name": "Borough Road",
+            "key": "borough road",
+            "value": 4.47610641785399,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 8,
+            "id": "Kent Road",
+            "name": "Kent Road",
+            "key": "kent road",
+            "value": 3.1446540880503147,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 9,
+            "id": "Lambeth Church (1st)",
+            "name": "Lambeth Church (1st)",
+            "key": "lambeth church 1st",
+            "value": 0.9777826063338585,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 10,
+            "id": "London Road",
+            "name": "London Road",
+            "key": "london road",
+            "value": 1.6259250953128503,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 11,
+            "id": "Lambeth Church (2nd)",
+            "name": "Lambeth Church (2nd)",
+            "key": "lambeth church 2nd",
+            "value": 1.9787933094384709,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 12,
+            "id": "Kennington (1st)",
+            "name": "Kennington (1st)",
+            "key": "kennington 1st",
+            "value": 2.926507563579407,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 13,
+            "id": "St. George  Camberwell",
+            "name": "St. George  Camberwell",
+            "key": "st george camberwell",
+            "value": 2.6500094643195156,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 14,
+            "id": "Kennington (2nd)",
+            "name": "Kennington (2nd)",
+            "key": "kennington 2nd",
+            "value": 2.0161290322580645,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 15,
+            "id": "Battersea",
+            "name": "Battersea",
+            "key": "battersea",
+            "value": 5.113636363636363,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 16,
+            "id": "Camberwell",
+            "name": "Camberwell",
+            "key": "camberwell",
+            "value": 5.410889414947582,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 17,
+            "id": "Brixton",
+            "name": "Brixton",
+            "key": "brixton",
+            "value": 0.6160164271047228,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 18,
+            "id": "Clapham",
+            "name": "Clapham",
+            "key": "clapham",
+            "value": 1.4732965009208103,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 19,
+            "id": "Dulwich",
+            "name": "Dulwich",
+            "key": "dulwich",
+            "value": 0,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 20,
+            "id": "Norwood",
+            "name": "Norwood",
+            "key": "norwood",
+            "value": 2.0115665074176516,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 21,
+            "id": "St. Peter Walworth",
+            "name": "St. Peter Walworth",
+            "key": "st peter walworth",
+            "value": 3.0139647031244765,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 22,
+            "id": "Leather Market",
+            "name": "Leather Market",
+            "key": "leather market",
+            "value": 5.295848316443282,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 23,
+            "id": "St. Mary Newington",
+            "name": "St. Mary Newington",
+            "key": "st mary newington",
+            "value": 1.4964726002992945,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 24,
+            "id": "Trinity Newington",
+            "name": "Trinity Newington",
+            "key": "trinity newington",
+            "value": 2.7722015103718576,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 25,
+            "id": "St. Mary Magdalen",
+            "name": "St. Mary Magdalen",
+            "key": "st mary magdalen",
+            "value": 6.243720396153294,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 26,
+            "id": "Rotherhithe",
+            "name": "Rotherhithe",
+            "key": "rotherhithe",
+            "value": 5.784891884302162,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 27,
+            "id": "Peckham",
+            "name": "Peckham",
+            "key": "peckham",
+            "value": 3.0343550709730507,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 28,
+            "id": "Putney",
+            "name": "Putney",
+            "key": "putney",
+            "value": 0.1893939393939394,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 29,
+            "id": "Wandsworth",
+            "name": "Wandsworth",
+            "key": "wandsworth",
+            "value": 1.144521901987306,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 30,
+            "id": "Sydenham",
+            "name": "Sydenham",
+            "key": "sydenham",
+            "value": 0.8886914019106865,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 31,
+            "id": "Streatham",
+            "name": "Streatham",
+            "key": "streatham",
+            "value": 0.6649673057741329,
+            "matched": true,
+            "shared": true
+          },
+          {
+            "index": 32,
+            "id": "Streatham",
+            "name": "Streatham",
+            "key": "streatham",
+            "value": 0.6649673057741329,
+            "matched": true,
+            "shared": true
+          }
+        ],
+        "diagnostics": [
+          {
+            "code": "duplicate-boundary-key",
+            "subject": "streatham",
+            "says": "2 parts of the boundary are named \"streatham\". Each is given the same value, which is true of a rate and is not true of a count."
+          }
+        ]
+      },
+      {
+        "note": "The same join on the raw strings, which needs no normalisation to recompute",
+        "normalisation": "exact",
+        "units": "input.units",
+        "counts": {
+          "parts": 33,
+          "rows": 32,
+          "matchedParts": 24,
+          "matchedRows": 23,
+          "unmatchedParts": 9,
+          "unmatchedRows": 9,
+          "sharedParts": 2
+        },
+        "declared": {
+          "keyField": "group",
+          "valueField": "per 1,000 people",
+          "normalisation": "exact"
+        },
+        "parts": [
+          {
+            "index": 0,
+            "id": "St. James Bermondsey",
+            "name": "St. James Bermondsey",
+            "key": "st. james bermondsey",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 1,
+            "id": "St. Saviour Southwark",
+            "name": "St. Saviour Southwark",
+            "key": "st. saviour southwark",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 2,
+            "id": "St. Olave Southwark",
+            "name": "St. Olave Southwark",
+            "key": "st. olave southwark",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 3,
+            "id": "St. John Horsleydown",
+            "name": "St. John Horsleydown",
+            "key": "st. john horsleydown",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 4,
+            "id": "Christchurch Southwark",
+            "name": "Christchurch Southwark",
+            "key": "christchurch southwark",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 5,
+            "id": "Waterloo Road (1st)",
+            "name": "Waterloo Road (1st)",
+            "key": "waterloo road (1st)",
+            "value": 0.7098239636570131,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 6,
+            "id": "Waterloo Road (2nd)",
+            "name": "Waterloo Road (2nd)",
+            "key": "waterloo road (2nd)",
+            "value": 1.962066710268149,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 7,
+            "id": "Borough Road",
+            "name": "Borough Road",
+            "key": "borough road",
+            "value": 4.47610641785399,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 8,
+            "id": "Kent Road",
+            "name": "Kent Road",
+            "key": "kent road",
+            "value": 3.1446540880503147,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 9,
+            "id": "Lambeth Church (1st)",
+            "name": "Lambeth Church (1st)",
+            "key": "lambeth church (1st)",
+            "value": 0.9777826063338585,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 10,
+            "id": "London Road",
+            "name": "London Road",
+            "key": "london road",
+            "value": 1.6259250953128503,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 11,
+            "id": "Lambeth Church (2nd)",
+            "name": "Lambeth Church (2nd)",
+            "key": "lambeth church (2nd)",
+            "value": 1.9787933094384709,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 12,
+            "id": "Kennington (1st)",
+            "name": "Kennington (1st)",
+            "key": "kennington (1st)",
+            "value": 2.926507563579407,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 13,
+            "id": "St. George  Camberwell",
+            "name": "St. George  Camberwell",
+            "key": "st. george  camberwell",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 14,
+            "id": "Kennington (2nd)",
+            "name": "Kennington (2nd)",
+            "key": "kennington (2nd)",
+            "value": 2.0161290322580645,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 15,
+            "id": "Battersea",
+            "name": "Battersea",
+            "key": "battersea",
+            "value": 5.113636363636363,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 16,
+            "id": "Camberwell",
+            "name": "Camberwell",
+            "key": "camberwell",
+            "value": 5.410889414947582,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 17,
+            "id": "Brixton",
+            "name": "Brixton",
+            "key": "brixton",
+            "value": 0.6160164271047228,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 18,
+            "id": "Clapham",
+            "name": "Clapham",
+            "key": "clapham",
+            "value": 1.4732965009208103,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 19,
+            "id": "Dulwich",
+            "name": "Dulwich",
+            "key": "dulwich",
+            "value": 0,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 20,
+            "id": "Norwood",
+            "name": "Norwood",
+            "key": "norwood",
+            "value": 2.0115665074176516,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 21,
+            "id": "St. Peter Walworth",
+            "name": "St. Peter Walworth",
+            "key": "st. peter walworth",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 22,
+            "id": "Leather Market",
+            "name": "Leather Market",
+            "key": "leather market",
+            "value": 5.295848316443282,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 23,
+            "id": "St. Mary Newington",
+            "name": "St. Mary Newington",
+            "key": "st. mary newington",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 24,
+            "id": "Trinity Newington",
+            "name": "Trinity Newington",
+            "key": "trinity newington",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 25,
+            "id": "St. Mary Magdalen",
+            "name": "St. Mary Magdalen",
+            "key": "st. mary magdalen",
+            "value": 6.243720396153294,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 26,
+            "id": "Rotherhithe",
+            "name": "Rotherhithe",
+            "key": "rotherhithe",
+            "value": 5.784891884302162,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 27,
+            "id": "Peckham",
+            "name": "Peckham",
+            "key": "peckham",
+            "value": 3.0343550709730507,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 28,
+            "id": "Putney",
+            "name": "Putney",
+            "key": "putney",
+            "value": 0.1893939393939394,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 29,
+            "id": "Wandsworth",
+            "name": "Wandsworth",
+            "key": "wandsworth",
+            "value": 1.144521901987306,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 30,
+            "id": "Sydenham",
+            "name": "Sydenham",
+            "key": "sydenham",
+            "value": 0.8886914019106865,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 31,
+            "id": "Streatham",
+            "name": "Streatham",
+            "key": "streatham",
+            "value": 0.6649673057741329,
+            "matched": true,
+            "shared": true
+          },
+          {
+            "index": 32,
+            "id": "Streatham",
+            "name": "Streatham",
+            "key": "streatham",
+            "value": 0.6649673057741329,
+            "matched": true,
+            "shared": true
+          }
+        ],
+        "diagnostics": [
+          {
+            "code": "duplicate-boundary-key",
+            "subject": "streatham",
+            "says": "2 parts of the boundary are named \"streatham\". Each is given the same value, which is true of a rate and is not true of a count."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. James Bermondsey",
+            "says": "No row of the table names \"St. James Bermondsey\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. Saviour Southwark",
+            "says": "No row of the table names \"St. Saviour Southwark\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. Olave Southwark",
+            "says": "No row of the table names \"St. Olave Southwark\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. John Horsleydown",
+            "says": "No row of the table names \"St. John Horsleydown\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "Christchurch Southwark",
+            "says": "No row of the table names \"Christchurch Southwark\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. George  Camberwell",
+            "says": "No row of the table names \"St. George  Camberwell\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. Peter Walworth",
+            "says": "No row of the table names \"St. Peter Walworth\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "St. Mary Newington",
+            "says": "No row of the table names \"St. Mary Newington\", so this part has no value."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "Trinity Newington",
+            "says": "No row of the table names \"Trinity Newington\", so this part has no value."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "Christchurch, Southwark",
+            "says": "The table names \"Christchurch, Southwark\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. George, Camberwell",
+            "says": "The table names \"St. George, Camberwell\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. James, Bermondsey",
+            "says": "The table names \"St. James, Bermondsey\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. John, Horsleydown",
+            "says": "The table names \"St. John, Horsleydown\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. Mary, Newington",
+            "says": "The table names \"St. Mary, Newington\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. Olave, Southwark",
+            "says": "The table names \"St. Olave, Southwark\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. Peter, Walworth",
+            "says": "The table names \"St. Peter, Walworth\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "St. Saviour, Southwark",
+            "says": "The table names \"St. Saviour, Southwark\", which is not a part of this boundary."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "Trinity, Newington",
+            "says": "The table names \"Trinity, Newington\", which is not a part of this boundary."
+          }
+        ]
+      },
+      {
+        "note": "A negative control, constructed: one part renamed to a place the table does not carry",
+        "normalisation": "fuzzy",
+        "units": "input.units with index 16 renamed from Camberwell to Camberwell Green",
+        "constructed": "Snow's table and these boundaries have no pair that differs by more than punctuation, so nothing in the data tests a name that OUGHT not to match. Without this case, 32 of 32 is also the score of a rule that matched too readily.",
+        "renamedIndex": 16,
+        "renamedFrom": "Camberwell",
+        "renamedTo": "Camberwell Green",
+        "counts": {
+          "parts": 33,
+          "rows": 32,
+          "matchedParts": 32,
+          "matchedRows": 31,
+          "unmatchedParts": 1,
+          "unmatchedRows": 1,
+          "sharedParts": 2
+        },
+        "declared": {
+          "keyField": "group",
+          "valueField": "per 1,000 people",
+          "normalisation": "fuzzy"
+        },
+        "parts": [
+          {
+            "index": 0,
+            "id": "St. James Bermondsey",
+            "name": "St. James Bermondsey",
+            "key": "st james bermondsey",
+            "value": 6.508280861421239,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 1,
+            "id": "St. Saviour Southwark",
+            "name": "St. Saviour Southwark",
+            "key": "st saviour southwark",
+            "value": 6.34228017656908,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 2,
+            "id": "St. Olave Southwark",
+            "name": "St. Olave Southwark",
+            "key": "st olave southwark",
+            "value": 6.6126013724267,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 3,
+            "id": "St. John Horsleydown",
+            "name": "St. John Horsleydown",
+            "key": "st john horsleydown",
+            "value": 4.48943661971831,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 4,
+            "id": "Christchurch Southwark",
+            "name": "Christchurch Southwark",
+            "key": "christchurch southwark",
+            "value": 1.5603545125452503,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 5,
+            "id": "Waterloo Road (1st)",
+            "name": "Waterloo Road (1st)",
+            "key": "waterloo road 1st",
+            "value": 0.7098239636570131,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 6,
+            "id": "Waterloo Road (2nd)",
+            "name": "Waterloo Road (2nd)",
+            "key": "waterloo road 2nd",
+            "value": 1.962066710268149,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 7,
+            "id": "Borough Road",
+            "name": "Borough Road",
+            "key": "borough road",
+            "value": 4.47610641785399,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 8,
+            "id": "Kent Road",
+            "name": "Kent Road",
+            "key": "kent road",
+            "value": 3.1446540880503147,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 9,
+            "id": "Lambeth Church (1st)",
+            "name": "Lambeth Church (1st)",
+            "key": "lambeth church 1st",
+            "value": 0.9777826063338585,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 10,
+            "id": "London Road",
+            "name": "London Road",
+            "key": "london road",
+            "value": 1.6259250953128503,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 11,
+            "id": "Lambeth Church (2nd)",
+            "name": "Lambeth Church (2nd)",
+            "key": "lambeth church 2nd",
+            "value": 1.9787933094384709,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 12,
+            "id": "Kennington (1st)",
+            "name": "Kennington (1st)",
+            "key": "kennington 1st",
+            "value": 2.926507563579407,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 13,
+            "id": "St. George  Camberwell",
+            "name": "St. George  Camberwell",
+            "key": "st george camberwell",
+            "value": 2.6500094643195156,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 14,
+            "id": "Kennington (2nd)",
+            "name": "Kennington (2nd)",
+            "key": "kennington 2nd",
+            "value": 2.0161290322580645,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 15,
+            "id": "Battersea",
+            "name": "Battersea",
+            "key": "battersea",
+            "value": 5.113636363636363,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 16,
+            "id": "Camberwell Green",
+            "name": "Camberwell Green",
+            "key": "camberwell green",
+            "value": null,
+            "matched": false,
+            "shared": false
+          },
+          {
+            "index": 17,
+            "id": "Brixton",
+            "name": "Brixton",
+            "key": "brixton",
+            "value": 0.6160164271047228,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 18,
+            "id": "Clapham",
+            "name": "Clapham",
+            "key": "clapham",
+            "value": 1.4732965009208103,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 19,
+            "id": "Dulwich",
+            "name": "Dulwich",
+            "key": "dulwich",
+            "value": 0,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 20,
+            "id": "Norwood",
+            "name": "Norwood",
+            "key": "norwood",
+            "value": 2.0115665074176516,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 21,
+            "id": "St. Peter Walworth",
+            "name": "St. Peter Walworth",
+            "key": "st peter walworth",
+            "value": 3.0139647031244765,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 22,
+            "id": "Leather Market",
+            "name": "Leather Market",
+            "key": "leather market",
+            "value": 5.295848316443282,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 23,
+            "id": "St. Mary Newington",
+            "name": "St. Mary Newington",
+            "key": "st mary newington",
+            "value": 1.4964726002992945,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 24,
+            "id": "Trinity Newington",
+            "name": "Trinity Newington",
+            "key": "trinity newington",
+            "value": 2.7722015103718576,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 25,
+            "id": "St. Mary Magdalen",
+            "name": "St. Mary Magdalen",
+            "key": "st mary magdalen",
+            "value": 6.243720396153294,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 26,
+            "id": "Rotherhithe",
+            "name": "Rotherhithe",
+            "key": "rotherhithe",
+            "value": 5.784891884302162,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 27,
+            "id": "Peckham",
+            "name": "Peckham",
+            "key": "peckham",
+            "value": 3.0343550709730507,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 28,
+            "id": "Putney",
+            "name": "Putney",
+            "key": "putney",
+            "value": 0.1893939393939394,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 29,
+            "id": "Wandsworth",
+            "name": "Wandsworth",
+            "key": "wandsworth",
+            "value": 1.144521901987306,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 30,
+            "id": "Sydenham",
+            "name": "Sydenham",
+            "key": "sydenham",
+            "value": 0.8886914019106865,
+            "matched": true,
+            "shared": false
+          },
+          {
+            "index": 31,
+            "id": "Streatham",
+            "name": "Streatham",
+            "key": "streatham",
+            "value": 0.6649673057741329,
+            "matched": true,
+            "shared": true
+          },
+          {
+            "index": 32,
+            "id": "Streatham",
+            "name": "Streatham",
+            "key": "streatham",
+            "value": 0.6649673057741329,
+            "matched": true,
+            "shared": true
+          }
+        ],
+        "diagnostics": [
+          {
+            "code": "duplicate-boundary-key",
+            "subject": "streatham",
+            "says": "2 parts of the boundary are named \"streatham\". Each is given the same value, which is true of a rate and is not true of a count."
+          },
+          {
+            "code": "unmatched-boundary",
+            "subject": "Camberwell Green",
+            "says": "No row of the table names \"Camberwell Green\", so this part has no value."
+          },
+          {
+            "code": "unmatched-data-key",
+            "subject": "Camberwell",
+            "says": "The table names \"Camberwell\", which is not a part of this boundary."
+          }
+        ]
+      }
+    ]
+  },
+  "note": "Recompute each case from `input` and `declaredParameters`. Case 2 is the baseline the folding is measured against; case 1 minus case 2 is what the folding bought, and case 3 is what it must still refuse.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "47d41dd84c317d3e3cf62a59f587ef5da28fbf64e391ed27bc6659d5d9fd800f"
+  }
+}
