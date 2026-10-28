@@ -1,6 +1,6 @@
 {
  "check": "14-summarize-polygons",
- "ranAt": "2026-10-11T21:06:17.277525+00:00",
+ "ranAt": "2026-10-28T14:51:59.944899+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,14 +9,14 @@
  },
  "fixture": {
   "id": "summarize-polygons-soho-001",
-  "sha256": "f607820b562d0c79082258c951113fabf0747eadc5208afc321444dba0b11822",
+  "sha256": "8cb3e7197ec8682c4e2dafa346e1f001a3a3451bcf25cb05a42cc14f056d01c3",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.12.0"
   },
   "operation": {
-   "widget": "urn:fieldwork:widget:summarize_polygons",
-   "release": "0.1.0",
+   "widget": "urn:fieldwork:widget:summarize_points_to_polygon",
+   "release": "0.2.0",
    "label": "Summarize points in polygons",
    "implementation": "src/catchments.ts#summarizePolygons"
   },
