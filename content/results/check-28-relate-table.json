@@ -1,6 +1,6 @@
 {
   "check": "28-relate-table",
-  "ranAt": "2026-10-27T11:40:43.555329+00:00",
+  "ranAt": "2026-10-28T14:38:10.619557+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,69 +8,188 @@
   },
   "fixture": {
     "id": "relate-snow-001",
-    "sha256": "2e37f7071add6c431b97d377a6ca9b80eed74d51425d18f3b3db4ebd5a50c6e6",
+    "sha256": "6e7782a472a4926dfd2d4afdb2e61d78567bb6b82356d2e15cb6c2c83a213dd8",
     "application": {
       "name": "Fieldwork",
       "version": "0.12.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:relate_table",
-      "release": "0.1.0",
+      "release": "0.3.0",
       "label": "Relate a table",
       "implementation": "src/relate-table.ts#relateTable"
     }
   },
   "criterion": {
-    "rows": "every related row identical to a pandas left merge, compared as an ordered set of records",
-    "rowCount": "unchanged by relating: a relate that multiplied rows would be a merge",
+    "rows": "every produced row identical to a pandas left merge on the FOLDED key, compared as an ordered set of records",
+    "folding": "the declared comparison reimplemented here from its stated rule, never imported",
+    "rowCount": "unchanged by relating, except where the practitioner declared that unmatched rows be kept",
     "values": "the distinct brought categories, in first-seen order",
-    "gaps": "the same rows dropped as a merge drops, and each unmatched key named with its count",
-    "ambiguous": "refused, with the key and both values named; a merge multiplies rows instead"
+    "gaps": "the same rows unmatched as a merge leaves NaN, and each key named with its count",
+    "shares": "each variable's offered total, matched total and retained fraction, summed independently",
+    "identity": "a rate of one variable over another over the matched rows equals its value over all rows times the ratio of their retained shares",
+    "ambiguous": "refused, with the key and both values named; a merge multiplies rows instead",
+    "undeclaredGap": "refused; a merge proceeds and leaves NaN, which no total reveals"
   },
   "comparisons": [
     {
-      "note": "The relate the example runs: Table XII's company onto all 64 rows of Table VIII",
+      "note": "The relate the example runs, folded: Table XII's company onto all 64 rows of Table VIII",
+      "comparison": "fuzzy",
+      "bring": "water_supply",
+      "decision": null,
       "leftRows": 64,
       "rightRows": 32,
       "fieldwork": {
         "rowCount": 64,
         "related": 64,
         "dropped": 0,
+        "kept": 0,
         "gaps": [],
         "values": [
           "Southwark and Vauxhall Company only",
           "Lambeth Company and Southwark and Vauxhall Company",
           "Lambeth Company only"
+        ],
+        "matchedKeys": 32,
+        "shares": [
+          {
+            "measure": "population_1851",
+            "all": 486936,
+            "related": 486936,
+            "share": 1
+          },
+          {
+            "measure": "deaths_seven_weeks",
+            "all": 1514,
+            "related": 1514,
+            "share": 1
+          }
         ]
       },
       "pandas": {
         "rowCount": 64,
+        "related": 64,
         "dropped": 0,
+        "kept": 0,
         "gaps": [],
         "values": [
           "Southwark and Vauxhall Company only",
           "Lambeth Company and Southwark and Vauxhall Company",
           "Lambeth Company only"
-        ]
+        ],
+        "matchedKeys": 32,
+        "shares": {
+          "deaths_seven_weeks": {
+            "all": 1514.0,
+            "related": 1514.0,
+            "share": 1.0
+          },
+          "population_1851": {
+            "all": 486936.0,
+            "related": 486936.0,
+            "share": 1.0
+          }
+        }
       },
       "checks": {
         "rowsMatch": true,
-        "rowCountUnchanged": true,
+        "rowCount": true,
         "relatedCount": true,
         "droppedCount": true,
+        "keptCount": true,
         "valuesInOrder": true,
-        "gapsNamed": true
+        "gapsNamed": true,
+        "matchedKeyCount": true,
+        "sharesAgree": true,
+        "noAmbiguityHere": true
       },
       "agrees": true
     },
     {
-      "note": "A key the right table does not carry: St. Saviour, Southwark withheld, so its rows are dropped and named",
+      "note": "The same, compared exactly. The control: Snow's two tables agree letter for letter, so folding changes nothing here and the difference further down is not an artefact of the knob",
+      "comparison": "exact",
+      "bring": "water_supply",
+      "decision": null,
+      "leftRows": 64,
+      "rightRows": 32,
+      "fieldwork": {
+        "rowCount": 64,
+        "related": 64,
+        "dropped": 0,
+        "kept": 0,
+        "gaps": [],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only"
+        ],
+        "matchedKeys": 32,
+        "shares": [
+          {
+            "measure": "population_1851",
+            "all": 486936,
+            "related": 486936,
+            "share": 1
+          },
+          {
+            "measure": "deaths_seven_weeks",
+            "all": 1514,
+            "related": 1514,
+            "share": 1
+          }
+        ]
+      },
+      "pandas": {
+        "rowCount": 64,
+        "related": 64,
+        "dropped": 0,
+        "kept": 0,
+        "gaps": [],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only"
+        ],
+        "matchedKeys": 32,
+        "shares": {
+          "deaths_seven_weeks": {
+            "all": 1514.0,
+            "related": 1514.0,
+            "share": 1.0
+          },
+          "population_1851": {
+            "all": 486936.0,
+            "related": 486936.0,
+            "share": 1.0
+          }
+        }
+      },
+      "checks": {
+        "rowsMatch": true,
+        "rowCount": true,
+        "relatedCount": true,
+        "droppedCount": true,
+        "keptCount": true,
+        "valuesInOrder": true,
+        "gapsNamed": true,
+        "matchedKeyCount": true,
+        "sharesAgree": true,
+        "noAmbiguityHere": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "The same gap, declared \u201cdrop\u201d: the rows are excluded and the key named",
+      "comparison": "fuzzy",
+      "bring": "water_supply",
+      "decision": "drop",
       "leftRows": 64,
       "rightRows": 31,
       "fieldwork": {
         "rowCount": 62,
         "related": 62,
         "dropped": 2,
+        "kept": 0,
         "gaps": [
           {
             "key": "St. Saviour, Southwark",
@@ -81,11 +200,28 @@
           "Southwark and Vauxhall Company only",
           "Lambeth Company and Southwark and Vauxhall Company",
           "Lambeth Company only"
+        ],
+        "matchedKeys": 31,
+        "shares": [
+          {
+            "measure": "population_1851",
+            "all": 486936,
+            "related": 467227,
+            "share": 0.9595244549591733
+          },
+          {
+            "measure": "deaths_seven_weeks",
+            "all": 1514,
+            "related": 1389,
+            "share": 0.917437252311757
+          }
         ]
       },
       "pandas": {
         "rowCount": 62,
+        "related": 62,
         "dropped": 2,
+        "kept": 0,
         "gaps": [
           {
             "key": "St. Saviour, Southwark",
@@ -96,45 +232,389 @@
           "Southwark and Vauxhall Company only",
           "Lambeth Company and Southwark and Vauxhall Company",
           "Lambeth Company only"
-        ]
+        ],
+        "matchedKeys": 31,
+        "shares": {
+          "deaths_seven_weeks": {
+            "all": 1514.0,
+            "related": 1389.0,
+            "share": 0.917437252311757
+          },
+          "population_1851": {
+            "all": 486936.0,
+            "related": 467227.0,
+            "share": 0.9595244549591733
+          }
+        }
       },
       "checks": {
         "rowsMatch": true,
-        "rowCountUnchanged": true,
+        "rowCount": true,
         "relatedCount": true,
         "droppedCount": true,
+        "keptCount": true,
         "valuesInOrder": true,
-        "gapsNamed": true
+        "gapsNamed": true,
+        "matchedKeyCount": true,
+        "sharesAgree": true,
+        "noAmbiguityHere": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "The same gap, declared \u201ckeep\u201d under \u201cSupply not recorded\u201d: every row stays and the totals are the whole left table\u2019s",
+      "comparison": "fuzzy",
+      "bring": "water_supply",
+      "decision": "keep",
+      "leftRows": 64,
+      "rightRows": 31,
+      "fieldwork": {
+        "rowCount": 64,
+        "related": 62,
+        "dropped": 0,
+        "kept": 2,
+        "gaps": [
+          {
+            "key": "St. Saviour, Southwark",
+            "rows": 2
+          }
+        ],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only",
+          "Supply not recorded"
+        ],
+        "matchedKeys": 31,
+        "shares": [
+          {
+            "measure": "population_1851",
+            "all": 486936,
+            "related": 467227,
+            "share": 0.9595244549591733
+          },
+          {
+            "measure": "deaths_seven_weeks",
+            "all": 1514,
+            "related": 1389,
+            "share": 0.917437252311757
+          }
+        ]
+      },
+      "pandas": {
+        "rowCount": 64,
+        "related": 62,
+        "dropped": 0,
+        "kept": 2,
+        "gaps": [
+          {
+            "key": "St. Saviour, Southwark",
+            "rows": 2
+          }
+        ],
+        "values": [
+          "Southwark and Vauxhall Company only",
+          "Lambeth Company and Southwark and Vauxhall Company",
+          "Lambeth Company only",
+          "Supply not recorded"
+        ],
+        "matchedKeys": 31,
+        "shares": {
+          "deaths_seven_weeks": {
+            "all": 1514.0,
+            "related": 1389.0,
+            "share": 0.917437252311757
+          },
+          "population_1851": {
+            "all": 486936.0,
+            "related": 467227.0,
+            "share": 0.9595244549591733
+          }
+        }
+      },
+      "checks": {
+        "rowsMatch": true,
+        "rowCount": true,
+        "relatedCount": true,
+        "droppedCount": true,
+        "keptCount": true,
+        "valuesInOrder": true,
+        "gapsNamed": true,
+        "matchedKeyCount": true,
+        "sharesAgree": true,
+        "noAmbiguityHere": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "The published boundary's own spelling, compared EXACTLY: nine of the 32 sub-districts are written without their comma, so nine do not match and their rows are excluded at a declared choice",
+      "comparison": "exact",
+      "bring": "supplier",
+      "decision": "drop",
+      "leftRows": 64,
+      "rightRows": 32,
+      "fieldwork": {
+        "rowCount": 46,
+        "related": 46,
+        "dropped": 18,
+        "kept": 0,
+        "gaps": [
+          {
+            "key": "Christchurch, Southwark",
+            "rows": 2
+          },
+          {
+            "key": "St. George, Camberwell",
+            "rows": 2
+          },
+          {
+            "key": "St. James, Bermondsey",
+            "rows": 2
+          },
+          {
+            "key": "St. John, Horsleydown",
+            "rows": 2
+          },
+          {
+            "key": "St. Mary, Newington",
+            "rows": 2
+          },
+          {
+            "key": "St. Olave, Southwark",
+            "rows": 2
+          },
+          {
+            "key": "St. Peter, Walworth",
+            "rows": 2
+          },
+          {
+            "key": "St. Saviour, Southwark",
+            "rows": 2
+          },
+          {
+            "key": "Trinity, Newington",
+            "rows": 2
+          }
+        ],
+        "values": [
+          "SouthwarkVauxhall",
+          "SouthwarkVauxhall_Lambeth",
+          "Lambeth"
+        ],
+        "matchedKeys": 23,
+        "shares": [
+          {
+            "measure": "population_1851",
+            "all": 486936,
+            "related": 332266,
+            "share": 0.6823607209160958
+          },
+          {
+            "measure": "deaths_seven_weeks",
+            "all": 1514,
+            "related": 926,
+            "share": 0.6116248348745046
+          }
+        ]
+      },
+      "pandas": {
+        "rowCount": 46,
+        "related": 46,
+        "dropped": 18,
+        "kept": 0,
+        "gaps": [
+          {
+            "key": "Christchurch, Southwark",
+            "rows": 2
+          },
+          {
+            "key": "St. George, Camberwell",
+            "rows": 2
+          },
+          {
+            "key": "St. James, Bermondsey",
+            "rows": 2
+          },
+          {
+            "key": "St. John, Horsleydown",
+            "rows": 2
+          },
+          {
+            "key": "St. Mary, Newington",
+            "rows": 2
+          },
+          {
+            "key": "St. Olave, Southwark",
+            "rows": 2
+          },
+          {
+            "key": "St. Peter, Walworth",
+            "rows": 2
+          },
+          {
+            "key": "St. Saviour, Southwark",
+            "rows": 2
+          },
+          {
+            "key": "Trinity, Newington",
+            "rows": 2
+          }
+        ],
+        "values": [
+          "SouthwarkVauxhall",
+          "SouthwarkVauxhall_Lambeth",
+          "Lambeth"
+        ],
+        "matchedKeys": 23,
+        "shares": {
+          "deaths_seven_weeks": {
+            "all": 1514.0,
+            "related": 926.0,
+            "share": 0.6116248348745046
+          },
+          "population_1851": {
+            "all": 486936.0,
+            "related": 332266.0,
+            "share": 0.6823607209160958
+          }
+        }
+      },
+      "checks": {
+        "rowsMatch": true,
+        "rowCount": true,
+        "relatedCount": true,
+        "droppedCount": true,
+        "keptCount": true,
+        "valuesInOrder": true,
+        "gapsNamed": true,
+        "matchedKeyCount": true,
+        "sharesAgree": true,
+        "noAmbiguityHere": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "The same two tables, compared FOLDED: every one of the 32 matches, and nothing is excluded. The pair is the finding -- one knob, nine rows, and two different retained shares",
+      "comparison": "fuzzy",
+      "bring": "supplier",
+      "decision": null,
+      "leftRows": 64,
+      "rightRows": 32,
+      "fieldwork": {
+        "rowCount": 64,
+        "related": 64,
+        "dropped": 0,
+        "kept": 0,
+        "gaps": [],
+        "values": [
+          "SouthwarkVauxhall",
+          "SouthwarkVauxhall_Lambeth",
+          "Lambeth"
+        ],
+        "matchedKeys": 32,
+        "shares": [
+          {
+            "measure": "population_1851",
+            "all": 486936,
+            "related": 486936,
+            "share": 1
+          },
+          {
+            "measure": "deaths_seven_weeks",
+            "all": 1514,
+            "related": 1514,
+            "share": 1
+          }
+        ]
+      },
+      "pandas": {
+        "rowCount": 64,
+        "related": 64,
+        "dropped": 0,
+        "kept": 0,
+        "gaps": [],
+        "values": [
+          "SouthwarkVauxhall",
+          "SouthwarkVauxhall_Lambeth",
+          "Lambeth"
+        ],
+        "matchedKeys": 32,
+        "shares": {
+          "deaths_seven_weeks": {
+            "all": 1514.0,
+            "related": 1514.0,
+            "share": 1.0
+          },
+          "population_1851": {
+            "all": 486936.0,
+            "related": 486936.0,
+            "share": 1.0
+          }
+        }
+      },
+      "checks": {
+        "rowsMatch": true,
+        "rowCount": true,
+        "relatedCount": true,
+        "droppedCount": true,
+        "keptCount": true,
+        "valuesInOrder": true,
+        "gapsNamed": true,
+        "matchedKeyCount": true,
+        "sharesAgree": true,
+        "noAmbiguityHere": true
       },
       "agrees": true
     }
   ],
-  "ambiguousKey": {
-    "note": "An ambiguous key, constructed: one sub-district given a second, different company",
-    "constructed": "No sub-district in Table XII carries two companies. The row is added here because the case cannot be drawn from the data.",
-    "key": "St. Saviour, Southwark",
-    "values": [
-      "Southwark and Vauxhall Company only",
-      "Lambeth Company only"
-    ],
-    "fieldworkRefused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Check whether \"sub_district\" identifies one row of the second table.",
-    "pandasRowCount": 66,
-    "pandasRowsForThatKey": 4,
-    "leftRowsForThatKey": 2,
-    "whatTheRefusalBuys": "A merge returns 66 rows where the left table has 64, because the 2 rows for that key each match twice. Both companies would then appear in the stratification, each carrying the same population, and no total in the result reveals it.",
-    "checks": {
-      "refused": true,
-      "namesTheKey": true,
-      "namesBothValues": true,
-      "returnedNoTable": true
+  "refusals": [
+    {
+      "note": "A key the right table does not carry, UNDECLARED: St. Saviour, Southwark withheld and nothing said about it. Refused, where a merge would proceed",
+      "constructed": null,
+      "fieldworkRefused": "1 key in the first table has no row in the second: \"St. Saviour, Southwark\". Open the join and say whether to drop those rows or keep them under a category you name, because the two give different totals and the result cannot be read for which you got.",
+      "whatAMergeDoesInstead": "A merge proceeds and returns 64 rows with 2 of them carrying NaN in water_supply. Nothing asks what should happen to them, and a total over the result is a total over a table the practitioner never chose.",
+      "pandasRowCount": 64,
+      "checks": {
+        "refused": true,
+        "namesTheKey": true,
+        "returnedNoTable": true,
+        "pandasProceeded": true,
+        "weFoundAGapToo": true
+      },
+      "agrees": true
     },
-    "agrees": true
+    {
+      "note": "An ambiguous key, constructed: one sub-district given a second, different company",
+      "constructed": "No sub-district in Table XII carries two companies. The row is added here because the case cannot be drawn from the data.",
+      "fieldworkRefused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Check whether \"sub_district\" identifies one row of the second table.",
+      "whatAMergeDoesInstead": "A merge returns 66 rows where the left table has 64: the rows for that key each match twice, so both companies appear in the stratification carrying the same population, and no total reveals it.",
+      "pandasRowCount": 66,
+      "checks": {
+        "refused": true,
+        "namesTheKey": true,
+        "namesBothValues": true,
+        "returnedNoTable": true,
+        "pandasMultipliedRows": true,
+        "weFoundItAmbiguousToo": true
+      },
+      "agrees": true
+    }
+  ],
+  "shareIdentity": {
+    "claim": "rate over the matched rows = rate over every offered row x share(numerator)/share(denominator)",
+    "ratePerThousandAllRows": 3.1092381750373765,
+    "ratePerThousandMatchedRows": 2.7869237297827643,
+    "multiplierFromShares": 0.8963365213246367,
+    "ratePerThousandPredicted": 2.786923729782764,
+    "holds": true,
+    "reading": "The two variables do not fall in step, so excluding the unmatched rows moves the estimate and not only its precision."
   },
   "divergences": [],
   "notEstablished": [
-    "That exact matching is the right matching. Snow's two tables spell every sub-district identically, so this data never exercises a name that differs by punctuation or case -- the case a practitioner will actually meet. Fieldwork folds surrounding whitespace and nothing else, by decision rather than by this result.",
+    "That folding is the right comparison. It is now the default, and this check shows what each setting does on two published spellings of the same 32 sub-districts -- not that nine names differing by a comma are nine names of the same place. That is a judgement about the sources, and a fold that joined two genuinely different places would be wrong in exactly the way this check cannot see.",
     "That relating is right for bringing MEASURES across. That adds rows rather than a column and is deliberately not built, so nothing here speaks to it.",
-    "That the category is the right stratifier. Snow's third group -- sub-districts supplied by both companies -- is 300,149 of the 486,936 people in the table, and what to do with it is the practitioner's judgement, not an outcome of the join."
+    "That the category is the right stratifier. Snow's third group -- sub-districts supplied by both companies -- is 300,149 of the 486,936 people in the table, and what to do with it is the practitioner's judgement, not an outcome of the join.",
+    "That the practitioner's declaration is the right one. The check confirms that drop and keep produce the totals each claims; which of them a study should use is not a question a merge can answer."
   ],
   "agrees": true
 }
