@@ -1,6 +1,6 @@
 {
  "check": "21-hex",
- "ranAt": "2026-10-11T22:41:29.311283+00:00",
+ "ranAt": "2026-10-28T14:51:59.838079+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,15 +9,15 @@
  },
  "fixture": {
   "id": "hex-soho-001",
-  "sha256": "ab3a1e54bff5b6429114905ebb3da5549a84a775e933170b6fcecc2ae6952fd0",
+  "sha256": "ad47fdd3c46d6def125b43601a4f3c1f1d8d9b3678f8c944d0e8cf2c9f74f451",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.12.0"
   },
   "operation": {
-   "widget": "urn:fieldwork:widget:hex_aggregate",
-   "release": "0.1.0",
-   "label": "Group points in H3 cells",
+   "widget": "urn:fieldwork:widget:aggregate_points_to_h3_cell",
+   "release": "0.2.0",
+   "label": "Aggregate points in hexagons",
    "implementation": "src/geoprivacy.ts#aggregateHex"
   },
   "declaredSparseRule": "A cell holding fewer than 2 points is omitted from the output entirely rather than returned with a small count, so its points are not represented at all. The number of omitted cells is reported."
