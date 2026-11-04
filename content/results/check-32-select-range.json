@@ -1,0 +1,112 @@
+{
+  "check": "32-select-range",
+  "ranAt": "2026-11-04T03:36:42.207065+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3"
+  },
+  "fixture": {
+    "id": "select-range-london-001",
+    "sha256": "f41b62c679476d153b0520cd9deb3ab664dda64d52f442b84c68615eb5347cde",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.14.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:select_rows",
+      "release": "0.2.0",
+      "label": "Select rows by value",
+      "implementation": "src/derive-value.ts#selectRange"
+    }
+  },
+  "criterion": {
+    "rows": "the same dates in the same order as Series.between(inclusive='both') on the column parsed by pandas",
+    "openEnd": "a one-sided comparison",
+    "emptyCell": "outside every range, as NaN is never between"
+  },
+  "comparisons": [
+    {
+      "note": "The August 2003 heatwave: a range of dates, both ends kept",
+      "keyColumn": "date",
+      "from": "2003-08-01",
+      "to": "2003-08-15",
+      "emptied": null,
+      "fieldwork": 15,
+      "pandas": 15,
+      "first": "2003-08-01",
+      "last": "2003-08-15",
+      "checks": {
+        "sameRowsSameOrder": true,
+        "keptCount": true,
+        "countsAddUp": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "Ozone from 60 to 90: a range of numbers, compared as numbers",
+      "keyColumn": "ozone",
+      "from": "60",
+      "to": "90",
+      "emptied": null,
+      "fieldwork": 137,
+      "pandas": 137,
+      "first": "2002-01-26",
+      "last": "2006-12-03",
+      "checks": {
+        "sameRowsSameOrder": true,
+        "keptCount": true,
+        "countsAddUp": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "An open end: every day from Christmas 2006",
+      "keyColumn": "date",
+      "from": "2006-12-25",
+      "to": "",
+      "emptied": null,
+      "fieldwork": 7,
+      "pandas": 7,
+      "first": "2006-12-25",
+      "last": "2006-12-31",
+      "checks": {
+        "sameRowsSameOrder": true,
+        "keptCount": true,
+        "countsAddUp": true
+      },
+      "agrees": true
+    },
+    {
+      "note": "Ozone from 60 to 90 with one in-range cell emptied: that row is dropped",
+      "keyColumn": "ozone",
+      "from": "60",
+      "to": "90",
+      "emptied": {
+        "date": "2002-01-26",
+        "wasOzone": "60.636364"
+      },
+      "fieldwork": 136,
+      "pandas": 136,
+      "first": "2002-02-02",
+      "last": "2006-12-03",
+      "checks": {
+        "sameRowsSameOrder": true,
+        "keptCount": true,
+        "countsAddUp": true
+      },
+      "agrees": true
+    }
+  ],
+  "divergences": [],
+  "ozoneComparedAsText": {
+    "kept": 193,
+    "insteadOf": 137,
+    "note": "What 60 to 90 keeps if ozone is compared as text. Not what either implementation does."
+  },
+  "notEstablished": [
+    "That a range was the right selection. A period chosen to show a peak is still a choice, and the receipt records it without judging it.",
+    "Datetime columns. The fixture's dates carry no time, and a To given as a date excludes times later that day."
+  ],
+  "agrees": true
+}
