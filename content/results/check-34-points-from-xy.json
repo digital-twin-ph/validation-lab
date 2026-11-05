@@ -1,0 +1,75 @@
+{
+  "check": "34-points-from-xy",
+  "ranAt": "2026-11-05T12:53:03.838138+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "geopandas": "1.2.0",
+    "shapely": "2.2.0",
+    "pandas": "2.3.3"
+  },
+  "fixture": {
+    "id": "points-from-xy-001",
+    "sha256": "f0b635b125b515213e3407b5a4b814e11c1e255f2b6976717c4f39baad682bc2",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.26.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:point_input",
+      "release": "0.4.0",
+      "label": "Point data",
+      "implementation": "src/table-points.ts#tablePoints"
+    }
+  },
+  "criterion": "the same rows placed and not placed; every placed x and y exactly geopandas.points_from_xy's; the same count of distinct positions; CRS EPSG:4326 with the longitude as x",
+  "cases": [
+    {
+      "note": "NYC ozone monitors, totalled by site and position",
+      "rows": 6,
+      "placed": 6,
+      "unplaced": {
+        "fieldwork": [],
+        "declaredRule": []
+      },
+      "rowsWhoseCoordinatesDiffer": [],
+      "distinctPositions": {
+        "fieldwork": 6,
+        "geopandas": 6
+      },
+      "crs": "EPSG:4326",
+      "agrees": true
+    },
+    {
+      "note": "Rows a run must diagnose rather than refuse",
+      "rows": 9,
+      "placed": 5,
+      "unplaced": {
+        "fieldwork": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "declaredRule": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "rowsWhoseCoordinatesDiffer": [],
+      "distinctPositions": {
+        "fieldwork": 4,
+        "geopandas": 4
+      },
+      "crs": "EPSG:4326",
+      "agrees": true
+    }
+  ],
+  "notEstablished": [
+    "That a published position is where the monitor stands: it is the custodian's claim.",
+    "Any CRS but CRS84."
+  ],
+  "agrees": true
+}

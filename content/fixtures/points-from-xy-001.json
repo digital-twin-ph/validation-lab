@@ -1,0 +1,264 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "points-from-xy-001",
+  "exportedAt": "2026-11-05T12:52:27.500Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.26.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:point_input",
+    "release": "0.4.0",
+    "label": "Point data",
+    "implementation": "src/table-points.ts#tablePoints"
+  },
+  "source": "NYC ozone monitor positions from Lian et al.'s Zenodo package (doi:10.5281/zenodo.22757330), o3_site_day_raw_rebuild.csv, custodian US EPA AQS; positions only. The second case is constructed.",
+  "declaredParameters": {
+    "semantics": "One point per row: x from the column named as x (the longitude), y from the column named as y (the latitude), CRS84. Values are trimmed text read as numbers. A row is not placed, and keeps no geometry, when either is empty, either is not a finite number, |x| > 180 or |y| > 90. Placed rows are counted by distinct position.",
+    "equivalentTo": "geopandas.points_from_xy(pd.to_numeric(df[x]), pd.to_numeric(df[y]), crs='EPSG:4326'), with the declared rule deciding which rows are placed"
+  },
+  "output": {
+    "cases": [
+      {
+        "note": "NYC ozone monitors, totalled by site and position",
+        "mapping": {
+          "x": "Longitude",
+          "y": "Latitude",
+          "id": "site"
+        },
+        "input": {
+          "keys": [
+            "site",
+            "Latitude",
+            "Longitude"
+          ],
+          "rows": [
+            {
+              "site": "5-110",
+              "Latitude": "40.816",
+              "Longitude": "-73.902"
+            },
+            {
+              "site": "5-133",
+              "Latitude": "40.8679",
+              "Longitude": "-73.87809"
+            },
+            {
+              "site": "61-135",
+              "Latitude": "40.81976",
+              "Longitude": "-73.94825"
+            },
+            {
+              "site": "81-124",
+              "Latitude": "40.73614",
+              "Longitude": "-73.82153"
+            },
+            {
+              "site": "85-67",
+              "Latitude": "40.59664",
+              "Longitude": "-74.12525"
+            },
+            {
+              "site": "85-111",
+              "Latitude": "40.58027",
+              "Longitude": "-74.19832"
+            }
+          ]
+        },
+        "output": {
+          "features": [
+            {
+              "id": "5-110",
+              "coordinates": [
+                -73.902,
+                40.816
+              ]
+            },
+            {
+              "id": "5-133",
+              "coordinates": [
+                -73.87809,
+                40.8679
+              ]
+            },
+            {
+              "id": "61-135",
+              "coordinates": [
+                -73.94825,
+                40.81976
+              ]
+            },
+            {
+              "id": "81-124",
+              "coordinates": [
+                -73.82153,
+                40.73614
+              ]
+            },
+            {
+              "id": "85-67",
+              "coordinates": [
+                -74.12525,
+                40.59664
+              ]
+            },
+            {
+              "id": "85-111",
+              "coordinates": [
+                -74.19832,
+                40.58027
+              ]
+            }
+          ],
+          "unplaced": [],
+          "positions": 6,
+          "sharedPosition": 0
+        }
+      },
+      {
+        "note": "Rows a run must diagnose rather than refuse",
+        "mapping": {
+          "x": "lon",
+          "y": "lat",
+          "id": "id"
+        },
+        "input": {
+          "keys": [
+            "id",
+            "lon",
+            "lat"
+          ],
+          "rows": [
+            {
+              "id": "ok",
+              "lon": "-73.902",
+              "lat": "40.816"
+            },
+            {
+              "id": "empty",
+              "lon": "",
+              "lat": " 40.8"
+            },
+            {
+              "id": "text",
+              "lon": "west",
+              "lat": "40.8"
+            },
+            {
+              "id": "lat-high",
+              "lon": "-73.9",
+              "lat": "90.0001"
+            },
+            {
+              "id": "lon-low",
+              "lon": "-180.5",
+              "lat": "40"
+            },
+            {
+              "id": "edge",
+              "lon": "-180",
+              "lat": "90"
+            },
+            {
+              "id": "edge-2",
+              "lon": "180",
+              "lat": "-90"
+            },
+            {
+              "id": "same",
+              "lon": "-73.902",
+              "lat": "40.816"
+            },
+            {
+              "id": "spaced",
+              "lon": " -73.5 ",
+              "lat": "40.5"
+            }
+          ]
+        },
+        "output": {
+          "features": [
+            {
+              "id": "ok",
+              "coordinates": [
+                -73.902,
+                40.816
+              ]
+            },
+            {
+              "id": "empty",
+              "coordinates": null
+            },
+            {
+              "id": "text",
+              "coordinates": null
+            },
+            {
+              "id": "lat-high",
+              "coordinates": null
+            },
+            {
+              "id": "lon-low",
+              "coordinates": null
+            },
+            {
+              "id": "edge",
+              "coordinates": [
+                -180,
+                90
+              ]
+            },
+            {
+              "id": "edge-2",
+              "coordinates": [
+                180,
+                -90
+              ]
+            },
+            {
+              "id": "same",
+              "coordinates": [
+                -73.902,
+                40.816
+              ]
+            },
+            {
+              "id": "spaced",
+              "coordinates": [
+                -73.5,
+                40.5
+              ]
+            }
+          ],
+          "unplaced": [
+            {
+              "row": 2,
+              "reason": "a coordinate is empty"
+            },
+            {
+              "row": 3,
+              "reason": "(west, 40.8) is not a pair of numbers"
+            },
+            {
+              "row": 4,
+              "reason": "(-73.9, 90.0001) is outside the longitude and latitude range"
+            },
+            {
+              "row": 5,
+              "reason": "(-180.5, 40) is outside the longitude and latitude range"
+            }
+          ],
+          "positions": 4,
+          "sharedPosition": 1
+        }
+      }
+    ]
+  },
+  "note": "Recompute each case from its input and mapping.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "10262f46589d91e03bd39f80285eb7cc49ce9925a861fb39d5cf59aa26b04386"
+  }
+}
