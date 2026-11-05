@@ -1,0 +1,855 @@
+{
+  "check": "33-regression",
+  "ranAt": "2026-11-05T03:50:29.709039+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "statsmodels": "0.15.0",
+    "patsy": "1.0.3",
+    "pandas": "2.3.3",
+    "numpy": "2.5.3"
+  },
+  "fixtures": [
+    {
+      "id": "regression-salmonella-001",
+      "sha256": "b52d7da1aa019d6c094593dda91409bebd02c2ce60dda389388b1314b8316bd2",
+      "application": {
+        "name": "Fieldwork",
+        "version": "0.24.0"
+      },
+      "operation": {
+        "widget": "urn:fieldwork:widget:regression",
+        "release": "0.2.0",
+        "label": "Regression",
+        "implementation": "src/regression.ts#fitRegression"
+      }
+    },
+    {
+      "id": "regression-nyc-001",
+      "sha256": "79ebf801b2e3d8973eea6f6cf85b9b000b7bc6dcc06e2dfc0444ad6f4573c4e8",
+      "application": {
+        "name": "Fieldwork",
+        "version": "0.24.0"
+      },
+      "operation": {
+        "widget": "urn:fieldwork:widget:regression",
+        "release": "0.2.0",
+        "label": "Regression",
+        "implementation": "src/regression.ts#fitRegression"
+      }
+    }
+  ],
+  "criterion": {
+    "coefficient": "relative difference below 1e-06",
+    "se": "relative difference below 1e-06",
+    "profile": "both limits, relative difference below 0.0001",
+    "hac": "relative difference below 1e-06, Newey-West 14 lags without correction",
+    "authors": "the authors' archived R coefficient and HAC standard error, below 1e-09"
+  },
+  "comparisons": [
+    {
+      "fixture": "salmonella",
+      "note": "Cases against the classical controls, likelihood-ratio intervals: the published 96 (15-2100)",
+      "errors": "profile",
+      "rows": {
+        "fieldwork": 142,
+        "statsmodels": 142
+      },
+      "terms": [
+        {
+          "term": "galiamelo_apr21",
+          "statsmodelsTerm": "C(galiamelo_apr2)[T.1]",
+          "coefficient": [
+            4.568586356182093,
+            4.568586356245154
+          ],
+          "se": [
+            1.1412557605439848,
+            1.1412557605439888
+          ],
+          "profile": {
+            "fieldwork": [
+              15.443022371054393,
+              2067.137756517612
+            ],
+            "here": [
+              15.443022371464219,
+              2067.137756685671
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group710-14",
+          "statsmodelsTerm": "C(age_group7)[T.10-14]",
+          "coefficient": [
+            -0.07693756571636383,
+            -0.07693756571406785
+          ],
+          "se": [
+            1.1911178976537704,
+            1.1911178976537788
+          ],
+          "profile": {
+            "fieldwork": [
+              0.08626650986163818,
+              11.401199233840334
+            ],
+            "here": [
+              0.0862665098565431,
+              11.40119923142323
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group718-35",
+          "statsmodelsTerm": "C(age_group7)[T.18-35]",
+          "coefficient": [
+            0.44648150818824717,
+            0.446481508190794
+          ],
+          "se": [
+            1.0055069457493055,
+            1.0055069457493153
+          ],
+          "profile": {
+            "fieldwork": [
+              0.2530131959278991,
+              15.059130768034395
+            ],
+            "here": [
+              0.25301319587949195,
+              15.059130771099856
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group736-59",
+          "statsmodelsTerm": "C(age_group7)[T.36-59]",
+          "coefficient": [
+            -0.15029473200544716,
+            -0.1502947320038307
+          ],
+          "se": [
+            1.1316343272956735,
+            1.1316343272956815
+          ],
+          "profile": {
+            "fieldwork": [
+              0.09474320566105934,
+              9.66132911058262
+            ],
+            "here": [
+              0.09474320567712739,
+              9.661329109497608
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group75-9",
+          "statsmodelsTerm": "C(age_group7)[T.5-9]",
+          "coefficient": [
+            -0.29267920979528256,
+            -0.29267920979303425
+          ],
+          "se": [
+            1.361837756244239,
+            1.3618377562442456
+          ],
+          "profile": {
+            "fieldwork": [
+              0.038839996246719195,
+              11.200292883584105
+            ],
+            "here": [
+              0.038839996249501234,
+              11.200292885631946
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group760-79",
+          "statsmodelsTerm": "C(age_group7)[T.60-79]",
+          "coefficient": [
+            0.05625590298432518,
+            0.056255902986485556
+          ],
+          "se": [
+            1.0016653017670845,
+            1.0016653017670938
+          ],
+          "profile": {
+            "fieldwork": [
+              0.17220068910387928,
+              10.181647705598415
+            ],
+            "here": [
+              0.17220068914585765,
+              10.181647704376799
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group780+",
+          "statsmodelsTerm": "C(age_group7)[T.80+]",
+          "coefficient": [
+            -0.7414084163300418,
+            -0.7414084164286152
+          ],
+          "se": [
+            2.112552156709137,
+            2.112552156709147
+          ],
+          "profile": {
+            "fieldwork": [
+              0.0051373407011237665,
+              18.763422689065848
+            ],
+            "here": [
+              0.005137340703196119,
+              18.763422693449233
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "sexMale",
+          "statsmodelsTerm": "C(sex)[T.Male]",
+          "coefficient": [
+            0.805952475990112,
+            0.8059524759909782
+          ],
+          "se": [
+            0.5377632968422936,
+            0.5377632968422946
+          ],
+          "profile": {
+            "fieldwork": [
+              0.7879658482364843,
+              6.622984602342072
+            ],
+            "here": [
+              0.7879658483329058,
+              6.62298460311099
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        }
+      ],
+      "agrees": true
+    },
+    {
+      "fixture": "salmonella",
+      "note": "Cases against the panel controls, likelihood-ratio intervals: the published 18 (4.6-100)",
+      "errors": "profile",
+      "rows": {
+        "fieldwork": 113,
+        "statsmodels": 113
+      },
+      "terms": [
+        {
+          "term": "galiamelo_apr21",
+          "statsmodelsTerm": "C(galiamelo_apr2)[T.1]",
+          "coefficient": [
+            2.913568919009869,
+            2.9135689190098724
+          ],
+          "se": [
+            0.7658900691614459,
+            0.7658900691614461
+          ],
+          "profile": {
+            "fieldwork": [
+              4.608417551153988,
+              100.65193963864772
+            ],
+            "here": [
+              4.6084175470336515,
+              100.65193972135583
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group710-14",
+          "statsmodelsTerm": "C(age_group7)[T.10-14]",
+          "coefficient": [
+            -1.2423543471489018,
+            -1.2423543471489102
+          ],
+          "se": [
+            1.0589055623585717,
+            1.0589055623585717
+          ],
+          "profile": {
+            "fieldwork": [
+              0.032508679211035986,
+              2.289323349174823
+            ],
+            "here": [
+              0.03250867917012169,
+              2.289323352029168
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group718-35",
+          "statsmodelsTerm": "C(age_group7)[T.18-35]",
+          "coefficient": [
+            -0.12224389912546688,
+            -0.12224389912547617
+          ],
+          "se": [
+            0.9405765876750486,
+            0.9405765876750496
+          ],
+          "profile": {
+            "fieldwork": [
+              0.13854029213163963,
+              5.94161429142274
+            ],
+            "here": [
+              0.13854029203901166,
+              5.941614295798546
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group736-59",
+          "statsmodelsTerm": "C(age_group7)[T.36-59]",
+          "coefficient": [
+            -0.557709288986539,
+            -0.5577092889865486
+          ],
+          "se": [
+            1.0856827658924373,
+            1.0856827658924384
+          ],
+          "profile": {
+            "fieldwork": [
+              0.0650578357170368,
+              4.93559828509561
+            ],
+            "here": [
+              0.06505783563007887,
+              4.935598291597062
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group75-9",
+          "statsmodelsTerm": "C(age_group7)[T.5-9]",
+          "coefficient": [
+            -1.6465923237997042,
+            -1.646592323799716
+          ],
+          "se": [
+            1.265164432364692,
+            1.2651644323646918
+          ],
+          "profile": {
+            "fieldwork": [
+              0.012885864044188153,
+              2.072012765241683
+            ],
+            "here": [
+              0.012885864020228743,
+              2.0720127677122298
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group760-79",
+          "statsmodelsTerm": "C(age_group7)[T.60-79]",
+          "coefficient": [
+            -0.9650857246107529,
+            -0.9650857246107634
+          ],
+          "se": [
+            0.8902344110066702,
+            0.8902344110066704
+          ],
+          "profile": {
+            "fieldwork": [
+              0.06523680253056677,
+              2.330971855470094
+            ],
+            "here": [
+              0.06523680244838091,
+              2.330971857249261
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group780+",
+          "statsmodelsTerm": "C(age_group7)[T.80+]",
+          "coefficient": [
+            18.66357808191192,
+            27.66357809720573
+          ],
+          "se": [
+            29232.436904099097,
+            1596021.5716311778
+          ],
+          "separated": true,
+          "checks": {
+            "separatedInBoth": true
+          },
+          "agrees": true,
+          "fieldworkReported": {
+            "ratio": 127493772.9690857,
+            "lower": 0.016250372263072306,
+            "upper": 28192283028.72693
+          }
+        },
+        {
+          "term": "sexMale",
+          "statsmodelsTerm": "C(sex)[T.Male]",
+          "coefficient": [
+            0.735462960752392,
+            0.7354629607523924
+          ],
+          "se": [
+            0.5712766257495969,
+            0.5712766257495973
+          ],
+          "profile": {
+            "fieldwork": [
+              0.7030084362058417,
+              6.776142422726814
+            ],
+            "here": [
+              0.7030084358350346,
+              6.776142425685673
+            ]
+          },
+          "checks": {
+            "coefficient": true,
+            "se": true,
+            "profile": true
+          },
+          "agrees": true
+        }
+      ],
+      "agrees": true
+    },
+    {
+      "fixture": "salmonella",
+      "note": "Cases against the classical controls, Wald intervals from the model",
+      "errors": "wald",
+      "rows": {
+        "fieldwork": 142,
+        "statsmodels": 142
+      },
+      "terms": [
+        {
+          "term": "galiamelo_apr21",
+          "statsmodelsTerm": "C(galiamelo_apr2)[T.1]",
+          "coefficient": [
+            4.568586356182093,
+            4.568586356245154
+          ],
+          "se": [
+            1.1412557605439848,
+            1.1412557605439888
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group710-14",
+          "statsmodelsTerm": "C(age_group7)[T.10-14]",
+          "coefficient": [
+            -0.07693756571636383,
+            -0.07693756571406785
+          ],
+          "se": [
+            1.1911178976537704,
+            1.1911178976537788
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group718-35",
+          "statsmodelsTerm": "C(age_group7)[T.18-35]",
+          "coefficient": [
+            0.44648150818824717,
+            0.446481508190794
+          ],
+          "se": [
+            1.0055069457493055,
+            1.0055069457493153
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group736-59",
+          "statsmodelsTerm": "C(age_group7)[T.36-59]",
+          "coefficient": [
+            -0.15029473200544716,
+            -0.1502947320038307
+          ],
+          "se": [
+            1.1316343272956735,
+            1.1316343272956815
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group75-9",
+          "statsmodelsTerm": "C(age_group7)[T.5-9]",
+          "coefficient": [
+            -0.29267920979528256,
+            -0.29267920979303425
+          ],
+          "se": [
+            1.361837756244239,
+            1.3618377562442456
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group760-79",
+          "statsmodelsTerm": "C(age_group7)[T.60-79]",
+          "coefficient": [
+            0.05625590298432518,
+            0.056255902986485556
+          ],
+          "se": [
+            1.0016653017670845,
+            1.0016653017670938
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "age_group780+",
+          "statsmodelsTerm": "C(age_group7)[T.80+]",
+          "coefficient": [
+            -0.7414084163300418,
+            -0.7414084164286152
+          ],
+          "se": [
+            2.112552156709137,
+            2.112552156709147
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "sexMale",
+          "statsmodelsTerm": "C(sex)[T.Male]",
+          "coefficient": [
+            0.805952475990112,
+            0.8059524759909782
+          ],
+          "se": [
+            0.5377632968422936,
+            0.5377632968422946
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "agrees": true
+    },
+    {
+      "fixture": "nyc",
+      "note": "HAC errors, 14 lags: the published 1.061 (1.035-1.088) per 10 ppb",
+      "errors": "hac",
+      "rows": {
+        "fieldwork": 3643,
+        "statsmodels": 3643
+      },
+      "strata": {
+        "fieldwork": {
+          "used": 840,
+          "dropped": 0
+        },
+        "here": {
+          "used": 840,
+          "dropped": 0
+        }
+      },
+      "terms": [
+        {
+          "term": "o3_lag02_10",
+          "coefficient": [
+            0.05913313296595138,
+            0.05913313296594802
+          ],
+          "se": [
+            0.01272768227940741,
+            0.012727682279405975
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "pm25_lag02_10",
+          "coefficient": [
+            0.011330972952651407,
+            0.011330972952664109
+          ],
+          "se": [
+            0.02514023918052264,
+            0.025140239180513467
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "no2_lag02_10",
+          "coefficient": [
+            0.07769868798351141,
+            0.07769868798350688
+          ],
+          "se": [
+            0.02090708493518834,
+            0.02090708493518467
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "holiday",
+          "coefficient": [
+            -0.43367991948415224,
+            -0.4336799194841377
+          ],
+          "se": [
+            0.03364157166984156,
+            0.033641571669840845
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "authorsArchivedR": {
+        "coefficient": [
+          0.05913313296595138,
+          0.059133132965951
+        ],
+        "se": [
+          0.01272768227940741,
+          0.0127276822785079
+        ],
+        "agrees": true
+      },
+      "agrees": true
+    },
+    {
+      "fixture": "nyc",
+      "note": "Model-based errors: the same coefficients, the information-matrix standard errors",
+      "errors": "wald",
+      "rows": {
+        "fieldwork": 3643,
+        "statsmodels": 3643
+      },
+      "strata": {
+        "fieldwork": {
+          "used": 840,
+          "dropped": 0
+        },
+        "here": {
+          "used": 840,
+          "dropped": 0
+        }
+      },
+      "terms": [
+        {
+          "term": "o3_lag02_10",
+          "coefficient": [
+            0.05913313296595138,
+            0.05913313296594802
+          ],
+          "se": [
+            0.005653741679159046,
+            0.005653741679159068
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "pm25_lag02_10",
+          "coefficient": [
+            0.011330972952651407,
+            0.011330972952664109
+          ],
+          "se": [
+            0.010787975245310432,
+            0.01078797524531006
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "no2_lag02_10",
+          "coefficient": [
+            0.07769868798351141,
+            0.07769868798350688
+          ],
+          "se": [
+            0.00912189962246329,
+            0.00912189962246323
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "holiday",
+          "coefficient": [
+            -0.43367991948415224,
+            -0.4336799194841377
+          ],
+          "se": [
+            0.02056750490163907,
+            0.020567504901639087
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "agrees": true
+    }
+  ],
+  "notEstablished": [
+    "That either model is well specified, or that an adjusted estimate is causal.",
+    "Pyodide: this run is CPython. The NYC fixture fetches its data from Zenodo, which the browser kernel may not reach.",
+    "Offsets, overdispersed errors and wider categorical exposures: neither example uses them.",
+    "Separated terms: only that both implementations find them separated. Fieldwork reports them as ordinary odds ratios with no warning (the panel case's 80+ age group), which this check records and does not excuse."
+  ],
+  "agrees": true
+}
