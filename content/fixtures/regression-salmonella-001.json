@@ -1,0 +1,1897 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "regression-salmonella-001",
+  "exportedAt": "2026-11-05T03:11:25.674Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.24.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:regression",
+    "release": "0.2.0",
+    "label": "Regression",
+    "implementation": "src/regression.ts#fitRegression"
+  },
+  "source": "Luczynska et al. 2022, Salmonella Braenderup outbreak, Germany 2021, case-control data. Zenodo doi:10.5281/zenodo.7333295, CC BY 4.0.",
+  "declaredParameters": {
+    "semantics": "Logistic regression of fall (case 1, control 0; other values left out) on galiamelo_apr2, adjusted for age_group7 and sex, each entered as categories against the first value in sorted order. Fitted by maximum likelihood (IRLS). Wald: coefficient plus or minus z times the standard error from the inverse information. Likelihood-ratio (profile): each limit is where the log-likelihood, refitted with that coefficient held fixed, has fallen by z^2/2 from its maximum. z for 95% is 1.959963984540054. A row missing any of the four columns is left out.",
+    "equivalentTo": "statsmodels: smf.glm('y ~ C(galiamelo_apr2) + C(age_group7) + C(sex)', family=Binomial()).fit(); R: glm(..., family = binomial) with confint() for the profile limits.",
+    "params": {
+      "family": "logistic",
+      "outcome": "fall",
+      "cases": [
+        "1"
+      ],
+      "controls": [
+        "0"
+      ],
+      "exposure": {
+        "column": "galiamelo_apr2",
+        "as": "categorical"
+      },
+      "adjust": [
+        {
+          "column": "age_group7",
+          "as": "categorical"
+        },
+        {
+          "column": "sex",
+          "as": "categorical"
+        }
+      ]
+    }
+  },
+  "input": {
+    "columns": [
+      "fall",
+      "galiamelo_apr2",
+      "age_group7",
+      "sex"
+    ],
+    "classical": {
+      "sha256": "87260d4fbb31a1e5b73c6e49e1505338d3a31e7cdeb70333da78119fc7b6e2b5",
+      "rows": [
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "80+",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "80+",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "80+",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "80+",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "1",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        }
+      ]
+    },
+    "panel": {
+      "sha256": "01b1b9cf4d9d2f23189c7dbdef5a39f98adcb4cdd1a5aafa507602cff4990c5d",
+      "rows": [
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "80+",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "1",
+          "galiamelo_apr2": "1",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "1",
+          "age_group7": "5-9",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "1",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "36-59",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "1",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Female"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "1-4",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "10-14",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "5-9",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "18-35",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        },
+        {
+          "fall": "0",
+          "galiamelo_apr2": "0",
+          "age_group7": "60-79",
+          "sex": "Male"
+        }
+      ]
+    }
+  },
+  "output": {
+    "cases": [
+      {
+        "note": "Cases against the classical controls, likelihood-ratio intervals: the published 96 (15-2100)",
+        "rowsFrom": "classical",
+        "errors": "likelihood-ratio (profile)",
+        "columns": [
+          "(Intercept)",
+          "galiamelo_apr21",
+          "age_group710-14",
+          "age_group718-35",
+          "age_group736-59",
+          "age_group75-9",
+          "age_group760-79",
+          "age_group780+",
+          "sexMale"
+        ],
+        "rows": {
+          "used": 142,
+          "leftOut": 0,
+          "reasons": {}
+        },
+        "iterations": 5,
+        "loglik": -57.35540637865287,
+        "level": 95,
+        "estimates": [
+          {
+            "term": "galiamelo_apr21",
+            "column": "galiamelo_apr2",
+            "coefficient": 4.568586356182093,
+            "se": 1.1412557605439848,
+            "ratio": 96.40772720980465,
+            "lower": 15.443022371054393,
+            "upper": 2067.137756517612
+          },
+          {
+            "term": "age_group710-14",
+            "column": "age_group7",
+            "coefficient": -0.07693756571636383,
+            "se": 1.1911178976537704,
+            "ratio": 0.9259476626808466,
+            "lower": 0.08626650986163818,
+            "upper": 11.401199233840334
+          },
+          {
+            "term": "age_group718-35",
+            "column": "age_group7",
+            "coefficient": 0.44648150818824717,
+            "se": 1.0055069457493055,
+            "ratio": 1.562803788215333,
+            "lower": 0.2530131959278991,
+            "upper": 15.059130768034395
+          },
+          {
+            "term": "age_group736-59",
+            "column": "age_group7",
+            "coefficient": -0.15029473200544716,
+            "se": 1.1316343272956735,
+            "ratio": 0.8604543356169299,
+            "lower": 0.09474320566105934,
+            "upper": 9.66132911058262
+          },
+          {
+            "term": "age_group75-9",
+            "column": "age_group7",
+            "coefficient": -0.29267920979528256,
+            "se": 1.361837756244239,
+            "ratio": 0.7462614956817741,
+            "lower": 0.038839996246719195,
+            "upper": 11.200292883584105
+          },
+          {
+            "term": "age_group760-79",
+            "column": "age_group7",
+            "coefficient": 0.05625590298432518,
+            "se": 1.0016653017670845,
+            "ratio": 1.0578683607721484,
+            "lower": 0.17220068910387928,
+            "upper": 10.181647705598415
+          },
+          {
+            "term": "age_group780+",
+            "column": "age_group7",
+            "coefficient": -0.7414084163300418,
+            "se": 2.112552156709137,
+            "ratio": 0.4764424134793463,
+            "lower": 0.0051373407011237665,
+            "upper": 18.763422689065848
+          },
+          {
+            "term": "sexMale",
+            "column": "sex",
+            "coefficient": 0.805952475990112,
+            "se": 0.5377632968422936,
+            "ratio": 2.238827913431765,
+            "lower": 0.7879658482364843,
+            "upper": 6.622984602342072
+          }
+        ]
+      },
+      {
+        "note": "Cases against the panel controls, likelihood-ratio intervals: the published 18 (4.6-100)",
+        "rowsFrom": "panel",
+        "errors": "likelihood-ratio (profile)",
+        "columns": [
+          "(Intercept)",
+          "galiamelo_apr21",
+          "age_group710-14",
+          "age_group718-35",
+          "age_group736-59",
+          "age_group75-9",
+          "age_group760-79",
+          "age_group780+",
+          "sexMale"
+        ],
+        "rows": {
+          "used": 113,
+          "leftOut": 0,
+          "reasons": {}
+        },
+        "iterations": 19,
+        "loglik": -54.3350372356291,
+        "level": 95,
+        "estimates": [
+          {
+            "term": "galiamelo_apr21",
+            "column": "galiamelo_apr2",
+            "coefficient": 2.913568919009869,
+            "se": 0.7658900691614459,
+            "ratio": 18.422429540535802,
+            "lower": 4.608417551153988,
+            "upper": 100.65193963864772
+          },
+          {
+            "term": "age_group710-14",
+            "column": "age_group7",
+            "coefficient": -1.2423543471489018,
+            "se": 1.0589055623585717,
+            "ratio": 0.28870370842276427,
+            "lower": 0.032508679211035986,
+            "upper": 2.289323349174823
+          },
+          {
+            "term": "age_group718-35",
+            "column": "age_group7",
+            "coefficient": -0.12224389912546688,
+            "se": 0.9405765876750486,
+            "ratio": 0.8849325079148153,
+            "lower": 0.13854029213163963,
+            "upper": 5.94161429142274
+          },
+          {
+            "term": "age_group736-59",
+            "column": "age_group7",
+            "coefficient": -0.557709288986539,
+            "se": 1.0856827658924373,
+            "ratio": 0.5725190385562816,
+            "lower": 0.0650578357170368,
+            "upper": 4.93559828509561
+          },
+          {
+            "term": "age_group75-9",
+            "column": "age_group7",
+            "coefficient": -1.6465923237997042,
+            "se": 1.265164432364692,
+            "ratio": 0.19270546885776108,
+            "lower": 0.012885864044188153,
+            "upper": 2.072012765241683
+          },
+          {
+            "term": "age_group760-79",
+            "column": "age_group7",
+            "coefficient": -0.9650857246107529,
+            "se": 0.8902344110066702,
+            "ratio": 0.3809505415026635,
+            "lower": 0.06523680253056677,
+            "upper": 2.330971855470094
+          },
+          {
+            "term": "age_group780+",
+            "column": "age_group7",
+            "coefficient": 18.66357808191192,
+            "se": 29232.436904099097,
+            "ratio": 127493772.9690857,
+            "lower": 0.016250372263072306,
+            "upper": 28192283028.72693
+          },
+          {
+            "term": "sexMale",
+            "column": "sex",
+            "coefficient": 0.735462960752392,
+            "se": 0.5712766257495969,
+            "ratio": 2.086447712345321,
+            "lower": 0.7030084362058417,
+            "upper": 6.776142422726814
+          }
+        ]
+      },
+      {
+        "note": "Cases against the classical controls, Wald intervals from the model",
+        "rowsFrom": "classical",
+        "errors": "model-based (Wald)",
+        "columns": [
+          "(Intercept)",
+          "galiamelo_apr21",
+          "age_group710-14",
+          "age_group718-35",
+          "age_group736-59",
+          "age_group75-9",
+          "age_group760-79",
+          "age_group780+",
+          "sexMale"
+        ],
+        "rows": {
+          "used": 142,
+          "leftOut": 0,
+          "reasons": {}
+        },
+        "iterations": 5,
+        "loglik": -57.35540637865287,
+        "level": 95,
+        "estimates": [
+          {
+            "term": "galiamelo_apr21",
+            "column": "galiamelo_apr2",
+            "coefficient": 4.568586356182093,
+            "se": 1.1412557605439848,
+            "ratio": 96.40772720980465,
+            "lower": 10.296110147950742,
+            "upper": 902.7146885768317
+          },
+          {
+            "term": "age_group710-14",
+            "column": "age_group7",
+            "coefficient": -0.07693756571636383,
+            "se": 1.1911178976537704,
+            "ratio": 0.9259476626808466,
+            "lower": 0.08968195089836373,
+            "upper": 9.56021881142826
+          },
+          {
+            "term": "age_group718-35",
+            "column": "age_group7",
+            "coefficient": 0.44648150818824717,
+            "se": 1.0055069457493055,
+            "ratio": 1.562803788215333,
+            "lower": 0.2177786951486791,
+            "upper": 11.214851291090621
+          },
+          {
+            "term": "age_group736-59",
+            "column": "age_group7",
+            "coefficient": -0.15029473200544716,
+            "se": 1.1316343272956735,
+            "ratio": 0.8604543356169299,
+            "lower": 0.09364378118324665,
+            "upper": 7.906362326753527
+          },
+          {
+            "term": "age_group75-9",
+            "column": "age_group7",
+            "coefficient": -0.29267920979528256,
+            "se": 1.361837756244239,
+            "ratio": 0.7462614956817741,
+            "lower": 0.05172406329613049,
+            "upper": 10.766869121414539
+          },
+          {
+            "term": "age_group760-79",
+            "column": "age_group7",
+            "coefficient": 0.05625590298432518,
+            "se": 1.0016653017670845,
+            "ratio": 1.0578683607721484,
+            "lower": 0.1485294516131157,
+            "upper": 7.534434797737669
+          },
+          {
+            "term": "age_group780+",
+            "column": "age_group7",
+            "coefficient": -0.7414084163300418,
+            "se": 2.112552156709137,
+            "ratio": 0.4764424134793463,
+            "lower": 0.007582331362974458,
+            "upper": 29.93767516815249
+          },
+          {
+            "term": "sexMale",
+            "column": "sex",
+            "coefficient": 0.805952475990112,
+            "se": 0.5377632968422936,
+            "ratio": 2.238827913431765,
+            "lower": 0.7803254380628556,
+            "upper": 6.423410261242161
+          }
+        ]
+      }
+    ]
+  },
+  "note": "Recompute each case from its own rows (`rowsFrom`) and `errors`. Only reported terms are listed; the intercept is not.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "b52d7da1aa019d6c094593dda91409bebd02c2ce60dda389388b1314b8316bd2"
+  }
+}

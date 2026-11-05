@@ -1,0 +1,220 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "regression-nyc-001",
+  "exportedAt": "2026-11-05T03:11:26.013Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.24.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:regression",
+    "release": "0.2.0",
+    "label": "Regression",
+    "implementation": "src/regression.ts#fitRegression"
+  },
+  "source": "Lian D, et al. Data and code for: Ambient ozone and pediatric asthma emergency department visits in New York City. Zenodo doi:10.5281/zenodo.22757330. The authors' materials CC BY 4.0; the daily counts NYC DOHMH EpiQuery, all rights reserved, so not carried here.",
+  "declaredParameters": {
+    "semantics": "Poisson regression of count on o3_lag02_10, adjusted for pm25_lag02_10, no2_lag02_10, a cubic B-spline of tmean_lag03 with 4 degrees of freedom (R splines::bs, interior knots at the type-7 quantiles, boundary at the range) and holiday, with one stratum per value of `stratum` absorbed by the conditional Poisson likelihood; a stratum with no events is dropped. Rows in date order; a row missing any model column is left out. Model-based errors from the inverse information; HAC errors Newey-West with Bartlett weights and 14 lags over the date-ordered rows, without small-sample correction.",
+    "equivalentTo": "statsmodels: smf.glm('count ~ o3_lag02_10 + pm25_lag02_10 + no2_lag02_10 + bs(tmean_lag03, df=4) + holiday + C(stratum)', family=Poisson()).fit(cov_type='HAC', cov_kwds={'maxlags': 14}); fixed effects for the strata give the conditional model's slopes. R: gnm(..., eliminate = stratum) with sandwich::NeweyWest(lag = 14, prewhite = FALSE).",
+    "params": {
+      "family": "poisson",
+      "outcome": "count",
+      "exposure": {
+        "column": "o3_lag02_10",
+        "as": "numeric"
+      },
+      "adjust": [
+        {
+          "column": "pm25_lag02_10",
+          "as": "numeric"
+        },
+        {
+          "column": "no2_lag02_10",
+          "as": "numeric"
+        },
+        {
+          "column": "tmean_lag03",
+          "as": "spline"
+        },
+        {
+          "column": "holiday",
+          "as": "numeric"
+        }
+      ],
+      "strata": "stratum",
+      "hacLag": 14,
+      "order": "date"
+    },
+    "authorsArchivedR": {
+      "coefficient": 0.059133132965951,
+      "se": 0.0127276822785079,
+      "note": "o3_lag02_10, HAC; from the authors' archived R output in the package."
+    }
+  },
+  "input": {
+    "remote": {
+      "url": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+      "entry": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
+      "archiveSha256": "bbba2505056667610f0cec03253a4a9bfcdb5e7f114f8e56eb0ecc2d4736bf88",
+      "sha256": "cbd85e59fd719081714c9dfd19522f0371c63dd47b462c404820fbfac4297d29"
+    },
+    "rowCount": 3653,
+    "columns": [
+      "date",
+      "count",
+      "o3_lag02_10",
+      "pm25_lag02_10",
+      "no2_lag02_10",
+      "tmean_lag03",
+      "holiday",
+      "stratum"
+    ]
+  },
+  "output": {
+    "cases": [
+      {
+        "note": "HAC errors, 14 lags: the published 1.061 (1.035-1.088) per 10 ppb",
+        "errors": "HAC (Newey-West, Bartlett, 14 lags)",
+        "columns": [
+          "o3_lag02_10",
+          "pm25_lag02_10",
+          "no2_lag02_10",
+          "bs(tmean_lag03, df = 4)1",
+          "bs(tmean_lag03, df = 4)2",
+          "bs(tmean_lag03, df = 4)3",
+          "bs(tmean_lag03, df = 4)4",
+          "holiday"
+        ],
+        "rows": {
+          "used": 3643,
+          "leftOut": 10,
+          "reasons": {
+            "o3_lag02_10 missing": 2,
+            "tmean_lag03 missing": 1,
+            "count missing or not a count": 7
+          }
+        },
+        "strata": {
+          "used": 840,
+          "dropped": 0
+        },
+        "iterations": 5,
+        "loglik": -180887.52113226804,
+        "level": 95,
+        "estimates": [
+          {
+            "term": "o3_lag02_10",
+            "column": "o3_lag02_10",
+            "coefficient": 0.05913313296595138,
+            "se": 0.01272768227940741,
+            "ratio": 1.060916474295379,
+            "lower": 1.0347784378506701,
+            "upper": 1.0877147457471141
+          },
+          {
+            "term": "pm25_lag02_10",
+            "column": "pm25_lag02_10",
+            "coefficient": 0.011330972952651407,
+            "se": 0.02514023918052264,
+            "ratio": 1.0113954115808075,
+            "lower": 0.9627678263316076,
+            "upper": 1.0624790843544296
+          },
+          {
+            "term": "no2_lag02_10",
+            "column": "no2_lag02_10",
+            "coefficient": 0.07769868798351141,
+            "se": 0.02090708493518834,
+            "ratio": 1.0807969524937844,
+            "lower": 1.037404120097948,
+            "upper": 1.1260048325329204
+          },
+          {
+            "term": "holiday",
+            "column": "holiday",
+            "coefficient": -0.43367991948415224,
+            "se": 0.03364157166984156,
+            "ratio": 0.6481196727676549,
+            "lower": 0.6067634979319108,
+            "upper": 0.6922946282368323
+          }
+        ]
+      },
+      {
+        "note": "Model-based errors: the same coefficients, the information-matrix standard errors",
+        "errors": "model-based (Wald)",
+        "columns": [
+          "o3_lag02_10",
+          "pm25_lag02_10",
+          "no2_lag02_10",
+          "bs(tmean_lag03, df = 4)1",
+          "bs(tmean_lag03, df = 4)2",
+          "bs(tmean_lag03, df = 4)3",
+          "bs(tmean_lag03, df = 4)4",
+          "holiday"
+        ],
+        "rows": {
+          "used": 3643,
+          "leftOut": 10,
+          "reasons": {
+            "o3_lag02_10 missing": 2,
+            "tmean_lag03 missing": 1,
+            "count missing or not a count": 7
+          }
+        },
+        "strata": {
+          "used": 840,
+          "dropped": 0
+        },
+        "iterations": 5,
+        "loglik": -180887.52113226804,
+        "level": 95,
+        "estimates": [
+          {
+            "term": "o3_lag02_10",
+            "column": "o3_lag02_10",
+            "coefficient": 0.05913313296595138,
+            "se": 0.005653741679159046,
+            "ratio": 1.060916474295379,
+            "lower": 1.049225216656558,
+            "upper": 1.072738004732649
+          },
+          {
+            "term": "pm25_lag02_10",
+            "column": "pm25_lag02_10",
+            "coefficient": 0.011330972952651407,
+            "se": 0.010787975245310432,
+            "ratio": 1.0113954115808075,
+            "lower": 0.990234921068915,
+            "upper": 1.033008084043848
+          },
+          {
+            "term": "no2_lag02_10",
+            "column": "no2_lag02_10",
+            "coefficient": 0.07769868798351141,
+            "se": 0.00912189962246329,
+            "ratio": 1.0807969524937844,
+            "lower": 1.0616455321692149,
+            "upper": 1.100293852443459
+          },
+          {
+            "term": "holiday",
+            "column": "holiday",
+            "coefficient": -0.43367991948415224,
+            "se": 0.02056750490163907,
+            "ratio": 0.6481196727676549,
+            "lower": 0.622512551158316,
+            "upper": 0.6747801461140718
+          }
+        ]
+      }
+    ]
+  },
+  "note": "Fetch input.remote, check both digests, read the member as CSV with NA empty, sort by date, and recompute each case.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "79ebf801b2e3d8973eea6f6cf85b9b000b7bc6dcc06e2dfc0444ad6f4573c4e8"
+  }
+}
