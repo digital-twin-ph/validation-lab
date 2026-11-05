@@ -1,0 +1,283 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "two-by-two-rates-snow-001",
+  "exportedAt": "2026-11-05T11:00:18.511Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.24.1"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:two_by_two",
+    "release": "0.7.0",
+    "label": "Two-by-two table",
+    "implementation": "src/two-by-two-rates.ts#computeRateTwoByTwo"
+  },
+  "source": "John Snow, On the Mode of Communication of Cholera, 2nd ed., 1855: Table IX for houses, as the South London example carries it; Tables VIII and XII totalled by declared water supply for people, by that example's own workflow.",
+  "declaredParameters": {
+    "semantics": "The two-by-two read as events and units at risk: for each group, the events are the row whose outcome-column value is caseValue and the units at risk the row whose value is unitsAtRiskValue. Rate ratio (a1/n1)/(a0/n0), with a log-normal interval exp(ln RR +/- z sqrt(1/a1 + 1/a0)), z for 95% being 1.959963984540054.",
+    "equivalentTo": "statsmodels.stats.rates.confint_poisson_2indep(a1, n1, a0, n0, method='wald-log')"
+  },
+  "input": {
+    "tableIX": {
+      "keys": [
+        "supplier",
+        "measure"
+      ],
+      "valueField": "count",
+      "rows": [
+        {
+          "key": {
+            "supplier": "Southwark and Vauxhall Company",
+            "measure": "deaths"
+          },
+          "value": 1263
+        },
+        {
+          "key": {
+            "supplier": "Southwark and Vauxhall Company",
+            "measure": "houses"
+          },
+          "value": 40046
+        },
+        {
+          "key": {
+            "supplier": "Lambeth Company",
+            "measure": "deaths"
+          },
+          "value": 98
+        },
+        {
+          "key": {
+            "supplier": "Lambeth Company",
+            "measure": "houses"
+          },
+          "value": 26107
+        },
+        {
+          "key": {
+            "supplier": "Rest of London",
+            "measure": "deaths"
+          },
+          "value": 1422
+        },
+        {
+          "key": {
+            "supplier": "Rest of London",
+            "measure": "houses"
+          },
+          "value": 256423
+        }
+      ]
+    },
+    "bySupply": {
+      "keys": [
+        "water_supply",
+        "measure"
+      ],
+      "valueField": "people",
+      "rows": [
+        {
+          "key": {
+            "water_supply": "Southwark and Vauxhall Company only",
+            "measure": "population_1851"
+          },
+          "value": 167654
+        },
+        {
+          "key": {
+            "water_supply": "Southwark and Vauxhall Company only",
+            "measure": "deaths_seven_weeks"
+          },
+          "value": 844
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+            "measure": "population_1851"
+          },
+          "value": 300149
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+            "measure": "deaths_seven_weeks"
+          },
+          "value": 652
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company only",
+            "measure": "population_1851"
+          },
+          "value": 19133
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company only",
+            "measure": "deaths_seven_weeks"
+          },
+          "value": 18
+        }
+      ]
+    }
+  },
+  "output": {
+    "comparisons": [
+      {
+        "note": "Snow Table IX, per house",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "houses",
+        "request": {
+          "exposureColumn": "supplier",
+          "outcomeColumn": "measure",
+          "caseValue": "deaths",
+          "nonCaseValue": "",
+          "unitsAtRiskValue": "houses",
+          "level": 95,
+          "exposed": "Southwark and Vauxhall Company",
+          "unexposed": "Lambeth Company"
+        },
+        "compared": {
+          "name": "Southwark and Vauxhall Company",
+          "label": "Southwark and Vauxhall Company",
+          "events": 1263,
+          "unitsAtRisk": 40046,
+          "rate": 0.031538730459971034
+        },
+        "reference": {
+          "name": "Lambeth Company",
+          "label": "Lambeth Company",
+          "events": 98,
+          "unitsAtRisk": 26107,
+          "rate": 0.0037537825104378138
+        },
+        "ratio": 8.401853429780243,
+        "lower": 6.84096208049671,
+        "upper": 10.31889085553658,
+        "strataLeftOut": [
+          "Rest of London"
+        ],
+        "sentence": "Southwark and Vauxhall Company against Lambeth Company: a rate ratio of 8.40 (95% interval 6.84 to 10.32, log-normal), from 1,263 deaths in 40,046 houses and 98 in 26,107."
+      },
+      {
+        "note": "Table XII supply groups, per person",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "people",
+        "request": {
+          "exposureColumn": "water_supply",
+          "outcomeColumn": "measure",
+          "caseValue": "deaths_seven_weeks",
+          "nonCaseValue": "",
+          "unitsAtRiskValue": "population_1851",
+          "level": 95,
+          "exposed": "Southwark and Vauxhall Company only",
+          "unexposed": "Lambeth Company only"
+        },
+        "compared": {
+          "name": "Southwark and Vauxhall Company only",
+          "label": "Southwark and Vauxhall Company only",
+          "events": 844,
+          "unitsAtRisk": 167654,
+          "rate": 0.0050341775322986625
+        },
+        "reference": {
+          "name": "Lambeth Company only",
+          "label": "Lambeth Company only",
+          "events": 18,
+          "unitsAtRisk": 19133,
+          "rate": 0.0009407829404693462
+        },
+        "ratio": 5.351051040303906,
+        "lower": 3.3549096722616762,
+        "upper": 8.534878739860195,
+        "strataLeftOut": [
+          "Lambeth Company and Southwark and Vauxhall Company"
+        ],
+        "sentence": "Southwark and Vauxhall Company only against Lambeth Company only: a rate ratio of 5.35 (95% interval 3.35 to 8.53, log-normal), from 844 deaths_seven_weeks in 167,654 population_1851 and 18 in 19,133."
+      },
+      {
+        "note": "the intermingled area against Lambeth only",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "people",
+        "request": {
+          "exposureColumn": "water_supply",
+          "outcomeColumn": "measure",
+          "caseValue": "deaths_seven_weeks",
+          "nonCaseValue": "",
+          "unitsAtRiskValue": "population_1851",
+          "level": 95,
+          "exposed": "Lambeth Company and Southwark and Vauxhall Company",
+          "unexposed": "Lambeth Company only"
+        },
+        "compared": {
+          "name": "Lambeth Company and Southwark and Vauxhall Company",
+          "label": "Lambeth Company and Southwark and Vauxhall Company",
+          "events": 652,
+          "unitsAtRisk": 300149,
+          "rate": 0.0021722544469580107
+        },
+        "reference": {
+          "name": "Lambeth Company only",
+          "label": "Lambeth Company only",
+          "events": 18,
+          "unitsAtRisk": 19133,
+          "rate": 0.0009407829404693462
+        },
+        "ratio": 2.3089857963137566,
+        "lower": 1.4455747512095978,
+        "upper": 3.6880938900721407,
+        "strataLeftOut": [
+          "Southwark and Vauxhall Company only"
+        ],
+        "sentence": "Lambeth Company and Southwark and Vauxhall Company against Lambeth Company only: a rate ratio of 2.31 (95% interval 1.45 to 3.69, log-normal), from 652 deaths_seven_weeks in 300,149 population_1851 and 18 in 19,133."
+      },
+      {
+        "note": "S&V only against the intermingled area",
+        "level": 95,
+        "method": "log-normal",
+        "denominatorUnit": "people",
+        "request": {
+          "exposureColumn": "water_supply",
+          "outcomeColumn": "measure",
+          "caseValue": "deaths_seven_weeks",
+          "nonCaseValue": "",
+          "unitsAtRiskValue": "population_1851",
+          "level": 95,
+          "exposed": "Southwark and Vauxhall Company only",
+          "unexposed": "Lambeth Company and Southwark and Vauxhall Company"
+        },
+        "compared": {
+          "name": "Southwark and Vauxhall Company only",
+          "label": "Southwark and Vauxhall Company only",
+          "events": 844,
+          "unitsAtRisk": 167654,
+          "rate": 0.0050341775322986625
+        },
+        "reference": {
+          "name": "Lambeth Company and Southwark and Vauxhall Company",
+          "label": "Lambeth Company and Southwark and Vauxhall Company",
+          "events": 652,
+          "unitsAtRisk": 300149,
+          "rate": 0.0021722544469580107
+        },
+        "ratio": 2.317489803898637,
+        "lower": 2.0923590380884383,
+        "upper": 2.566843879758239,
+        "strataLeftOut": [
+          "Lambeth Company only"
+        ],
+        "sentence": "Southwark and Vauxhall Company only against Lambeth Company and Southwark and Vauxhall Company: a rate ratio of 2.32 (95% interval 2.09 to 2.57, log-normal), from 844 deaths_seven_weeks in 167,654 population_1851 and 652 in 300,149."
+      }
+    ]
+  },
+  "note": "Recompute each comparison from its counts. The counts are also recoverable from `input` with the comparison's `request`.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "2eceec4340439038aaed9dcd4c3e07c988daf7b79e9a8091e09ea883032f7790"
+  }
+}
