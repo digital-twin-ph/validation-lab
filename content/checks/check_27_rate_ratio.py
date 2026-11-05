@@ -54,6 +54,12 @@ from statsmodels.stats.rates import confint_poisson_2indep
 HERE = pathlib.Path(__file__).resolve().parent
 FIXTURE = HERE.parent / "fixtures" / "rate-ratio-snow-001.json"
 RESULT = HERE.parent / "results" / "check-27-rate-ratio.json"
+# FROM 2026-11-05 THE RATE RATIO IS THE TWO-BY-TWO'S. Fieldwork retired its Rate ratio widget into the two-by-two,
+# which reads a table as events and units at risk (Fieldwork experiment 161, step 6). The same four comparisons, made
+# by that widget from tables the South London workflows produce, are checked by the same criteria. The first fixture
+# stays: it is the record of what the retired widget was checked against.
+TWO_BY_TWO_FIXTURE = HERE.parent / "fixtures" / "two-by-two-rates-snow-001.json"
+TWO_BY_TWO_RESULT = HERE.parent / "results" / "check-27-two-by-two-rates.json"
 
 RATIO_TOL = 1e-9
 BOUND_TOL = 1e-6
@@ -123,7 +129,7 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
             "statsmodels": statsmodels.__version__,
             "scipy": scipy.__version__,
         },
-        "fixture": {"id": fixture["id"], "sha256": digest,
+        "fixture": {"id": fixture.get("id") or fixture.get("fixtureId"), "sha256": digest,
                     "application": fixture["application"], "operation": fixture["operation"]},
         "criterion": {
             "ratio": f"within {RATIO_TOL} of statsmodels",
@@ -149,8 +155,19 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
 
 
 def main() -> int:
-    result = run()
-    RESULT.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    """Both fixtures by default; `--two-by-two` for the current widget's alone."""
+    pairs = [(TWO_BY_TWO_FIXTURE, TWO_BY_TWO_RESULT)] if "--two-by-two" in sys.argv[1:] \
+        else [(FIXTURE, RESULT), (TWO_BY_TWO_FIXTURE, TWO_BY_TWO_RESULT)]
+    status = 0
+    for fixture_path, result_path in pairs:
+        print(f"-- {fixture_path.name}")
+        status |= report(fixture_path, result_path)
+    return status
+
+
+def report(fixture_path: pathlib.Path, result_path: pathlib.Path) -> int:
+    result = run(fixture_path)
+    result_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     comparisons = result["comparisons"]
     z, z_agrees = result["zQuantile"]["scipy"], result["zQuantile"]["agrees"]
     for c in comparisons:
