@@ -10,7 +10,9 @@
 // is already a prerequisite and that is the moment to warm the kernel and find out what
 // works. This file is the CI caller; the browser-side one would drive the same commands.
 //
-// Usage: node check_09_notebooks_browser.mjs [--only NAME] [--timeout SECONDS]
+// Usage: node check_09_notebooks_browser.mjs [--only NAME] [--timeout SECONDS] [--show]
+//   --show prints each notebook's printed output: no error cell is not the same as agreeing, since a check that
+//   disagrees prints `agrees: False` and raises nothing (added 2026-11-05).
 import {createServer} from 'node:http';
 import {readFile, readdir} from 'node:fs/promises';
 import {extname, join, normalize} from 'node:path';
@@ -21,7 +23,7 @@ const CONTENT = new URL('../content/', import.meta.url).pathname;
 const MIME = {'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json',
   '.css':'text/css','.wasm':'application/wasm','.svg':'image/svg+xml','.woff2':'font/woff2','.woff':'font/woff',
   '.ipynb':'application/json','.whl':'application/octet-stream','.map':'application/json','.ttf':'font/ttf',
-  '.png':'image/png','.txt':'text/plain','.csv':'text/csv','.tif':'image/tiff'};
+  '.png':'image/png','.txt':'text/plain','.csv':'text/csv','.tif':'image/tiff','.nc':'application/x-netcdf'};
 
 const argument = (flag, fallback) => {
   const at = process.argv.indexOf(flag);
@@ -117,6 +119,19 @@ async function runNotebook(page, origin, name, fatal) {
 
   // Errors are read from the cell outputs, as the CPython runner does, rather than from CSS
   // classes: the model is the same thing the notebook saves.
+  const printed = process.argv.includes('--show') ? await page.evaluate(() => {
+    const text = [];
+    const cells = window.jupyterapp.shell.currentWidget.content.model.cells;
+    for (let index = 0; index < cells.length; index++) {
+      const outputs = cells.get(index).outputs;
+      for (let position = 0; position < (outputs?.length ?? 0); position++) {
+        const output = outputs.get(position).toJSON();
+        if (output.output_type === 'stream') text.push([].concat(output.text).join(''));
+      }
+    }
+    return text.join('');
+  }) : '';
+  if (printed) console.log(printed.replace(/^/gm, '      '));
   const errors = await page.evaluate(() => {
     const found = [];
     const cells = window.jupyterapp.shell.currentWidget.content.model.cells;
