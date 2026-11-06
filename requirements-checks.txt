@@ -20,3 +20,8 @@ ipykernel==7.4.0
 # estimator Fieldwork declares -- confint_poisson_2indep(method='wald-log') -- which matters
 # because a rate ratio is not a risk ratio and the wrong one would agree about nothing.
 statsmodels==0.15.0
+# Check 34's reference, geopandas.points_from_xy. Used by its recorded result (1.2.0) and missing from this list until
+# 2026-11-06, so a fresh environment failed check 34 on import.
+geopandas==1.2.0
+# An HDF5 reader by other authors than Fieldwork's h5wasm, for check 35. Both sit on libhdf5, which the check says.
+h5py==3.16.0

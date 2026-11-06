@@ -1,0 +1,394 @@
+{
+  "check": "35-sample-satellite",
+  "ranAt": "2026-11-06T04:26:32.438397+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "h5py": "3.16.0",
+    "hdf5": "2.0.0",
+    "numpy": "2.5.3",
+    "pyproj": "3.8.0"
+  },
+  "fixture": {
+    "id": "sample-satellite-s5p-001",
+    "sha256": "9de8df95d6e61c453e459a14d8772bbad64b8d80dc0b1fcb14824c4d6083bc2a",
+    "fileSHA256": "2333f0ca30ce71d1b5ab0c322168bcc8cfd01b12775a5ca1e3952a046372a3b3",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.31.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:sample_satellite_files_at_points",
+      "release": "0.2.1",
+      "label": "Sample satellite files at points",
+      "implementation": "src/satellite-read.ts#readAtPoints, src/satellite-sample.ts#sampleTable"
+    }
+  },
+  "file": {
+    "shape": [
+      12,
+      10
+    ],
+    "chunks": [
+      1,
+      4,
+      5
+    ],
+    "qaScale": 0.009999999776482582
+  },
+  "criterion": "every point placed or not as the declared rule says, on the same pixel; value, stored qa_value and scanline time exactly h5py's there; for both operators every table row rebuilt from the declared rule, field by field",
+  "placement": [
+    {
+      "point": "on-centre",
+      "fieldwork": [
+        5,
+        4
+      ],
+      "declaredRule": [
+        5,
+        4
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "near-tie-along",
+      "fieldwork": [
+        6,
+        4
+      ],
+      "declaredRule": [
+        6,
+        4
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "near-tie-across",
+      "fieldwork": [
+        5,
+        4
+      ],
+      "declaredRule": [
+        5,
+        4
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "chunk-edge",
+      "fieldwork": [
+        9,
+        5
+      ],
+      "declaredRule": [
+        9,
+        5
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "no-retrieval",
+      "fieldwork": [
+        4,
+        6
+      ],
+      "declaredRule": [
+        4,
+        6
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "qa-74",
+      "fieldwork": [
+        7,
+        2
+      ],
+      "declaredRule": [
+        7,
+        2
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "qa-75",
+      "fieldwork": [
+        7,
+        3
+      ],
+      "declaredRule": [
+        7,
+        3
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "qa-76",
+      "fieldwork": [
+        7,
+        7
+      ],
+      "declaredRule": [
+        7,
+        7
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "qa-fill",
+      "fieldwork": [
+        3,
+        8
+      ],
+      "declaredRule": [
+        3,
+        8
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "row-0",
+      "fieldwork": [
+        0,
+        1
+      ],
+      "declaredRule": [
+        0,
+        1
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "past-edge-in",
+      "fieldwork": [
+        6,
+        9
+      ],
+      "declaredRule": [
+        6,
+        9
+      ],
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "past-edge-out",
+      "fieldwork": null,
+      "declaredRule": null,
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    },
+    {
+      "point": "far",
+      "fieldwork": null,
+      "declaredRule": null,
+      "samePixel": true,
+      "valueQualityTimeAgree": true
+    }
+  ],
+  "placementAgrees": true,
+  "geodesic": {
+    "note": "The geodesically nearest centre (pyproj.Geod, WGS84), against the declared cos(lat)-scaled rule. A measurement of the approximation, not part of the criterion.",
+    "points": [
+      {
+        "point": "on-centre",
+        "declaredRule": [
+          5,
+          4
+        ],
+        "geodesic": [
+          5,
+          4
+        ],
+        "same": true
+      },
+      {
+        "point": "near-tie-along",
+        "declaredRule": [
+          6,
+          4
+        ],
+        "geodesic": [
+          6,
+          4
+        ],
+        "same": true
+      },
+      {
+        "point": "near-tie-across",
+        "declaredRule": [
+          5,
+          4
+        ],
+        "geodesic": [
+          5,
+          4
+        ],
+        "same": true
+      },
+      {
+        "point": "chunk-edge",
+        "declaredRule": [
+          9,
+          5
+        ],
+        "geodesic": [
+          9,
+          5
+        ],
+        "same": true
+      },
+      {
+        "point": "no-retrieval",
+        "declaredRule": [
+          4,
+          6
+        ],
+        "geodesic": [
+          4,
+          6
+        ],
+        "same": true
+      },
+      {
+        "point": "qa-74",
+        "declaredRule": [
+          7,
+          2
+        ],
+        "geodesic": [
+          7,
+          2
+        ],
+        "same": true
+      },
+      {
+        "point": "qa-75",
+        "declaredRule": [
+          7,
+          3
+        ],
+        "geodesic": [
+          7,
+          3
+        ],
+        "same": true
+      },
+      {
+        "point": "qa-76",
+        "declaredRule": [
+          7,
+          7
+        ],
+        "geodesic": [
+          7,
+          7
+        ],
+        "same": true
+      },
+      {
+        "point": "qa-fill",
+        "declaredRule": [
+          3,
+          8
+        ],
+        "geodesic": [
+          3,
+          8
+        ],
+        "same": true
+      },
+      {
+        "point": "row-0",
+        "declaredRule": [
+          0,
+          1
+        ],
+        "geodesic": [
+          0,
+          1
+        ],
+        "same": true
+      },
+      {
+        "point": "past-edge-in",
+        "declaredRule": [
+          6,
+          9
+        ],
+        "geodesic": [
+          6,
+          9
+        ],
+        "same": true
+      }
+    ],
+    "same": 11,
+    "of": 11
+  },
+  "cases": [
+    {
+      "operator": ">=",
+      "rows": {
+        "fieldwork": 26,
+        "rebuilt": 26
+      },
+      "counts": {
+        "fieldwork": {
+          "passing": 7,
+          "belowQuality": 2,
+          "noRetrieval": 2,
+          "noOverpass": 15
+        },
+        "rebuilt": {
+          "passing": 7,
+          "belowQuality": 2,
+          "noRetrieval": 2,
+          "noOverpass": 15
+        }
+      },
+      "rowsDiffering": [],
+      "agrees": true
+    },
+    {
+      "operator": ">",
+      "rows": {
+        "fieldwork": 26,
+        "rebuilt": 26
+      },
+      "counts": {
+        "fieldwork": {
+          "passing": 6,
+          "belowQuality": 3,
+          "noRetrieval": 2,
+          "noOverpass": 15
+        },
+        "rebuilt": {
+          "passing": 6,
+          "belowQuality": 3,
+          "noRetrieval": 2,
+          "noOverpass": 15
+        }
+      },
+      "rowsDiffering": [],
+      "agrees": true
+    }
+  ],
+  "notEstablished": [
+    "Anything about a real orbit file's content: the file is synthetic.",
+    "Reading a remote file by HTTP range, which is where the cost is.",
+    "Whether the nearest centre is the right pixel for a study.",
+    "A defect in libhdf5 itself, which h5py and h5wasm share."
+  ],
+  "agrees": true
+}
