@@ -1,0 +1,98 @@
+{
+  "check": "37-regression-strata",
+  "ranAt": "2026-11-07T06:54:14.613836+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3",
+    "numpy": "2.5.3",
+    "statsmodels": "0.15.0"
+  },
+  "fixture": {
+    "id": "regression-strata-brazil-001",
+    "sha256": "0b86d0d773e6a00fc51fff5046a1f89c782f5683c72f6c32d773453c345ca4f6",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.41.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:regression",
+      "release": "0.3.0",
+      "label": "Regression",
+      "implementation": "src/regression.ts#fitRegression"
+    }
+  },
+  "criterion": {
+    "counts": "the same rows used, strata used and strata dropped",
+    "coefficient": "relative difference below 1e-06",
+    "se": "relative difference below 1e-05, Pearson-scaled"
+  },
+  "comparisons": [
+    {
+      "note": "Three strata columns together",
+      "strataColumns": [
+        "municipio",
+        "anio",
+        "mes"
+      ],
+      "counts": {
+        "rowsUsed": [
+          1613,
+          1613
+        ],
+        "strataUsed": [
+          364,
+          364
+        ],
+        "strataDropped": [
+          16,
+          16
+        ]
+      },
+      "estimates": [
+        {
+          "term": "tempmed",
+          "coefficient": [
+            0.03752892573992054,
+            0.03752892573991937
+          ],
+          "se": [
+            0.0066905203670997735,
+            0.006690520367099343
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "precip_total_semana",
+          "coefficient": [
+            -0.0001179790275292923,
+            -0.00011797902752948806
+          ],
+          "se": [
+            0.00021124226307962966,
+            0.00021124226307963354
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "dispersion": [
+        5.467063590689884,
+        5.46706359068985
+      ],
+      "agrees": true
+    }
+  ],
+  "notEstablished": [
+    "That municipality, year and month are the right comparison for these data.",
+    "That tempmed and precip_total_semana measure what a mosquito meets: the first is InfoDengue's, the second CHIRPS at one grid cell, summed over ISO weeks with missing days as 0."
+  ],
+  "agrees": true
+}

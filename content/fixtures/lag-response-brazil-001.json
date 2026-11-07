@@ -1,10 +1,10 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "lag-response-brazil-001",
-  "exportedAt": "2026-11-07T00:39:27.179Z",
+  "exportedAt": "2026-11-07T06:54:10.751Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.39.0"
+    "version": "0.41.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:chart_output",
@@ -20,7 +20,7 @@
     },
     {
       "widget": "urn:fieldwork:widget:select_rows",
-      "release": "0.2.1",
+      "release": "0.3.0",
       "implementation": "src/derive-value.ts#selectRows"
     }
   ],
@@ -769,6 +769,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "a59360737f1ea51361b06209bee2615e8fd9fe85c2036e8ff19589aadd9a2b86"
+    "value": "fa20b13850f1e328e9d17f1fcdd0a1559fe44b48c2f4c04fe45b87fd63d8e4c5"
   }
 }
