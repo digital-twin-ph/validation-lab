@@ -1,0 +1,774 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "lag-response-brazil-001",
+  "exportedAt": "2026-11-07T00:39:27.179Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.39.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:chart_output",
+    "release": "0.11.0",
+    "label": "Chart",
+    "implementation": "src/chart-output.ts#tableChart; src/chart-vega.ts#chartVegaSpec"
+  },
+  "alsoExercises": [
+    {
+      "widget": "urn:fieldwork:widget:append_rows",
+      "release": "0.2.0",
+      "implementation": "src/append-rows.ts#appendTables"
+    },
+    {
+      "widget": "urn:fieldwork:widget:select_rows",
+      "release": "0.2.1",
+      "implementation": "src/derive-value.ts#selectRows"
+    }
+  ],
+  "source": "The five Brazil lag models of Fieldwork experiment 180, as Regression reported them in the live playback of 2026-11-06, each with one month term added.",
+  "declaredParameters": {
+    "append": {
+      "nameSource": true,
+      "sourceColumn": "lag",
+      "labels": [
+        "0",
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "labelsAreNumbers": {
+        "unit": "weeks before"
+      }
+    },
+    "select": {
+      "keyColumn": "term",
+      "values": [
+        "LST_Day_1km"
+      ]
+    },
+    "chart": {
+      "keyColumn": "lag",
+      "label": "Rate ratio per °C at each lag"
+    },
+    "semantics": "Stack the tables in port order, each row labelled with its table's label in `lag`, declared a number in weeks. Keep the exposure term. At each lag draw the row whose statistic is the interval's estimate as a point, from its lower to its upper as a whisker. A ratio is drawn on a log scale whose domain holds every limit and 1, with a line at 1.",
+    "equivalentTo": "pandas: pd.concat(frames, keys=labels, names=['lag']).reset_index(level='lag'); lag as a number; df[df.term == 'LST_Day_1km'].pivot(index='lag', columns='statistic', values='value')"
+  },
+  "input": {
+    "interval": {
+      "column": "statistic",
+      "estimate": "rate ratio",
+      "lower": "lower 95%",
+      "upper": "upper 95%",
+      "level": 95,
+      "ratio": true
+    },
+    "tables": [
+      {
+        "keys": [
+          "term",
+          "statistic"
+        ],
+        "valueField": "value",
+        "rows": [
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "rate ratio"
+            },
+            "value": 0.993
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "lower 95%"
+            },
+            "value": 0.983
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "upper 95%"
+            },
+            "value": 1.004
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "p"
+            },
+            "value": 0.01
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "rate ratio"
+            },
+            "value": 1.5
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "lower 95%"
+            },
+            "value": 1.4
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "upper 95%"
+            },
+            "value": 1.6
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "p"
+            },
+            "value": 0.001
+          }
+        ]
+      },
+      {
+        "keys": [
+          "term",
+          "statistic"
+        ],
+        "valueField": "value",
+        "rows": [
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "rate ratio"
+            },
+            "value": 0.979
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "lower 95%"
+            },
+            "value": 0.969
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "upper 95%"
+            },
+            "value": 0.989
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "p"
+            },
+            "value": 0.01
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "rate ratio"
+            },
+            "value": 1.5
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "lower 95%"
+            },
+            "value": 1.4
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "upper 95%"
+            },
+            "value": 1.6
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "p"
+            },
+            "value": 0.001
+          }
+        ]
+      },
+      {
+        "keys": [
+          "term",
+          "statistic"
+        ],
+        "valueField": "value",
+        "rows": [
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "rate ratio"
+            },
+            "value": 0.963
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "lower 95%"
+            },
+            "value": 0.954
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "upper 95%"
+            },
+            "value": 0.973
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "p"
+            },
+            "value": 0.01
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "rate ratio"
+            },
+            "value": 1.5
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "lower 95%"
+            },
+            "value": 1.4
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "upper 95%"
+            },
+            "value": 1.6
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "p"
+            },
+            "value": 0.001
+          }
+        ]
+      },
+      {
+        "keys": [
+          "term",
+          "statistic"
+        ],
+        "valueField": "value",
+        "rows": [
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "rate ratio"
+            },
+            "value": 1.007
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "lower 95%"
+            },
+            "value": 0.997
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "upper 95%"
+            },
+            "value": 1.017
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "p"
+            },
+            "value": 0.01
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "rate ratio"
+            },
+            "value": 1.5
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "lower 95%"
+            },
+            "value": 1.4
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "upper 95%"
+            },
+            "value": 1.6
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "p"
+            },
+            "value": 0.001
+          }
+        ]
+      },
+      {
+        "keys": [
+          "term",
+          "statistic"
+        ],
+        "valueField": "value",
+        "rows": [
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "rate ratio"
+            },
+            "value": 1.063
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "lower 95%"
+            },
+            "value": 1.053
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "upper 95%"
+            },
+            "value": 1.073
+          },
+          {
+            "key": {
+              "term": "LST_Day_1km",
+              "statistic": "p"
+            },
+            "value": 0.01
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "rate ratio"
+            },
+            "value": 1.5
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "lower 95%"
+            },
+            "value": 1.4
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "upper 95%"
+            },
+            "value": 1.6
+          },
+          {
+            "key": {
+              "term": "mes[2]",
+              "statistic": "p"
+            },
+            "value": 0.001
+          }
+        ]
+      }
+    ]
+  },
+  "output": {
+    "stacked": {
+      "keys": [
+        "term",
+        "statistic",
+        "lag"
+      ],
+      "numericKeys": {
+        "lag": "weeks before"
+      },
+      "rowCount": 40,
+      "rows": [
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "rate ratio",
+            "lag": "0"
+          },
+          "value": 0.993
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "lower 95%",
+            "lag": "0"
+          },
+          "value": 0.983
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "upper 95%",
+            "lag": "0"
+          },
+          "value": 1.004
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "p",
+            "lag": "0"
+          },
+          "value": 0.01
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "rate ratio",
+            "lag": "0"
+          },
+          "value": 1.5
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "lower 95%",
+            "lag": "0"
+          },
+          "value": 1.4
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "upper 95%",
+            "lag": "0"
+          },
+          "value": 1.6
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "p",
+            "lag": "0"
+          },
+          "value": 0.001
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "rate ratio",
+            "lag": "2"
+          },
+          "value": 0.979
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "lower 95%",
+            "lag": "2"
+          },
+          "value": 0.969
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "upper 95%",
+            "lag": "2"
+          },
+          "value": 0.989
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "p",
+            "lag": "2"
+          },
+          "value": 0.01
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "rate ratio",
+            "lag": "2"
+          },
+          "value": 1.5
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "lower 95%",
+            "lag": "2"
+          },
+          "value": 1.4
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "upper 95%",
+            "lag": "2"
+          },
+          "value": 1.6
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "p",
+            "lag": "2"
+          },
+          "value": 0.001
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "rate ratio",
+            "lag": "4"
+          },
+          "value": 0.963
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "lower 95%",
+            "lag": "4"
+          },
+          "value": 0.954
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "upper 95%",
+            "lag": "4"
+          },
+          "value": 0.973
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "p",
+            "lag": "4"
+          },
+          "value": 0.01
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "rate ratio",
+            "lag": "4"
+          },
+          "value": 1.5
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "lower 95%",
+            "lag": "4"
+          },
+          "value": 1.4
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "upper 95%",
+            "lag": "4"
+          },
+          "value": 1.6
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "p",
+            "lag": "4"
+          },
+          "value": 0.001
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "rate ratio",
+            "lag": "6"
+          },
+          "value": 1.007
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "lower 95%",
+            "lag": "6"
+          },
+          "value": 0.997
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "upper 95%",
+            "lag": "6"
+          },
+          "value": 1.017
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "p",
+            "lag": "6"
+          },
+          "value": 0.01
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "rate ratio",
+            "lag": "6"
+          },
+          "value": 1.5
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "lower 95%",
+            "lag": "6"
+          },
+          "value": 1.4
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "upper 95%",
+            "lag": "6"
+          },
+          "value": 1.6
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "p",
+            "lag": "6"
+          },
+          "value": 0.001
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "rate ratio",
+            "lag": "8"
+          },
+          "value": 1.063
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "lower 95%",
+            "lag": "8"
+          },
+          "value": 1.053
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "upper 95%",
+            "lag": "8"
+          },
+          "value": 1.073
+        },
+        {
+          "key": {
+            "term": "LST_Day_1km",
+            "statistic": "p",
+            "lag": "8"
+          },
+          "value": 0.01
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "rate ratio",
+            "lag": "8"
+          },
+          "value": 1.5
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "lower 95%",
+            "lag": "8"
+          },
+          "value": 1.4
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "upper 95%",
+            "lag": "8"
+          },
+          "value": 1.6
+        },
+        {
+          "key": {
+            "term": "mes[2]",
+            "statistic": "p",
+            "lag": "8"
+          },
+          "value": 0.001
+        }
+      ]
+    },
+    "points": [
+      {
+        "at": 0,
+        "estimate": 0.993,
+        "lower": 0.983,
+        "upper": 1.004
+      },
+      {
+        "at": 2,
+        "estimate": 0.979,
+        "lower": 0.969,
+        "upper": 0.989
+      },
+      {
+        "at": 4,
+        "estimate": 0.963,
+        "lower": 0.954,
+        "upper": 0.973
+      },
+      {
+        "at": 6,
+        "estimate": 1.007,
+        "lower": 0.997,
+        "upper": 1.017
+      },
+      {
+        "at": 8,
+        "estimate": 1.063,
+        "lower": 1.053,
+        "upper": 1.073
+      }
+    ],
+    "xType": "quantitative",
+    "yScale": "log",
+    "yDomain": [
+      0.9472951065411005,
+      1.0805946245596771
+    ],
+    "referenceLine": 1
+  },
+  "note": "Rebuild the stack from `input.tables` and the labels, keep the exposure term, pivot the statistics, and compare each point and the scale.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "a59360737f1ea51361b06209bee2615e8fd9fe85c2036e8ff19589aadd9a2b86"
+  }
+}

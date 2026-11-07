@@ -1,0 +1,140 @@
+{
+  "check": "36-lag-response",
+  "ranAt": "2026-11-07T00:39:27.506962+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3"
+  },
+  "fixture": {
+    "id": "lag-response-brazil-001",
+    "sha256": "a59360737f1ea51361b06209bee2615e8fd9fe85c2036e8ff19589aadd9a2b86",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.39.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:chart_output",
+      "release": "0.11.0",
+      "label": "Chart",
+      "implementation": "src/chart-output.ts#tableChart; src/chart-vega.ts#chartVegaSpec"
+    },
+    "alsoExercises": [
+      {
+        "widget": "urn:fieldwork:widget:append_rows",
+        "release": "0.2.0",
+        "implementation": "src/append-rows.ts#appendTables"
+      },
+      {
+        "widget": "urn:fieldwork:widget:select_rows",
+        "release": "0.2.1",
+        "implementation": "src/derive-value.ts#selectRows"
+      }
+    ]
+  },
+  "criterion": {
+    "stack": "every row in order equal to pandas.concat(frames, keys=labels)",
+    "points": "estimate and both limits at each lag equal to the pivot, no tolerance",
+    "axes": "lags on a quantitative axis; a log scale for a ratio whose domain holds every limit and 1; a line at 1"
+  },
+  "rows": {
+    "fieldwork": 40,
+    "pandas": 40
+  },
+  "points": [
+    {
+      "at": 0,
+      "pandas": {
+        "at": 0,
+        "estimate": 0.993,
+        "lower": 0.983,
+        "upper": 1.004
+      },
+      "fieldwork": {
+        "at": 0,
+        "estimate": 0.993,
+        "lower": 0.983,
+        "upper": 1.004
+      },
+      "agrees": true
+    },
+    {
+      "at": 2,
+      "pandas": {
+        "at": 2,
+        "estimate": 0.979,
+        "lower": 0.969,
+        "upper": 0.989
+      },
+      "fieldwork": {
+        "at": 2,
+        "estimate": 0.979,
+        "lower": 0.969,
+        "upper": 0.989
+      },
+      "agrees": true
+    },
+    {
+      "at": 4,
+      "pandas": {
+        "at": 4,
+        "estimate": 0.963,
+        "lower": 0.954,
+        "upper": 0.973
+      },
+      "fieldwork": {
+        "at": 4,
+        "estimate": 0.963,
+        "lower": 0.954,
+        "upper": 0.973
+      },
+      "agrees": true
+    },
+    {
+      "at": 6,
+      "pandas": {
+        "at": 6,
+        "estimate": 1.007,
+        "lower": 0.997,
+        "upper": 1.017
+      },
+      "fieldwork": {
+        "at": 6,
+        "estimate": 1.007,
+        "lower": 0.997,
+        "upper": 1.017
+      },
+      "agrees": true
+    },
+    {
+      "at": 8,
+      "pandas": {
+        "at": 8,
+        "estimate": 1.063,
+        "lower": 1.053,
+        "upper": 1.073
+      },
+      "fieldwork": {
+        "at": 8,
+        "estimate": 1.063,
+        "lower": 1.053,
+        "upper": 1.073
+      },
+      "agrees": true
+    }
+  ],
+  "checks": {
+    "sameStack": true,
+    "samePoints": true,
+    "lagsAsNumbers": true,
+    "logScale": true,
+    "domainHoldsLimitsAndOne": true,
+    "lineAtOne": true
+  },
+  "divergences": [],
+  "notEstablished": [
+    "That a lag-response plot is the right figure, or that any lag has an effect: each point is its own model, and the intervals allow nothing for correlation from week to week.",
+    "The drawn pixels. This checks the specification the renderer is given, not what Vega-Lite drew."
+  ],
+  "agrees": true
+}
