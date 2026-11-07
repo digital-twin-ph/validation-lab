@@ -1,7 +1,7 @@
 """Check 37: Fieldwork Regression with several strata columns, against statsmodels with one indicator per stratum.
 
 Fieldwork experiment 182 widened the Brazil dengue models to sixteen years, comparing weeks only within the same
-municipality, year and month. Regression gained strata over several columns taken together. Here, six municipalities of
+municipality, year and month. Regression gained strata over several columns taken together. Here, two municipalities of
 Rio de Janeiro state, 2010 to 2025, the twelve doubled year-edge weeks left out: weekly cases on the dataset's weekly air
 temperature, adjusted for its weekly rainfall, overdispersed errors.
 
