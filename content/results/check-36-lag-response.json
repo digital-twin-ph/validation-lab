@@ -1,6 +1,6 @@
 {
   "check": "36-lag-response",
-  "ranAt": "2026-11-07T00:39:27.506962+00:00",
+  "ranAt": "2026-11-07T06:54:12.045811+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,10 +8,10 @@
   },
   "fixture": {
     "id": "lag-response-brazil-001",
-    "sha256": "a59360737f1ea51361b06209bee2615e8fd9fe85c2036e8ff19589aadd9a2b86",
+    "sha256": "fa20b13850f1e328e9d17f1fcdd0a1559fe44b48c2f4c04fe45b87fd63d8e4c5",
     "application": {
       "name": "Fieldwork",
-      "version": "0.39.0"
+      "version": "0.41.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:chart_output",
@@ -27,7 +27,7 @@
       },
       {
         "widget": "urn:fieldwork:widget:select_rows",
-        "release": "0.2.1",
+        "release": "0.3.0",
         "implementation": "src/derive-value.ts#selectRows"
       }
     ]
