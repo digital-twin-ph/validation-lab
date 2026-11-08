@@ -1,0 +1,429 @@
+{
+  "check": "39-group-shares",
+  "ranAt": "2026-11-08T20:36:48.592125+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3",
+    "numpy": "2.5.3"
+  },
+  "fixture": {
+    "id": "group-shares-snow-001",
+    "sha256": "702ea494c5dd45a228e4e1293ac9f2c6140530748d5c09564e4c415d82ba8ce7",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.62.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:group_table",
+      "release": "0.3.0",
+      "label": "Total within groups, with each group's share",
+      "implementation": "src/group-table.ts#withShares"
+    }
+  },
+  "criterion": {
+    "totals": "every total and count exactly equal",
+    "shares": "every share exactly equal under the declared half-up rounding; each stratum within 0.1 x its groups of 100",
+    "empty": "the emptied group and every share in its stratum null; the other stratum unchanged",
+    "named": "each number named in the statistic column"
+  },
+  "comparisons": [
+    {
+      "case": 1,
+      "note": "Each company's share of the population and of the deaths: sum by water supply and measure, share within measure",
+      "request": {
+        "by": [
+          "water_supply",
+          "measure"
+        ],
+        "share": {
+          "within": [
+            "measure"
+          ]
+        }
+      },
+      "emptied": null,
+      "cells": [
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "population_1851",
+            "people"
+          ],
+          "pandas": 167654.0,
+          "fieldwork": 167654,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "population_1851",
+            "% within measure"
+          ],
+          "pandas": 34.4,
+          "fieldwork": 34.4,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "deaths_seven_weeks",
+            "people"
+          ],
+          "pandas": 844.0,
+          "fieldwork": 844,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "deaths_seven_weeks",
+            "% within measure"
+          ],
+          "pandas": 55.7,
+          "fieldwork": 55.7,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "population_1851",
+            "people"
+          ],
+          "pandas": 300149.0,
+          "fieldwork": 300149,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "population_1851",
+            "% within measure"
+          ],
+          "pandas": 61.6,
+          "fieldwork": 61.6,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "deaths_seven_weeks",
+            "people"
+          ],
+          "pandas": 652.0,
+          "fieldwork": 652,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "deaths_seven_weeks",
+            "% within measure"
+          ],
+          "pandas": 43.1,
+          "fieldwork": 43.1,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "population_1851",
+            "people"
+          ],
+          "pandas": 19133.0,
+          "fieldwork": 19133,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "population_1851",
+            "% within measure"
+          ],
+          "pandas": 3.9,
+          "fieldwork": 3.9,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "deaths_seven_weeks",
+            "people"
+          ],
+          "pandas": 18.0,
+          "fieldwork": 18,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "deaths_seven_weeks",
+            "% within measure"
+          ],
+          "pandas": 1.2,
+          "fieldwork": 1.2,
+          "agrees": true
+        }
+      ],
+      "everyNumberNamed": true,
+      "strataTotals": {
+        "population_1851": {
+          "total": 99.9,
+          "groups": 3,
+          "within": true
+        },
+        "deaths_seven_weeks": {
+          "total": 100.0,
+          "groups": 3,
+          "within": true
+        }
+      },
+      "pythonRoundWouldDiffer": [],
+      "agrees": true
+    },
+    {
+      "case": 2,
+      "note": "Rows counted by water supply, each a share of the whole table",
+      "request": {
+        "by": [
+          "water_supply"
+        ],
+        "aggregate": "count",
+        "share": {
+          "within": []
+        }
+      },
+      "emptied": null,
+      "cells": [
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "rows"
+          ],
+          "pandas": 24.0,
+          "fieldwork": 24,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "% of all"
+          ],
+          "pandas": 37.5,
+          "fieldwork": 37.5,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "rows"
+          ],
+          "pandas": 32.0,
+          "fieldwork": 32,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "% of all"
+          ],
+          "pandas": 50.0,
+          "fieldwork": 50,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "rows"
+          ],
+          "pandas": 8.0,
+          "fieldwork": 8,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "% of all"
+          ],
+          "pandas": 12.5,
+          "fieldwork": 12.5,
+          "agrees": true
+        }
+      ],
+      "everyNumberNamed": true,
+      "strataTotals": {
+        "all": {
+          "total": 100.0,
+          "groups": 3,
+          "within": true
+        }
+      },
+      "pythonRoundWouldDiffer": [],
+      "agrees": true
+    },
+    {
+      "case": 3,
+      "note": "One population cell emptied: its group sums to nothing known, so every population share is unknown; the death shares are unchanged",
+      "request": {
+        "by": [
+          "water_supply",
+          "measure"
+        ],
+        "share": {
+          "within": [
+            "measure"
+          ]
+        }
+      },
+      "emptied": {
+        "key": {
+          "sub_district": "St. Saviour, Southwark",
+          "measure": "population_1851",
+          "water_supply": "Southwark and Vauxhall Company only"
+        },
+        "wasValue": 19709
+      },
+      "cells": [
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "population_1851",
+            "people"
+          ],
+          "pandas": null,
+          "fieldwork": null,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "population_1851",
+            "% within measure"
+          ],
+          "pandas": null,
+          "fieldwork": null,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "deaths_seven_weeks",
+            "people"
+          ],
+          "pandas": 844.0,
+          "fieldwork": 844,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Southwark and Vauxhall Company only",
+            "deaths_seven_weeks",
+            "% within measure"
+          ],
+          "pandas": 55.7,
+          "fieldwork": 55.7,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "population_1851",
+            "people"
+          ],
+          "pandas": 300149.0,
+          "fieldwork": 300149,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "population_1851",
+            "% within measure"
+          ],
+          "pandas": null,
+          "fieldwork": null,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "deaths_seven_weeks",
+            "people"
+          ],
+          "pandas": 652.0,
+          "fieldwork": 652,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company and Southwark and Vauxhall Company",
+            "deaths_seven_weeks",
+            "% within measure"
+          ],
+          "pandas": 43.1,
+          "fieldwork": 43.1,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "population_1851",
+            "people"
+          ],
+          "pandas": 19133.0,
+          "fieldwork": 19133,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "population_1851",
+            "% within measure"
+          ],
+          "pandas": null,
+          "fieldwork": null,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "deaths_seven_weeks",
+            "people"
+          ],
+          "pandas": 18.0,
+          "fieldwork": 18,
+          "agrees": true
+        },
+        {
+          "key": [
+            "Lambeth Company only",
+            "deaths_seven_weeks",
+            "% within measure"
+          ],
+          "pandas": 1.2,
+          "fieldwork": 1.2,
+          "agrees": true
+        }
+      ],
+      "everyNumberNamed": true,
+      "strataTotals": {
+        "deaths_seven_weeks": {
+          "total": 100.0,
+          "groups": 3,
+          "within": true
+        }
+      },
+      "pythonRoundWouldDiffer": [],
+      "agrees": true
+    }
+  ],
+  "emptyCell": {
+    "deathSharesUnchanged": true,
+    "populationSharesUnknown": true
+  },
+  "notEstablished": [
+    "That a share is the measure a reader needs: a share of rows is not a rate, and a share of deaths by company says nothing of risk without the population beside it.",
+    "That one decimal place is enough: a stratum can total 99.9 or 100.1, which the check allows and does not judge."
+  ],
+  "agrees": true
+}
