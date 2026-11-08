@@ -1,0 +1,288 @@
+{
+  "check": "38-lag-models",
+  "ranAt": "2026-11-08T03:11:28.978906+00:00",
+  "environment": {
+    "runtime": "CPython 3.13.3 on Darwin arm64",
+    "isPyodide": false,
+    "pandas": "2.3.3",
+    "numpy": "2.5.3",
+    "statsmodels": "0.15.0"
+  },
+  "fixture": {
+    "id": "lag-models-brazil-001",
+    "sha256": "6c65a90b6fc58f22769df632c627b667473fd5f01a3e72950572a59c9baafdac",
+    "application": {
+      "name": "Fieldwork",
+      "version": "0.49.0"
+    },
+    "operation": {
+      "widget": "urn:fieldwork:widget:regression",
+      "release": "0.5.0",
+      "label": "Regression",
+      "implementation": "src/regression.ts#fitEachExposure"
+    }
+  },
+  "criterion": {
+    "rows": "each model's rows, strata used and dropped equal pandas' for that lag alone, and exceed the rows complete at every lag",
+    "coefficient": "relative difference below 1e-06",
+    "se": "relative difference below 1e-05, Pearson-scaled",
+    "table": "the keys include shift_days and each model carries its declared shift"
+  },
+  "comparisons": [
+    {
+      "column": "tempmed_0d",
+      "shiftDays": 0,
+      "rain": "precip_total_semana_0d",
+      "counts": {
+        "rowsUsed": [
+          1613,
+          1613
+        ],
+        "strataUsed": [
+          364,
+          364
+        ],
+        "strataDropped": [
+          16,
+          16
+        ]
+      },
+      "rowsCompleteAtEveryLag": 1499,
+      "restsOnItsOwnRows": true,
+      "estimates": [
+        {
+          "term": "tempmed_0d",
+          "coefficient": [
+            0.03752892573992054,
+            0.03752892573991937
+          ],
+          "se": [
+            0.0066905203670997735,
+            0.006690520367099343
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "precip_total_semana_0d",
+          "coefficient": [
+            -0.0001179790275292923,
+            -0.00011797902752948806
+          ],
+          "se": [
+            0.00021124226307962966,
+            0.00021124226307963354
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "dispersion": [
+        5.467063590689884,
+        5.46706359068985
+      ],
+      "agrees": true
+    },
+    {
+      "column": "tempmed_-14d",
+      "shiftDays": -14,
+      "rain": "precip_total_semana_-14d",
+      "counts": {
+        "rowsUsed": [
+          1586,
+          1586
+        ],
+        "strataUsed": [
+          363,
+          363
+        ],
+        "strataDropped": [
+          19,
+          19
+        ]
+      },
+      "rowsCompleteAtEveryLag": 1499,
+      "restsOnItsOwnRows": true,
+      "estimates": [
+        {
+          "term": "tempmed_-14d",
+          "coefficient": [
+            0.0526677751261606,
+            0.05266777512616025
+          ],
+          "se": [
+            0.0070723364993592,
+            0.0070723364993588965
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "precip_total_semana_-14d",
+          "coefficient": [
+            4.111448733552643e-05,
+            4.111448733566496e-05
+          ],
+          "se": [
+            0.0002060099130884291,
+            0.00020600991308841843
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "dispersion": [
+        5.356124035497332,
+        5.356124035496861
+      ],
+      "agrees": true
+    },
+    {
+      "column": "tempmed_-28d",
+      "shiftDays": -28,
+      "rain": "precip_total_semana_-28d",
+      "counts": {
+        "rowsUsed": [
+          1581,
+          1581
+        ],
+        "strataUsed": [
+          364,
+          364
+        ],
+        "strataDropped": [
+          18,
+          18
+        ]
+      },
+      "rowsCompleteAtEveryLag": 1499,
+      "restsOnItsOwnRows": true,
+      "estimates": [
+        {
+          "term": "tempmed_-28d",
+          "coefficient": [
+            0.01980822857522662,
+            0.019808228575227377
+          ],
+          "se": [
+            0.007085269066114233,
+            0.0070852690661136
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "precip_total_semana_-28d",
+          "coefficient": [
+            0.0001139410220640939,
+            0.00011394102206392642
+          ],
+          "se": [
+            0.000209351920827808,
+            0.00020935192082778903
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "dispersion": [
+        5.573871488793585,
+        5.573871488792993
+      ],
+      "agrees": true
+    },
+    {
+      "column": "tempmed_+14d",
+      "shiftDays": 14,
+      "rain": "precip_total_semana_+14d",
+      "counts": {
+        "rowsUsed": [
+          1583,
+          1583
+        ],
+        "strataUsed": [
+          363,
+          363
+        ],
+        "strataDropped": [
+          19,
+          19
+        ]
+      },
+      "rowsCompleteAtEveryLag": 1499,
+      "restsOnItsOwnRows": true,
+      "estimates": [
+        {
+          "term": "tempmed_+14d",
+          "coefficient": [
+            0.041214856505900684,
+            0.04121485650589993
+          ],
+          "se": [
+            0.0071255710302557795,
+            0.007125571030257236
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        },
+        {
+          "term": "precip_total_semana_+14d",
+          "coefficient": [
+            0.0008306950000654991,
+            0.0008306950000655708
+          ],
+          "se": [
+            0.00021835638855040301,
+            0.00021835638855043757
+          ],
+          "checks": {
+            "coefficient": true,
+            "se": true
+          },
+          "agrees": true
+        }
+      ],
+      "dispersion": [
+        5.471869405606531,
+        5.471869405608459
+      ],
+      "agrees": true
+    }
+  ],
+  "table": {
+    "keys": [
+      "exposure",
+      "shift_days",
+      "role",
+      "term",
+      "statistic"
+    ],
+    "shiftNamed": true
+  },
+  "notEstablished": [
+    "That these lags, or one model per lag, are the right analysis; the intervals allow nothing for correlation from week to week, and none is adjusted for the number of lags.",
+    "That tempmed and precip_total_semana measure what a mosquito meets: the first is InfoDengue's, the second CHIRPS at one grid cell."
+  ],
+  "agrees": true
+}
