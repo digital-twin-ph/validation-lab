@@ -212,6 +212,19 @@ its bytes, computed the same way by Fieldwork's exporter and the check, or to
 carry fixtures in a format the transport does not rewrite. Both change the
 fixture contract across repositories, so neither is done here.
 
+## Two checks cannot run in the browser kernel: 26 and 40
+
+**Found 2026-11-09.** Checks 26 (Deduplicate records) and 40 (Relate, allowing for spelling) compare Jaro-Winkler
+scores against rapidfuzz and jellyfish. Neither is in the Pyodide v314.0.6 distribution: its lock file, read on
+2026-11-09, lists pandas 3.0.2 and shapely 2.1.2 but not rapidfuzz or jellyfish, and neither publishes a pure-Python
+wheel `piplite` could use. Both notebooks stop at their first import, and both have passed in CPython only.
+
+Not fixed. A Jaro-Winkler written in the lab would run, but it would be one more hand-written implementation set
+against Fieldwork's rather than one by other authors, which is what the two libraries are there for.
+
+Check 41 (the boundary repair) does run there: on 2026-11-09 it agreed in the browser kernel with shapely 2.1.2 on
+GEOS 3.12.1, as in CPython with shapely 2.2.0 on GEOS 3.14.1.
+
 ## What a passing check does not establish
 
 That the declared CRS was the right one for a file, that the source coordinates
