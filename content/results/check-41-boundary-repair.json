@@ -1,0 +1,324 @@
+{
+ "check": "41-boundary-repair",
+ "ranAt": "2026-11-09T09:27:19+00:00",
+ "fixture": {
+  "id": "boundary-repair-001",
+  "sha256": "1416b217db08f4f536a4f57b0a52f303aff6c5d173ec1fcef550a6c807fdc1c9",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.67.1"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:study_area",
+   "release": "0.7.0",
+   "label": "Study area: the boundary repair",
+   "implementation": "src/boundary-repair.ts#repairBoundary"
+  }
+ },
+ "agrees": true,
+ "criteria": "repeated vertices equal to shapely.remove_repeated_points, in order; spike tips equal to the declared rule written out here, in order; vertex counts equal; GEOS area unchanged within 1e-12",
+ "levels": [
+  {
+   "id": "sl-cod-ab",
+   "source": "OCHA COD-AB, Sierra Leone admin 2, via the Fieldwork example (CC BY-IGO)",
+   "units": 16,
+   "agrees": true,
+   "repaired": 14,
+   "repeated": 84,
+   "spikes": 1,
+   "geosInvalidBefore": 1,
+   "geosInvalidAfter": [],
+   "differs": [],
+   "inexact": [],
+   "repairedUnits": [
+    {
+     "name": "Kailahun",
+     "shapely": {
+      "repeated": 7,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 7,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1820,
+      "repaired": 1813
+     },
+     "areaChange": 5.551115123125783e-17,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Kenema",
+     "shapely": {
+      "repeated": 4,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 4,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1434,
+      "repaired": 1430
+     },
+     "areaChange": 1.1102230246251565e-16,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Kono",
+     "shapely": {
+      "repeated": 7,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 7,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1326,
+      "repaired": 1319
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Koinadugu",
+     "shapely": {
+      "repeated": 2,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 2,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1568,
+      "repaired": 1566
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Fabala",
+     "shapely": {
+      "repeated": 2,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 2,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1388,
+      "repaired": 1386
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Bo",
+     "shapely": {
+      "repeated": 2,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 2,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1140,
+      "repaired": 1138
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Bonthe",
+     "shapely": {
+      "repeated": 18,
+      "spike": [
+       [
+        -13.00145,
+        7.59311
+       ]
+      ]
+     },
+     "fieldwork": {
+      "repeated": 18,
+      "spike": [
+       [
+        -13.00145,
+        7.59311
+       ]
+      ]
+     },
+     "vertices": {
+      "published": 7901,
+      "repaired": 7882
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Self-intersection[-13.00146 7.59311]",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Moyamba",
+     "shapely": {
+      "repeated": 4,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 4,
+      "spike": []
+     },
+     "vertices": {
+      "published": 2513,
+      "repaired": 2509
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Pujehun",
+     "shapely": {
+      "repeated": 2,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 2,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1190,
+      "repaired": 1188
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Western Area Rural",
+     "shapely": {
+      "repeated": 6,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 6,
+      "spike": []
+     },
+     "vertices": {
+      "published": 3209,
+      "repaired": 3203
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Western Area Urban",
+     "shapely": {
+      "repeated": 16,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 16,
+      "spike": []
+     },
+     "vertices": {
+      "published": 1975,
+      "repaired": 1959
+     },
+     "areaChange": 1.734723475976807e-18,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Kambia",
+     "shapely": {
+      "repeated": 3,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 3,
+      "spike": []
+     },
+     "vertices": {
+      "published": 4513,
+      "repaired": 4510
+     },
+     "areaChange": 5.551115123125783e-17,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Karene",
+     "shapely": {
+      "repeated": 1,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 1,
+      "spike": []
+     },
+     "vertices": {
+      "published": 2223,
+      "repaired": 2222
+     },
+     "areaChange": 0.0,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    },
+    {
+     "name": "Port Loko",
+     "shapely": {
+      "repeated": 10,
+      "spike": []
+     },
+     "fieldwork": {
+      "repeated": 10,
+      "spike": []
+     },
+     "vertices": {
+      "published": 4392,
+      "repaired": 4382
+     },
+     "areaChange": 5.551115123125783e-17,
+     "geosBefore": "Valid Geometry",
+     "geosAfter": "Valid Geometry"
+    }
+   ]
+  },
+  {
+   "id": "rj-geoboundaries",
+   "source": "geoBoundaries, Brazil admin 2 for Rio de Janeiro state, from IBGE, via the Fieldwork example (CC BY 3.0 IGO)",
+   "units": 92,
+   "agrees": true,
+   "repaired": 0,
+   "repeated": 0,
+   "spikes": 0,
+   "geosInvalidBefore": 0,
+   "geosInvalidAfter": [],
+   "differs": [],
+   "inexact": [],
+   "repairedUnits": []
+  }
+ ],
+ "notEstablished": [
+  "That the published boundaries have no other fault: a ring crossing itself is not repaired; GEOS's verdict on what is left is recorded.",
+  "That a spike is a digitising error: it encloses no area, which is why it can be removed.",
+  "How often the repair runs on geoBoundaries in general: one level of one country is here."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyodide": false
+ }
+}
