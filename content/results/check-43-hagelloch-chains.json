@@ -1,0 +1,53 @@
+{
+ "check": "43-hagelloch-chains",
+ "ranAt": "2026-11-09T21:29:43+00:00",
+ "fixture": {
+  "id": "chains-hagelloch-001",
+  "sha256": "41eebf5e0803a2dbd31b32d81b1db971944c8a394da2658f5cb27ca6d2df5b7e",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.72.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:relate_table",
+   "release": "0.11.0",
+   "label": "Relate, rules and a count: serial intervals and secondary cases, Hagelloch 1861",
+   "implementation": "src/relate-table.ts#relateTable; src/rule-evaluation.ts#evaluateAuthored; src/group-table.ts#groupTable"
+  }
+ },
+ "agrees": true,
+ "criteria": "Every serial interval equal in whole days, none where no infector is recorded; every count of secondary cases equal, a case nobody names 0",
+ "cases": 188,
+ "serialIntervals": {
+  "n": 184,
+  "median": 10.0,
+  "min": 7,
+  "max": 16
+ },
+ "secondaryCases": {
+  "sum": 184,
+  "zeros": 126,
+  "max": 30,
+  "distribution": {
+   "0": 126,
+   "1": 21,
+   "2": 16,
+   "3": 12,
+   "4": 6,
+   "6": 2,
+   "7": 3,
+   "8": 1,
+   "30": 1
+  }
+ },
+ "differs": [],
+ "notEstablished": [
+  "Who infected whom: the infector column is a reconstruction from the 1861 record, read alike by both sides.",
+  "That the mean of the secondary cases estimates R."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "pandas": "2.3.3",
+  "pyodide": false
+ }
+}

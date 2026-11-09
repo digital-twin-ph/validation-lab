@@ -1,0 +1,1914 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "chains-hagelloch-001",
+  "exportedAt": "2026-11-09T21:17:12.458Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.72.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:relate_table",
+    "release": "0.11.0",
+    "label": "Relate, rules and a count: serial intervals and secondary cases, Hagelloch 1861",
+    "implementation": "src/relate-table.ts#relateTable; src/rule-evaluation.ts#evaluateAuthored; src/group-table.ts#groupTable"
+  },
+  "source": "Measles in Hagelloch, 1861 (Pfeilsticker 1863; Oesterle 1992), as measles_hagelloch_1861 in the R package outbreaks 1.9.0; the copy built into Fieldwork as examples/hagelloch-1861",
+  "declaredParameters": {
+    "serialInterval": "For each case whose infector is a case_ID: date_of_prodrome minus the infector's date_of_prodrome, in whole days. A case with no infector recorded has none.",
+    "secondaryCases": "For each case: the number of cases whose infector is its case_ID. A case nobody names is 0, declared by the practitioner."
+  },
+  "input": {
+    "cases": [
+      {
+        "case_ID": "1",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "2",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-23"
+      },
+      {
+        "case_ID": "3",
+        "infector": "172",
+        "date_of_prodrome": "1861-11-28"
+      },
+      {
+        "case_ID": "4",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-27"
+      },
+      {
+        "case_ID": "5",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "6",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-26"
+      },
+      {
+        "case_ID": "7",
+        "infector": "42",
+        "date_of_prodrome": "1861-11-24"
+      },
+      {
+        "case_ID": "8",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "9",
+        "infector": "182",
+        "date_of_prodrome": "1861-11-26"
+      },
+      {
+        "case_ID": "10",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "11",
+        "infector": "182",
+        "date_of_prodrome": "1861-11-25"
+      },
+      {
+        "case_ID": "12",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-20"
+      },
+      {
+        "case_ID": "13",
+        "infector": "12",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "14",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "15",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-24"
+      },
+      {
+        "case_ID": "16",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "17",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-20"
+      },
+      {
+        "case_ID": "18",
+        "infector": "175",
+        "date_of_prodrome": "1861-11-23"
+      },
+      {
+        "case_ID": "19",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-20"
+      },
+      {
+        "case_ID": "20",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "21",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-23"
+      },
+      {
+        "case_ID": "22",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "23",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "24",
+        "infector": "22",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "25",
+        "infector": "22",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "26",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "27",
+        "infector": "10",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "28",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-25"
+      },
+      {
+        "case_ID": "29",
+        "infector": "31",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "30",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-25"
+      },
+      {
+        "case_ID": "31",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "32",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "33",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-24"
+      },
+      {
+        "case_ID": "34",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "35",
+        "infector": "182",
+        "date_of_prodrome": "1861-11-25"
+      },
+      {
+        "case_ID": "36",
+        "infector": "34",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "37",
+        "infector": "182",
+        "date_of_prodrome": "1861-11-25"
+      },
+      {
+        "case_ID": "38",
+        "infector": "17",
+        "date_of_prodrome": "1861-11-29"
+      },
+      {
+        "case_ID": "39",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-23"
+      },
+      {
+        "case_ID": "40",
+        "infector": "93",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "41",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-27"
+      },
+      {
+        "case_ID": "42",
+        "infector": "178",
+        "date_of_prodrome": "1861-11-15"
+      },
+      {
+        "case_ID": "43",
+        "infector": "42",
+        "date_of_prodrome": "1861-11-26"
+      },
+      {
+        "case_ID": "44",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "45",
+        "infector": "184",
+        "date_of_prodrome": "1861-11-11"
+      },
+      {
+        "case_ID": "46",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "47",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-24"
+      },
+      {
+        "case_ID": "48",
+        "infector": "10",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "49",
+        "infector": "17",
+        "date_of_prodrome": "1861-11-28"
+      },
+      {
+        "case_ID": "50",
+        "infector": "8",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "51",
+        "infector": "31",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "52",
+        "infector": "17",
+        "date_of_prodrome": "1861-11-29"
+      },
+      {
+        "case_ID": "53",
+        "infector": "17",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "54",
+        "infector": "17",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "55",
+        "infector": "17",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "56",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "57",
+        "infector": "56",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "58",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "59",
+        "infector": "58",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "60",
+        "infector": "58",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "61",
+        "infector": "186",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "62",
+        "infector": "11",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "63",
+        "infector": "19",
+        "date_of_prodrome": "1861-11-29"
+      },
+      {
+        "case_ID": "64",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "65",
+        "infector": "64",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "66",
+        "infector": "64",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "67",
+        "infector": "11",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "68",
+        "infector": "179",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "69",
+        "infector": "54",
+        "date_of_prodrome": "1861-12-13"
+      },
+      {
+        "case_ID": "70",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-28"
+      },
+      {
+        "case_ID": "71",
+        "infector": "10",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "72",
+        "infector": "12",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "73",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-27"
+      },
+      {
+        "case_ID": "74",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "75",
+        "infector": "74",
+        "date_of_prodrome": "1861-11-29"
+      },
+      {
+        "case_ID": "76",
+        "infector": "5",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "77",
+        "infector": "180",
+        "date_of_prodrome": "1861-11-27"
+      },
+      {
+        "case_ID": "78",
+        "infector": "181",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "79",
+        "infector": "179",
+        "date_of_prodrome": "1861-11-27"
+      },
+      {
+        "case_ID": "80",
+        "infector": "78",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "81",
+        "infector": "39",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "82",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "83",
+        "infector": "82",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "84",
+        "infector": "82",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "85",
+        "infector": "44",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "86",
+        "infector": "1",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "87",
+        "infector": "47",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "88",
+        "infector": "47",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "89",
+        "infector": "12",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "90",
+        "infector": "93",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "91",
+        "infector": "93",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "92",
+        "infector": "93",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "93",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "94",
+        "infector": "183",
+        "date_of_prodrome": "1861-11-20"
+      },
+      {
+        "case_ID": "95",
+        "infector": "10",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "96",
+        "infector": "97",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "97",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "98",
+        "infector": "64",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "99",
+        "infector": "11",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "100",
+        "infector": "47",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "101",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "102",
+        "infector": "21",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "103",
+        "infector": "37",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "104",
+        "infector": "58",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "105",
+        "infector": "74",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "106",
+        "infector": "42",
+        "date_of_prodrome": "1861-11-23"
+      },
+      {
+        "case_ID": "107",
+        "infector": "19",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "108",
+        "infector": "106",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "109",
+        "infector": "12",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "110",
+        "infector": "18",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "111",
+        "infector": "34",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "112",
+        "infector": "21",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "113",
+        "infector": "31",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "114",
+        "infector": "78",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "115",
+        "infector": "16",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "116",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-21"
+      },
+      {
+        "case_ID": "117",
+        "infector": "116",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "118",
+        "infector": "116",
+        "date_of_prodrome": "1861-12-02"
+      },
+      {
+        "case_ID": "119",
+        "infector": "116",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "120",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-06"
+      },
+      {
+        "case_ID": "121",
+        "infector": "11",
+        "date_of_prodrome": "1861-12-06"
+      },
+      {
+        "case_ID": "122",
+        "infector": "188",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "123",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "124",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "125",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-07"
+      },
+      {
+        "case_ID": "126",
+        "infector": "37",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "127",
+        "infector": "106",
+        "date_of_prodrome": "1861-12-07"
+      },
+      {
+        "case_ID": "128",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "129",
+        "infector": "7",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "130",
+        "infector": "56",
+        "date_of_prodrome": "1861-11-30"
+      },
+      {
+        "case_ID": "131",
+        "infector": "56",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "132",
+        "infector": "14",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "133",
+        "infector": "18",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "134",
+        "infector": "78",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "135",
+        "infector": "79",
+        "date_of_prodrome": "1861-12-06"
+      },
+      {
+        "case_ID": "136",
+        "infector": "17",
+        "date_of_prodrome": "1861-11-29"
+      },
+      {
+        "case_ID": "137",
+        "infector": "16",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "138",
+        "infector": "34",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "139",
+        "infector": "4",
+        "date_of_prodrome": "1861-12-07"
+      },
+      {
+        "case_ID": "140",
+        "infector": "6",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "141",
+        "infector": "",
+        "date_of_prodrome": "1862-01-24"
+      },
+      {
+        "case_ID": "142",
+        "infector": "145",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "143",
+        "infector": "145",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "144",
+        "infector": "145",
+        "date_of_prodrome": "1861-12-06"
+      },
+      {
+        "case_ID": "145",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-23"
+      },
+      {
+        "case_ID": "146",
+        "infector": "172",
+        "date_of_prodrome": "1861-12-01"
+      },
+      {
+        "case_ID": "147",
+        "infector": "18",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "148",
+        "infector": "14",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "149",
+        "infector": "39",
+        "date_of_prodrome": "1861-12-05"
+      },
+      {
+        "case_ID": "150",
+        "infector": "148",
+        "date_of_prodrome": "1861-12-11"
+      },
+      {
+        "case_ID": "151",
+        "infector": "153",
+        "date_of_prodrome": "1861-12-07"
+      },
+      {
+        "case_ID": "152",
+        "infector": "153",
+        "date_of_prodrome": "1861-12-06"
+      },
+      {
+        "case_ID": "153",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-24"
+      },
+      {
+        "case_ID": "154",
+        "infector": "153",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "155",
+        "infector": "73",
+        "date_of_prodrome": "1861-12-09"
+      },
+      {
+        "case_ID": "156",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "157",
+        "infector": "156",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "158",
+        "infector": "156",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "159",
+        "infector": "37",
+        "date_of_prodrome": "1861-12-09"
+      },
+      {
+        "case_ID": "160",
+        "infector": "68",
+        "date_of_prodrome": "1861-12-12"
+      },
+      {
+        "case_ID": "161",
+        "infector": "148",
+        "date_of_prodrome": "1861-12-12"
+      },
+      {
+        "case_ID": "162",
+        "infector": "123",
+        "date_of_prodrome": "1861-12-12"
+      },
+      {
+        "case_ID": "163",
+        "infector": "123",
+        "date_of_prodrome": "1861-12-13"
+      },
+      {
+        "case_ID": "164",
+        "infector": "102",
+        "date_of_prodrome": "1861-12-13"
+      },
+      {
+        "case_ID": "165",
+        "infector": "102",
+        "date_of_prodrome": "1861-12-15"
+      },
+      {
+        "case_ID": "166",
+        "infector": "153",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "167",
+        "infector": "110",
+        "date_of_prodrome": "1861-12-14"
+      },
+      {
+        "case_ID": "168",
+        "infector": "98",
+        "date_of_prodrome": "1861-12-09"
+      },
+      {
+        "case_ID": "169",
+        "infector": "153",
+        "date_of_prodrome": "1861-12-04"
+      },
+      {
+        "case_ID": "170",
+        "infector": "153",
+        "date_of_prodrome": "1861-12-07"
+      },
+      {
+        "case_ID": "171",
+        "infector": "169",
+        "date_of_prodrome": "1861-12-15"
+      },
+      {
+        "case_ID": "172",
+        "infector": "174",
+        "date_of_prodrome": "1861-11-19"
+      },
+      {
+        "case_ID": "173",
+        "infector": "",
+        "date_of_prodrome": "1861-11-01"
+      },
+      {
+        "case_ID": "174",
+        "infector": "",
+        "date_of_prodrome": "1861-11-08"
+      },
+      {
+        "case_ID": "175",
+        "infector": "173",
+        "date_of_prodrome": "1861-11-12"
+      },
+      {
+        "case_ID": "176",
+        "infector": "146",
+        "date_of_prodrome": "1861-12-11"
+      },
+      {
+        "case_ID": "177",
+        "infector": "184",
+        "date_of_prodrome": "1861-11-07"
+      },
+      {
+        "case_ID": "178",
+        "infector": "184",
+        "date_of_prodrome": "1861-11-07"
+      },
+      {
+        "case_ID": "179",
+        "infector": "177",
+        "date_of_prodrome": "1861-11-18"
+      },
+      {
+        "case_ID": "180",
+        "infector": "177",
+        "date_of_prodrome": "1861-11-17"
+      },
+      {
+        "case_ID": "181",
+        "infector": "184",
+        "date_of_prodrome": "1861-11-13"
+      },
+      {
+        "case_ID": "182",
+        "infector": "184",
+        "date_of_prodrome": "1861-11-15"
+      },
+      {
+        "case_ID": "183",
+        "infector": "184",
+        "date_of_prodrome": "1861-11-11"
+      },
+      {
+        "case_ID": "184",
+        "infector": "",
+        "date_of_prodrome": "1861-10-30"
+      },
+      {
+        "case_ID": "185",
+        "infector": "82",
+        "date_of_prodrome": "1861-12-03"
+      },
+      {
+        "case_ID": "186",
+        "infector": "45",
+        "date_of_prodrome": "1861-11-22"
+      },
+      {
+        "case_ID": "187",
+        "infector": "82",
+        "date_of_prodrome": "1861-12-07"
+      },
+      {
+        "case_ID": "188",
+        "infector": "175",
+        "date_of_prodrome": "1861-11-23"
+      }
+    ]
+  },
+  "output": {
+    "cases": [
+      {
+        "case_ID": "1",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "2",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "3",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "4",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "5",
+        "serialIntervalDays": 11,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "6",
+        "serialIntervalDays": 9,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "7",
+        "serialIntervalDays": 9,
+        "secondaryCases": 7
+      },
+      {
+        "case_ID": "8",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "9",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "10",
+        "serialIntervalDays": 10,
+        "secondaryCases": 4
+      },
+      {
+        "case_ID": "11",
+        "serialIntervalDays": 10,
+        "secondaryCases": 4
+      },
+      {
+        "case_ID": "12",
+        "serialIntervalDays": 9,
+        "secondaryCases": 4
+      },
+      {
+        "case_ID": "13",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "14",
+        "serialIntervalDays": 9,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "15",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "16",
+        "serialIntervalDays": 8,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "17",
+        "serialIntervalDays": 7,
+        "secondaryCases": 7
+      },
+      {
+        "case_ID": "18",
+        "serialIntervalDays": 11,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "19",
+        "serialIntervalDays": 7,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "20",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "21",
+        "serialIntervalDays": 10,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "22",
+        "serialIntervalDays": 10,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "23",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "24",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "25",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "26",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "27",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "28",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "29",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "30",
+        "serialIntervalDays": 14,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "31",
+        "serialIntervalDays": 10,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "32",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "33",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "34",
+        "serialIntervalDays": 8,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "35",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "36",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "37",
+        "serialIntervalDays": 10,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "38",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "39",
+        "serialIntervalDays": 12,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "40",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "41",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "42",
+        "serialIntervalDays": 8,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "43",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "44",
+        "serialIntervalDays": 11,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "45",
+        "serialIntervalDays": 12,
+        "secondaryCases": 30
+      },
+      {
+        "case_ID": "46",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "47",
+        "serialIntervalDays": 13,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "48",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "49",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "50",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "51",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "52",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "53",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "54",
+        "serialIntervalDays": 12,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "55",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "56",
+        "serialIntervalDays": 11,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "57",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "58",
+        "serialIntervalDays": 11,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "59",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "60",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "61",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "62",
+        "serialIntervalDays": 7,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "63",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "64",
+        "serialIntervalDays": 10,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "65",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "66",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "67",
+        "serialIntervalDays": 7,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "68",
+        "serialIntervalDays": 12,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "69",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "70",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "71",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "72",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "73",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "74",
+        "serialIntervalDays": 10,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "75",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "76",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "77",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "78",
+        "serialIntervalDays": 9,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "79",
+        "serialIntervalDays": 9,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "80",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "81",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "82",
+        "serialIntervalDays": 11,
+        "secondaryCases": 4
+      },
+      {
+        "case_ID": "83",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "84",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "85",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "86",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "87",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "88",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "89",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "90",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "91",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "92",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "93",
+        "serialIntervalDays": 11,
+        "secondaryCases": 4
+      },
+      {
+        "case_ID": "94",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "95",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "96",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "97",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "98",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "99",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "100",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "101",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "102",
+        "serialIntervalDays": 10,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "103",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "104",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "105",
+        "serialIntervalDays": 14,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "106",
+        "serialIntervalDays": 8,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "107",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "108",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "109",
+        "serialIntervalDays": 15,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "110",
+        "serialIntervalDays": 11,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "111",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "112",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "113",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "114",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "115",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "116",
+        "serialIntervalDays": 10,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "117",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "118",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "119",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "120",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "121",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "122",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "123",
+        "serialIntervalDays": 9,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "124",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "125",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "126",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "127",
+        "serialIntervalDays": 14,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "128",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "129",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "130",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "131",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "132",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "133",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "134",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "135",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "136",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "137",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "138",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "139",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "140",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "141",
+        "serialIntervalDays": null,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "142",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "143",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "144",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "145",
+        "serialIntervalDays": 12,
+        "secondaryCases": 3
+      },
+      {
+        "case_ID": "146",
+        "serialIntervalDays": 12,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "147",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "148",
+        "serialIntervalDays": 11,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "149",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "150",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "151",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "152",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "153",
+        "serialIntervalDays": 13,
+        "secondaryCases": 6
+      },
+      {
+        "case_ID": "154",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "155",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "156",
+        "serialIntervalDays": 11,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "157",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "158",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "159",
+        "serialIntervalDays": 14,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "160",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "161",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "162",
+        "serialIntervalDays": 9,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "163",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "164",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "165",
+        "serialIntervalDays": 12,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "166",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "167",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "168",
+        "serialIntervalDays": 8,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "169",
+        "serialIntervalDays": 10,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "170",
+        "serialIntervalDays": 13,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "171",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "172",
+        "serialIntervalDays": 11,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "173",
+        "serialIntervalDays": null,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "174",
+        "serialIntervalDays": null,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "175",
+        "serialIntervalDays": 11,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "176",
+        "serialIntervalDays": 10,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "177",
+        "serialIntervalDays": 8,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "178",
+        "serialIntervalDays": 8,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "179",
+        "serialIntervalDays": 11,
+        "secondaryCases": 2
+      },
+      {
+        "case_ID": "180",
+        "serialIntervalDays": 10,
+        "secondaryCases": 7
+      },
+      {
+        "case_ID": "181",
+        "serialIntervalDays": 14,
+        "secondaryCases": 8
+      },
+      {
+        "case_ID": "182",
+        "serialIntervalDays": 16,
+        "secondaryCases": 4
+      },
+      {
+        "case_ID": "183",
+        "serialIntervalDays": 12,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "184",
+        "serialIntervalDays": null,
+        "secondaryCases": 6
+      },
+      {
+        "case_ID": "185",
+        "serialIntervalDays": 11,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "186",
+        "serialIntervalDays": 11,
+        "secondaryCases": 1
+      },
+      {
+        "case_ID": "187",
+        "serialIntervalDays": 15,
+        "secondaryCases": 0
+      },
+      {
+        "case_ID": "188",
+        "serialIntervalDays": 11,
+        "secondaryCases": 1
+      }
+    ]
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "41eebf5e0803a2dbd31b32d81b1db971944c8a394da2658f5cb27ca6d2df5b7e"
+  }
+}
