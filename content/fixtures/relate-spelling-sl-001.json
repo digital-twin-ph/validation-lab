@@ -1,0 +1,1371 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "relate-spelling-sl-001",
+  "exportedAt": "2026-11-09T04:17:36.198Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.67.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:relate_table",
+    "release": "0.10.0",
+    "label": "Relate a column from another table, allowing for spelling",
+    "implementation": "src/spelling-match.ts#linkNames"
+  },
+  "source": "Fieldwork example 2019 Sierra Leone measles: the semisynthetic teaching file's Residential District, counted; and data/district-population.csv, OCHA COD-AB admin-2 district names (CC BY-IGO) with WorldPop 2021 totals (CC BY 4.0).",
+  "declaredParameters": {
+    "folding": "A name is NFKC-normalised, trimmed and lower-cased; every run of characters that are not a Unicode letter or number becomes one space; the ends are trimmed. Words named in dropWords, folded the same way, are then removed where a whole space-separated word equals one.",
+    "matching": "Each distinct non-blank name of the first table's column is matched once against the distinct non-blank names of the second table's column. Equal folded names: exact, unless two or more second-table names fold equal (ambiguous). Otherwise every second-table name is scored by Jaro-Winkler on the folded forms; those at or above the threshold are candidates; candidates within 0.02 of the best are close; one close is a spelling match, two or more ambiguous, none none.",
+    "jaroWinkler": "Jaro with a match window of floor(max(len)/2)-1, transpositions counted as mismatched matched pairs and halved; the Winkler boost of a common prefix up to 4 characters, scaling 0.1, applied only when Jaro exceeds 0.7.",
+    "relate": "Each first-table row is related to the second-table row whose district equals its match, bringing that district. A row with no match (blank, none or ambiguous) is unmatched; where any is, the case keeps them under unmatchedLabel. The result gains \"Residential District match\" saying how each row matched."
+  },
+  "input": {
+    "left": {
+      "keys": [
+        "Residential District"
+      ],
+      "valueField": "cases",
+      "rows": [
+        {
+          "key": {
+            "Residential District": ""
+          },
+          "value": 464
+        },
+        {
+          "key": {
+            "Residential District": "Falaba District"
+          },
+          "value": 38
+        },
+        {
+          "key": {
+            "Residential District": "Western Area Rural District"
+          },
+          "value": 299
+        },
+        {
+          "key": {
+            "Residential District": "Kambia District"
+          },
+          "value": 310
+        },
+        {
+          "key": {
+            "Residential District": "Western Area Urban District"
+          },
+          "value": 705
+        },
+        {
+          "key": {
+            "Residential District": "Bo District"
+          },
+          "value": 34
+        },
+        {
+          "key": {
+            "Residential District": "Karene District"
+          },
+          "value": 67
+        },
+        {
+          "key": {
+            "Residential District": "Kailahun District"
+          },
+          "value": 56
+        },
+        {
+          "key": {
+            "Residential District": "Kenema District"
+          },
+          "value": 21
+        },
+        {
+          "key": {
+            "Residential District": "Bombali District"
+          },
+          "value": 24
+        },
+        {
+          "key": {
+            "Residential District": "Port Loko District"
+          },
+          "value": 352
+        },
+        {
+          "key": {
+            "Residential District": "Moyamba District"
+          },
+          "value": 35
+        },
+        {
+          "key": {
+            "Residential District": "Bonthe District"
+          },
+          "value": 20
+        },
+        {
+          "key": {
+            "Residential District": "Tonkolili District"
+          },
+          "value": 68
+        },
+        {
+          "key": {
+            "Residential District": "Pujehun District"
+          },
+          "value": 8
+        },
+        {
+          "key": {
+            "Residential District": "Kono District"
+          },
+          "value": 80
+        },
+        {
+          "key": {
+            "Residential District": "Koinadugu District"
+          },
+          "value": 25
+        }
+      ]
+    },
+    "right": {
+      "keys": [
+        "district",
+        "adm2_pcode"
+      ],
+      "valueField": "worldpop_2021",
+      "rows": [
+        {
+          "key": {
+            "district": "Bo",
+            "adm2_pcode": "SL0301"
+          },
+          "value": 815467
+        },
+        {
+          "key": {
+            "district": "Bombali",
+            "adm2_pcode": "SL0201"
+          },
+          "value": 426131
+        },
+        {
+          "key": {
+            "district": "Bonthe",
+            "adm2_pcode": "SL0302"
+          },
+          "value": 322492
+        },
+        {
+          "key": {
+            "district": "Fabala",
+            "adm2_pcode": "SL0206"
+          },
+          "value": 162262
+        },
+        {
+          "key": {
+            "district": "Kailahun",
+            "adm2_pcode": "SL0101"
+          },
+          "value": 592222
+        },
+        {
+          "key": {
+            "district": "Kambia",
+            "adm2_pcode": "SL0501"
+          },
+          "value": 389643
+        },
+        {
+          "key": {
+            "district": "Karene",
+            "adm2_pcode": "SL0502"
+          },
+          "value": 290629
+        },
+        {
+          "key": {
+            "district": "Kenema",
+            "adm2_pcode": "SL0102"
+          },
+          "value": 832221
+        },
+        {
+          "key": {
+            "district": "Koinadugu",
+            "adm2_pcode": "SL0203"
+          },
+          "value": 237293
+        },
+        {
+          "key": {
+            "district": "Kono",
+            "adm2_pcode": "SL0103"
+          },
+          "value": 668055
+        },
+        {
+          "key": {
+            "district": "Moyamba",
+            "adm2_pcode": "SL0303"
+          },
+          "value": 369709
+        },
+        {
+          "key": {
+            "district": "Port Loko",
+            "adm2_pcode": "SL0503"
+          },
+          "value": 568488
+        },
+        {
+          "key": {
+            "district": "Pujehun",
+            "adm2_pcode": "SL0304"
+          },
+          "value": 461532
+        },
+        {
+          "key": {
+            "district": "Tonkolili",
+            "adm2_pcode": "SL0205"
+          },
+          "value": 612595
+        },
+        {
+          "key": {
+            "district": "Western Area Rural",
+            "adm2_pcode": "SL0401"
+          },
+          "value": 675941
+        },
+        {
+          "key": {
+            "district": "Western Area Urban",
+            "adm2_pcode": "SL0402"
+          },
+          "value": 565162
+        }
+      ]
+    }
+  },
+  "output": {
+    "cases": [
+      {
+        "note": "District dropped, spelling allowed to 0.88 (the default): the boundary's district brought across, the blank kept under a named category",
+        "request": {
+          "on": "Residential District",
+          "rightOn": "district",
+          "bring": "district",
+          "spelling": {
+            "dropWords": [
+              "District"
+            ],
+            "threshold": 0.88,
+            "decisions": {}
+          }
+        },
+        "unmatchedLabel": "Not matched",
+        "matches": [
+          {
+            "name": "Falaba District",
+            "compared": "falaba",
+            "outcome": "spelling",
+            "value": "Fabala",
+            "score": 0.9555555555555556,
+            "candidates": [
+              {
+                "value": "Fabala",
+                "score": 0.9555555555555556
+              }
+            ]
+          },
+          {
+            "name": "Western Area Rural District",
+            "compared": "western area rural",
+            "outcome": "exact",
+            "value": "Western Area Rural",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Western Area Rural",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kambia District",
+            "compared": "kambia",
+            "outcome": "exact",
+            "value": "Kambia",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kambia",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Western Area Urban District",
+            "compared": "western area urban",
+            "outcome": "exact",
+            "value": "Western Area Urban",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Western Area Urban",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Bo District",
+            "compared": "bo",
+            "outcome": "exact",
+            "value": "Bo",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Bo",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Karene District",
+            "compared": "karene",
+            "outcome": "exact",
+            "value": "Karene",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Karene",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kailahun District",
+            "compared": "kailahun",
+            "outcome": "exact",
+            "value": "Kailahun",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kailahun",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kenema District",
+            "compared": "kenema",
+            "outcome": "exact",
+            "value": "Kenema",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kenema",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Bombali District",
+            "compared": "bombali",
+            "outcome": "exact",
+            "value": "Bombali",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Bombali",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Port Loko District",
+            "compared": "port loko",
+            "outcome": "exact",
+            "value": "Port Loko",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Port Loko",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Moyamba District",
+            "compared": "moyamba",
+            "outcome": "exact",
+            "value": "Moyamba",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Moyamba",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Bonthe District",
+            "compared": "bonthe",
+            "outcome": "exact",
+            "value": "Bonthe",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Bonthe",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Tonkolili District",
+            "compared": "tonkolili",
+            "outcome": "exact",
+            "value": "Tonkolili",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Tonkolili",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Pujehun District",
+            "compared": "pujehun",
+            "outcome": "exact",
+            "value": "Pujehun",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Pujehun",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kono District",
+            "compared": "kono",
+            "outcome": "exact",
+            "value": "Kono",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kono",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Koinadugu District",
+            "compared": "koinadugu",
+            "outcome": "exact",
+            "value": "Koinadugu",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Koinadugu",
+                "score": 1
+              }
+            ]
+          }
+        ],
+        "table": {
+          "keys": [
+            "Residential District",
+            "district",
+            "Residential District match"
+          ],
+          "valueField": "cases",
+          "rowCount": 17,
+          "rows": [
+            {
+              "key": {
+                "Residential District": "",
+                "district": "Not matched",
+                "Residential District match": "no name"
+              },
+              "value": 464
+            },
+            {
+              "key": {
+                "Residential District": "Falaba District",
+                "district": "Fabala",
+                "Residential District match": "matched allowing for spelling (0.96)"
+              },
+              "value": 38
+            },
+            {
+              "key": {
+                "Residential District": "Western Area Rural District",
+                "district": "Western Area Rural",
+                "Residential District match": "matched exactly"
+              },
+              "value": 299
+            },
+            {
+              "key": {
+                "Residential District": "Kambia District",
+                "district": "Kambia",
+                "Residential District match": "matched exactly"
+              },
+              "value": 310
+            },
+            {
+              "key": {
+                "Residential District": "Western Area Urban District",
+                "district": "Western Area Urban",
+                "Residential District match": "matched exactly"
+              },
+              "value": 705
+            },
+            {
+              "key": {
+                "Residential District": "Bo District",
+                "district": "Bo",
+                "Residential District match": "matched exactly"
+              },
+              "value": 34
+            },
+            {
+              "key": {
+                "Residential District": "Karene District",
+                "district": "Karene",
+                "Residential District match": "matched exactly"
+              },
+              "value": 67
+            },
+            {
+              "key": {
+                "Residential District": "Kailahun District",
+                "district": "Kailahun",
+                "Residential District match": "matched exactly"
+              },
+              "value": 56
+            },
+            {
+              "key": {
+                "Residential District": "Kenema District",
+                "district": "Kenema",
+                "Residential District match": "matched exactly"
+              },
+              "value": 21
+            },
+            {
+              "key": {
+                "Residential District": "Bombali District",
+                "district": "Bombali",
+                "Residential District match": "matched exactly"
+              },
+              "value": 24
+            },
+            {
+              "key": {
+                "Residential District": "Port Loko District",
+                "district": "Port Loko",
+                "Residential District match": "matched exactly"
+              },
+              "value": 352
+            },
+            {
+              "key": {
+                "Residential District": "Moyamba District",
+                "district": "Moyamba",
+                "Residential District match": "matched exactly"
+              },
+              "value": 35
+            },
+            {
+              "key": {
+                "Residential District": "Bonthe District",
+                "district": "Bonthe",
+                "Residential District match": "matched exactly"
+              },
+              "value": 20
+            },
+            {
+              "key": {
+                "Residential District": "Tonkolili District",
+                "district": "Tonkolili",
+                "Residential District match": "matched exactly"
+              },
+              "value": 68
+            },
+            {
+              "key": {
+                "Residential District": "Pujehun District",
+                "district": "Pujehun",
+                "Residential District match": "matched exactly"
+              },
+              "value": 8
+            },
+            {
+              "key": {
+                "Residential District": "Kono District",
+                "district": "Kono",
+                "Residential District match": "matched exactly"
+              },
+              "value": 80
+            },
+            {
+              "key": {
+                "Residential District": "Koinadugu District",
+                "district": "Koinadugu",
+                "Residential District match": "matched exactly"
+              },
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "note": "The same at 0.96: Falaba's spelling, 0.956, is below it and not found",
+        "request": {
+          "on": "Residential District",
+          "rightOn": "district",
+          "bring": "district",
+          "spelling": {
+            "dropWords": [
+              "District"
+            ],
+            "threshold": 0.96,
+            "decisions": {}
+          }
+        },
+        "unmatchedLabel": "Not matched",
+        "matches": [
+          {
+            "name": "Falaba District",
+            "compared": "falaba",
+            "outcome": "none",
+            "value": null,
+            "score": null,
+            "candidates": []
+          },
+          {
+            "name": "Western Area Rural District",
+            "compared": "western area rural",
+            "outcome": "exact",
+            "value": "Western Area Rural",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Western Area Rural",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kambia District",
+            "compared": "kambia",
+            "outcome": "exact",
+            "value": "Kambia",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kambia",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Western Area Urban District",
+            "compared": "western area urban",
+            "outcome": "exact",
+            "value": "Western Area Urban",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Western Area Urban",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Bo District",
+            "compared": "bo",
+            "outcome": "exact",
+            "value": "Bo",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Bo",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Karene District",
+            "compared": "karene",
+            "outcome": "exact",
+            "value": "Karene",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Karene",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kailahun District",
+            "compared": "kailahun",
+            "outcome": "exact",
+            "value": "Kailahun",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kailahun",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kenema District",
+            "compared": "kenema",
+            "outcome": "exact",
+            "value": "Kenema",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kenema",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Bombali District",
+            "compared": "bombali",
+            "outcome": "exact",
+            "value": "Bombali",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Bombali",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Port Loko District",
+            "compared": "port loko",
+            "outcome": "exact",
+            "value": "Port Loko",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Port Loko",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Moyamba District",
+            "compared": "moyamba",
+            "outcome": "exact",
+            "value": "Moyamba",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Moyamba",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Bonthe District",
+            "compared": "bonthe",
+            "outcome": "exact",
+            "value": "Bonthe",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Bonthe",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Tonkolili District",
+            "compared": "tonkolili",
+            "outcome": "exact",
+            "value": "Tonkolili",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Tonkolili",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Pujehun District",
+            "compared": "pujehun",
+            "outcome": "exact",
+            "value": "Pujehun",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Pujehun",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Kono District",
+            "compared": "kono",
+            "outcome": "exact",
+            "value": "Kono",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Kono",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "name": "Koinadugu District",
+            "compared": "koinadugu",
+            "outcome": "exact",
+            "value": "Koinadugu",
+            "score": 1,
+            "candidates": [
+              {
+                "value": "Koinadugu",
+                "score": 1
+              }
+            ]
+          }
+        ],
+        "table": {
+          "keys": [
+            "Residential District",
+            "district",
+            "Residential District match"
+          ],
+          "valueField": "cases",
+          "rowCount": 17,
+          "rows": [
+            {
+              "key": {
+                "Residential District": "",
+                "district": "Not matched",
+                "Residential District match": "no name"
+              },
+              "value": 464
+            },
+            {
+              "key": {
+                "Residential District": "Falaba District",
+                "district": "Not matched",
+                "Residential District match": "not found"
+              },
+              "value": 38
+            },
+            {
+              "key": {
+                "Residential District": "Western Area Rural District",
+                "district": "Western Area Rural",
+                "Residential District match": "matched exactly"
+              },
+              "value": 299
+            },
+            {
+              "key": {
+                "Residential District": "Kambia District",
+                "district": "Kambia",
+                "Residential District match": "matched exactly"
+              },
+              "value": 310
+            },
+            {
+              "key": {
+                "Residential District": "Western Area Urban District",
+                "district": "Western Area Urban",
+                "Residential District match": "matched exactly"
+              },
+              "value": 705
+            },
+            {
+              "key": {
+                "Residential District": "Bo District",
+                "district": "Bo",
+                "Residential District match": "matched exactly"
+              },
+              "value": 34
+            },
+            {
+              "key": {
+                "Residential District": "Karene District",
+                "district": "Karene",
+                "Residential District match": "matched exactly"
+              },
+              "value": 67
+            },
+            {
+              "key": {
+                "Residential District": "Kailahun District",
+                "district": "Kailahun",
+                "Residential District match": "matched exactly"
+              },
+              "value": 56
+            },
+            {
+              "key": {
+                "Residential District": "Kenema District",
+                "district": "Kenema",
+                "Residential District match": "matched exactly"
+              },
+              "value": 21
+            },
+            {
+              "key": {
+                "Residential District": "Bombali District",
+                "district": "Bombali",
+                "Residential District match": "matched exactly"
+              },
+              "value": 24
+            },
+            {
+              "key": {
+                "Residential District": "Port Loko District",
+                "district": "Port Loko",
+                "Residential District match": "matched exactly"
+              },
+              "value": 352
+            },
+            {
+              "key": {
+                "Residential District": "Moyamba District",
+                "district": "Moyamba",
+                "Residential District match": "matched exactly"
+              },
+              "value": 35
+            },
+            {
+              "key": {
+                "Residential District": "Bonthe District",
+                "district": "Bonthe",
+                "Residential District match": "matched exactly"
+              },
+              "value": 20
+            },
+            {
+              "key": {
+                "Residential District": "Tonkolili District",
+                "district": "Tonkolili",
+                "Residential District match": "matched exactly"
+              },
+              "value": 68
+            },
+            {
+              "key": {
+                "Residential District": "Pujehun District",
+                "district": "Pujehun",
+                "Residential District match": "matched exactly"
+              },
+              "value": 8
+            },
+            {
+              "key": {
+                "Residential District": "Kono District",
+                "district": "Kono",
+                "Residential District match": "matched exactly"
+              },
+              "value": 80
+            },
+            {
+              "key": {
+                "Residential District": "Koinadugu District",
+                "district": "Koinadugu",
+                "Residential District match": "matched exactly"
+              },
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "note": "The same at 0.88 without dropping District: names that matched exactly after dropping it are compared with it",
+        "request": {
+          "on": "Residential District",
+          "rightOn": "district",
+          "bring": "district",
+          "spelling": {
+            "dropWords": [],
+            "threshold": 0.88,
+            "decisions": {}
+          }
+        },
+        "unmatchedLabel": "Not matched",
+        "matches": [
+          {
+            "name": "Falaba District",
+            "compared": "falaba district",
+            "outcome": "none",
+            "value": null,
+            "score": null,
+            "candidates": []
+          },
+          {
+            "name": "Western Area Rural District",
+            "compared": "western area rural district",
+            "outcome": "spelling",
+            "value": "Western Area Rural",
+            "score": 0.9333333333333333,
+            "candidates": [
+              {
+                "value": "Western Area Rural",
+                "score": 0.9333333333333333
+              },
+              {
+                "value": "Western Area Urban",
+                "score": 0.8837962962962963
+              }
+            ]
+          },
+          {
+            "name": "Kambia District",
+            "compared": "kambia district",
+            "outcome": "spelling",
+            "value": "Kambia",
+            "score": 0.88,
+            "candidates": [
+              {
+                "value": "Kambia",
+                "score": 0.88
+              }
+            ]
+          },
+          {
+            "name": "Western Area Urban District",
+            "compared": "western area urban district",
+            "outcome": "spelling",
+            "value": "Western Area Urban",
+            "score": 0.9333333333333333,
+            "candidates": [
+              {
+                "value": "Western Area Urban",
+                "score": 0.9333333333333333
+              },
+              {
+                "value": "Western Area Rural",
+                "score": 0.891285403050109
+              }
+            ]
+          },
+          {
+            "name": "Bo District",
+            "compared": "bo district",
+            "outcome": "none",
+            "value": null,
+            "score": null,
+            "candidates": []
+          },
+          {
+            "name": "Karene District",
+            "compared": "karene district",
+            "outcome": "spelling",
+            "value": "Karene",
+            "score": 0.88,
+            "candidates": [
+              {
+                "value": "Karene",
+                "score": 0.88
+              }
+            ]
+          },
+          {
+            "name": "Kailahun District",
+            "compared": "kailahun district",
+            "outcome": "spelling",
+            "value": "Kailahun",
+            "score": 0.8941176470588236,
+            "candidates": [
+              {
+                "value": "Kailahun",
+                "score": 0.8941176470588236
+              }
+            ]
+          },
+          {
+            "name": "Kenema District",
+            "compared": "kenema district",
+            "outcome": "spelling",
+            "value": "Kenema",
+            "score": 0.88,
+            "candidates": [
+              {
+                "value": "Kenema",
+                "score": 0.88
+              }
+            ]
+          },
+          {
+            "name": "Bombali District",
+            "compared": "bombali district",
+            "outcome": "spelling",
+            "value": "Bombali",
+            "score": 0.8875,
+            "candidates": [
+              {
+                "value": "Bombali",
+                "score": 0.8875
+              }
+            ]
+          },
+          {
+            "name": "Port Loko District",
+            "compared": "port loko district",
+            "outcome": "spelling",
+            "value": "Port Loko",
+            "score": 0.9,
+            "candidates": [
+              {
+                "value": "Port Loko",
+                "score": 0.9
+              }
+            ]
+          },
+          {
+            "name": "Moyamba District",
+            "compared": "moyamba district",
+            "outcome": "spelling",
+            "value": "Moyamba",
+            "score": 0.8875,
+            "candidates": [
+              {
+                "value": "Moyamba",
+                "score": 0.8875
+              }
+            ]
+          },
+          {
+            "name": "Bonthe District",
+            "compared": "bonthe district",
+            "outcome": "spelling",
+            "value": "Bonthe",
+            "score": 0.88,
+            "candidates": [
+              {
+                "value": "Bonthe",
+                "score": 0.88
+              }
+            ]
+          },
+          {
+            "name": "Tonkolili District",
+            "compared": "tonkolili district",
+            "outcome": "spelling",
+            "value": "Tonkolili",
+            "score": 0.9,
+            "candidates": [
+              {
+                "value": "Tonkolili",
+                "score": 0.9
+              }
+            ]
+          },
+          {
+            "name": "Pujehun District",
+            "compared": "pujehun district",
+            "outcome": "spelling",
+            "value": "Pujehun",
+            "score": 0.8875,
+            "candidates": [
+              {
+                "value": "Pujehun",
+                "score": 0.8875
+              }
+            ]
+          },
+          {
+            "name": "Kono District",
+            "compared": "kono district",
+            "outcome": "none",
+            "value": null,
+            "score": null,
+            "candidates": []
+          },
+          {
+            "name": "Koinadugu District",
+            "compared": "koinadugu district",
+            "outcome": "spelling",
+            "value": "Koinadugu",
+            "score": 0.9,
+            "candidates": [
+              {
+                "value": "Koinadugu",
+                "score": 0.9
+              }
+            ]
+          }
+        ],
+        "table": {
+          "keys": [
+            "Residential District",
+            "district",
+            "Residential District match"
+          ],
+          "valueField": "cases",
+          "rowCount": 17,
+          "rows": [
+            {
+              "key": {
+                "Residential District": "",
+                "district": "Not matched",
+                "Residential District match": "no name"
+              },
+              "value": 464
+            },
+            {
+              "key": {
+                "Residential District": "Falaba District",
+                "district": "Not matched",
+                "Residential District match": "not found"
+              },
+              "value": 38
+            },
+            {
+              "key": {
+                "Residential District": "Western Area Rural District",
+                "district": "Western Area Rural",
+                "Residential District match": "matched allowing for spelling (0.93)"
+              },
+              "value": 299
+            },
+            {
+              "key": {
+                "Residential District": "Kambia District",
+                "district": "Kambia",
+                "Residential District match": "matched allowing for spelling (0.88)"
+              },
+              "value": 310
+            },
+            {
+              "key": {
+                "Residential District": "Western Area Urban District",
+                "district": "Western Area Urban",
+                "Residential District match": "matched allowing for spelling (0.93)"
+              },
+              "value": 705
+            },
+            {
+              "key": {
+                "Residential District": "Bo District",
+                "district": "Not matched",
+                "Residential District match": "not found"
+              },
+              "value": 34
+            },
+            {
+              "key": {
+                "Residential District": "Karene District",
+                "district": "Karene",
+                "Residential District match": "matched allowing for spelling (0.88)"
+              },
+              "value": 67
+            },
+            {
+              "key": {
+                "Residential District": "Kailahun District",
+                "district": "Kailahun",
+                "Residential District match": "matched allowing for spelling (0.89)"
+              },
+              "value": 56
+            },
+            {
+              "key": {
+                "Residential District": "Kenema District",
+                "district": "Kenema",
+                "Residential District match": "matched allowing for spelling (0.88)"
+              },
+              "value": 21
+            },
+            {
+              "key": {
+                "Residential District": "Bombali District",
+                "district": "Bombali",
+                "Residential District match": "matched allowing for spelling (0.89)"
+              },
+              "value": 24
+            },
+            {
+              "key": {
+                "Residential District": "Port Loko District",
+                "district": "Port Loko",
+                "Residential District match": "matched allowing for spelling (0.90)"
+              },
+              "value": 352
+            },
+            {
+              "key": {
+                "Residential District": "Moyamba District",
+                "district": "Moyamba",
+                "Residential District match": "matched allowing for spelling (0.89)"
+              },
+              "value": 35
+            },
+            {
+              "key": {
+                "Residential District": "Bonthe District",
+                "district": "Bonthe",
+                "Residential District match": "matched allowing for spelling (0.88)"
+              },
+              "value": 20
+            },
+            {
+              "key": {
+                "Residential District": "Tonkolili District",
+                "district": "Tonkolili",
+                "Residential District match": "matched allowing for spelling (0.90)"
+              },
+              "value": 68
+            },
+            {
+              "key": {
+                "Residential District": "Pujehun District",
+                "district": "Pujehun",
+                "Residential District match": "matched allowing for spelling (0.89)"
+              },
+              "value": 8
+            },
+            {
+              "key": {
+                "Residential District": "Kono District",
+                "district": "Not matched",
+                "Residential District match": "not found"
+              },
+              "value": 80
+            },
+            {
+              "key": {
+                "Residential District": "Koinadugu District",
+                "district": "Koinadugu",
+                "Residential District match": "matched allowing for spelling (0.90)"
+              },
+              "value": 25
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "note": "Recompute each case from `input`, `declaredParameters` and the case's `request`.",
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "1b40a590d2d932fb4583066b66bc070715c85f46dd6a08203a6863a5a2e97da0"
+  }
+}

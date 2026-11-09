@@ -1,0 +1,989 @@
+{
+ "check": "40-relate-spelling",
+ "ranAt": "2026-11-09T04:17:36+00:00",
+ "fixture": {
+  "id": "relate-spelling-sl-001",
+  "sha256": "1b40a590d2d932fb4583066b66bc070715c85f46dd6a08203a6863a5a2e97da0",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.67.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:relate_table",
+   "release": "0.10.0",
+   "label": "Relate a column from another table, allowing for spelling",
+   "implementation": "src/spelling-match.ts#linkNames"
+  }
+ },
+ "agrees": true,
+ "criteria": "folded names exact; outcome and match equal, decided from rapidfuzz's score under the declared rule; spelling scores within 1e-9 of rapidfuzz; every related row equal to a pandas left merge",
+ "comparisons": [
+  {
+   "case": 1,
+   "note": "District dropped, spelling allowed to 0.88 (the default): the boundary's district brought across, the blank kept under a named category",
+   "request": {
+    "on": "Residential District",
+    "rightOn": "district",
+    "bring": "district",
+    "spelling": {
+     "dropWords": [
+      "District"
+     ],
+     "threshold": 0.88,
+     "decisions": {}
+    }
+   },
+   "agrees": true,
+   "rowsAgree": true,
+   "rows": 17,
+   "outcomes": {
+    "exact": 15,
+    "spelling": 1
+   },
+   "names": [
+    {
+     "name": "Bo District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bo",
+      "outcome": "exact",
+      "value": "Bo",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "bo",
+      "outcome": "exact",
+      "value": "Bo",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Bombali District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bombali",
+      "outcome": "exact",
+      "value": "Bombali",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "bombali",
+      "outcome": "exact",
+      "value": "Bombali",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Bonthe District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bonthe",
+      "outcome": "exact",
+      "value": "Bonthe",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "bonthe",
+      "outcome": "exact",
+      "value": "Bonthe",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Falaba District",
+     "agrees": true,
+     "pandas": {
+      "compared": "falaba",
+      "outcome": "spelling",
+      "value": "Fabala",
+      "score": 0.9555555555555556
+     },
+     "fieldwork": {
+      "compared": "falaba",
+      "outcome": "spelling",
+      "value": "Fabala",
+      "score": 0.9555555555555556
+     },
+     "jellyfish": 0.9555555555555556,
+     "onThreshold": false
+    },
+    {
+     "name": "Kailahun District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kailahun",
+      "outcome": "exact",
+      "value": "Kailahun",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kailahun",
+      "outcome": "exact",
+      "value": "Kailahun",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kambia District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kambia",
+      "outcome": "exact",
+      "value": "Kambia",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kambia",
+      "outcome": "exact",
+      "value": "Kambia",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Karene District",
+     "agrees": true,
+     "pandas": {
+      "compared": "karene",
+      "outcome": "exact",
+      "value": "Karene",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "karene",
+      "outcome": "exact",
+      "value": "Karene",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kenema District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kenema",
+      "outcome": "exact",
+      "value": "Kenema",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kenema",
+      "outcome": "exact",
+      "value": "Kenema",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Koinadugu District",
+     "agrees": true,
+     "pandas": {
+      "compared": "koinadugu",
+      "outcome": "exact",
+      "value": "Koinadugu",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "koinadugu",
+      "outcome": "exact",
+      "value": "Koinadugu",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kono District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kono",
+      "outcome": "exact",
+      "value": "Kono",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kono",
+      "outcome": "exact",
+      "value": "Kono",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Moyamba District",
+     "agrees": true,
+     "pandas": {
+      "compared": "moyamba",
+      "outcome": "exact",
+      "value": "Moyamba",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "moyamba",
+      "outcome": "exact",
+      "value": "Moyamba",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Port Loko District",
+     "agrees": true,
+     "pandas": {
+      "compared": "port loko",
+      "outcome": "exact",
+      "value": "Port Loko",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "port loko",
+      "outcome": "exact",
+      "value": "Port Loko",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Pujehun District",
+     "agrees": true,
+     "pandas": {
+      "compared": "pujehun",
+      "outcome": "exact",
+      "value": "Pujehun",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "pujehun",
+      "outcome": "exact",
+      "value": "Pujehun",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Tonkolili District",
+     "agrees": true,
+     "pandas": {
+      "compared": "tonkolili",
+      "outcome": "exact",
+      "value": "Tonkolili",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "tonkolili",
+      "outcome": "exact",
+      "value": "Tonkolili",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Western Area Rural District",
+     "agrees": true,
+     "pandas": {
+      "compared": "western area rural",
+      "outcome": "exact",
+      "value": "Western Area Rural",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "western area rural",
+      "outcome": "exact",
+      "value": "Western Area Rural",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Western Area Urban District",
+     "agrees": true,
+     "pandas": {
+      "compared": "western area urban",
+      "outcome": "exact",
+      "value": "Western Area Urban",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "western area urban",
+      "outcome": "exact",
+      "value": "Western Area Urban",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    }
+   ]
+  },
+  {
+   "case": 2,
+   "note": "The same at 0.96: Falaba's spelling, 0.956, is below it and not found",
+   "request": {
+    "on": "Residential District",
+    "rightOn": "district",
+    "bring": "district",
+    "spelling": {
+     "dropWords": [
+      "District"
+     ],
+     "threshold": 0.96,
+     "decisions": {}
+    }
+   },
+   "agrees": true,
+   "rowsAgree": true,
+   "rows": 17,
+   "outcomes": {
+    "exact": 15,
+    "none": 1
+   },
+   "names": [
+    {
+     "name": "Bo District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bo",
+      "outcome": "exact",
+      "value": "Bo",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "bo",
+      "outcome": "exact",
+      "value": "Bo",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Bombali District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bombali",
+      "outcome": "exact",
+      "value": "Bombali",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "bombali",
+      "outcome": "exact",
+      "value": "Bombali",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Bonthe District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bonthe",
+      "outcome": "exact",
+      "value": "Bonthe",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "bonthe",
+      "outcome": "exact",
+      "value": "Bonthe",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Falaba District",
+     "agrees": true,
+     "pandas": {
+      "compared": "falaba",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "fieldwork": {
+      "compared": "falaba",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kailahun District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kailahun",
+      "outcome": "exact",
+      "value": "Kailahun",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kailahun",
+      "outcome": "exact",
+      "value": "Kailahun",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kambia District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kambia",
+      "outcome": "exact",
+      "value": "Kambia",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kambia",
+      "outcome": "exact",
+      "value": "Kambia",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Karene District",
+     "agrees": true,
+     "pandas": {
+      "compared": "karene",
+      "outcome": "exact",
+      "value": "Karene",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "karene",
+      "outcome": "exact",
+      "value": "Karene",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kenema District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kenema",
+      "outcome": "exact",
+      "value": "Kenema",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kenema",
+      "outcome": "exact",
+      "value": "Kenema",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Koinadugu District",
+     "agrees": true,
+     "pandas": {
+      "compared": "koinadugu",
+      "outcome": "exact",
+      "value": "Koinadugu",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "koinadugu",
+      "outcome": "exact",
+      "value": "Koinadugu",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kono District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kono",
+      "outcome": "exact",
+      "value": "Kono",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "kono",
+      "outcome": "exact",
+      "value": "Kono",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Moyamba District",
+     "agrees": true,
+     "pandas": {
+      "compared": "moyamba",
+      "outcome": "exact",
+      "value": "Moyamba",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "moyamba",
+      "outcome": "exact",
+      "value": "Moyamba",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Port Loko District",
+     "agrees": true,
+     "pandas": {
+      "compared": "port loko",
+      "outcome": "exact",
+      "value": "Port Loko",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "port loko",
+      "outcome": "exact",
+      "value": "Port Loko",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Pujehun District",
+     "agrees": true,
+     "pandas": {
+      "compared": "pujehun",
+      "outcome": "exact",
+      "value": "Pujehun",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "pujehun",
+      "outcome": "exact",
+      "value": "Pujehun",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Tonkolili District",
+     "agrees": true,
+     "pandas": {
+      "compared": "tonkolili",
+      "outcome": "exact",
+      "value": "Tonkolili",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "tonkolili",
+      "outcome": "exact",
+      "value": "Tonkolili",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Western Area Rural District",
+     "agrees": true,
+     "pandas": {
+      "compared": "western area rural",
+      "outcome": "exact",
+      "value": "Western Area Rural",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "western area rural",
+      "outcome": "exact",
+      "value": "Western Area Rural",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Western Area Urban District",
+     "agrees": true,
+     "pandas": {
+      "compared": "western area urban",
+      "outcome": "exact",
+      "value": "Western Area Urban",
+      "score": 1.0
+     },
+     "fieldwork": {
+      "compared": "western area urban",
+      "outcome": "exact",
+      "value": "Western Area Urban",
+      "score": 1
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    }
+   ]
+  },
+  {
+   "case": 3,
+   "note": "The same at 0.88 without dropping District: names that matched exactly after dropping it are compared with it",
+   "request": {
+    "on": "Residential District",
+    "rightOn": "district",
+    "bring": "district",
+    "spelling": {
+     "dropWords": [],
+     "threshold": 0.88,
+     "decisions": {}
+    }
+   },
+   "agrees": true,
+   "rowsAgree": true,
+   "rows": 17,
+   "outcomes": {
+    "spelling": 13,
+    "none": 3
+   },
+   "names": [
+    {
+     "name": "Bo District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bo district",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "fieldwork": {
+      "compared": "bo district",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Bombali District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bombali district",
+      "outcome": "spelling",
+      "value": "Bombali",
+      "score": 0.8875
+     },
+     "fieldwork": {
+      "compared": "bombali district",
+      "outcome": "spelling",
+      "value": "Bombali",
+      "score": 0.8875
+     },
+     "jellyfish": 0.8875,
+     "onThreshold": false
+    },
+    {
+     "name": "Bonthe District",
+     "agrees": true,
+     "pandas": {
+      "compared": "bonthe district",
+      "outcome": "spelling",
+      "value": "Bonthe",
+      "score": 0.88
+     },
+     "fieldwork": {
+      "compared": "bonthe district",
+      "outcome": "spelling",
+      "value": "Bonthe",
+      "score": 0.88
+     },
+     "jellyfish": 0.88,
+     "onThreshold": true
+    },
+    {
+     "name": "Falaba District",
+     "agrees": true,
+     "pandas": {
+      "compared": "falaba district",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "fieldwork": {
+      "compared": "falaba district",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Kailahun District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kailahun district",
+      "outcome": "spelling",
+      "value": "Kailahun",
+      "score": 0.8941176470588236
+     },
+     "fieldwork": {
+      "compared": "kailahun district",
+      "outcome": "spelling",
+      "value": "Kailahun",
+      "score": 0.8941176470588236
+     },
+     "jellyfish": 0.8941176470588236,
+     "onThreshold": false
+    },
+    {
+     "name": "Kambia District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kambia district",
+      "outcome": "spelling",
+      "value": "Kambia",
+      "score": 0.88
+     },
+     "fieldwork": {
+      "compared": "kambia district",
+      "outcome": "spelling",
+      "value": "Kambia",
+      "score": 0.88
+     },
+     "jellyfish": 0.88,
+     "onThreshold": true
+    },
+    {
+     "name": "Karene District",
+     "agrees": true,
+     "pandas": {
+      "compared": "karene district",
+      "outcome": "spelling",
+      "value": "Karene",
+      "score": 0.88
+     },
+     "fieldwork": {
+      "compared": "karene district",
+      "outcome": "spelling",
+      "value": "Karene",
+      "score": 0.88
+     },
+     "jellyfish": 0.88,
+     "onThreshold": true
+    },
+    {
+     "name": "Kenema District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kenema district",
+      "outcome": "spelling",
+      "value": "Kenema",
+      "score": 0.88
+     },
+     "fieldwork": {
+      "compared": "kenema district",
+      "outcome": "spelling",
+      "value": "Kenema",
+      "score": 0.88
+     },
+     "jellyfish": 0.88,
+     "onThreshold": true
+    },
+    {
+     "name": "Koinadugu District",
+     "agrees": true,
+     "pandas": {
+      "compared": "koinadugu district",
+      "outcome": "spelling",
+      "value": "Koinadugu",
+      "score": 0.9
+     },
+     "fieldwork": {
+      "compared": "koinadugu district",
+      "outcome": "spelling",
+      "value": "Koinadugu",
+      "score": 0.9
+     },
+     "jellyfish": 0.9,
+     "onThreshold": false
+    },
+    {
+     "name": "Kono District",
+     "agrees": true,
+     "pandas": {
+      "compared": "kono district",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "fieldwork": {
+      "compared": "kono district",
+      "outcome": "none",
+      "value": null,
+      "score": null
+     },
+     "jellyfish": null,
+     "onThreshold": false
+    },
+    {
+     "name": "Moyamba District",
+     "agrees": true,
+     "pandas": {
+      "compared": "moyamba district",
+      "outcome": "spelling",
+      "value": "Moyamba",
+      "score": 0.8875
+     },
+     "fieldwork": {
+      "compared": "moyamba district",
+      "outcome": "spelling",
+      "value": "Moyamba",
+      "score": 0.8875
+     },
+     "jellyfish": 0.8875,
+     "onThreshold": false
+    },
+    {
+     "name": "Port Loko District",
+     "agrees": true,
+     "pandas": {
+      "compared": "port loko district",
+      "outcome": "spelling",
+      "value": "Port Loko",
+      "score": 0.9
+     },
+     "fieldwork": {
+      "compared": "port loko district",
+      "outcome": "spelling",
+      "value": "Port Loko",
+      "score": 0.9
+     },
+     "jellyfish": 0.9,
+     "onThreshold": false
+    },
+    {
+     "name": "Pujehun District",
+     "agrees": true,
+     "pandas": {
+      "compared": "pujehun district",
+      "outcome": "spelling",
+      "value": "Pujehun",
+      "score": 0.8875
+     },
+     "fieldwork": {
+      "compared": "pujehun district",
+      "outcome": "spelling",
+      "value": "Pujehun",
+      "score": 0.8875
+     },
+     "jellyfish": 0.8875,
+     "onThreshold": false
+    },
+    {
+     "name": "Tonkolili District",
+     "agrees": true,
+     "pandas": {
+      "compared": "tonkolili district",
+      "outcome": "spelling",
+      "value": "Tonkolili",
+      "score": 0.9
+     },
+     "fieldwork": {
+      "compared": "tonkolili district",
+      "outcome": "spelling",
+      "value": "Tonkolili",
+      "score": 0.9
+     },
+     "jellyfish": 0.9,
+     "onThreshold": false
+    },
+    {
+     "name": "Western Area Rural District",
+     "agrees": true,
+     "pandas": {
+      "compared": "western area rural district",
+      "outcome": "spelling",
+      "value": "Western Area Rural",
+      "score": 0.9333333333333333
+     },
+     "fieldwork": {
+      "compared": "western area rural district",
+      "outcome": "spelling",
+      "value": "Western Area Rural",
+      "score": 0.9333333333333333
+     },
+     "jellyfish": 0.9333333333333333,
+     "onThreshold": false
+    },
+    {
+     "name": "Western Area Urban District",
+     "agrees": true,
+     "pandas": {
+      "compared": "western area urban district",
+      "outcome": "spelling",
+      "value": "Western Area Urban",
+      "score": 0.9333333333333333
+     },
+     "fieldwork": {
+      "compared": "western area urban district",
+      "outcome": "spelling",
+      "value": "Western Area Urban",
+      "score": 0.9333333333333333
+     },
+     "jellyfish": 0.9333333333333333,
+     "onThreshold": false
+    }
+   ]
+  }
+ ],
+ "jellyfishDiffers": [],
+ "onThreshold": [
+  {
+   "case": 3,
+   "name": "Bonthe District"
+  },
+  {
+   "case": 3,
+   "name": "Kambia District"
+  },
+  {
+   "case": 3,
+   "name": "Karene District"
+  },
+  {
+   "case": 3,
+   "name": "Kenema District"
+  }
+ ],
+ "notEstablished": [
+  "That a spelling match is the same place: Fabala is Falaba because COD-AB holds no other district like it.",
+  "That 0.88 suits district names: without District dropped, most names still pass it on their shared prefix."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "pandas": "2.3.3",
+  "rapidfuzz": "3.14.6",
+  "jellyfish": "1.3.0",
+  "pyodide": false
+ }
+}
