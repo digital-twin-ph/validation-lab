@@ -1,0 +1,173 @@
+{
+ "check": "42-sea-level-heights",
+ "ranAt": "2026-11-09T16:32:28+00:00",
+ "fixture": {
+  "id": "sea-level-heights-manila-001",
+  "sha256": "7ba96be4f1b60c24492d3ff1e7fe36495c224d2855c2b3bbaa7f5b60b7373631",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.71.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:sample_raster",
+   "release": "0.2.0",
+   "label": "Sample raster, rules and the published comparison: Manila facilities against projected sea level",
+   "implementation": "src/sample-raster.ts#sampleRaster; src/rule-evaluation.ts#evaluateAuthored"
+  }
+ },
+ "agrees": true,
+ "criteria": "EGM2008 and DTU25MSS at each AR6 site within 1e-9 m of SciPy's bilinear value over the nodes; each facility's ground exactly rasterio's cell, its nearest site the haversine minimum; every height within 1e-9 m of the declared arithmetic; every level equal, and the count of Reaches",
+ "sites": [
+  {
+   "site_id": "145",
+   "position": [
+    120.97,
+    14.58
+   ],
+   "scipy": {
+    "egm2008M": 43.04232122802736,
+    "mssM": 43.942645714102525
+   },
+   "fieldwork": {
+    "egm2008M": 43.042321228027376,
+    "mssM": 43.942645714102525
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "260",
+   "position": [
+    121,
+    6.07
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "394",
+   "position": [
+    123.92,
+    10.3
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "522",
+   "position": [
+    123.75,
+    13.15
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "537",
+   "position": [
+    125.63,
+    7.08
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "664",
+   "position": [
+    125,
+    11.25
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "1708",
+   "position": [
+    125.5,
+    9.78
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  },
+  {
+   "site_id": "1711",
+   "position": [
+    121.08,
+    12.33
+   ],
+   "scipy": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "fieldwork": {
+    "egm2008M": null,
+    "mssM": null
+   },
+   "agrees": true
+  }
+ ],
+ "manila": {
+  "egm2008M": 43.04232122802736,
+  "mssM": 43.942645714102525,
+  "seaAboveGeoidM": 0.9003244860751636
+ },
+ "facilities": 194,
+ "reaches": 16,
+ "fieldworkReaches": 16,
+ "differs": [],
+ "withinOneMillimetre": [],
+ "notEstablished": [
+  "That a facility below the projected level will flood: no tide, surge, defence or drainage, and DeltaDTM is least certain at the coast.",
+  "That the EGM2008 cut is PROJ's whole grid; its value at the gauge is checked against pyproj in Fieldwork's tests.",
+  "That OpenStreetMap's 194 facilities are all the facilities there are."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "rasterio": "1.5.2",
+  "gdal": "3.12.2",
+  "scipy": "1.18.1",
+  "numpy": "2.5.3",
+  "pyodide": false
+ }
+}
