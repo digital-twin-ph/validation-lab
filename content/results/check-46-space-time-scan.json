@@ -1,16 +1,16 @@
 {
  "check": "46-space-time-scan",
- "ranAt": "2026-11-10T13:08:05+00:00",
+ "ranAt": "2026-11-10T13:14:06+00:00",
  "fixture": {
   "id": "scan-hagelloch-001",
-  "sha256": "21248921af3045fee839da4141cb3857fdde5546f329684b75c5da3d5673fc82",
+  "sha256": "894c659e090e9b9611efbd78ded0c6fd9d5f1262efe7ca9f633def730a46c6b2",
   "application": {
    "name": "Fieldwork",
    "version": "0.77.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:space_time_scan",
-   "release": "0.1.0",
+   "release": "0.1.1",
    "label": "Space-time scan: Hagelloch 1861 by day of prodrome",
    "implementation": "src/space-time-scan.ts#spaceTimeScan"
   }

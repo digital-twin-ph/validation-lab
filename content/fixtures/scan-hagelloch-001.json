@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "scan-hagelloch-001",
-  "exportedAt": "2026-11-10T13:07:11.238Z",
+  "exportedAt": "2026-11-10T13:11:23.947Z",
   "application": {
     "name": "Fieldwork",
     "version": "0.77.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:space_time_scan",
-    "release": "0.1.0",
+    "release": "0.1.1",
     "label": "Space-time scan: Hagelloch 1861 by day of prodrome",
     "implementation": "src/space-time-scan.ts#spaceTimeScan"
   },
@@ -1380,6 +1380,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "21248921af3045fee839da4141cb3857fdde5546f329684b75c5da3d5673fc82"
+    "value": "894c659e090e9b9611efbd78ded0c6fd9d5f1262efe7ca9f633def730a46c6b2"
   }
 }
