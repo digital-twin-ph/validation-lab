@@ -1,22 +1,22 @@
 {
  "check": "46-space-time-scan",
- "ranAt": "2026-11-10T13:14:06+00:00",
+ "ranAt": "2026-11-10T13:33:06+00:00",
  "fixture": {
   "id": "scan-hagelloch-001",
-  "sha256": "894c659e090e9b9611efbd78ded0c6fd9d5f1262efe7ca9f633def730a46c6b2",
+  "sha256": "4c65db9e5d6c24aa9243a1982033e9e0d52a31af62277863cc3b79d6db3908b0",
   "application": {
    "name": "Fieldwork",
    "version": "0.77.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:space_time_scan",
-   "release": "0.1.1",
+   "release": "0.2.0",
    "label": "Space-time scan: Hagelloch 1861 by day of prodrome",
    "implementation": "src/space-time-scan.ts#spaceTimeScan"
   }
  },
  "agrees": true,
- "criteria": "The same circles, runs and windows; for every cluster the same places, days, observed and expected cases and score to 1e-9; p-values within three standard errors of the difference plus the 1/(R+1) step",
+ "criteria": "The same circles, runs and windows; for every cluster the same places, days, observed and expected cases and score to 1e-9; p-values within three standard errors of the difference plus the 1/(R+1) step; the replay's every day alike, and its p-value within that error wherever Fieldwork's is at or under 0.1",
  "totals": {
   "cases": 188,
   "places": 56,
@@ -38,42 +38,42 @@
    "rank": 1,
    "fieldwork": 0.001,
    "here": 0.001,
-   "allowed": 0.006242640687119286,
+   "allowed": 0.0062,
    "within": true
   },
   {
    "rank": 2,
    "fieldwork": 0.072,
    "here": 0.064,
-   "allowed": 0.03579215752079038,
+   "allowed": 0.0358,
    "within": true
   },
   {
    "rank": 3,
    "fieldwork": 0.784,
    "here": 0.807,
-   "allowed": 0.05614024996863855,
+   "allowed": 0.0561,
    "within": true
   },
   {
    "rank": 4,
    "fieldwork": 0.805,
    "here": 0.843,
-   "allowed": 0.05311795227750271,
+   "allowed": 0.0531,
    "within": true
   },
   {
    "rank": 5,
    "fieldwork": 0.98,
    "here": 0.98,
-   "allowed": 0.020792369545992687,
+   "allowed": 0.0208,
    "within": true
   },
   {
    "rank": 6,
    "fieldwork": 0.999,
    "here": 0.999,
-   "allowed": 0.0062426406871192875,
+   "allowed": 0.0062,
    "within": true
   },
   {
@@ -106,16 +106,229 @@
   }
  ],
  "differs": [],
+ "replay": {
+  "days": 87,
+  "firstAt05InFieldwork": "1861-11-21",
+  "firstAt05Here": "1861-11-21",
+  "pValuesChecked": [
+   {
+    "day": "1861-11-20",
+    "fieldwork": 0.093,
+    "here": 0.082,
+    "allowed": 0.0399,
+    "within": true
+   },
+   {
+    "day": "1861-11-21",
+    "fieldwork": 0.041,
+    "here": 0.042,
+    "allowed": 0.0288,
+    "within": true
+   },
+   {
+    "day": "1861-11-22",
+    "fieldwork": 0.081,
+    "here": 0.078,
+    "allowed": 0.0383,
+    "within": true
+   },
+   {
+    "day": "1861-12-05",
+    "fieldwork": 0.048,
+    "here": 0.044,
+    "allowed": 0.0301,
+    "within": true
+   },
+   {
+    "day": "1861-12-06",
+    "fieldwork": 0.065,
+    "here": 0.058,
+    "allowed": 0.0342,
+    "within": true
+   },
+   {
+    "day": "1861-12-13",
+    "fieldwork": 0.064,
+    "here": 0.057,
+    "allowed": 0.034,
+    "within": true
+   },
+   {
+    "day": "1861-12-14",
+    "fieldwork": 0.087,
+    "here": 0.097,
+    "allowed": 0.0408,
+    "within": true
+   },
+   {
+    "day": "1861-12-15",
+    "fieldwork": 0.097,
+    "here": 0.076,
+    "allowed": 0.0397,
+    "within": true
+   },
+   {
+    "day": "1861-12-16",
+    "fieldwork": 0.097,
+    "here": 0.088,
+    "allowed": 0.0409,
+    "within": true
+   },
+   {
+    "day": "1861-12-17",
+    "fieldwork": 0.097,
+    "here": 0.092,
+    "allowed": 0.0413,
+    "within": true
+   },
+   {
+    "day": "1861-12-18",
+    "fieldwork": 0.097,
+    "here": 0.083,
+    "allowed": 0.0404,
+    "within": true
+   },
+   {
+    "day": "1861-12-19",
+    "fieldwork": 0.097,
+    "here": 0.084,
+    "allowed": 0.0405,
+    "within": true
+   },
+   {
+    "day": "1861-12-20",
+    "fieldwork": 0.097,
+    "here": 0.088,
+    "allowed": 0.0409,
+    "within": true
+   },
+   {
+    "day": "1861-12-21",
+    "fieldwork": 0.097,
+    "here": 0.092,
+    "allowed": 0.0413,
+    "within": true
+   },
+   {
+    "day": "1861-12-22",
+    "fieldwork": 0.097,
+    "here": 0.087,
+    "allowed": 0.0408,
+    "within": true
+   },
+   {
+    "day": "1861-12-23",
+    "fieldwork": 0.097,
+    "here": 0.09,
+    "allowed": 0.0411,
+    "within": true
+   },
+   {
+    "day": "1861-12-24",
+    "fieldwork": 0.097,
+    "here": 0.097,
+    "allowed": 0.0417,
+    "within": true
+   },
+   {
+    "day": "1861-12-25",
+    "fieldwork": 0.097,
+    "here": 0.076,
+    "allowed": 0.0397,
+    "within": true
+   },
+   {
+    "day": "1861-12-26",
+    "fieldwork": 0.097,
+    "here": 0.086,
+    "allowed": 0.0407,
+    "within": true
+   },
+   {
+    "day": "1861-12-27",
+    "fieldwork": 0.097,
+    "here": 0.1,
+    "allowed": 0.042,
+    "within": true
+   },
+   {
+    "day": "1861-12-28",
+    "fieldwork": 0.097,
+    "here": 0.081,
+    "allowed": 0.0402,
+    "within": true
+   },
+   {
+    "day": "1861-12-29",
+    "fieldwork": 0.097,
+    "here": 0.1,
+    "allowed": 0.042,
+    "within": true
+   },
+   {
+    "day": "1861-12-30",
+    "fieldwork": 0.097,
+    "here": 0.08,
+    "allowed": 0.0401,
+    "within": true
+   },
+   {
+    "day": "1861-12-31",
+    "fieldwork": 0.097,
+    "here": 0.081,
+    "allowed": 0.0402,
+    "within": true
+   },
+   {
+    "day": "1862-01-01",
+    "fieldwork": 0.097,
+    "here": 0.093,
+    "allowed": 0.0414,
+    "within": true
+   },
+   {
+    "day": "1862-01-02",
+    "fieldwork": 0.097,
+    "here": 0.098,
+    "allowed": 0.0418,
+    "within": true
+   },
+   {
+    "day": "1862-01-03",
+    "fieldwork": 0.097,
+    "here": 0.089,
+    "allowed": 0.041,
+    "within": true
+   },
+   {
+    "day": "1862-01-04",
+    "fieldwork": 0.097,
+    "here": 0.092,
+    "allowed": 0.0413,
+    "within": true
+   },
+   {
+    "day": "1862-01-05",
+    "fieldwork": 0.097,
+    "here": 0.089,
+    "allowed": 0.041,
+    "within": true
+   }
+  ],
+  "differs": [],
+  "seconds": 32.5
+ },
  "shuffles": {
   "replications": 999,
   "generator": "numpy default_rng (PCG64)",
   "seed": 46,
-  "seconds": 38.7
+  "seconds": 38.8
  },
  "notEstablished": [
   "That a cluster is an outbreak: both sides compute the same statistic; neither says what it means.",
   "That the space-time permutation model suits measles in a village: it compares timing across places and cannot see where people live.",
-  "That the p-values are the same to the digit: they come from different random numbers, so they agree only within Monte Carlo error."
+  "That the p-values are the same to the digit: they come from different random numbers, so they agree only within Monte Carlo error. On a day near 0.05 the first day flagged can differ for that reason alone.",
+  "The replay's p-values where Fieldwork's exceed 0.1: not reshuffled here, to keep the check to minutes in a browser; its clusters and scores are checked on every day."
  ],
  "environment": {
   "runtime": "CPython 3.13.3",
