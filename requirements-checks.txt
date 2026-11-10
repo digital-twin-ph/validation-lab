@@ -25,3 +25,7 @@ statsmodels==0.15.0
 geopandas==1.2.0
 # An HDF5 reader by other authors than Fieldwork's h5wasm, for check 35. Both sit on libhdf5, which the check says.
 h5py==3.16.0
+# Check 47: a QR encoder and a QR decoder by other authors than Fieldwork's qrcode-generator. segno draws the code
+# the standard asks for; OpenCV reads the one Fieldwork drew. CPython only: OpenCV is not in the browser kernel.
+segno==1.6.6
+opencv-python-headless==5.0.0.93

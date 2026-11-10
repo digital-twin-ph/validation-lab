@@ -1,0 +1,228 @@
+{
+ "check": "47-qr-links",
+ "ranAt": "2026-11-10T16:00:04+00:00",
+ "fixture": {
+  "id": "qr-links-001",
+  "sha256": "dcc277f4dc576f0e58fb50bca61914b095655d7031bda1cdbe1b131ce177f011",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.79.0"
+  },
+  "operation": {
+   "component": "example-links",
+   "release": "0.79.0",
+   "label": "The QR codes a worked example's write-up prints",
+   "implementation": "src/qr.ts#qrMatrix"
+  }
+ },
+ "agrees": true,
+ "criteria": "Every code reads back to its address by OpenCV; segno makes a code of the same version for it, and segno's own code reads back too",
+ "addresses": 24,
+ "samePatternAsSegno": 0,
+ "codes": [
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=south-london-1854",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-1855-cholera-south-london/tree/ac89868c3ee37c31202ed37edfeec66744f2c2dc",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=oswego-1940",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-1940-oswego-church-supper/tree/d5853debe60633e51fa0c11a129f6b585a133e03",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=nigeria-immunization-2024",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2024-nigeria-immunization/tree/1798794473cdc178fe91b88e7ca76dc2b92edb9b",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=salmonella-germany-2021",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2021-salmonella-germany/tree/2ed5622907cf929934cbc1b51247fa99cd9486b2",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=nyc-asthma-ozone-2016-2025",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2025-nyc-ozone/tree/d8b488d3e400565ef24c2ae2955e45d012ef416e",
+   "version": 6,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=brazil-dengue-rj-2024",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2024-brazil-dengue/tree/bef77336119614536fd217311ce8f73e73c983f9",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=workflows-rulesets",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-workflows-rulesets/tree/474185b843ad426e0707e08c9f4b0e0abe16f5dd",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=sierra-leone-measles",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2019-sierra-leone-measles/tree/9fd39c61cfa05b9bf3b8ae74e11dc4d364594c11",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=sea-level-rise-philippines",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2026-sea-level-rise-philippines/tree/225bb33d78302ff80104b906cad9565f175854b7",
+   "version": 7,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=hagelloch",
+   "version": 4,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/fieldwork/tree/main/examples/hagelloch-1861",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=snow-voronoi",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/fieldwork/tree/main/examples/john-snow",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=old-naledi",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/fieldwork/tree/main/examples/old-naledi",
+   "version": 5,
+   "readBack": true,
+   "segnoSameSize": true,
+   "segnoReadBack": true,
+   "segnoSamePattern": false
+  }
+ ],
+ "differs": [],
+ "notEstablished": [
+  "That a phone camera reads a printed code at a given size and light.",
+  "That an address answers, or that the pinned commit is the one the write-up was made from: the export's checks.",
+  "Anything in the browser kernel: OpenCV is not there, so this ran in CPython only."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "opencv": "5.0.0",
+  "segno": "1.6.6",
+  "pyodide": false
+ }
+}
