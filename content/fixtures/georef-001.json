@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "georef-001",
-  "exportedAt": "2026-11-10T18:09:57.426Z",
+  "exportedAt": "2026-11-10T21:47:25.508Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.81.0"
+    "version": "0.82.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:map_image_input",
-    "release": "0.2.0",
+    "release": "0.3.0",
     "label": "Map image placed by matched points, affine, least squares",
     "implementation": "src/georeference.ts#fitPlacement"
   },
@@ -168,6 +168,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "fc736d8d01994f76f2d66dc2330e8b462311d43323301887d2d19494a16669a2"
+    "value": "aa25159604543e93b9db65a66657eaaed1b2b2be79b9ffc27902e8e55136f50b"
   }
 }
