@@ -1,0 +1,49 @@
+{
+ "check": "44-transmission-tree",
+ "ranAt": "2026-11-10T03:34:39+00:00",
+ "fixture": {
+  "id": "tree-hagelloch-001",
+  "sha256": "74575e6955a194ad3c2453763eb5c46f8cbba8036d0469a2a6baad6d4ff9ceb6",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.75.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:chart_output",
+   "release": "0.12.0",
+   "label": "Chart, transmission tree: who infected whom, Hagelloch 1861",
+   "implementation": "src/transmission-tree.ts#transmissionTree"
+  }
+ },
+ "agrees": true,
+ "criteria": "The same chain and generation for every case, against networkx components and shortest path lengths from each root; every case below its infector and each chain on consecutive rows; the same counts",
+ "counts": {
+  "cases": 188,
+  "chains": 4,
+  "links": 184,
+  "noInfector": 4
+ },
+ "chainSizes": [
+  173,
+  9,
+  5,
+  1
+ ],
+ "largest": {
+  "root": "184",
+  "size": 173,
+  "generations": 6
+ },
+ "rowsBelowInfector": true,
+ "chainsOnConsecutiveRows": true,
+ "differs": [],
+ "notEstablished": [
+  "Who infected whom: both sides read the 1861 reconstruction in the infector column.",
+  "That the figure is drawn as computed: this checks the computation the figure is drawn from."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "networkx": "3.6",
+  "pyodide": false
+ }
+}
