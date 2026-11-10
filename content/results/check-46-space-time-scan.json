@@ -1,16 +1,16 @@
 {
  "check": "46-space-time-scan",
- "ranAt": "2026-11-10T13:33:06+00:00",
+ "ranAt": "2026-11-10T19:03:19+00:00",
  "fixture": {
   "id": "scan-hagelloch-001",
-  "sha256": "4c65db9e5d6c24aa9243a1982033e9e0d52a31af62277863cc3b79d6db3908b0",
+  "sha256": "66a97e6d2a14b0135a27f72e1fcd69ef31fe86351f75abe1bc7a8cd9ea2046aa",
   "application": {
    "name": "Fieldwork",
-   "version": "0.77.0"
+   "version": "0.81.1"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:space_time_scan",
-   "release": "0.2.0",
+   "release": "0.3.1",
    "label": "Space-time scan: Hagelloch 1861 by day of prodrome",
    "implementation": "src/space-time-scan.ts#spaceTimeScan"
   }
@@ -21,9 +21,9 @@
   "cases": 188,
   "places": 56,
   "bins": 87,
-  "circles": 1347,
+  "circles": 1307,
   "runs": 2838,
-  "windows": 3822786
+  "windows": 3709266
  },
  "mostLikely": {
   "places": 1,
@@ -43,30 +43,30 @@
   },
   {
    "rank": 2,
-   "fieldwork": 0.072,
+   "fieldwork": 0.071,
    "here": 0.064,
-   "allowed": 0.0358,
+   "allowed": 0.0357,
    "within": true
   },
   {
    "rank": 3,
-   "fieldwork": 0.784,
-   "here": 0.807,
-   "allowed": 0.0561,
+   "fieldwork": 0.781,
+   "here": 0.802,
+   "allowed": 0.0565,
    "within": true
   },
   {
    "rank": 4,
-   "fieldwork": 0.805,
-   "here": 0.843,
-   "allowed": 0.0531,
+   "fieldwork": 0.804,
+   "here": 0.838,
+   "allowed": 0.0535,
    "within": true
   },
   {
    "rank": 5,
    "fieldwork": 0.98,
-   "here": 0.98,
-   "allowed": 0.0208,
+   "here": 0.977,
+   "allowed": 0.0215,
    "within": true
   },
   {
@@ -112,217 +112,210 @@
   "firstAt05Here": "1861-11-21",
   "pValuesChecked": [
    {
-    "day": "1861-11-20",
-    "fieldwork": 0.093,
-    "here": 0.082,
-    "allowed": 0.0399,
-    "within": true
-   },
-   {
     "day": "1861-11-21",
-    "fieldwork": 0.041,
-    "here": 0.042,
-    "allowed": 0.0288,
+    "fieldwork": 0.039,
+    "here": 0.047,
+    "allowed": 0.0292,
     "within": true
    },
    {
     "day": "1861-11-22",
     "fieldwork": 0.081,
-    "here": 0.078,
-    "allowed": 0.0383,
+    "here": 0.087,
+    "allowed": 0.0392,
     "within": true
    },
    {
     "day": "1861-12-05",
-    "fieldwork": 0.048,
-    "here": 0.044,
-    "allowed": 0.0301,
+    "fieldwork": 0.047,
+    "here": 0.048,
+    "allowed": 0.0306,
     "within": true
    },
    {
     "day": "1861-12-06",
     "fieldwork": 0.065,
-    "here": 0.058,
-    "allowed": 0.0342,
+    "here": 0.063,
+    "allowed": 0.0349,
     "within": true
    },
    {
     "day": "1861-12-13",
-    "fieldwork": 0.064,
-    "here": 0.057,
+    "fieldwork": 0.063,
+    "here": 0.058,
     "allowed": 0.034,
     "within": true
    },
    {
     "day": "1861-12-14",
     "fieldwork": 0.087,
-    "here": 0.097,
-    "allowed": 0.0408,
+    "here": 0.092,
+    "allowed": 0.0403,
     "within": true
    },
    {
     "day": "1861-12-15",
-    "fieldwork": 0.097,
-    "here": 0.076,
-    "allowed": 0.0397,
+    "fieldwork": 0.096,
+    "here": 0.079,
+    "allowed": 0.0399,
     "within": true
    },
    {
     "day": "1861-12-16",
-    "fieldwork": 0.097,
-    "here": 0.088,
-    "allowed": 0.0409,
+    "fieldwork": 0.096,
+    "here": 0.086,
+    "allowed": 0.0406,
     "within": true
    },
    {
     "day": "1861-12-17",
-    "fieldwork": 0.097,
-    "here": 0.092,
-    "allowed": 0.0413,
-    "within": true
-   },
-   {
-    "day": "1861-12-18",
-    "fieldwork": 0.097,
-    "here": 0.083,
-    "allowed": 0.0404,
-    "within": true
-   },
-   {
-    "day": "1861-12-19",
-    "fieldwork": 0.097,
-    "here": 0.084,
-    "allowed": 0.0405,
-    "within": true
-   },
-   {
-    "day": "1861-12-20",
-    "fieldwork": 0.097,
-    "here": 0.088,
+    "fieldwork": 0.096,
+    "here": 0.089,
     "allowed": 0.0409,
     "within": true
    },
    {
-    "day": "1861-12-21",
-    "fieldwork": 0.097,
-    "here": 0.092,
-    "allowed": 0.0413,
+    "day": "1861-12-18",
+    "fieldwork": 0.096,
+    "here": 0.082,
+    "allowed": 0.0402,
     "within": true
    },
    {
-    "day": "1861-12-22",
-    "fieldwork": 0.097,
+    "day": "1861-12-19",
+    "fieldwork": 0.096,
     "here": 0.087,
-    "allowed": 0.0408,
-    "within": true
-   },
-   {
-    "day": "1861-12-23",
-    "fieldwork": 0.097,
-    "here": 0.09,
-    "allowed": 0.0411,
-    "within": true
-   },
-   {
-    "day": "1861-12-24",
-    "fieldwork": 0.097,
-    "here": 0.097,
-    "allowed": 0.0417,
-    "within": true
-   },
-   {
-    "day": "1861-12-25",
-    "fieldwork": 0.097,
-    "here": 0.076,
-    "allowed": 0.0397,
-    "within": true
-   },
-   {
-    "day": "1861-12-26",
-    "fieldwork": 0.097,
-    "here": 0.086,
     "allowed": 0.0407,
     "within": true
    },
    {
+    "day": "1861-12-20",
+    "fieldwork": 0.096,
+    "here": 0.085,
+    "allowed": 0.0405,
+    "within": true
+   },
+   {
+    "day": "1861-12-21",
+    "fieldwork": 0.096,
+    "here": 0.087,
+    "allowed": 0.0407,
+    "within": true
+   },
+   {
+    "day": "1861-12-22",
+    "fieldwork": 0.096,
+    "here": 0.089,
+    "allowed": 0.0409,
+    "within": true
+   },
+   {
+    "day": "1861-12-23",
+    "fieldwork": 0.096,
+    "here": 0.092,
+    "allowed": 0.0412,
+    "within": true
+   },
+   {
+    "day": "1861-12-24",
+    "fieldwork": 0.096,
+    "here": 0.094,
+    "allowed": 0.0414,
+    "within": true
+   },
+   {
+    "day": "1861-12-25",
+    "fieldwork": 0.096,
+    "here": 0.076,
+    "allowed": 0.0396,
+    "within": true
+   },
+   {
+    "day": "1861-12-26",
+    "fieldwork": 0.096,
+    "here": 0.082,
+    "allowed": 0.0402,
+    "within": true
+   },
+   {
     "day": "1861-12-27",
-    "fieldwork": 0.097,
-    "here": 0.1,
-    "allowed": 0.042,
+    "fieldwork": 0.096,
+    "here": 0.096,
+    "allowed": 0.0415,
     "within": true
    },
    {
     "day": "1861-12-28",
-    "fieldwork": 0.097,
-    "here": 0.081,
+    "fieldwork": 0.096,
+    "here": 0.082,
     "allowed": 0.0402,
     "within": true
    },
    {
     "day": "1861-12-29",
-    "fieldwork": 0.097,
-    "here": 0.1,
-    "allowed": 0.042,
+    "fieldwork": 0.096,
+    "here": 0.103,
+    "allowed": 0.0422,
     "within": true
    },
    {
     "day": "1861-12-30",
-    "fieldwork": 0.097,
-    "here": 0.08,
-    "allowed": 0.0401,
+    "fieldwork": 0.096,
+    "here": 0.076,
+    "allowed": 0.0396,
     "within": true
    },
    {
     "day": "1861-12-31",
-    "fieldwork": 0.097,
-    "here": 0.081,
-    "allowed": 0.0402,
+    "fieldwork": 0.096,
+    "here": 0.084,
+    "allowed": 0.0404,
     "within": true
    },
    {
     "day": "1862-01-01",
-    "fieldwork": 0.097,
-    "here": 0.093,
-    "allowed": 0.0414,
+    "fieldwork": 0.096,
+    "here": 0.09,
+    "allowed": 0.041,
     "within": true
    },
    {
     "day": "1862-01-02",
-    "fieldwork": 0.097,
-    "here": 0.098,
-    "allowed": 0.0418,
+    "fieldwork": 0.096,
+    "here": 0.095,
+    "allowed": 0.0415,
     "within": true
    },
    {
     "day": "1862-01-03",
-    "fieldwork": 0.097,
-    "here": 0.089,
-    "allowed": 0.041,
+    "fieldwork": 0.096,
+    "here": 0.091,
+    "allowed": 0.0411,
     "within": true
    },
    {
     "day": "1862-01-04",
-    "fieldwork": 0.097,
-    "here": 0.092,
-    "allowed": 0.0413,
+    "fieldwork": 0.096,
+    "here": 0.087,
+    "allowed": 0.0407,
     "within": true
    },
    {
     "day": "1862-01-05",
-    "fieldwork": 0.097,
-    "here": 0.089,
-    "allowed": 0.041,
+    "fieldwork": 0.096,
+    "here": 0.093,
+    "allowed": 0.0413,
     "within": true
    }
   ],
   "differs": [],
-  "seconds": 32.5
+  "seconds": 33.5
  },
  "shuffles": {
   "replications": 999,
   "generator": "numpy default_rng (PCG64)",
   "seed": 46,
-  "seconds": 38.8
+  "seconds": 40.0
  },
  "notEstablished": [
   "That a cluster is an outbreak: both sides compute the same statistic; neither says what it means.",

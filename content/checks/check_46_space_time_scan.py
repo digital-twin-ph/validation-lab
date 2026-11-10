@@ -57,13 +57,18 @@ def haversine(a, b):
 class Scan:
     """One scan's circles and cases, over days first..last."""
 
-    def __init__(self, cases, first, last, case_share, time_share):
+    def __init__(self, cases, first, last, case_share, time_share, tie_km=1e-9):
         self.bins = last - first + 1
         self.n = len(cases)
         keys = [f'{c["lon"]:.6f},{c["lat"]:.6f}' for c in cases]
         order = sorted(set(keys), key=keys.index)
         self.place_of = np.array([order.index(k) for k in keys])
-        self.coords = np.array([[float(k.split(",")[0]), float(k.split(",")[1])] for k in order])
+        # A place is identified by its coordinates to 6 decimals; its distances are measured from the coordinates recorded
+        # for its first case, as the fixture declares.
+        first_of = {}
+        for c, k in zip(cases, keys):
+            first_of.setdefault(k, (float(c["lon"]), float(c["lat"])))
+        self.coords = np.array([first_of[k] for k in order])
         self.places = len(order)
         self.case_bin = np.array([date.fromisoformat(c["date"][:10]).toordinal() - first for c in cases])
         place_cases = np.bincount(self.place_of, minlength=self.places)
@@ -75,7 +80,7 @@ class Scan:
             taken, held, k = [], 0, 0
             while k < self.places:
                 j, add = k, 0
-                while j < self.places and abs(d[ranked[j]] - d[ranked[k]]) < 1e-9:
+                while j < self.places and abs(d[ranked[j]] - d[ranked[k]]) <= tie_km:
                     add += place_cases[ranked[j]]
                     j += 1
                 if held + add > cap + 1e-9:
@@ -154,7 +159,8 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
     differs = []
 
     # 1-3: the retrospective scan.
-    scan = Scan(cases, first, last, s["maxCaseShare"], s["maxTimeShare"])
+    tie = s.get("tieKm", 1e-9)
+    scan = Scan(cases, first, last, s["maxCaseShare"], s["maxTimeShare"], tie)
     best, where = scan.best(scan.case_bin, keep=True)
     ranking = sorted(range(len(scan.members)), key=lambda i: (-best[i], -where[i, 2], where[i, 0]))
     used, mine = set(), []
@@ -169,7 +175,7 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
     maxima = scan.maxima(replications, rng)
     seconds = time.perf_counter() - began
     pvalues = []
-    key = lambda xs: sorted(f"{x[0]:.6f},{x[1]:.6f}" for x in xs)
+    key = lambda xs: sorted(f"{x[0]:.6f},{x[1]:.6f}" for x in xs)  # compared by identity, to 6 decimals
     for rank, i in enumerate(mine, start=1):
         got = theirs["clusters"][rank - 1] if rank <= len(theirs["clusters"]) else None
         a, b, c, e = where[i]
@@ -211,7 +217,7 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
         if day["skipped"]:
             replay_differs.append({"day": day["day"], "problems": ["Fieldwork skipped a day that can be scanned"]})
             continue
-        daily = Scan(known, first, until, s["maxCaseShare"], s["maxTimeShare"])
+        daily = Scan(known, first, until, s["maxCaseShare"], s["maxTimeShare"], tie)
         best_d, where_d = daily.best(daily.case_bin, prospective=True, keep=True)
         if best_d.max() <= 0:
             if "cluster" in day:
