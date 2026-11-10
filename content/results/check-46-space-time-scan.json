@@ -1,12 +1,12 @@
 {
  "check": "46-space-time-scan",
- "ranAt": "2026-11-10T19:03:19+00:00",
+ "ranAt": "2026-11-10T20:44:06+00:00",
  "fixture": {
   "id": "scan-hagelloch-001",
-  "sha256": "66a97e6d2a14b0135a27f72e1fcd69ef31fe86351f75abe1bc7a8cd9ea2046aa",
+  "sha256": "69d48333a3ab3610dcb4331403f17fd95dc192d26d64158564c31fe1d35bc732",
   "application": {
    "name": "Fieldwork",
-   "version": "0.81.1"
+   "version": "0.81.2"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:space_time_scan",
@@ -21,9 +21,9 @@
   "cases": 188,
   "places": 56,
   "bins": 87,
-  "circles": 1307,
+  "circles": 1305,
   "runs": 2838,
-  "windows": 3709266
+  "windows": 3703590
  },
  "mostLikely": {
   "places": 1,
@@ -309,13 +309,13 @@
    }
   ],
   "differs": [],
-  "seconds": 33.5
+  "seconds": 32.0
  },
  "shuffles": {
   "replications": 999,
   "generator": "numpy default_rng (PCG64)",
   "seed": 46,
-  "seconds": 40.0
+  "seconds": 37.6
  },
  "notEstablished": [
   "That a cluster is an outbreak: both sides compute the same statistic; neither says what it means.",

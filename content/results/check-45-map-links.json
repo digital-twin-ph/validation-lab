@@ -1,16 +1,16 @@
 {
  "check": "45-map-links",
- "ranAt": "2026-11-10T11:00:41+00:00",
+ "ranAt": "2026-11-10T20:42:57+00:00",
  "fixture": {
   "id": "links-hagelloch-001",
-  "sha256": "0418ce6b9a90975d10fe7a65b79f78bdfe74c04d7f9894d58854a98bc1c27366",
+  "sha256": "a9179cf20219278a2c6816a643a6d4e6b36c17e90944d63eee161d93a86e1375",
   "application": {
    "name": "Fieldwork",
-   "version": "0.76.0"
+   "version": "0.81.2"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:map_output",
-   "release": "0.22.0",
+   "release": "0.23.1",
    "label": "Map, lines between records: who infected whom, Hagelloch 1861",
    "implementation": "src/map-links.ts#mapLinks"
   }
