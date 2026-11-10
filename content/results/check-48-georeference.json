@@ -1,0 +1,91 @@
+{
+ "check": "48-georeference",
+ "ranAt": "2026-11-10T18:10:32+00:00",
+ "fixture": {
+  "id": "georef-001",
+  "sha256": "fc736d8d01994f76f2d66dc2330e8b462311d43323301887d2d19494a16669a2",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.81.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:map_image_input",
+   "release": "0.2.0",
+   "label": "Map image placed by matched points, affine, least squares",
+   "implementation": "src/georeference.ts#fitPlacement"
+  }
+ },
+ "agrees": true,
+ "criteria": "The same six affine numbers as GDAL's fit from the same ground control points (1e-10 degree a pixel, 1e-7 degree at the origin), and the same residuals to 0.01 m",
+ "sets": [
+  {
+   "name": "south-london-map2",
+   "points": 4,
+   "gdal": {
+    "a": 4.535524676142982e-05,
+    "b": 3.951223859198409e-07,
+    "c": -0.23901563750280497,
+    "d": 8.145169855769102e-08,
+    "e": -2.8506144333517304e-05,
+    "f": 51.51804265379413
+   },
+   "coefficientGap": {
+    "a": 2.710505431213761e-20,
+    "b": 2.3505164286306834e-20,
+    "c": 8.326672684688674e-17,
+    "d": 1.5442138547384942e-17,
+    "e": 2.805373121306243e-17,
+    "f": 1.4210854715202004e-14
+   },
+   "residualGapM": 3.299547302049177e-10,
+   "residualsM": [
+    129.1,
+    79.18,
+    34.89,
+    84.8
+   ],
+   "agrees": true
+  },
+  {
+   "name": "turned-with-one-bad-pair",
+   "points": 5,
+   "gdal": {
+    "a": 9.379712128041748e-06,
+    "b": 3.421565567883302e-06,
+    "c": 9.060663272623929,
+    "d": 2.2573329459449355e-06,
+    "e": -6.201971297182225e-06,
+    "f": 48.5431
+   },
+   "coefficientGap": {
+    "a": 3.4558944247975454e-19,
+    "b": 2.4704562939618924e-17,
+    "c": 5.329070518200751e-15,
+    "d": 7.475489275992828e-18,
+    "e": 7.966260165631969e-17,
+    "f": 7.105427357601002e-15
+   },
+   "residualGapM": 3.927453917640378e-10,
+   "residualsM": [
+    11.99,
+    11.58,
+    11.62,
+    11.98,
+    47.17
+   ],
+   "agrees": true
+  }
+ ],
+ "differs": [],
+ "notEstablished": [
+  "That the points are the right features: both sides fit the same pairs.",
+  "That a plan is accurate: the residuals measure agreement with one placement, not the survey.",
+  "The north-up model: GDAL's fit is affine; Fieldwork's north-up fit is checked against the hand fit in its unit tests."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "rasterio": "1.5.2",
+  "gdal": "3.12.2",
+  "pyodide": false
+ }
+}

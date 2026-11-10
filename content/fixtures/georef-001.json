@@ -1,0 +1,173 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "georef-001",
+  "exportedAt": "2026-11-10T18:09:57.426Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.81.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:map_image_input",
+    "release": "0.2.0",
+    "label": "Map image placed by matched points, affine, least squares",
+    "implementation": "src/georeference.ts#fitPlacement"
+  },
+  "source": "South London: example-1855-cholera-south-london geo/map2-georeference.json, four control points recorded by hand. Turned: a synthetic set, 20 degrees, one pair 60 m off on purpose.",
+  "declaredParameters": {
+    "model": "affine",
+    "pixel": "continuous, (0,0) at the top-left corner of the image",
+    "coefficients": "lon = a x + b y + c, lat = d x + e y + f, least squares in degrees",
+    "residuals": "metres east and north, where the fit puts the point minus where it is, 111320 cos(lat) and 110570 m a degree"
+  },
+  "input": {
+    "sets": [
+      {
+        "name": "south-london-map2",
+        "points": [
+          {
+            "id": "Kennington Oval (cricket ground outline)",
+            "pixel": [2764,1203],
+            "lonlat": [-0.11503,51.48385]
+          },
+          {
+            "id": "Battersea Park",
+            "pixel": [1770,1370],
+            "lonlat": [-0.15706,51.47921]
+          },
+          {
+            "id": "Crystal Palace grounds",
+            "pixel": [3707,3400],
+            "lonlat": [-0.07004,51.42139]
+          },
+          {
+            "id": "Nunhead Cemetery",
+            "pixel": [4080,1950],
+            "lonlat": [-0.05198,51.46287]
+          }
+        ]
+      },
+      {
+        "name": "turned-with-one-bad-pair",
+        "points": [
+          {
+            "id": "Church",
+            "pixel": [40,30],
+            "lonlat": [9.060978483091311,48.54300423417892]
+          },
+          {
+            "id": "Mill",
+            "pixel": [360,40],
+            "lonlat": [9.064019701492159,48.543664561008654]
+          },
+          {
+            "id": "Bridge",
+            "pixel": [350,270],
+            "lonlat": [9.06471237855973,48.54221553428084]
+          },
+          {
+            "id": "Well",
+            "pixel": [60,260],
+            "lonlat": [9.061953067945117,48.54162292743949]
+          },
+          {
+            "id": "Crossroads",
+            "pixel": [200,150],
+            "lonlat": [9.06369241545656,48.54262117089461]
+          }
+        ]
+      }
+    ]
+  },
+  "output": {
+    "sets": [
+      {
+        "name": "south-london-map2",
+        "coefficients": {
+          "a": 0.000045355246761429793,
+          "b": 3.951223859198644e-7,
+          "c": -0.23901563750280488,
+          "d": 8.145169857313315e-8,
+          "e": -0.000028506144333545357,
+          "f": 51.51804265379415
+        },
+        "residuals": [
+          {
+            "id": "Kennington Oval (cricket ground outline)",
+            "eastM": 128.3580269534031,
+            "northM": 13.809602086074548,
+            "metres": 129.09875364675784
+          },
+          {
+            "id": "Battersea Park",
+            "eastM": -78.72643550080844,
+            "northM": -8.469046825733813,
+            "metres": 79.18065673382246
+          },
+          {
+            "id": "Crystal Palace grounds",
+            "eastM": 34.6865685091318,
+            "northM": 3.726707305651402,
+            "metres": 34.88619185696096
+          },
+          {
+            "id": "Nunhead Cemetery",
+            "eastM": -84.31751371488515,
+            "northM": -9.067262563635197,
+            "metres": 84.80364596795202
+          }
+        ],
+        "rmsM": 88.52227028505897
+      },
+      {
+        "name": "turned-with-one-bad-pair",
+        "coefficients": {
+          "a": 0.000009379712128041402,
+          "b": 0.0000034215655679080067,
+          "c": 9.060663272623923,
+          "d": 0.000002257332945952411,
+          "e": -0.000006201971297261888,
+          "f": 48.54310000000001
+        },
+        "residuals": [
+          {
+            "id": "Church",
+            "eastM": 11.985504560566822,
+            "northM": 7.856471029299428e-10,
+            "metres": 11.985504560566822
+          },
+          {
+            "id": "Mill",
+            "eastM": 11.580380527299933,
+            "northM": 7.856471029299428e-10,
+            "metres": 11.580380527299933
+          },
+          {
+            "id": "Bridge",
+            "eastM": 11.616522973306955,
+            "northM": -7.856471029299428e-10,
+            "metres": 11.616522973306955
+          },
+          {
+            "id": "Well",
+            "eastM": 11.983581474142085,
+            "northM": -1.5712942058598856e-9,
+            "metres": 11.983581474142085
+          },
+          {
+            "id": "Crossroads",
+            "eastM": -47.165989540137424,
+            "northM": 0,
+            "metres": 47.165989540137424
+          }
+        ],
+        "rmsM": 23.58362963144375
+      }
+    ]
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "fc736d8d01994f76f2d66dc2330e8b462311d43323301887d2d19494a16669a2"
+  }
+}
