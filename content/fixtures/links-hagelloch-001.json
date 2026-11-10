@@ -1,0 +1,1552 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "links-hagelloch-001",
+  "exportedAt": "2026-11-10T10:59:47.403Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.76.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:map_output",
+    "release": "0.22.0",
+    "label": "Map, lines between records: who infected whom, Hagelloch 1861",
+    "implementation": "src/map-links.ts#mapLinks"
+  },
+  "source": "Measles in Hagelloch, 1861 (Pfeilsticker 1863; Oesterle 1992), as measles_hagelloch_1861 in the R package outbreaks 1.9.0; the copy built into Fieldwork as examples/hagelloch-1861, with this project's georeference",
+  "declaredParameters": {
+    "setting": {
+      "column": "infector",
+      "matches": "case_ID"
+    },
+    "line": "From the record whose case_ID the infector column names, to the record naming it.",
+    "outcomes": "Each record is one of: drawn; at the same place as the record it names; naming nothing; naming a case_ID the layer does not hold; naming itself; naming a case_ID more than one record holds; with an end that has no location."
+  },
+  "input": {
+    "cases": [
+      {
+        "case_ID": 1,
+        "infector": 45,
+        "lon": 9.0624898,
+        "lat": 48.5417293
+      },
+      {
+        "case_ID": 2,
+        "infector": 45,
+        "lon": 9.0624898,
+        "lat": 48.5417293
+      },
+      {
+        "case_ID": 3,
+        "infector": 172,
+        "lon": 9.0624898,
+        "lat": 48.5417293
+      },
+      {
+        "case_ID": 4,
+        "infector": 180,
+        "lon": 9.0627945,
+        "lat": 48.5417517
+      },
+      {
+        "case_ID": 5,
+        "infector": 45,
+        "lon": 9.0625237,
+        "lat": 48.5419091
+      },
+      {
+        "case_ID": 6,
+        "infector": 180,
+        "lon": 9.0625237,
+        "lat": 48.5419091
+      },
+      {
+        "case_ID": 7,
+        "infector": 42,
+        "lon": 9.0642503,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 8,
+        "infector": 45,
+        "lon": 9.0618804,
+        "lat": 48.5422239
+      },
+      {
+        "case_ID": 9,
+        "infector": 182,
+        "lon": 9.0618804,
+        "lat": 48.5422239
+      },
+      {
+        "case_ID": 10,
+        "infector": 45,
+        "lon": 9.0638102,
+        "lat": 48.5415044
+      },
+      {
+        "case_ID": 11,
+        "infector": 182,
+        "lon": 9.0642165,
+        "lat": 48.542044
+      },
+      {
+        "case_ID": 12,
+        "infector": 45,
+        "lon": 9.0632008,
+        "lat": 48.5410773
+      },
+      {
+        "case_ID": 13,
+        "infector": 12,
+        "lon": 9.0632008,
+        "lat": 48.5410773
+      },
+      {
+        "case_ID": 14,
+        "infector": 181,
+        "lon": 9.0636409,
+        "lat": 48.5424936
+      },
+      {
+        "case_ID": 15,
+        "infector": 45,
+        "lon": 9.0636409,
+        "lat": 48.5424936
+      },
+      {
+        "case_ID": 16,
+        "infector": 181,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 17,
+        "infector": 181,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 18,
+        "infector": 175,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 19,
+        "infector": 181,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 20,
+        "infector": 181,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 21,
+        "infector": 181,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 22,
+        "infector": 45,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 23,
+        "infector": 45,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 24,
+        "infector": 22,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 25,
+        "infector": 22,
+        "lon": 9.0628284,
+        "lat": 48.540875
+      },
+      {
+        "case_ID": 26,
+        "infector": 45,
+        "lon": 9.0606616,
+        "lat": 48.5411672
+      },
+      {
+        "case_ID": 27,
+        "infector": 10,
+        "lon": 9.0638102,
+        "lat": 48.5415044
+      },
+      {
+        "case_ID": 28,
+        "infector": 180,
+        "lon": 9.0607631,
+        "lat": 48.5412572
+      },
+      {
+        "case_ID": 29,
+        "infector": 31,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 30,
+        "infector": 45,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 31,
+        "infector": 45,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 32,
+        "infector": 45,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 33,
+        "infector": 45,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 34,
+        "infector": 181,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 35,
+        "infector": 182,
+        "lon": 9.0631331,
+        "lat": 48.5418642
+      },
+      {
+        "case_ID": 36,
+        "infector": 34,
+        "lon": 9.0643519,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 37,
+        "infector": 182,
+        "lon": 9.0643519,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 38,
+        "infector": 17,
+        "lon": 9.0643519,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 39,
+        "infector": 45,
+        "lon": 9.0636409,
+        "lat": 48.5427859
+      },
+      {
+        "case_ID": 40,
+        "infector": 93,
+        "lon": 9.0627606,
+        "lat": 48.5412572
+      },
+      {
+        "case_ID": 41,
+        "infector": 180,
+        "lon": 9.0630653,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 42,
+        "infector": 178,
+        "lon": 9.0628622,
+        "lat": 48.5409874
+      },
+      {
+        "case_ID": 43,
+        "infector": 42,
+        "lon": 9.0628622,
+        "lat": 48.5409874
+      },
+      {
+        "case_ID": 44,
+        "infector": 45,
+        "lon": 9.0625914,
+        "lat": 48.5409649
+      },
+      {
+        "case_ID": 45,
+        "infector": 184,
+        "lon": 9.0615757,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 46,
+        "infector": 45,
+        "lon": 9.0615757,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 47,
+        "infector": 45,
+        "lon": 9.0615757,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 48,
+        "infector": 10,
+        "lon": 9.0638102,
+        "lat": 48.5415044
+      },
+      {
+        "case_ID": 49,
+        "infector": 17,
+        "lon": 9.0629299,
+        "lat": 48.542089
+      },
+      {
+        "case_ID": 50,
+        "infector": 8,
+        "lon": 9.0618804,
+        "lat": 48.5422239
+      },
+      {
+        "case_ID": 51,
+        "infector": 31,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 52,
+        "infector": 17,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 53,
+        "infector": 17,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 54,
+        "infector": 17,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 55,
+        "infector": 17,
+        "lon": 9.0628961,
+        "lat": 48.5423812
+      },
+      {
+        "case_ID": 56,
+        "infector": 45,
+        "lon": 9.0641487,
+        "lat": 48.5428533
+      },
+      {
+        "case_ID": 57,
+        "infector": 56,
+        "lon": 9.0641487,
+        "lat": 48.5428533
+      },
+      {
+        "case_ID": 58,
+        "infector": 45,
+        "lon": 9.0639456,
+        "lat": 48.5427185
+      },
+      {
+        "case_ID": 59,
+        "infector": 58,
+        "lon": 9.0639456,
+        "lat": 48.5427185
+      },
+      {
+        "case_ID": 60,
+        "infector": 58,
+        "lon": 9.0639456,
+        "lat": 48.5427185
+      },
+      {
+        "case_ID": 61,
+        "infector": 186,
+        "lon": 9.0642165,
+        "lat": 48.5417517
+      },
+      {
+        "case_ID": 62,
+        "infector": 11,
+        "lon": 9.0642165,
+        "lat": 48.5417517
+      },
+      {
+        "case_ID": 63,
+        "infector": 19,
+        "lon": 9.0642165,
+        "lat": 48.5417517
+      },
+      {
+        "case_ID": 64,
+        "infector": 45,
+        "lon": 9.0637763,
+        "lat": 48.5416393
+      },
+      {
+        "case_ID": 65,
+        "infector": 64,
+        "lon": 9.0637763,
+        "lat": 48.5416393
+      },
+      {
+        "case_ID": 66,
+        "infector": 64,
+        "lon": 9.0637763,
+        "lat": 48.5416393
+      },
+      {
+        "case_ID": 67,
+        "infector": 11,
+        "lon": 9.0641826,
+        "lat": 48.5419766
+      },
+      {
+        "case_ID": 68,
+        "infector": 179,
+        "lon": 9.0627945,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 69,
+        "infector": 54,
+        "lon": 9.0625914,
+        "lat": 48.5423138
+      },
+      {
+        "case_ID": 70,
+        "infector": 180,
+        "lon": 9.0633362,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 71,
+        "infector": 10,
+        "lon": 9.0638102,
+        "lat": 48.5415044
+      },
+      {
+        "case_ID": 72,
+        "infector": 12,
+        "lon": 9.0632008,
+        "lat": 48.5410773
+      },
+      {
+        "case_ID": 73,
+        "infector": 180,
+        "lon": 9.0630315,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 74,
+        "infector": 45,
+        "lon": 9.0640472,
+        "lat": 48.5425836
+      },
+      {
+        "case_ID": 75,
+        "infector": 74,
+        "lon": 9.0640472,
+        "lat": 48.5425836
+      },
+      {
+        "case_ID": 76,
+        "infector": 5,
+        "lon": 9.0625237,
+        "lat": 48.5419091
+      },
+      {
+        "case_ID": 77,
+        "infector": 180,
+        "lon": 9.0630992,
+        "lat": 48.5429882
+      },
+      {
+        "case_ID": 78,
+        "infector": 181,
+        "lon": 9.0630992,
+        "lat": 48.5429882
+      },
+      {
+        "case_ID": 79,
+        "infector": 179,
+        "lon": 9.0630992,
+        "lat": 48.5429882
+      },
+      {
+        "case_ID": 80,
+        "infector": 78,
+        "lon": 9.0630992,
+        "lat": 48.5429882
+      },
+      {
+        "case_ID": 81,
+        "infector": 39,
+        "lon": 9.0636409,
+        "lat": 48.5427859
+      },
+      {
+        "case_ID": 82,
+        "infector": 45,
+        "lon": 9.0633362,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 83,
+        "infector": 82,
+        "lon": 9.0633362,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 84,
+        "infector": 82,
+        "lon": 9.0633362,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 85,
+        "infector": 44,
+        "lon": 9.0625914,
+        "lat": 48.5409649
+      },
+      {
+        "case_ID": 86,
+        "infector": 1,
+        "lon": 9.0624898,
+        "lat": 48.5417293
+      },
+      {
+        "case_ID": 87,
+        "infector": 47,
+        "lon": 9.0616095,
+        "lat": 48.5412122
+      },
+      {
+        "case_ID": 88,
+        "infector": 47,
+        "lon": 9.0616095,
+        "lat": 48.5412122
+      },
+      {
+        "case_ID": 89,
+        "infector": 12,
+        "lon": 9.0632008,
+        "lat": 48.5410773
+      },
+      {
+        "case_ID": 90,
+        "infector": 93,
+        "lon": 9.0627606,
+        "lat": 48.5412572
+      },
+      {
+        "case_ID": 91,
+        "infector": 93,
+        "lon": 9.0627606,
+        "lat": 48.5412572
+      },
+      {
+        "case_ID": 92,
+        "infector": 93,
+        "lon": 9.0627606,
+        "lat": 48.5412572
+      },
+      {
+        "case_ID": 93,
+        "infector": 45,
+        "lon": 9.0627606,
+        "lat": 48.5412572
+      },
+      {
+        "case_ID": 94,
+        "infector": 183,
+        "lon": 9.0631331,
+        "lat": 48.5418642
+      },
+      {
+        "case_ID": 95,
+        "infector": 10,
+        "lon": 9.0638102,
+        "lat": 48.5415044
+      },
+      {
+        "case_ID": 96,
+        "infector": 97,
+        "lon": 9.0636748,
+        "lat": 48.5419091
+      },
+      {
+        "case_ID": 97,
+        "infector": 45,
+        "lon": 9.0636748,
+        "lat": 48.5419091
+      },
+      {
+        "case_ID": 98,
+        "infector": 64,
+        "lon": 9.0642165,
+        "lat": 48.542044
+      },
+      {
+        "case_ID": 99,
+        "infector": 11,
+        "lon": 9.0642165,
+        "lat": 48.542044
+      },
+      {
+        "case_ID": 100,
+        "infector": 47,
+        "lon": 9.0639795,
+        "lat": 48.5421789
+      },
+      {
+        "case_ID": 101,
+        "infector": 7,
+        "lon": 9.0642503,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 102,
+        "infector": 21,
+        "lon": 9.0640472,
+        "lat": 48.5424487
+      },
+      {
+        "case_ID": 103,
+        "infector": 37,
+        "lon": 9.0643519,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 104,
+        "infector": 58,
+        "lon": 9.0639456,
+        "lat": 48.5427185
+      },
+      {
+        "case_ID": 105,
+        "infector": 74,
+        "lon": 9.0640472,
+        "lat": 48.5425836
+      },
+      {
+        "case_ID": 106,
+        "infector": 42,
+        "lon": 9.0628622,
+        "lat": 48.5409874
+      },
+      {
+        "case_ID": 107,
+        "infector": 19,
+        "lon": 9.0628622,
+        "lat": 48.5409874
+      },
+      {
+        "case_ID": 108,
+        "infector": 106,
+        "lon": 9.0628622,
+        "lat": 48.5409874
+      },
+      {
+        "case_ID": 109,
+        "infector": 12,
+        "lon": 9.0632008,
+        "lat": 48.5410773
+      },
+      {
+        "case_ID": 110,
+        "infector": 18,
+        "lon": 9.0629299,
+        "lat": 48.542089
+      },
+      {
+        "case_ID": 111,
+        "infector": 34,
+        "lon": 9.0624898,
+        "lat": 48.5424487
+      },
+      {
+        "case_ID": 112,
+        "infector": 21,
+        "lon": 9.0624898,
+        "lat": 48.5424487
+      },
+      {
+        "case_ID": 113,
+        "infector": 31,
+        "lon": 9.0622528,
+        "lat": 48.5425161
+      },
+      {
+        "case_ID": 114,
+        "infector": 78,
+        "lon": 9.0632685,
+        "lat": 48.5427185
+      },
+      {
+        "case_ID": 115,
+        "infector": 16,
+        "lon": 9.0615757,
+        "lat": 48.5410099
+      },
+      {
+        "case_ID": 116,
+        "infector": 45,
+        "lon": 9.0622867,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 117,
+        "infector": 116,
+        "lon": 9.0622867,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 118,
+        "infector": 116,
+        "lon": 9.0622867,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 119,
+        "infector": 116,
+        "lon": 9.0622867,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 120,
+        "infector": 7,
+        "lon": 9.0642503,
+        "lat": 48.5421564
+      },
+      {
+        "case_ID": 121,
+        "infector": 11,
+        "lon": 9.0639795,
+        "lat": 48.5421789
+      },
+      {
+        "case_ID": 122,
+        "infector": 188,
+        "lon": 9.0639795,
+        "lat": 48.5421789
+      },
+      {
+        "case_ID": 123,
+        "infector": 7,
+        "lon": 9.0643519,
+        "lat": 48.5422463
+      },
+      {
+        "case_ID": 124,
+        "infector": 7,
+        "lon": 9.0643519,
+        "lat": 48.5423363
+      },
+      {
+        "case_ID": 125,
+        "infector": 7,
+        "lon": 9.0643519,
+        "lat": 48.5423363
+      },
+      {
+        "case_ID": 126,
+        "infector": 37,
+        "lon": 9.0643519,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 127,
+        "infector": 106,
+        "lon": 9.0628622,
+        "lat": 48.5409874
+      },
+      {
+        "case_ID": 128,
+        "infector": 7,
+        "lon": 9.0638102,
+        "lat": 48.5428533
+      },
+      {
+        "case_ID": 129,
+        "infector": 7,
+        "lon": 9.0638102,
+        "lat": 48.5428533
+      },
+      {
+        "case_ID": 130,
+        "infector": 56,
+        "lon": 9.0641487,
+        "lat": 48.5428533
+      },
+      {
+        "case_ID": 131,
+        "infector": 56,
+        "lon": 9.0641487,
+        "lat": 48.5428533
+      },
+      {
+        "case_ID": 132,
+        "infector": 14,
+        "lon": 9.0636409,
+        "lat": 48.5424936
+      },
+      {
+        "case_ID": 133,
+        "infector": 18,
+        "lon": 9.0636409,
+        "lat": 48.542651
+      },
+      {
+        "case_ID": 134,
+        "infector": 78,
+        "lon": 9.0630992,
+        "lat": 48.5429882
+      },
+      {
+        "case_ID": 135,
+        "infector": 79,
+        "lon": 9.0630992,
+        "lat": 48.5429882
+      },
+      {
+        "case_ID": 136,
+        "infector": 17,
+        "lon": 9.0618804,
+        "lat": 48.5422239
+      },
+      {
+        "case_ID": 137,
+        "infector": 16,
+        "lon": 9.0618804,
+        "lat": 48.5422239
+      },
+      {
+        "case_ID": 138,
+        "infector": 34,
+        "lon": 9.0626252,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 139,
+        "infector": 4,
+        "lon": 9.0626252,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 140,
+        "infector": 6,
+        "lon": 9.0632008,
+        "lat": 48.541999
+      },
+      {
+        "case_ID": 141,
+        "infector": "",
+        "lon": 9.0639795,
+        "lat": 48.5421789
+      },
+      {
+        "case_ID": 142,
+        "infector": 145,
+        "lon": 9.0623882,
+        "lat": 48.5419541
+      },
+      {
+        "case_ID": 143,
+        "infector": 145,
+        "lon": 9.0623882,
+        "lat": 48.5419541
+      },
+      {
+        "case_ID": 144,
+        "infector": 145,
+        "lon": 9.0623882,
+        "lat": 48.5419541
+      },
+      {
+        "case_ID": 145,
+        "infector": 45,
+        "lon": 9.0623882,
+        "lat": 48.5419541
+      },
+      {
+        "case_ID": 146,
+        "infector": 172,
+        "lon": 9.0615418,
+        "lat": 48.5422014
+      },
+      {
+        "case_ID": 147,
+        "infector": 18,
+        "lon": 9.0615418,
+        "lat": 48.5422014
+      },
+      {
+        "case_ID": 148,
+        "infector": 14,
+        "lon": 9.0640133,
+        "lat": 48.5428983
+      },
+      {
+        "case_ID": 149,
+        "infector": 39,
+        "lon": 9.0640133,
+        "lat": 48.5428983
+      },
+      {
+        "case_ID": 150,
+        "infector": 148,
+        "lon": 9.0640133,
+        "lat": 48.5428983
+      },
+      {
+        "case_ID": 151,
+        "infector": 153,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 152,
+        "infector": 153,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 153,
+        "infector": 45,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 154,
+        "infector": 153,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 155,
+        "infector": 73,
+        "lon": 9.0630315,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 156,
+        "infector": 45,
+        "lon": 9.0630315,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 157,
+        "infector": 156,
+        "lon": 9.0630315,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 158,
+        "infector": 156,
+        "lon": 9.0630315,
+        "lat": 48.5413246
+      },
+      {
+        "case_ID": 159,
+        "infector": 37,
+        "lon": 9.0643519,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 160,
+        "infector": 68,
+        "lon": 9.0627945,
+        "lat": 48.5425611
+      },
+      {
+        "case_ID": 161,
+        "infector": 148,
+        "lon": 9.0640133,
+        "lat": 48.5428983
+      },
+      {
+        "case_ID": 162,
+        "infector": 123,
+        "lon": 9.0643519,
+        "lat": 48.5422463
+      },
+      {
+        "case_ID": 163,
+        "infector": 123,
+        "lon": 9.0643519,
+        "lat": 48.5422463
+      },
+      {
+        "case_ID": 164,
+        "infector": 102,
+        "lon": 9.0640472,
+        "lat": 48.5424487
+      },
+      {
+        "case_ID": 165,
+        "infector": 102,
+        "lon": 9.0640472,
+        "lat": 48.5424487
+      },
+      {
+        "case_ID": 166,
+        "infector": 153,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 167,
+        "infector": 110,
+        "lon": 9.0629299,
+        "lat": 48.542089
+      },
+      {
+        "case_ID": 168,
+        "infector": 98,
+        "lon": 9.0641826,
+        "lat": 48.5419766
+      },
+      {
+        "case_ID": 169,
+        "infector": 153,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 170,
+        "infector": 153,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 171,
+        "infector": 169,
+        "lon": 9.0623544,
+        "lat": 48.5415494
+      },
+      {
+        "case_ID": 172,
+        "infector": 174,
+        "lon": 9.0630653,
+        "lat": 48.5424037
+      },
+      {
+        "case_ID": 173,
+        "infector": "",
+        "lon": 9.0634378,
+        "lat": 48.5417967
+      },
+      {
+        "case_ID": 174,
+        "infector": "",
+        "lon": 9.0634378,
+        "lat": 48.5417967
+      },
+      {
+        "case_ID": 175,
+        "infector": 173,
+        "lon": 9.0634378,
+        "lat": 48.5417967
+      },
+      {
+        "case_ID": 176,
+        "infector": 146,
+        "lon": 9.0615418,
+        "lat": 48.5422014
+      },
+      {
+        "case_ID": 177,
+        "infector": 184,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 178,
+        "infector": 184,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 179,
+        "infector": 177,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 180,
+        "infector": 177,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 181,
+        "infector": 184,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 182,
+        "infector": 184,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 183,
+        "infector": 184,
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 184,
+        "infector": "",
+        "lon": 9.0630315,
+        "lat": 48.5426285
+      },
+      {
+        "case_ID": 185,
+        "infector": 82,
+        "lon": 9.0633362,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 186,
+        "infector": 45,
+        "lon": 9.0634378,
+        "lat": 48.5416393
+      },
+      {
+        "case_ID": 187,
+        "infector": 82,
+        "lon": 9.0633362,
+        "lat": 48.5424712
+      },
+      {
+        "case_ID": 188,
+        "infector": 175,
+        "lon": 9.0634378,
+        "lat": 48.5416393
+      }
+    ]
+  },
+  "output": {
+    "counts": {
+      "records": 188,
+      "drawn": 94,
+      "sameLocation": 90,
+      "noValue": 4,
+      "notFound": 0,
+      "self": 0,
+      "ambiguous": 0,
+      "unlocated": 0
+    },
+    "links": [
+      {
+        "from": "45",
+        "to": "1"
+      },
+      {
+        "from": "45",
+        "to": "2"
+      },
+      {
+        "from": "172",
+        "to": "3"
+      },
+      {
+        "from": "180",
+        "to": "4"
+      },
+      {
+        "from": "45",
+        "to": "5"
+      },
+      {
+        "from": "180",
+        "to": "6"
+      },
+      {
+        "from": "42",
+        "to": "7"
+      },
+      {
+        "from": "45",
+        "to": "8"
+      },
+      {
+        "from": "182",
+        "to": "9"
+      },
+      {
+        "from": "45",
+        "to": "10"
+      },
+      {
+        "from": "182",
+        "to": "11"
+      },
+      {
+        "from": "45",
+        "to": "12"
+      },
+      {
+        "from": "181",
+        "to": "14"
+      },
+      {
+        "from": "45",
+        "to": "15"
+      },
+      {
+        "from": "181",
+        "to": "16"
+      },
+      {
+        "from": "181",
+        "to": "17"
+      },
+      {
+        "from": "175",
+        "to": "18"
+      },
+      {
+        "from": "181",
+        "to": "19"
+      },
+      {
+        "from": "181",
+        "to": "20"
+      },
+      {
+        "from": "181",
+        "to": "21"
+      },
+      {
+        "from": "45",
+        "to": "22"
+      },
+      {
+        "from": "45",
+        "to": "23"
+      },
+      {
+        "from": "45",
+        "to": "26"
+      },
+      {
+        "from": "180",
+        "to": "28"
+      },
+      {
+        "from": "45",
+        "to": "30"
+      },
+      {
+        "from": "45",
+        "to": "31"
+      },
+      {
+        "from": "45",
+        "to": "32"
+      },
+      {
+        "from": "45",
+        "to": "33"
+      },
+      {
+        "from": "181",
+        "to": "34"
+      },
+      {
+        "from": "182",
+        "to": "35"
+      },
+      {
+        "from": "34",
+        "to": "36"
+      },
+      {
+        "from": "182",
+        "to": "37"
+      },
+      {
+        "from": "17",
+        "to": "38"
+      },
+      {
+        "from": "45",
+        "to": "39"
+      },
+      {
+        "from": "180",
+        "to": "41"
+      },
+      {
+        "from": "178",
+        "to": "42"
+      },
+      {
+        "from": "45",
+        "to": "44"
+      },
+      {
+        "from": "184",
+        "to": "45"
+      },
+      {
+        "from": "17",
+        "to": "49"
+      },
+      {
+        "from": "45",
+        "to": "56"
+      },
+      {
+        "from": "45",
+        "to": "58"
+      },
+      {
+        "from": "186",
+        "to": "61"
+      },
+      {
+        "from": "11",
+        "to": "62"
+      },
+      {
+        "from": "19",
+        "to": "63"
+      },
+      {
+        "from": "45",
+        "to": "64"
+      },
+      {
+        "from": "11",
+        "to": "67"
+      },
+      {
+        "from": "179",
+        "to": "68"
+      },
+      {
+        "from": "54",
+        "to": "69"
+      },
+      {
+        "from": "180",
+        "to": "70"
+      },
+      {
+        "from": "180",
+        "to": "73"
+      },
+      {
+        "from": "45",
+        "to": "74"
+      },
+      {
+        "from": "180",
+        "to": "77"
+      },
+      {
+        "from": "181",
+        "to": "78"
+      },
+      {
+        "from": "179",
+        "to": "79"
+      },
+      {
+        "from": "45",
+        "to": "82"
+      },
+      {
+        "from": "47",
+        "to": "87"
+      },
+      {
+        "from": "47",
+        "to": "88"
+      },
+      {
+        "from": "45",
+        "to": "93"
+      },
+      {
+        "from": "183",
+        "to": "94"
+      },
+      {
+        "from": "45",
+        "to": "97"
+      },
+      {
+        "from": "64",
+        "to": "98"
+      },
+      {
+        "from": "47",
+        "to": "100"
+      },
+      {
+        "from": "21",
+        "to": "102"
+      },
+      {
+        "from": "19",
+        "to": "107"
+      },
+      {
+        "from": "18",
+        "to": "110"
+      },
+      {
+        "from": "34",
+        "to": "111"
+      },
+      {
+        "from": "21",
+        "to": "112"
+      },
+      {
+        "from": "78",
+        "to": "114"
+      },
+      {
+        "from": "16",
+        "to": "115"
+      },
+      {
+        "from": "45",
+        "to": "116"
+      },
+      {
+        "from": "11",
+        "to": "121"
+      },
+      {
+        "from": "188",
+        "to": "122"
+      },
+      {
+        "from": "7",
+        "to": "123"
+      },
+      {
+        "from": "7",
+        "to": "124"
+      },
+      {
+        "from": "7",
+        "to": "125"
+      },
+      {
+        "from": "7",
+        "to": "128"
+      },
+      {
+        "from": "7",
+        "to": "129"
+      },
+      {
+        "from": "18",
+        "to": "133"
+      },
+      {
+        "from": "17",
+        "to": "136"
+      },
+      {
+        "from": "16",
+        "to": "137"
+      },
+      {
+        "from": "34",
+        "to": "138"
+      },
+      {
+        "from": "4",
+        "to": "139"
+      },
+      {
+        "from": "6",
+        "to": "140"
+      },
+      {
+        "from": "45",
+        "to": "145"
+      },
+      {
+        "from": "172",
+        "to": "146"
+      },
+      {
+        "from": "18",
+        "to": "147"
+      },
+      {
+        "from": "14",
+        "to": "148"
+      },
+      {
+        "from": "39",
+        "to": "149"
+      },
+      {
+        "from": "45",
+        "to": "153"
+      },
+      {
+        "from": "45",
+        "to": "156"
+      },
+      {
+        "from": "98",
+        "to": "168"
+      },
+      {
+        "from": "174",
+        "to": "172"
+      },
+      {
+        "from": "45",
+        "to": "186"
+      },
+      {
+        "from": "175",
+        "to": "188"
+      }
+    ]
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "0418ce6b9a90975d10fe7a65b79f78bdfe74c04d7f9894d58854a98bc1c27366"
+  }
+}
