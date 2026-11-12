@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "mers-korea-001",
-  "exportedAt": "2026-11-12T17:50:33.389Z",
+  "exportedAt": "2026-11-12T17:55:04.903Z",
   "application": {
     "name": "Fieldwork",
     "version": "0.100.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:apply_ruleset",
-    "release": "0.13.0",
+    "release": "0.13.1",
     "label": "A whole example: MERS-CoV, South Korea, 2015, both workflows",
     "implementation": "example-2015-mers-korea at its pinned commit"
   },
@@ -3082,6 +3082,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "2712393ebc082603c02d199f01a3c40da43ff5b5f9a0c57488f03bb4ca2cc043"
+    "value": "2e975c34ee31a4836db20a5072d1018359941ab2db80d47db78ae5a9a2e796de"
   }
 }

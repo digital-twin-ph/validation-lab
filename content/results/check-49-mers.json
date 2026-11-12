@@ -1,16 +1,16 @@
 {
  "check": "49-mers",
- "ranAt": "2026-11-12T17:51:16+00:00",
+ "ranAt": "2026-11-12T17:55:05+00:00",
  "fixture": {
   "id": "mers-korea-001",
-  "sha256": "2712393ebc082603c02d199f01a3c40da43ff5b5f9a0c57488f03bb4ca2cc043",
+  "sha256": "2e975c34ee31a4836db20a5072d1018359941ab2db80d47db78ae5a9a2e796de",
   "application": {
    "name": "Fieldwork",
    "version": "0.100.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:apply_ruleset",
-   "release": "0.13.0",
+   "release": "0.13.1",
    "label": "A whole example: MERS-CoV, South Korea, 2015, both workflows",
    "implementation": "example-2015-mers-korea at its pinned commit"
   }
