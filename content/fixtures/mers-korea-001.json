@@ -1,0 +1,3087 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "mers-korea-001",
+  "exportedAt": "2026-11-12T17:50:33.389Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.100.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:apply_ruleset",
+    "release": "0.13.0",
+    "label": "A whole example: MERS-CoV, South Korea, 2015, both workflows",
+    "implementation": "example-2015-mers-korea at its pinned commit"
+  },
+  "source": "example-2015-mers-korea at 9b82f5ed351b0872fb3a78992ecf61d717edd055: the line list and contacts of mers_korea_2015 in the R package outbreaks (Cauchemez et al.). No licence stated, so not redistributed: read from the repository at this commit and checked by digest.",
+  "declaredParameters": {
+    "timeliness": {
+      "ruleset": "urn:fieldwork:ruleset:seven-one-seven 2.0.0",
+      "bindings": {
+        "fw:emergenceDate": "dt_onset",
+        "fw:detectionDate": "dt_diag",
+        "fw:notificationDate": "dt_report"
+      },
+      "targets": {
+        "detectionTarget": 7,
+        "notificationTarget": 1,
+        "responseTarget": 7
+      },
+      "days": "whole days from the earlier date to the later; negative where the later date comes first",
+      "verdict": "Met where the days are at most the target, Not met where more, No verdict where either date is missing",
+      "response": "No response date is bound, so every case has No verdict for response"
+    },
+    "groups": {
+      "detected": "cases counted by detected_within_target",
+      "notified": "cases counted by notified_within_target",
+      "sources": "contact links counted by from",
+      "settings": "contact links counted by exposure"
+    },
+    "relate": {
+      "on": "id",
+      "rightOn": "to",
+      "bring": "from",
+      "several": "each",
+      "unmatched": "none recorded",
+      "normalisation": "fuzzy"
+    },
+    "tree": {
+      "columns": {
+        "id": "id",
+        "parent": "from",
+        "date": "dt_onset",
+        "none": "none recorded"
+      },
+      "chain": "A case naming no infector, or one the table does not hold, starts a chain; a case with several sources sits under the first listed."
+    }
+  },
+  "input": {
+    "files": [
+      {
+        "path": "data/mers_korea_2015_linelist.csv",
+        "sha256": "b678afea07eb3f980658c95c7284fff75c3528d6f8c0e6ec4550c0506fd3ff7f",
+        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/9b82f5ed351b0872fb3a78992ecf61d717edd055/data/mers_korea_2015_linelist.csv"
+      },
+      {
+        "path": "data/mers_korea_2015_contacts.csv",
+        "sha256": "6b94ef8ffa61e365572d05d65a33d559174212d95fe60d94bf6076a682b414c1",
+        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/9b82f5ed351b0872fb3a78992ecf61d717edd055/data/mers_korea_2015_contacts.csv"
+      }
+    ],
+    "note": "No rows: the check reads each file at the commit and verifies its digest first."
+  },
+  "output": {
+    "cases": [
+      {
+        "id": "SK_1",
+        "days_to_detect": 9,
+        "days_to_notify": -1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_2",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_3",
+        "days_to_detect": 1,
+        "days_to_notify": -1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_4",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_5",
+        "days_to_detect": 1,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_6",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_7",
+        "days_to_detect": 7,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_8",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_9",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_10",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_11",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_12",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_13",
+        "days_to_detect": 8,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_14",
+        "days_to_detect": 13,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_15",
+        "days_to_detect": 6,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_16",
+        "days_to_detect": 11,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_17",
+        "days_to_detect": 9,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_18",
+        "days_to_detect": 11,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_19",
+        "days_to_detect": 4,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_20",
+        "days_to_detect": 9,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_21",
+        "days_to_detect": 9,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_22",
+        "days_to_detect": 5,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_23",
+        "days_to_detect": 1,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_24",
+        "days_to_detect": 1,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_25",
+        "days_to_detect": null,
+        "days_to_notify": 2,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Not met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_26",
+        "days_to_detect": 12,
+        "days_to_notify": 1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_27",
+        "days_to_detect": 1,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_28",
+        "days_to_detect": 4,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_29",
+        "days_to_detect": null,
+        "days_to_notify": 1,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_30",
+        "days_to_detect": 3,
+        "days_to_notify": 1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_31",
+        "days_to_detect": 3,
+        "days_to_notify": -1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_32",
+        "days_to_detect": 12,
+        "days_to_notify": -1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_33",
+        "days_to_detect": 14,
+        "days_to_notify": -1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_34",
+        "days_to_detect": 15,
+        "days_to_notify": -1,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_35",
+        "days_to_detect": 4,
+        "days_to_notify": -1,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_36",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_37",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_38",
+        "days_to_detect": 13,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_39",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_40",
+        "days_to_detect": 14,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_41",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_42",
+        "days_to_detect": 11,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_43",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_44",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_45",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_46",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_47",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_48",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_49",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_50",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_51",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_52",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_53",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_54",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_55",
+        "days_to_detect": 7,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_56",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_57",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_58",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_59",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_60",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_61",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_62",
+        "days_to_detect": 7,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_63",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_64",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_65",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_66",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_67",
+        "days_to_detect": 7,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_68",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_69",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_70",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_71",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_72",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_73",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_74",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_75",
+        "days_to_detect": 0,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_76",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_77",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_78",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_79",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_80",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_81",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_82",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_83",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_84",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_85",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_86",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_87",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_88",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_89",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_90",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_91",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_92",
+        "days_to_detect": 0,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_93",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_94",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_95",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_96",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_97",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_98",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_99",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_100",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_101",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_102",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_103",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_104",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_105",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_106",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_107",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_108",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_109",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_110",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_111",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_112",
+        "days_to_detect": 10,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_113",
+        "days_to_detect": 14,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_114",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_115",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_116",
+        "days_to_detect": 11,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_117",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_118",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_119",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_120",
+        "days_to_detect": 7,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_121",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_122",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_123",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_124",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_125",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_126",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_127",
+        "days_to_detect": 6,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_128",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_129",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_130",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_131",
+        "days_to_detect": 5,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_132",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_133",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_134",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_135",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_136",
+        "days_to_detect": 11,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_137",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_138",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_139",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_140",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_141",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_142",
+        "days_to_detect": 8,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_143",
+        "days_to_detect": 11,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_144",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_145",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_146",
+        "days_to_detect": 1,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_147",
+        "days_to_detect": 4,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_148",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_149",
+        "days_to_detect": 10,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_150",
+        "days_to_detect": 3,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_151",
+        "days_to_detect": 10,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_152",
+        "days_to_detect": 9,
+        "days_to_notify": 0,
+        "detected_within_target": "Not met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_153",
+        "days_to_detect": 0,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_154",
+        "days_to_detect": 2,
+        "days_to_notify": 0,
+        "detected_within_target": "Met",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_155",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_156",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_157",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_158",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_159",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_160",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_161",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      },
+      {
+        "id": "SK_162",
+        "days_to_detect": null,
+        "days_to_notify": 0,
+        "detected_within_target": "No verdict",
+        "notified_within_target": "Met",
+        "responded_within_target": "No verdict"
+      }
+    ],
+    "detected": {
+      "Not met": 41,
+      "Met": 94,
+      "No verdict": 27
+    },
+    "notified": {
+      "Met": 161,
+      "Not met": 1
+    },
+    "sources": {
+      "SK_14": 38,
+      "SK_16": 21,
+      "SK_6": 2,
+      "SK_87": 1,
+      "SK_1": 26,
+      "SK_15": 4,
+      "SK_76": 2,
+      "SK_11": 1,
+      "SK_12": 1,
+      "SK_118": 1,
+      "SK_123": 1
+    },
+    "settings": {
+      "Emergency room": 33,
+      "Family member": 1,
+      "Contact with HCW": 8,
+      "Hospital room": 44,
+      "Visit hospital": 12
+    },
+    "related": {
+      "rows": [
+        {
+          "id": "SK_1",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_2",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_3",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_4",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_5",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_6",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_7",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_8",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_9",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_10",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_11",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_12",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_13",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_14",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_15",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_16",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_17",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_18",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_19",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_20",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_21",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_22",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_23",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_24",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_25",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_26",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_27",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_28",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_29",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_30",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_31",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_32",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_33",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_34",
+          "from": "SK_1"
+        },
+        {
+          "id": "SK_35",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_36",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_37",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_38",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_39",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_39",
+          "from": "SK_11"
+        },
+        {
+          "id": "SK_39",
+          "from": "SK_12"
+        },
+        {
+          "id": "SK_40",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_41",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_42",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_43",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_44",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_45",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_46",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_47",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_48",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_49",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_50",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_51",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_52",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_53",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_54",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_55",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_56",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_57",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_58",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_59",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_60",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_61",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_62",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_63",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_64",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_65",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_66",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_67",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_68",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_69",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_70",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_71",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_72",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_73",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_74",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_75",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_76",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_77",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_78",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_79",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_80",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_81",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_82",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_83",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_84",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_85",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_86",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_87",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_88",
+          "from": "SK_6"
+        },
+        {
+          "id": "SK_89",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_90",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_91",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_92",
+          "from": "SK_6"
+        },
+        {
+          "id": "SK_93",
+          "from": "SK_15"
+        },
+        {
+          "id": "SK_94",
+          "from": "SK_15"
+        },
+        {
+          "id": "SK_95",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_96",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_97",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_98",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_99",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_100",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_101",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_102",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_103",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_104",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_105",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_106",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_107",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_107",
+          "from": "SK_87"
+        },
+        {
+          "id": "SK_108",
+          "from": "SK_15"
+        },
+        {
+          "id": "SK_109",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_110",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_111",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_112",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_113",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_114",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_115",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_116",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_117",
+          "from": "SK_15"
+        },
+        {
+          "id": "SK_118",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_119",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_120",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_121",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_122",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_123",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_124",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_125",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_126",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_127",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_128",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_129",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_130",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_131",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_132",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_133",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_134",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_135",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_136",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_137",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_138",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_139",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_140",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_141",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_142",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_143",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_144",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_145",
+          "from": "SK_76"
+        },
+        {
+          "id": "SK_146",
+          "from": "SK_14"
+        },
+        {
+          "id": "SK_147",
+          "from": "SK_123"
+        },
+        {
+          "id": "SK_148",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_149",
+          "from": "SK_16"
+        },
+        {
+          "id": "SK_150",
+          "from": "SK_76"
+        },
+        {
+          "id": "SK_151",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_152",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_153",
+          "from": "SK_118"
+        },
+        {
+          "id": "SK_154",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_155",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_156",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_157",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_158",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_159",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_160",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_161",
+          "from": "none recorded"
+        },
+        {
+          "id": "SK_162",
+          "from": "none recorded"
+        }
+      ],
+      "summary": {
+        "on": "id",
+        "keys": [
+          "id"
+        ],
+        "bring": "from",
+        "offered": 162,
+        "related": 95,
+        "dropped": 0,
+        "kept": 67,
+        "gaps": [
+          {
+            "key": "SK_1",
+            "rows": 1
+          },
+          {
+            "key": "SK_9",
+            "rows": 1
+          },
+          {
+            "key": "SK_25",
+            "rows": 1
+          },
+          {
+            "key": "SK_29",
+            "rows": 1
+          },
+          {
+            "key": "SK_36",
+            "rows": 1
+          },
+          {
+            "key": "SK_37",
+            "rows": 1
+          },
+          {
+            "key": "SK_42",
+            "rows": 1
+          },
+          {
+            "key": "SK_43",
+            "rows": 1
+          },
+          {
+            "key": "SK_44",
+            "rows": 1
+          },
+          {
+            "key": "SK_46",
+            "rows": 1
+          },
+          {
+            "key": "SK_49",
+            "rows": 1
+          },
+          {
+            "key": "SK_50",
+            "rows": 1
+          },
+          {
+            "key": "SK_51",
+            "rows": 1
+          },
+          {
+            "key": "SK_52",
+            "rows": 1
+          },
+          {
+            "key": "SK_53",
+            "rows": 1
+          },
+          {
+            "key": "SK_55",
+            "rows": 1
+          },
+          {
+            "key": "SK_56",
+            "rows": 1
+          },
+          {
+            "key": "SK_57",
+            "rows": 1
+          },
+          {
+            "key": "SK_58",
+            "rows": 1
+          },
+          {
+            "key": "SK_59",
+            "rows": 1
+          },
+          {
+            "key": "SK_60",
+            "rows": 1
+          },
+          {
+            "key": "SK_61",
+            "rows": 1
+          },
+          {
+            "key": "SK_62",
+            "rows": 1
+          },
+          {
+            "key": "SK_63",
+            "rows": 1
+          },
+          {
+            "key": "SK_64",
+            "rows": 1
+          },
+          {
+            "key": "SK_65",
+            "rows": 1
+          },
+          {
+            "key": "SK_66",
+            "rows": 1
+          },
+          {
+            "key": "SK_67",
+            "rows": 1
+          },
+          {
+            "key": "SK_68",
+            "rows": 1
+          },
+          {
+            "key": "SK_69",
+            "rows": 1
+          },
+          {
+            "key": "SK_70",
+            "rows": 1
+          },
+          {
+            "key": "SK_71",
+            "rows": 1
+          },
+          {
+            "key": "SK_72",
+            "rows": 1
+          },
+          {
+            "key": "SK_73",
+            "rows": 1
+          },
+          {
+            "key": "SK_74",
+            "rows": 1
+          },
+          {
+            "key": "SK_75",
+            "rows": 1
+          },
+          {
+            "key": "SK_76",
+            "rows": 1
+          },
+          {
+            "key": "SK_77",
+            "rows": 1
+          },
+          {
+            "key": "SK_78",
+            "rows": 1
+          },
+          {
+            "key": "SK_79",
+            "rows": 1
+          },
+          {
+            "key": "SK_80",
+            "rows": 1
+          },
+          {
+            "key": "SK_81",
+            "rows": 1
+          },
+          {
+            "key": "SK_89",
+            "rows": 1
+          },
+          {
+            "key": "SK_90",
+            "rows": 1
+          },
+          {
+            "key": "SK_91",
+            "rows": 1
+          },
+          {
+            "key": "SK_95",
+            "rows": 1
+          },
+          {
+            "key": "SK_99",
+            "rows": 1
+          },
+          {
+            "key": "SK_101",
+            "rows": 1
+          },
+          {
+            "key": "SK_105",
+            "rows": 1
+          },
+          {
+            "key": "SK_109",
+            "rows": 1
+          },
+          {
+            "key": "SK_115",
+            "rows": 1
+          },
+          {
+            "key": "SK_119",
+            "rows": 1
+          },
+          {
+            "key": "SK_121",
+            "rows": 1
+          },
+          {
+            "key": "SK_141",
+            "rows": 1
+          },
+          {
+            "key": "SK_144",
+            "rows": 1
+          },
+          {
+            "key": "SK_148",
+            "rows": 1
+          },
+          {
+            "key": "SK_151",
+            "rows": 1
+          },
+          {
+            "key": "SK_152",
+            "rows": 1
+          },
+          {
+            "key": "SK_154",
+            "rows": 1
+          },
+          {
+            "key": "SK_155",
+            "rows": 1
+          },
+          {
+            "key": "SK_156",
+            "rows": 1
+          },
+          {
+            "key": "SK_157",
+            "rows": 1
+          },
+          {
+            "key": "SK_158",
+            "rows": 1
+          },
+          {
+            "key": "SK_159",
+            "rows": 1
+          },
+          {
+            "key": "SK_160",
+            "rows": 1
+          },
+          {
+            "key": "SK_161",
+            "rows": 1
+          },
+          {
+            "key": "SK_162",
+            "rows": 1
+          }
+        ],
+        "values": [
+          "SK_1",
+          "SK_16",
+          "SK_14",
+          "SK_6",
+          "SK_15",
+          "SK_76",
+          "SK_123",
+          "SK_118",
+          "none recorded"
+        ],
+        "carried": [
+          "id",
+          "dt_onset"
+        ],
+        "overlap": {
+          "leftOnly": 67,
+          "matched": 95,
+          "rightOnly": 0,
+          "gaps": [
+            {
+              "key": "SK_1",
+              "rows": 1
+            },
+            {
+              "key": "SK_9",
+              "rows": 1
+            },
+            {
+              "key": "SK_25",
+              "rows": 1
+            },
+            {
+              "key": "SK_29",
+              "rows": 1
+            },
+            {
+              "key": "SK_36",
+              "rows": 1
+            },
+            {
+              "key": "SK_37",
+              "rows": 1
+            },
+            {
+              "key": "SK_42",
+              "rows": 1
+            },
+            {
+              "key": "SK_43",
+              "rows": 1
+            },
+            {
+              "key": "SK_44",
+              "rows": 1
+            },
+            {
+              "key": "SK_46",
+              "rows": 1
+            },
+            {
+              "key": "SK_49",
+              "rows": 1
+            },
+            {
+              "key": "SK_50",
+              "rows": 1
+            },
+            {
+              "key": "SK_51",
+              "rows": 1
+            },
+            {
+              "key": "SK_52",
+              "rows": 1
+            },
+            {
+              "key": "SK_53",
+              "rows": 1
+            },
+            {
+              "key": "SK_55",
+              "rows": 1
+            },
+            {
+              "key": "SK_56",
+              "rows": 1
+            },
+            {
+              "key": "SK_57",
+              "rows": 1
+            },
+            {
+              "key": "SK_58",
+              "rows": 1
+            },
+            {
+              "key": "SK_59",
+              "rows": 1
+            },
+            {
+              "key": "SK_60",
+              "rows": 1
+            },
+            {
+              "key": "SK_61",
+              "rows": 1
+            },
+            {
+              "key": "SK_62",
+              "rows": 1
+            },
+            {
+              "key": "SK_63",
+              "rows": 1
+            },
+            {
+              "key": "SK_64",
+              "rows": 1
+            },
+            {
+              "key": "SK_65",
+              "rows": 1
+            },
+            {
+              "key": "SK_66",
+              "rows": 1
+            },
+            {
+              "key": "SK_67",
+              "rows": 1
+            },
+            {
+              "key": "SK_68",
+              "rows": 1
+            },
+            {
+              "key": "SK_69",
+              "rows": 1
+            },
+            {
+              "key": "SK_70",
+              "rows": 1
+            },
+            {
+              "key": "SK_71",
+              "rows": 1
+            },
+            {
+              "key": "SK_72",
+              "rows": 1
+            },
+            {
+              "key": "SK_73",
+              "rows": 1
+            },
+            {
+              "key": "SK_74",
+              "rows": 1
+            },
+            {
+              "key": "SK_75",
+              "rows": 1
+            },
+            {
+              "key": "SK_76",
+              "rows": 1
+            },
+            {
+              "key": "SK_77",
+              "rows": 1
+            },
+            {
+              "key": "SK_78",
+              "rows": 1
+            },
+            {
+              "key": "SK_79",
+              "rows": 1
+            },
+            {
+              "key": "SK_80",
+              "rows": 1
+            },
+            {
+              "key": "SK_81",
+              "rows": 1
+            },
+            {
+              "key": "SK_89",
+              "rows": 1
+            },
+            {
+              "key": "SK_90",
+              "rows": 1
+            },
+            {
+              "key": "SK_91",
+              "rows": 1
+            },
+            {
+              "key": "SK_95",
+              "rows": 1
+            },
+            {
+              "key": "SK_99",
+              "rows": 1
+            },
+            {
+              "key": "SK_101",
+              "rows": 1
+            },
+            {
+              "key": "SK_105",
+              "rows": 1
+            },
+            {
+              "key": "SK_109",
+              "rows": 1
+            },
+            {
+              "key": "SK_115",
+              "rows": 1
+            },
+            {
+              "key": "SK_119",
+              "rows": 1
+            },
+            {
+              "key": "SK_121",
+              "rows": 1
+            },
+            {
+              "key": "SK_141",
+              "rows": 1
+            },
+            {
+              "key": "SK_144",
+              "rows": 1
+            },
+            {
+              "key": "SK_148",
+              "rows": 1
+            },
+            {
+              "key": "SK_151",
+              "rows": 1
+            },
+            {
+              "key": "SK_152",
+              "rows": 1
+            },
+            {
+              "key": "SK_154",
+              "rows": 1
+            },
+            {
+              "key": "SK_155",
+              "rows": 1
+            },
+            {
+              "key": "SK_156",
+              "rows": 1
+            },
+            {
+              "key": "SK_157",
+              "rows": 1
+            },
+            {
+              "key": "SK_158",
+              "rows": 1
+            },
+            {
+              "key": "SK_159",
+              "rows": 1
+            },
+            {
+              "key": "SK_160",
+              "rows": 1
+            },
+            {
+              "key": "SK_161",
+              "rows": 1
+            },
+            {
+              "key": "SK_162",
+              "rows": 1
+            }
+          ],
+          "rightOnlyKeys": []
+        },
+        "shares": [
+          {
+            "measure": "age",
+            "all": 8962,
+            "related": 5299,
+            "share": 0.5912742691363535
+          }
+        ],
+        "normalisation": "fuzzy",
+        "declared": {
+          "decision": "keep",
+          "label": "none recorded",
+          "reason": "A case the contacts name as nobody’s has no recorded source."
+        },
+        "several": {
+          "keys": 2,
+          "addedRows": 3
+        }
+      }
+    },
+    "tree": {
+      "counts": {
+        "cases": 162,
+        "chains": 67,
+        "noInfector": 67,
+        "unknownInfector": 0,
+        "undated": 27,
+        "inLoop": 0,
+        "links": 95,
+        "severalSources": 2,
+        "furtherLinks": 3
+      },
+      "chains": [
+        {
+          "root": "SK_1",
+          "size": 94,
+          "generations": 4
+        },
+        {
+          "root": "SK_42",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_43",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_53",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_55",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_62",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_70",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_52",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_67",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_99",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_105",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_44",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_60",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_65",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_73",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_74",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_78",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_101",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_51",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_56",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_58",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_61",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_57",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_63",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_72",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_89",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_64",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_68",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_71",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_77",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_79",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_59",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_76",
+          "size": 3,
+          "generations": 2
+        },
+        {
+          "root": "SK_115",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_148",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_151",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_152",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_75",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_141",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_154",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_9",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_25",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_29",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_36",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_37",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_46",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_49",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_50",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_66",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_69",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_80",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_81",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_90",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_91",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_95",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_109",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_119",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_121",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_144",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_155",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_156",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_157",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_158",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_159",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_160",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_161",
+          "size": 1,
+          "generations": 1
+        },
+        {
+          "root": "SK_162",
+          "size": 1,
+          "generations": 1
+        }
+      ]
+    },
+    "dataIssues": [
+      {
+        "workflow": "How quickly was each case detected and reported?",
+        "step": "Tabular data",
+        "kind": "KeyAbsent",
+        "column": "dt_onset",
+        "count": 27,
+        "of": 162
+      },
+      {
+        "workflow": "How quickly was each case detected and reported?",
+        "step": "Tabular data",
+        "kind": "ColumnUndescribed",
+        "column": null
+      },
+      {
+        "workflow": "How quickly was each case detected and reported?",
+        "step": "Tabular data",
+        "kind": "ValueEmpty",
+        "column": "dt_onset",
+        "count": 27,
+        "of": 162
+      },
+      {
+        "workflow": "How quickly was each case detected and reported?",
+        "step": "7-1-7 timeliness",
+        "kind": "ValueAbsent",
+        "column": "dt_onset",
+        "count": 27,
+        "of": 162
+      },
+      {
+        "workflow": "How quickly was each case detected and reported?",
+        "step": "7-1-7 timeliness",
+        "kind": "FieldMissing",
+        "column": "early_response_date",
+        "count": 162,
+        "of": 162
+      },
+      {
+        "workflow": "Who infected whom, and where?",
+        "step": "Probable links between cases",
+        "kind": "ValueTrimmed",
+        "column": "exposure",
+        "count": 1,
+        "of": 98
+      },
+      {
+        "workflow": "Who infected whom, and where?",
+        "step": "Probable links between cases",
+        "kind": "ColumnUndescribed",
+        "column": null
+      },
+      {
+        "workflow": "Who infected whom, and where?",
+        "step": "The cases and their onsets",
+        "kind": "KeyAbsent",
+        "column": "dt_onset",
+        "count": 27,
+        "of": 162
+      },
+      {
+        "workflow": "Who infected whom, and where?",
+        "step": "The cases and their onsets",
+        "kind": "ColumnUndescribed",
+        "column": null
+      },
+      {
+        "workflow": "Who infected whom, and where?",
+        "step": "The cases and their onsets",
+        "kind": "ValueEmpty",
+        "column": "dt_onset",
+        "count": 27,
+        "of": 162
+      }
+    ]
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "2712393ebc082603c02d199f01a3c40da43ff5b5f9a0c57488f03bb4ca2cc043"
+  }
+}

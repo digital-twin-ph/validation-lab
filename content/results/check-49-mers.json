@@ -1,0 +1,49 @@
+{
+ "check": "49-mers",
+ "ranAt": "2026-11-12T17:51:16+00:00",
+ "fixture": {
+  "id": "mers-korea-001",
+  "sha256": "2712393ebc082603c02d199f01a3c40da43ff5b5f9a0c57488f03bb4ca2cc043",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.100.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:apply_ruleset",
+   "release": "0.13.0",
+   "label": "A whole example: MERS-CoV, South Korea, 2015, both workflows",
+   "implementation": "example-2015-mers-korea at its pinned commit"
+  }
+ },
+ "source": {
+  "commit": "9b82f5ed351b0872fb3a78992ecf61d717edd055",
+  "files": {
+   "data/mers_korea_2015_linelist.csv": "b678afea07eb3f980658c95c7284fff75c3528d6f8c0e6ec4550c0506fd3ff7f",
+   "data/mers_korea_2015_contacts.csv": "6b94ef8ffa61e365572d05d65a33d559174212d95fe60d94bf6076a682b414c1"
+  }
+ },
+ "agrees": true,
+ "criteria": "Exact: each case's days and three verdicts; the verdict, source and setting counts; Relate's rows and its related, kept and several counts; the tree's counts and each chain's size and generations; each counted data issue",
+ "checked": {
+  "cases": 162,
+  "countTables": 4,
+  "relateRows": 165,
+  "treeCounts": 8,
+  "chains": 67,
+  "dataIssues": 7
+ },
+ "differs": [],
+ "observed": {
+  "reportBeforeDiagnosis": 7
+ },
+ "notEstablished": [
+  "That dt_onset, dt_diag and dt_report are 7-1-7's emergence, detection and notification: the bindings are the practitioner's, and both sides read the same columns.",
+  "That the contacts are the true transmission, or that a case's first listed source is its infector.",
+  "That a report dated before its diagnosis (7 cases here) is a fact and not an error in the source: both sides count it as a negative interval and so as Met."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "pandas": "2.3.3",
+  "pyodide": false
+ }
+}
