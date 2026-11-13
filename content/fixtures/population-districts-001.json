@@ -1,0 +1,1776 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "population-districts-001",
+  "exportedAt": "2026-11-13T18:53:58.044Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.111.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:sample_raster",
+    "release": "0.6.1",
+    "label": "Sample a raster over areas: three population models totalled over Rwanda's and Botswana's census districts",
+    "implementation": "src/raster-areas.ts#areaTotals; src/raster.ts#readRasterWindow"
+  },
+  "source": "WorldPop Global2 R2025A (CC BY 4.0); GRID3 SSA 2025 v1.0 (CC BY 4.0); GHS-POP R2023A E2025 3 arc-seconds (European Commission JRC, CC BY 4.0); geoBoundaries ADM2 (Rwanda gbOpen CC BY 4.0, Botswana gbHumanitarian CC BY 3.0 IGO); the 2022 censuses as transcribed in example-population-models-census. The rasters are read from where they were downloaded, by digest.",
+  "declaredParameters": {
+    "window": "Each raster's cells meeting the box of all the districts together, no padding, as Raster input keeps them.",
+    "cellRule": "A cell belongs to a district when its centre is inside or on the district; counted whole, not area-weighted. No data adds nothing and is counted apart.",
+    "share": "A district's total over the sum of every district's total from the same source.",
+    "countries": {
+      "RWA": {
+        "boundaries": {
+          "path": "dl-rwa-adm2/geoBoundaries-RWA-ADM2.geojson",
+          "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/RWA/ADM2/geoBoundaries-RWA-ADM2.geojson",
+          "bytes": 6322416,
+          "sha256": "efe97dd43536b7de34a9b07bf0408a766f2020ac54765b1e1f9da3631b941299",
+          "licence": "CC BY 4.0",
+          "nameField": "shapeName"
+        },
+        "rasters": {
+          "WorldPop": {
+            "path": "dl-worldpop-rwa/rwa_pop_2025_CN_100m_R2025A_v1.tif",
+            "bytes": 9862909,
+            "sha256": "93bb39bbd91e2bd6dfcf659a22a0bd03beb0e247f0e4d4061e9540819f87580b",
+            "url": "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A/2025/RWA/v1/100m/constrained/rwa_pop_2025_CN_100m_R2025A_v1.tif",
+            "window": [
+              0,
+              0,
+              2444,
+              2150
+            ]
+          },
+          "GRID3": {
+            "path": "dl-grid3-rwa/rwa_SSApopulation_ 2025_v1_0_gridded.tif",
+            "bytes": 5051620,
+            "sha256": "17fdb538a62a87cfade64dfb4a9a015eba0738cb383eacc6ca1d3b6d981a8693",
+            "url": "https://data.worldpop.org/repo/wopr/_MULT/population/GRID3_SSA2025/GRID3_SSA_pop_estimates_V1_0/rwa_SSApopulation_%202025_v1_0_gridded.tif",
+            "window": [
+              0,
+              0,
+              2444,
+              2150
+            ]
+          },
+          "GHS-POP": {
+            "path": "dl-ghs/ghs_pop_2025_rwa_window.tif",
+            "bytes": 17363399,
+            "sha256": "7f44eaae9825181dddd36ca07eaabc2f08816fcaf19d805f52b96172a4284fc8",
+            "url": "https://jrc-ghsl.s3.amazonaws.com/ghs-pop/r2023a/4326/3asec/2025/GHS_POP_E2025_GLOBE_R2023A_4326_3ss_V1_0.tif",
+            "cut": "The cells of the global file around the districts' box, one cell out, read with rasterio from the address above and written unchanged (deflate).",
+            "window": [
+              1,
+              1,
+              2448,
+              2153
+            ]
+          }
+        }
+      },
+      "BWA": {
+        "boundaries": {
+          "path": "dl-bwa-adm2/geoBoundaries-BWA-ADM2.geojson",
+          "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbHumanitarian/BWA/ADM2/geoBoundaries-BWA-ADM2.geojson",
+          "bytes": 1383000,
+          "sha256": "32a398b6c99695416fb94a0b53d77a1801bcdaaa7ec34e380b6bd45773b61d7d",
+          "licence": "CC BY 3.0 IGO",
+          "nameField": "shapeName"
+        },
+        "rasters": {
+          "WorldPop": {
+            "path": "worldpop-dl/bwa_pop_2025_CN_100m_R2025A_v1.tif",
+            "bytes": 16232187,
+            "sha256": "6d17fc52142186ac4616635aa68d11ff7795923a0eea0361298bb43b679c8934",
+            "url": "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A/2025/BWA/v1/100m/constrained/bwa_pop_2025_CN_100m_R2025A_v1.tif",
+            "window": [
+              0,
+              0,
+              11248,
+              10953
+            ]
+          },
+          "GRID3": {
+            "path": "dl-grid3-bwa/bwa_SSApopulation_ 2025_v1_0_gridded.tif",
+            "bytes": 11647427,
+            "sha256": "65507d71d60032cf42c412d044322761121cb76d7675df5c1334ba84118962a4",
+            "url": "https://data.worldpop.org/repo/wopr/_MULT/population/GRID3_SSA2025/GRID3_SSA_pop_estimates_V1_0/bwa_SSApopulation_%202025_v1_0_gridded.tif",
+            "window": [
+              0,
+              0,
+              11248,
+              10953
+            ]
+          },
+          "GHS-POP": {
+            "path": "dl-ghs/ghs_pop_2025_bwa_window.tif",
+            "bytes": 47086849,
+            "sha256": "917f0abeb676289d6f7f39fb790d7704b0fecfbd23b0732b1622ddaf3a50a3f8",
+            "url": "https://jrc-ghsl.s3.amazonaws.com/ghs-pop/r2023a/4326/3asec/2025/GHS_POP_E2025_GLOBE_R2023A_4326_3ss_V1_0.tif",
+            "cut": "The cells of the global file around the districts' box, one cell out, read with rasterio from the address above and written unchanged (deflate).",
+            "window": [
+              1,
+              1,
+              11253,
+              10957
+            ]
+          }
+        }
+      }
+    }
+  },
+  "input": {},
+  "output": {
+    "countries": {
+      "RWA": {
+        "districts": [
+          {
+            "name": "Nyarugenge",
+            "WorldPop": {
+              "total": 407204.10485432483,
+              "cells": 13800,
+              "noData": 1710,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 407204.10465860367,
+              "cells": 9098,
+              "noData": 6412,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 360628.8101660884,
+              "cells": 15494,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 374319,
+            "shares": {
+              "census": 0.02825818105667097,
+              "WorldPop": 0.028271210254490725,
+              "GRID3": 0.028270364923251565,
+              "GHS-POP": 0.024513546879675892
+            }
+          },
+          {
+            "name": "Gasabo",
+            "WorldPop": {
+              "total": 956664.8666753722,
+              "cells": 48895,
+              "noData": 1348,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 956664.8551852703,
+              "cells": 31943,
+              "noData": 18300,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 1022510.1982943795,
+              "cells": 50241,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 879505,
+            "shares": {
+              "census": 0.06639580553016919,
+              "WorldPop": 0.06641896107245623,
+              "GRID3": 0.06641697432792755,
+              "GHS-POP": 0.06950457360656255
+            }
+          },
+          {
+            "name": "Kicukiro",
+            "WorldPop": {
+              "total": 534876.9731081072,
+              "cells": 17012,
+              "noData": 2526,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 534876.9642398357,
+              "cells": 12688,
+              "noData": 6850,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 520049.3585213658,
+              "cells": 19556,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 491731,
+            "shares": {
+              "census": 0.03712187633857184,
+              "WorldPop": 0.03713523313433827,
+              "GRID3": 0.0371341221640646,
+              "GHS-POP": 0.035350071792621444
+            }
+          },
+          {
+            "name": "Nyanza",
+            "WorldPop": {
+              "total": 397762.74890758004,
+              "cells": 70219,
+              "noData": 8456,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 397762.74712252617,
+              "cells": 31316,
+              "noData": 47359,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 497274.8735983484,
+              "cells": 78676,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 365718,
+            "shares": {
+              "census": 0.027608872271200752,
+              "WorldPop": 0.027615719418627473,
+              "GRID3": 0.02761489357642028,
+              "GHS-POP": 0.033801988588831544
+            }
+          },
+          {
+            "name": "Gisagara",
+            "WorldPop": {
+              "total": 431793.57908226363,
+              "cells": 57136,
+              "noData": 22503,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 431807.7566795349,
+              "cells": 23901,
+              "noData": 55738,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 409900.58446943073,
+              "cells": 79637,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 397051,
+            "shares": {
+              "census": 0.029974270733604935,
+              "WorldPop": 0.029978398830583626,
+              "GRID3": 0.029978486754831748,
+              "GHS-POP": 0.02786276889184271
+            }
+          },
+          {
+            "name": "Nyaruguru",
+            "WorldPop": {
+              "total": 345818.9265115075,
+              "cells": 68649,
+              "noData": 49784,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 345822.9578473568,
+              "cells": 23225,
+              "noData": 95208,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 391778.93439520884,
+              "cells": 118419,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 318126,
+            "shares": {
+              "census": 0.024016045423380882,
+              "WorldPop": 0.024009383660036226,
+              "GRID3": 0.02400894564994522,
+              "GHS-POP": 0.02663095960176705
+            }
+          },
+          {
+            "name": "Huye",
+            "WorldPop": {
+              "total": 415378.12503030896,
+              "cells": 55538,
+              "noData": 12517,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 415378.13684797287,
+              "cells": 25261,
+              "noData": 42794,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 420315.1314920816,
+              "cells": 68040,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 381900,
+            "shares": {
+              "census": 0.028830487753874753,
+              "WorldPop": 0.028838712989028157,
+              "GRID3": 0.02883785152332307,
+              "GHS-POP": 0.02857069205126185
+            }
+          },
+          {
+            "name": "Nyamagabe",
+            "WorldPop": {
+              "total": 404020.64814442955,
+              "cells": 85244,
+              "noData": 42485,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 404020.6610302925,
+              "cells": 31356,
+              "noData": 96373,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 433495.5302481092,
+              "cells": 127744,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 371501,
+            "shares": {
+              "census": 0.02804544391477409,
+              "WorldPop": 0.028050190444256454,
+              "GRID3": 0.02804935262977184,
+              "GHS-POP": 0.029466622475261807
+            }
+          },
+          {
+            "name": "Ruhango",
+            "WorldPop": {
+              "total": 390565.4047711566,
+              "cells": 69532,
+              "noData": 3748,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 390565.3927195072,
+              "cells": 31486,
+              "noData": 41794,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 438808.70138422947,
+              "cells": 73270,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 359121,
+            "shares": {
+              "census": 0.02711084994150106,
+              "WorldPop": 0.027116024973190718,
+              "GRID3": 0.027115213359233115,
+              "GHS-POP": 0.029827782388317674
+            }
+          },
+          {
+            "name": "Muhanga",
+            "WorldPop": {
+              "total": 389829.55997572467,
+              "cells": 69860,
+              "noData": 5824,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 389829.5653755665,
+              "cells": 32537,
+              "noData": 43147,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 338462.68050702754,
+              "cells": 75708,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 358433,
+            "shares": {
+              "census": 0.027058911278042917,
+              "WorldPop": 0.02706493702324539,
+              "GRID3": 0.02706412814841199,
+              "GHS-POP": 0.02300681629348642
+            }
+          },
+          {
+            "name": "Kamonyi",
+            "WorldPop": {
+              "total": 490335.2190562794,
+              "cells": 71707,
+              "noData": 5528,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 490335.21755981445,
+              "cells": 37105,
+              "noData": 40130,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 466879.6104739654,
+              "cells": 77237,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 450849,
+            "shares": {
+              "census": 0.03403560244395569,
+              "WorldPop": 0.03404280533488491,
+              "GRID3": 0.03404178734091997,
+              "GHS-POP": 0.03173588713904307
+            }
+          },
+          {
+            "name": "Karongi",
+            "WorldPop": {
+              "total": 406599.72501029074,
+              "cells": 83774,
+              "noData": 32042,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 406599.727093935,
+              "cells": 39312,
+              "noData": 76504,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 388663.8666307159,
+              "cells": 115743,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 373869,
+            "shares": {
+              "census": 0.02822420954714166,
+              "WorldPop": 0.028229249602717884,
+              "GRID3": 0.02822840568436095,
+              "GHS-POP": 0.026419214567744126
+            }
+          },
+          {
+            "name": "Rutsiro",
+            "WorldPop": {
+              "total": 401502.64735980704,
+              "cells": 61438,
+              "noData": 74428,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 401502.3612906933,
+              "cells": 26747,
+              "noData": 109119,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 418824.2197206108,
+              "cells": 135946,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 369180,
+            "shares": {
+              "census": 0.027870226417846245,
+              "WorldPop": 0.027875371652514407,
+              "GRID3": 0.027874518310053262,
+              "GHS-POP": 0.028469348135930796
+            }
+          },
+          {
+            "name": "Rubavu",
+            "WorldPop": {
+              "total": 592875.067085389,
+              "cells": 32290,
+              "noData": 12900,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 593082.0797994137,
+              "cells": 17275,
+              "noData": 27915,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 609841.636653903,
+              "cells": 45174,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 546683,
+            "shares": {
+              "census": 0.04127032609780443,
+              "WorldPop": 0.04116190253586121,
+              "GRID3": 0.04117504375214351,
+              "GHS-POP": 0.04145365297467153
+            }
+          },
+          {
+            "name": "Nyabihu",
+            "WorldPop": {
+              "total": 346963.6424208451,
+              "cells": 45715,
+              "noData": 17214,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 346963.6366007328,
+              "cells": 21698,
+              "noData": 41231,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 325968.6897065447,
+              "cells": 62929,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 319047,
+            "shares": {
+              "census": 0.02408557377955087,
+              "WorldPop": 0.024088858556700447,
+              "GRID3": 0.024088137888552873,
+              "GHS-POP": 0.02215754407626999
+            }
+          },
+          {
+            "name": "Ngororero",
+            "WorldPop": {
+              "total": 400137.6050866274,
+              "cells": 69943,
+              "noData": 9237,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 400137.6272010803,
+              "cells": 34961,
+              "noData": 44219,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 402942.6735815159,
+              "cells": 79179,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 367955,
+            "shares": {
+              "census": 0.027777748419683123,
+              "WorldPop": 0.02778060002165097,
+              "GRID3": 0.02777977090870055,
+              "GHS-POP": 0.027389808690307636
+            }
+          },
+          {
+            "name": "Rusizi",
+            "WorldPop": {
+              "total": 526883.8685751185,
+              "cells": 47506,
+              "noData": 64949,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 527046.2931330204,
+              "cells": 21971,
+              "noData": 90484,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 468126.3344562855,
+              "cells": 112415,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 485529,
+            "shares": {
+              "census": 0.036653673445014544,
+              "WorldPop": 0.03658029094160402,
+              "GRID3": 0.03659047359262097,
+              "GHS-POP": 0.03182063252245419
+            }
+          },
+          {
+            "name": "Rulindo",
+            "WorldPop": {
+              "total": 391673.0347414613,
+              "cells": 64336,
+              "noData": 2061,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 391673.0318479538,
+              "cells": 37279,
+              "noData": 29118,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 339419.81008086144,
+              "cells": 66406,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 360144,
+            "shares": {
+              "census": 0.027188078506497692,
+              "WorldPop": 0.027192925081518115,
+              "GRID3": 0.0271921118040332,
+              "GHS-POP": 0.023071876654768415
+            }
+          },
+          {
+            "name": "Gakenke",
+            "WorldPop": {
+              "total": 397260.2840370666,
+              "cells": 78083,
+              "noData": 4313,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 397260.2829172611,
+              "cells": 38204,
+              "noData": 44192,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 351096.79298159736,
+              "cells": 82379,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 365292,
+            "shares": {
+              "census": 0.027576712575513005,
+              "WorldPop": 0.027580834480508142,
+              "GRID3": 0.027580009727556275,
+              "GHS-POP": 0.02386561320515254
+            }
+          },
+          {
+            "name": "Musanze",
+            "WorldPop": {
+              "total": 518227.817499646,
+              "cells": 42297,
+              "noData": 19425,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 518232.6599905491,
+              "cells": 23943,
+              "noData": 37779,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 460622.65598029544,
+              "cells": 61733,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 476522,
+            "shares": {
+              "census": 0.03597371480872455,
+              "WorldPop": 0.0359793219508424,
+              "GRID3": 0.03597858235089042,
+              "GHS-POP": 0.031310574066485346
+            }
+          },
+          {
+            "name": "Burera",
+            "WorldPop": {
+              "total": 421599.3455203008,
+              "cells": 52644,
+              "noData": 22890,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 421607.08286070824,
+              "cells": 26979,
+              "noData": 48555,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 360059.51464823354,
+              "cells": 75506,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 387729,
+            "shares": {
+              "census": 0.02927053204064442,
+              "WorldPop": 0.029270637496702324,
+              "GRID3": 0.029270299464914665,
+              "GHS-POP": 0.024474849327034722
+            }
+          },
+          {
+            "name": "Gicumbi",
+            "WorldPop": {
+              "total": 487988.1228790693,
+              "cells": 85246,
+              "noData": 11736,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 488016.49380779266,
+              "cells": 43296,
+              "noData": 53686,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 418357.7300808167,
+              "cells": 96984,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 448824,
+            "shares": {
+              "census": 0.03388273065107379,
+              "WorldPop": 0.033879852042611104,
+              "GRID3": 0.033880808691942876,
+              "GHS-POP": 0.02843763875683624
+            }
+          },
+          {
+            "name": "Rwamagana",
+            "WorldPop": {
+              "total": 527491.5967529491,
+              "cells": 67471,
+              "noData": 12213,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 527491.6054255962,
+              "cells": 34136,
+              "noData": 45548,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 476675.4416948897,
+              "cells": 79678,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 484953,
+            "shares": {
+              "census": 0.036610189912817025,
+              "WorldPop": 0.03662248406021017,
+              "GRID3": 0.036621389639075075,
+              "GHS-POP": 0.03240175342895188
+            }
+          },
+          {
+            "name": "Nyagatare",
+            "WorldPop": {
+              "total": 711148.8596878694,
+              "cells": 137019,
+              "noData": 87428,
+              "outside": 5
+            },
+            "GRID3": {
+              "total": 711148.867146492,
+              "cells": 38651,
+              "noData": 185796,
+              "outside": 5
+            },
+            "GHS-POP": {
+              "total": 986900.9032474821,
+              "cells": 224472,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 653861,
+            "shares": {
+              "census": 0.049361433760765384,
+              "WorldPop": 0.04937336999996489,
+              "GRID3": 0.04937189423923823,
+              "GHS-POP": 0.06708405117774632
+            }
+          },
+          {
+            "name": "Gatsibo",
+            "WorldPop": {
+              "total": 599425.8142898213,
+              "cells": 90505,
+              "noData": 94903,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 599425.8187818527,
+              "cells": 37358,
+              "noData": 148050,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 727455.1159678858,
+              "cells": 185383,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 551164,
+            "shares": {
+              "census": 0.04160860684047296,
+              "WorldPop": 0.04161670529775079,
+              "GRID3": 0.041615461257663904,
+              "GHS-POP": 0.04944836514843624
+            }
+          },
+          {
+            "name": "Kayonza",
+            "WorldPop": {
+              "total": 497200.1923506642,
+              "cells": 78105,
+              "noData": 148025,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 497200.190325737,
+              "cells": 26900,
+              "noData": 199230,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 628063.1123985824,
+              "cells": 226146,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 457156,
+            "shares": {
+              "census": 0.03451173202306983,
+              "WorldPop": 0.0345194240651073,
+              "GRID3": 0.03451839178341085,
+              "GHS-POP": 0.04269224786030576
+            }
+          },
+          {
+            "name": "Kirehe",
+            "WorldPop": {
+              "total": 501218.72110688034,
+              "cells": 66220,
+              "noData": 72930,
+              "outside": 9
+            },
+            "GRID3": {
+              "total": 501218.71333384514,
+              "cells": 24427,
+              "noData": 114723,
+              "outside": 9
+            },
+            "GHS-POP": {
+              "total": 543721.4659230814,
+              "cells": 139158,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 460860,
+            "shares": {
+              "census": 0.03479135529261775,
+              "WorldPop": 0.034798420936765426,
+              "GRID3": 0.03479737991391348,
+              "GHS-POP": 0.03695917039532439
+            }
+          },
+          {
+            "name": "Ngoma",
+            "WorldPop": {
+              "total": 439420.1114811057,
+              "cells": 60019,
+              "noData": 41677,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 439420.0983631611,
+              "cells": 27092,
+              "noData": 74604,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 518583.6015393894,
+              "cells": 101664,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 404048,
+            "shares": {
+              "census": 0.03050248996066401,
+              "WorldPop": 0.030507890793925897,
+              "GRID3": 0.030506977688136597,
+              "GHS-POP": 0.0352504377604005
+            }
+          },
+          {
+            "name": "Bugesera",
+            "WorldPop": {
+              "total": 599405.6114321183,
+              "cells": 82539,
+              "noData": 68892,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 599406.6442296505,
+              "cells": 36916,
+              "noData": 114515,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 523959.42190014734,
+              "cells": 151433,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 551103,
+            "shares": {
+              "census": 0.041604001813625655,
+              "WorldPop": 0.041615302661502644,
+              "GRID3": 0.04161413005401985,
+              "GHS-POP": 0.0356158562203662
+            }
+          },
+          {
+            "name": "Nyamasheke",
+            "WorldPop": {
+              "total": 472218.1538355858,
+              "cells": 66978,
+              "noData": 70128,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 472219.48540616035,
+              "cells": 32640,
+              "noData": 104466,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 462021.4352048824,
+              "cells": 137177,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 434221,
+            "shares": {
+              "census": 0.03278031742072597,
+              "WorldPop": 0.032784980686403564,
+              "GRID3": 0.032784092850671506,
+              "GHS-POP": 0.03140565532214109
+            }
+          }
+        ],
+        "totals": {
+          "census": 13246394,
+          "WorldPop": 14403490.377269672,
+          "GRID3": 14403921.058821917,
+          "GHS-POP": 14711408.835947957
+        }
+      },
+      "BWA": {
+        "districts": [
+          {
+            "name": "Gaborone",
+            "WorldPop": {
+              "total": 265242.92482162174,
+              "cells": 17531,
+              "noData": 14680,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 265242.9425126314,
+              "cells": 11580,
+              "noData": 20631,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 175525.37632910477,
+              "cells": 32191,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 246327,
+            "shares": {
+              "census": 0.1043931431012511,
+              "WorldPop": 0.10435544108029238,
+              "GRID3": 0.10435544210768784,
+              "GHS-POP": 0.06348611321928677
+            }
+          },
+          {
+            "name": "Francistown",
+            "WorldPop": {
+              "total": 111358.96184333041,
+              "cells": 6061,
+              "noData": 3285,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 111358.9649848938,
+              "cells": 4014,
+              "noData": 5332,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 131107.9188371932,
+              "cells": 9344,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 103416,
+            "shares": {
+              "census": 0.0438276002507195,
+              "WorldPop": 0.04381234141954724,
+              "GRID3": 0.04381234016471412,
+              "GHS-POP": 0.047420677017303396
+            }
+          },
+          {
+            "name": "Lobatse",
+            "WorldPop": {
+              "total": 32075.767006613314,
+              "cells": 3071,
+              "noData": 2710,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 32075.769288897514,
+              "cells": 1745,
+              "noData": 4036,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 97647.2101075036,
+              "cells": 5753,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 29772,
+            "shares": {
+              "census": 0.012617344653287897,
+              "WorldPop": 0.012619679926297369,
+              "GRID3": 0.01261968010676737,
+              "GHS-POP": 0.035318208489746046
+            }
+          },
+          {
+            "name": "Selibe Phikwe",
+            "WorldPop": {
+              "total": 45740.162168511655,
+              "cells": 5430,
+              "noData": 5749,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 45740.16008579731,
+              "cells": 2631,
+              "noData": 8548,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 66253.903059702,
+              "cells": 11201,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 42486,
+            "shares": {
+              "census": 0.018005525491723417,
+              "WorldPop": 0.01799571016414172,
+              "GRID3": 0.017995708321636054,
+              "GHS-POP": 0.023963502479444274
+            }
+          },
+          {
+            "name": "Orapa",
+            "WorldPop": {
+              "total": 9318.784168990678,
+              "cells": 3416,
+              "noData": 25288,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 9318.780303187668,
+              "cells": 1076,
+              "noData": 27628,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 14795.850268022083,
+              "cells": 28644,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 8648,
+            "shares": {
+              "census": 0.0036650139917249,
+              "WorldPop": 0.0036663214784751004,
+              "GRID3": 0.0036663197491003992,
+              "GHS-POP": 0.005351539731383611
+            }
+          },
+          {
+            "name": "Jwaneng",
+            "WorldPop": {
+              "total": 20235.850287348032,
+              "cells": 415,
+              "noData": 1666,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 20235.848826527596,
+              "cells": 257,
+              "noData": 1824,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 1328.6187769078083,
+              "cells": 2097,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 18785,
+            "shares": {
+              "census": 0.007961064735725283,
+              "WorldPop": 0.00796146055089355,
+              "GRID3": 0.007961459523531183,
+              "GHS-POP": 0.0004805506979109841
+            }
+          },
+          {
+            "name": "Sowa Town",
+            "WorldPop": {
+              "total": 3137.8783104615286,
+              "cells": 788,
+              "noData": 21082,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 3137.8797629773617,
+              "cells": 232,
+              "noData": 21638,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 3110.243797141587,
+              "cells": 21889,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 3267,
+            "shares": {
+              "census": 0.001384551423562124,
+              "WorldPop": 0.0012345463139675137,
+              "GRID3": 0.0012345468152491002,
+              "GHS-POP": 0.0011249501010878835
+            }
+          },
+          {
+            "name": "Southern",
+            "WorldPop": {
+              "total": 150156.16185017844,
+              "cells": 199742,
+              "noData": 1383769,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 150156.1672523152,
+              "cells": 42229,
+              "noData": 1541282,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 176873.70309718646,
+              "cells": 1583325,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 139356,
+            "shares": {
+              "census": 0.05905893730698603,
+              "WorldPop": 0.05907645797277005,
+              "GRID3": 0.05907645673952306,
+              "GHS-POP": 0.06397379213868434
+            }
+          },
+          {
+            "name": "Barolong",
+            "WorldPop": {
+              "total": 63437.30009347263,
+              "cells": 91254,
+              "noData": 730712,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 63437.302813027054,
+              "cells": 21866,
+              "noData": 800100,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 103934.41874346825,
+              "cells": 822051,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 58904,
+            "shares": {
+              "census": 0.02496345792883482,
+              "WorldPop": 0.024958356331838964,
+              "GRID3": 0.024958355982864455,
+              "GHS-POP": 0.03759224115467384
+            }
+          },
+          {
+            "name": "Ngwaketse West",
+            "WorldPop": {
+              "total": 25488.72442972724,
+              "cells": 23883,
+              "noData": 1074444,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 25488.731703862548,
+              "cells": 4480,
+              "noData": 1093847,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 5191.6475712180045,
+              "cells": 1099087,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 23663,
+            "shares": {
+              "census": 0.010028356392944764,
+              "WorldPop": 0.010028116988330633,
+              "GRID3": 0.010028119280097891,
+              "GHS-POP": 0.001877777062178155
+            }
+          },
+          {
+            "name": "South East",
+            "WorldPop": {
+              "total": 119998.66445932747,
+              "cells": 47249,
+              "noData": 140426,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 119998.67628063262,
+              "cells": 17738,
+              "noData": 169937,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 172796.88710458996,
+              "cells": 187728,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 111447,
+            "shares": {
+              "census": 0.047231130242341,
+              "WorldPop": 0.04721148949447238,
+              "GRID3": 0.04721149146129074,
+              "GHS-POP": 0.06249924066873108
+            }
+          },
+          {
+            "name": "Kweneng East",
+            "WorldPop": {
+              "total": 355700.98770902195,
+              "cells": 208306,
+              "noData": 729131,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 355701.00563617796,
+              "cells": 56793,
+              "noData": 880644,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 472349.9275509912,
+              "cells": 937414,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 330220,
+            "shares": {
+              "census": 0.13994691493378775,
+              "WorldPop": 0.1399446695516336,
+              "GRID3": 0.13994466864861,
+              "GHS-POP": 0.17084515986678855
+            }
+          },
+          {
+            "name": "Kweneng West",
+            "WorldPop": {
+              "total": 62295.85755149154,
+              "cells": 122838,
+              "noData": 3698928,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 62295.85813671909,
+              "cells": 20717,
+              "noData": 3801049,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 41823.97731840171,
+              "cells": 3821688,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 57763,
+            "shares": {
+              "census": 0.02447990323820599,
+              "WorldPop": 0.02450927464562112,
+              "GRID3": 0.024509273482462353,
+              "GHS-POP": 0.015127395336492171
+            }
+          },
+          {
+            "name": "Kgatleng",
+            "WorldPop": {
+              "total": 131330.2199887533,
+              "cells": 131779,
+              "noData": 827803,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 131330.2304993607,
+              "cells": 32454,
+              "noData": 927128,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 127148.7325011277,
+              "cells": 959601,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 121873,
+            "shares": {
+              "census": 0.05164965890535254,
+              "WorldPop": 0.051669702569125765,
+              "GRID3": 0.05166970376681247,
+              "GHS-POP": 0.0459886712455771
+            }
+          },
+          {
+            "name": "Serowe Palapye",
+            "WorldPop": {
+              "total": 218382.59615245054,
+              "cells": 229378,
+              "noData": 4163908,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 218382.60924056638,
+              "cells": 48403,
+              "noData": 4344883,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 172639.07488224236,
+              "cells": 4393294,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 202741,
+            "shares": {
+              "census": 0.08592143867903539,
+              "WorldPop": 0.0859190199364391,
+              "GRID3": 0.08591902020105383,
+              "GHS-POP": 0.062442161260471835
+            }
+          },
+          {
+            "name": "Mahalapye",
+            "WorldPop": {
+              "total": 142167.7777224322,
+              "cells": 195566,
+              "noData": 2195562,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 142167.7862830693,
+              "cells": 37189,
+              "noData": 2353939,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 147610.90967695866,
+              "cells": 2391071,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 131975,
+            "shares": {
+              "census": 0.055930876683382716,
+              "WorldPop": 0.055933560382832856,
+              "GRID3": 0.05593356057092623,
+              "GHS-POP": 0.05338967572747153
+            }
+          },
+          {
+            "name": "Bobonong",
+            "WorldPop": {
+              "total": 83436.38589490054,
+              "cells": 140288,
+              "noData": 1741124,
+              "outside": 3
+            },
+            "GRID3": {
+              "total": 83436.38851039857,
+              "cells": 23815,
+              "noData": 1857597,
+              "outside": 3
+            },
+            "GHS-POP": {
+              "total": 76515.10749320372,
+              "cells": 1881440,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 77504,
+            "shares": {
+              "census": 0.03284611984443185,
+              "WorldPop": 0.032826665812343135,
+              "GRID3": 0.032826664975098445,
+              "GHS-POP": 0.027674897378892314
+            }
+          },
+          {
+            "name": "Boteti",
+            "WorldPop": {
+              "total": 80335.7151669809,
+              "cells": 85011,
+              "noData": 4149935,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 80335.72051751427,
+              "cells": 14332,
+              "noData": 4220614,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 71639.72046108781,
+              "cells": 4235127,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 74553,
+            "shares": {
+              "census": 0.03159548891362934,
+              "WorldPop": 0.03160675820623296,
+              "GRID3": 0.031606758514397086,
+              "GHS-POP": 0.0259115092034503
+            }
+          },
+          {
+            "name": "Tutume",
+            "WorldPop": {
+              "total": 178011.58709129965,
+              "cells": 218376,
+              "noData": 5143681,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 178011.5948645193,
+              "cells": 43444,
+              "noData": 5318613,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 257032.7394339011,
+              "cells": 5361852,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 164955,
+            "shares": {
+              "census": 0.06990776861759723,
+              "WorldPop": 0.07003571424500127,
+              "GRID3": 0.07003571332155945,
+              "GHS-POP": 0.09296666919641469
+            }
+          },
+          {
+            "name": "North East",
+            "WorldPop": {
+              "total": 74649.388656851,
+              "cells": 80189,
+              "noData": 576942,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 74649.38777791336,
+              "cells": 23247,
+              "noData": 633884,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 76492.42450873608,
+              "cells": 657179,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 69353,
+            "shares": {
+              "census": 0.029391733969483927,
+              "WorldPop": 0.029369567104942585,
+              "GRID3": 0.029369565089413824,
+              "GHS-POP": 0.027666693126321085
+            }
+          },
+          {
+            "name": "Ngamiland East",
+            "WorldPop": {
+              "total": 130833.2714760124,
+              "cells": 110579,
+              "noData": 6104222,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 130833.28441869654,
+              "cells": 23466,
+              "noData": 6191335,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 136680.0205347698,
+              "cells": 6214980,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 121396,
+            "shares": {
+              "census": 0.05144750676912997,
+              "WorldPop": 0.05147418639738943,
+              "GRID3": 0.05147418856305197,
+              "GHS-POP": 0.04943606126908506
+            }
+          },
+          {
+            "name": "Ngamiland West",
+            "WorldPop": {
+              "total": 79837.62574455017,
+              "cells": 78501,
+              "noData": 6089668,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 79837.63141738996,
+              "cells": 13200,
+              "noData": 6154969,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 70001.06747362694,
+              "cells": 6170062,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 74151,
+            "shares": {
+              "census": 0.03142512170448578,
+              "WorldPop": 0.03141079316245227,
+              "GRID3": 0.03141079360856357,
+              "GHS-POP": 0.025318821631631586
+            }
+          },
+          {
+            "name": "Ngamiland Delta",
+            "WorldPop": {
+              "total": 3113.52853216356,
+              "cells": 49163,
+              "noData": 1490135,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 3113.540049135685,
+              "cells": 720,
+              "noData": 1538578,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 1212.5611348973937,
+              "cells": 1539315,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 2889,
+            "shares": {
+              "census": 0.0012243553910838618,
+              "WorldPop": 0.001224966296494095,
+              "GRID3": 0.001224970758013942,
+              "GHS-POP": 0.0004385735846597254
+            }
+          },
+          {
+            "name": "Chobe",
+            "WorldPop": {
+              "total": 30992.370702106855,
+              "cells": 21964,
+              "noData": 2539323,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 30992.368952590972,
+              "cells": 4869,
+              "noData": 2556418,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 32845.498141961856,
+              "cells": 2561129,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 28742,
+            "shares": {
+              "census": 0.012180831654736018,
+              "WorldPop": 0.012193435572003797,
+              "GRID3": 0.012193434190461783,
+              "GHS-POP": 0.011879951818902328
+            }
+          },
+          {
+            "name": "Ghanzi",
+            "WorldPop": {
+              "total": 60490.29451781948,
+              "cells": 67374,
+              "noData": 7848251,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 60490.30048169196,
+              "cells": 11080,
+              "noData": 7904545,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 64546.572908069866,
+              "cells": 7914647,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 56077,
+            "shares": {
+              "census": 0.023765378077469614,
+              "WorldPop": 0.02379890573793458,
+              "GRID3": 0.023798906731300615,
+              "GHS-POP": 0.02334597493114272
+            }
+          },
+          {
+            "name": "Central Kgalagadi Game Reserve",
+            "WorldPop": {
+              "total": 516.4687662075739,
+              "cells": 1890,
+              "noData": 6592795,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 516.4699580222368,
+              "cells": 140,
+              "noData": 6594545,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 491.5331218560137,
+              "cells": 6595465,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 488,
+            "shares": {
+              "census": 0.00020681392552749205,
+              "WorldPop": 0.0002031960925556508,
+              "GRID3": 0.00020319654990323763,
+              "GHS-POP": 0.00017778356655775485
+            }
+          },
+          {
+            "name": "Kgalagadi South",
+            "WorldPop": {
+              "total": 38092.34084941792,
+              "cells": 55658,
+              "noData": 6903264,
+              "outside": 3
+            },
+            "GRID3": {
+              "total": 38092.33959423378,
+              "cells": 9447,
+              "noData": 6949475,
+              "outside": 3
+            },
+            "GHS-POP": {
+              "total": 39567.85954647038,
+              "cells": 6958731,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 35346,
+            "shares": {
+              "census": 0.014979600433800686,
+              "WorldPop": 0.01498680137762455,
+              "GRID3": 0.014986800031760105,
+              "GHS-POP": 0.014311375731233948
+            }
+          },
+          {
+            "name": "Kgalagadi North",
+            "WorldPop": {
+              "total": 25348.279333147424,
+              "cells": 33551,
+              "noData": 6527097,
+              "outside": 0
+            },
+            "GRID3": {
+              "total": 25348.279645225033,
+              "cells": 6577,
+              "noData": 6554071,
+              "outside": 0
+            },
+            "GHS-POP": {
+              "total": 27620.279481562215,
+              "cells": 6560990,
+              "noData": 0,
+              "outside": 0
+            },
+            "census": 23512,
+            "shares": {
+              "census": 0.009964362739759003,
+              "WorldPop": 0.009972861188346496,
+              "GRID3": 0.00997286074414889,
+              "GHS-POP": 0.009990032364477229
+            }
+          }
+        ],
+        "totals": {
+          "census": 2359609,
+          "WorldPop": 2541725.8752951897,
+          "GRID3": 2541726.019797975,
+          "GHS-POP": 2764783.7838619016
+        }
+      }
+    }
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "ea8393453e20844a23619b55d46fc5fcae5c07868f70591a9f42475b33ec285b"
+  }
+}

@@ -1,0 +1,56 @@
+{
+ "check": "50-population-districts",
+ "ranAt": "2026-11-13T18:55:40+00:00",
+ "fixture": {
+  "id": "population-districts-001",
+  "sha256": "ea8393453e20844a23619b55d46fc5fcae5c07868f70591a9f42475b33ec285b",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.111.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:sample_raster",
+   "release": "0.6.1",
+   "label": "Sample a raster over areas: three population models totalled over Rwanda's and Botswana's census districts",
+   "implementation": "src/raster-areas.ts#areaTotals; src/raster.ts#readRasterWindow"
+  }
+ },
+ "files": {
+  "RWA": {
+   "boundaries": "efe97dd43536b7de34a9b07bf0408a766f2020ac54765b1e1f9da3631b941299",
+   "WorldPop": "93bb39bbd91e2bd6dfcf659a22a0bd03beb0e247f0e4d4061e9540819f87580b",
+   "GRID3": "17fdb538a62a87cfade64dfb4a9a015eba0738cb383eacc6ca1d3b6d981a8693",
+   "GHS-POP": "7f44eaae9825181dddd36ca07eaabc2f08816fcaf19d805f52b96172a4284fc8"
+  },
+  "BWA": {
+   "boundaries": "32a398b6c99695416fb94a0b53d77a1801bcdaaa7ec34e380b6bd45773b61d7d",
+   "WorldPop": "6d17fc52142186ac4616635aa68d11ff7795923a0eea0361298bb43b679c8934",
+   "GRID3": "65507d71d60032cf42c412d044322761121cb76d7675df5c1334ba84118962a4",
+   "GHS-POP": "917f0abeb676289d6f7f39fb790d7704b0fecfbd23b0732b1622ddaf3a50a3f8"
+  }
+ },
+ "agrees": true,
+ "criteria": "Each district's cells with a value equal; each total within 1e-9 relative; each share within 1e-12",
+ "checked": {
+  "districts": 58,
+  "totals": 174,
+  "shares": 232
+ },
+ "largest": {
+  "relativeTotal": 7.945783749814144e-14,
+  "share": 3.913536161803677e-15
+ },
+ "differs": [],
+ "notEstablished": [
+  "That any source is right: both sides total the same cells.",
+  "That a district's cells are its people: a cell is counted whole by the rule of its centre, not by the share of it inside the district.",
+  "That GHS-POP's window, cut from the global file with rasterio, is the window Fieldwork reads by range: a Fieldwork browser test reads it by range and gives the same shares to 0.1 %."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "rasterio": "1.5.2",
+  "gdal": "3.12.2",
+  "numpy": "2.5.3",
+  "pyodide": false
+ }
+}
