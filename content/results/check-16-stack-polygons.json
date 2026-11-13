@@ -1,24 +1,24 @@
 {
  "check": "16-stack-polygons",
- "ranAt": "2026-10-11T21:25:52.043065+00:00",
+ "ranAt": "2026-11-13T23:25:59.448176+00:00",
  "environment": {
-  "runtime": "CPython 3.13.3 on Darwin arm64",
+  "runtime": "CPython 3.11.15 on Darwin arm64",
   "isPyodide": false,
-  "shapely": "2.2.0",
-  "geos": "3.14.1"
+  "shapely": "2.0.7",
+  "geos": "3.13.0"
  },
  "fixture": {
   "id": "stack-polygons-soho-001",
-  "sha256": "082679fbcabcf30a89e752401e5c97de76557a49a43f185f1033c35730b31b12",
+  "sha256": "3eb38b1e74214afb71d2b7f6909726373266133a718a8ca5172cdf60b6eae647",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.112.0"
   },
   "operation": {
-   "widget": "urn:fieldwork:widget:stack_polygons",
-   "release": "0.1.0",
-   "label": "Collect polygon layers",
-   "implementation": "src/stack-polygons.ts#stackPolygons"
+   "widget": "urn:fieldwork:widget:map_output",
+   "release": "0.29.0",
+   "label": "A Map\u2019s polygon layers, collected for drawing",
+   "implementation": "src/polygon-layers.ts#collectPolygonLayers"
   },
   "declaredRule": "Extent is the sum over every ring of a polygon -- outer and interior alike -- of the absolute shoelace area of that ring, in square degrees. Holes are added, not subtracted."
  },
@@ -29,17 +29,17 @@
   {
    "id": "corridor-pump-250-t10",
    "minutes": 10,
-   "extentSquareDegrees": 9.769493404882542e-05
+   "extentSquareDegrees": 9.249342488988217e-05
   },
   {
    "id": "corridor-pump-250-t5",
    "minutes": 5,
-   "extentSquareDegrees": 2.858065113258952e-05
+   "extentSquareDegrees": 2.214748370994765e-05
   },
   {
    "id": "corridor-pump-250-t2",
    "minutes": 2,
-   "extentSquareDegrees": 5.403654112677831e-06
+   "extentSquareDegrees": 3.6610479813843578e-06
   }
  ],
  "referenceOrder": [
