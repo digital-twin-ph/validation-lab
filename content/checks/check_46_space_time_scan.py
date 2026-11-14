@@ -25,6 +25,11 @@ What this cannot establish: that a cluster is an outbreak, or that the model sui
 compute the same statistic; neither says what it means.
 
 Design record: fieldwork/docs/experiments/200-operational-epidemiology.md
+
+**Re-run 2026-11-14, Fieldwork 0.115.0 in development:** Fieldwork's replay now stops a day's shuffles once 50 have
+scored at least as high as that day's most likely cluster (Besag and Clifford 1991), and reports that day's p-value as
+the share of the shuffles run that scored as high. The criterion above is unchanged and still met: each day's p-value,
+however Fieldwork estimated it, lies within the stated Monte Carlo tolerance of this check's own, from every shuffle.
 """
 from __future__ import annotations
 
