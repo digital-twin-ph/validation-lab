@@ -1,0 +1,1416 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "mers-epi-001",
+  "exportedAt": "2026-11-14T05:40:41.194Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.114.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:group_table",
+    "release": "0.4.0",
+    "label": "The MERS example's epidemiology: deaths by age class and sex, days from exposure to onset, secondary cases and the serial interval",
+    "implementation": "example-2015-mers-korea at its pinned commit"
+  },
+  "source": "example-2015-mers-korea at ddf30f613637d84e0ec7d71450a0309d6a32abcf: the line list and contacts of mers_korea_2015 in the R package outbreaks (Cauchemez et al.). No licence stated, so not redistributed: read from the repository at this commit and checked by digest.",
+  "declaredParameters": {
+    "imports": {
+      "lineList": {
+        "value": "age",
+        "keys": [
+          "id",
+          "age_class",
+          "sex",
+          "outcome"
+        ]
+      },
+      "dates": {
+        "value": "age",
+        "keys": [
+          "id",
+          "dt_onset",
+          "dt_end_exp",
+          "outcome",
+          "dt_death"
+        ]
+      },
+      "links": {
+        "value": "diff_dt_onset",
+        "keys": [
+          "from",
+          "to",
+          "exposure"
+        ]
+      }
+    },
+    "computed": {
+      "columns": [
+        "incubation_days",
+        "onset_to_death_days"
+      ],
+      "days": "whole days, the later date minus the earlier; empty where either date is empty"
+    },
+    "median": "the middle value of those present, or the mean of the middle two",
+    "share": "the group's count / its stratum's total * 1000, rounded half up, / 10",
+    "twoByTwo": {
+      "label": "Death by sex, a two-by-two",
+      "exposureColumn": "sex",
+      "exposed": "M",
+      "unexposed": "F",
+      "outcomeColumn": "outcome",
+      "caseValue": "Dead",
+      "nonCaseValue": "Alive",
+      "level": 95
+    }
+  },
+  "input": {
+    "files": [
+      {
+        "path": "data/mers_korea_2015_linelist.csv",
+        "sha256": "b678afea07eb3f980658c95c7284fff75c3528d6f8c0e6ec4550c0506fd3ff7f",
+        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/ddf30f613637d84e0ec7d71450a0309d6a32abcf/data/mers_korea_2015_linelist.csv"
+      },
+      {
+        "path": "data/mers_korea_2015_contacts.csv",
+        "sha256": "6b94ef8ffa61e365572d05d65a33d559174212d95fe60d94bf6076a682b414c1",
+        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/ddf30f613637d84e0ec7d71450a0309d6a32abcf/data/mers_korea_2015_contacts.csv"
+      }
+    ],
+    "note": "No rows: the check reads each file at the commit and verifies its digest first."
+  },
+  "output": {
+    "byAgeClass": {
+      "params": {
+        "by": [
+          "age_class",
+          "outcome"
+        ],
+        "aggregate": "count",
+        "share": {
+          "within": [
+            "age_class"
+          ]
+        }
+      },
+      "valueField": "rows",
+      "rows": [
+        {
+          "age_class": "60-69",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 27
+        },
+        {
+          "age_class": "60-69",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 81.8
+        },
+        {
+          "age_class": "70-79",
+          "outcome": "Dead",
+          "statistic": "rows",
+          "value": 7
+        },
+        {
+          "age_class": "70-79",
+          "outcome": "Dead",
+          "statistic": "% within age_class",
+          "value": 28
+        },
+        {
+          "age_class": "40-49",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 29
+        },
+        {
+          "age_class": "40-49",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 96.7
+        },
+        {
+          "age_class": "50-59",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 31
+        },
+        {
+          "age_class": "50-59",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 91.2
+        },
+        {
+          "age_class": "20-29",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 7
+        },
+        {
+          "age_class": "20-29",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 100
+        },
+        {
+          "age_class": "70-79",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 18
+        },
+        {
+          "age_class": "70-79",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 72
+        },
+        {
+          "age_class": "30-39",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 23
+        },
+        {
+          "age_class": "30-39",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 100
+        },
+        {
+          "age_class": "50-59",
+          "outcome": "Dead",
+          "statistic": "rows",
+          "value": 3
+        },
+        {
+          "age_class": "50-59",
+          "outcome": "Dead",
+          "statistic": "% within age_class",
+          "value": 8.8
+        },
+        {
+          "age_class": "80-89",
+          "outcome": "Dead",
+          "statistic": "rows",
+          "value": 2
+        },
+        {
+          "age_class": "80-89",
+          "outcome": "Dead",
+          "statistic": "% within age_class",
+          "value": 22.2
+        },
+        {
+          "age_class": "40-49",
+          "outcome": "Dead",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "age_class": "40-49",
+          "outcome": "Dead",
+          "statistic": "% within age_class",
+          "value": 3.3
+        },
+        {
+          "age_class": "60-69",
+          "outcome": "Dead",
+          "statistic": "rows",
+          "value": 6
+        },
+        {
+          "age_class": "60-69",
+          "outcome": "Dead",
+          "statistic": "% within age_class",
+          "value": 18.2
+        },
+        {
+          "age_class": "80-89",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 7
+        },
+        {
+          "age_class": "80-89",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 77.8
+        },
+        {
+          "age_class": "10-20",
+          "outcome": "Alive",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "age_class": "10-20",
+          "outcome": "Alive",
+          "statistic": "% within age_class",
+          "value": 100
+        }
+      ]
+    },
+    "bySex": {
+      "params": {
+        "by": [
+          "sex",
+          "outcome"
+        ],
+        "aggregate": "count"
+      },
+      "valueField": "rows",
+      "rows": [
+        {
+          "sex": "M",
+          "outcome": "Alive",
+          "value": 85
+        },
+        {
+          "sex": "F",
+          "outcome": "Alive",
+          "value": 58
+        },
+        {
+          "sex": "M",
+          "outcome": "Dead",
+          "value": 14
+        },
+        {
+          "sex": "F",
+          "outcome": "Dead",
+          "value": 5
+        }
+      ]
+    },
+    "twoByTwo": {
+      "cells": {
+        "exposedCases": 14,
+        "exposedNonCases": 85,
+        "unexposedCases": 5,
+        "unexposedNonCases": 58
+      },
+      "estimates": [
+        {
+          "name": "risk ratio",
+          "method": "Katz log",
+          "level": 95,
+          "value": 1.7818181818181817,
+          "lower": 0.6747602042897278,
+          "upper": 4.705191581948461
+        },
+        {
+          "name": "odds ratio",
+          "method": "Wald log",
+          "level": 95,
+          "value": 1.9105882352941177,
+          "lower": 0.6525400785608111,
+          "upper": 5.594058548702782
+        },
+        {
+          "name": "risk difference",
+          "method": "Wald unpooled",
+          "level": 95,
+          "value": 0.06204906204906205,
+          "lower": -0.03369288242171152,
+          "upper": 0.15779100651983563
+        }
+      ]
+    },
+    "computedDays": [
+      {
+        "id": "SK_1",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_2",
+        "incubation_days": "-2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_3",
+        "incubation_days": "4",
+        "onset_to_death_days": "15"
+      },
+      {
+        "id": "SK_4",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_5",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_6",
+        "incubation_days": "7",
+        "onset_to_death_days": "8"
+      },
+      {
+        "id": "SK_7",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_8",
+        "incubation_days": "11",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_9",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_10",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_11",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_12",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_13",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_14",
+        "incubation_days": "0",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_15",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_16",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_17",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_18",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_19",
+        "incubation_days": "11",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_20",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_21",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_22",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_23",
+        "incubation_days": "1",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_24",
+        "incubation_days": "1",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_25",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_26",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_27",
+        "incubation_days": "15",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_28",
+        "incubation_days": "12",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_29",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_30",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_31",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_32",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_33",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_34",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_35",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_36",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_37",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_38",
+        "incubation_days": "-8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_39",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_40",
+        "incubation_days": "-6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_41",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_42",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_43",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_44",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_45",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_46",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_47",
+        "incubation_days": "6",
+        "onset_to_death_days": "6"
+      },
+      {
+        "id": "SK_48",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_49",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_50",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_51",
+        "incubation_days": "12",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_52",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_53",
+        "incubation_days": "1",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_54",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_55",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_56",
+        "incubation_days": "1",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_57",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_58",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_59",
+        "incubation_days": "9",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_60",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_61",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_62",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_63",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_64",
+        "incubation_days": "6",
+        "onset_to_death_days": "1"
+      },
+      {
+        "id": "SK_65",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_66",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_67",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_68",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_69",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_70",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_71",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_72",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_73",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_74",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_75",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_76",
+        "incubation_days": "8",
+        "onset_to_death_days": "5"
+      },
+      {
+        "id": "SK_77",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_78",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_79",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_80",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_81",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_82",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_83",
+        "incubation_days": "2",
+        "onset_to_death_days": "10"
+      },
+      {
+        "id": "SK_84",
+        "incubation_days": "8",
+        "onset_to_death_days": "3"
+      },
+      {
+        "id": "SK_85",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_86",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_87",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_88",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_89",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_90",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_91",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_92",
+        "incubation_days": "13",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_93",
+        "incubation_days": "9",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_94",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_95",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_96",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_97",
+        "incubation_days": "9",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_98",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_99",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_100",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_101",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_102",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_103",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_104",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_105",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_106",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_107",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_108",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_109",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_110",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_111",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_112",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_113",
+        "incubation_days": "0",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_114",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_115",
+        "incubation_days": "9",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_116",
+        "incubation_days": "3",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_117",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_118",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_119",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_120",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_121",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_122",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_123",
+        "incubation_days": "9",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_124",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_125",
+        "incubation_days": "14",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_126",
+        "incubation_days": "11",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_127",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_128",
+        "incubation_days": "6",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_129",
+        "incubation_days": "13",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_130",
+        "incubation_days": "14",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_131",
+        "incubation_days": "11",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_132",
+        "incubation_days": "11",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_133",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_134",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_135",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_136",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_137",
+        "incubation_days": "13",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_138",
+        "incubation_days": "14",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_139",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_140",
+        "incubation_days": "13",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_141",
+        "incubation_days": "13",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_142",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_143",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_144",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_145",
+        "incubation_days": "4",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_146",
+        "incubation_days": "17",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_147",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_148",
+        "incubation_days": "2",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_149",
+        "incubation_days": "7",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_150",
+        "incubation_days": "5",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_151",
+        "incubation_days": "8",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_152",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_153",
+        "incubation_days": "10",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_154",
+        "incubation_days": "16",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_155",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_156",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_157",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_158",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_159",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_160",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_161",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      },
+      {
+        "id": "SK_162",
+        "incubation_days": "",
+        "onset_to_death_days": ""
+      }
+    ],
+    "medianIncubation": {
+      "params": {
+        "by": [
+          "outcome"
+        ],
+        "aggregate": "median",
+        "total": "incubation_days",
+        "excludeMissing": true
+      },
+      "valueField": "incubation_days",
+      "rows": [
+        {
+          "outcome": "Alive",
+          "value": 6
+        },
+        {
+          "outcome": "Dead",
+          "value": 7
+        }
+      ]
+    },
+    "byIncubation": {
+      "params": {
+        "by": [
+          "incubation_days"
+        ],
+        "aggregate": "count"
+      },
+      "valueField": "rows",
+      "rows": [
+        {
+          "incubation_days": "7",
+          "value": 12
+        },
+        {
+          "incubation_days": "-2",
+          "value": 1
+        },
+        {
+          "incubation_days": "4",
+          "value": 16
+        },
+        {
+          "incubation_days": "5",
+          "value": 19
+        },
+        {
+          "incubation_days": "8",
+          "value": 11
+        },
+        {
+          "incubation_days": "11",
+          "value": 5
+        },
+        {
+          "incubation_days": "",
+          "value": 29
+        },
+        {
+          "incubation_days": "3",
+          "value": 8
+        },
+        {
+          "incubation_days": "0",
+          "value": 2
+        },
+        {
+          "incubation_days": "6",
+          "value": 12
+        },
+        {
+          "incubation_days": "10",
+          "value": 12
+        },
+        {
+          "incubation_days": "1",
+          "value": 4
+        },
+        {
+          "incubation_days": "15",
+          "value": 1
+        },
+        {
+          "incubation_days": "12",
+          "value": 2
+        },
+        {
+          "incubation_days": "2",
+          "value": 11
+        },
+        {
+          "incubation_days": "-8",
+          "value": 1
+        },
+        {
+          "incubation_days": "-6",
+          "value": 1
+        },
+        {
+          "incubation_days": "9",
+          "value": 5
+        },
+        {
+          "incubation_days": "13",
+          "value": 5
+        },
+        {
+          "incubation_days": "14",
+          "value": 3
+        },
+        {
+          "incubation_days": "17",
+          "value": 1
+        },
+        {
+          "incubation_days": "16",
+          "value": 1
+        }
+      ]
+    },
+    "perSource": {
+      "params": {
+        "by": [
+          "from"
+        ],
+        "aggregate": "count",
+        "share": {
+          "within": []
+        }
+      },
+      "valueField": "rows",
+      "rows": [
+        {
+          "from": "SK_14",
+          "statistic": "rows",
+          "value": 38
+        },
+        {
+          "from": "SK_14",
+          "statistic": "% of all",
+          "value": 38.8
+        },
+        {
+          "from": "SK_16",
+          "statistic": "rows",
+          "value": 21
+        },
+        {
+          "from": "SK_16",
+          "statistic": "% of all",
+          "value": 21.4
+        },
+        {
+          "from": "SK_6",
+          "statistic": "rows",
+          "value": 2
+        },
+        {
+          "from": "SK_6",
+          "statistic": "% of all",
+          "value": 2
+        },
+        {
+          "from": "SK_87",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "from": "SK_87",
+          "statistic": "% of all",
+          "value": 1
+        },
+        {
+          "from": "SK_1",
+          "statistic": "rows",
+          "value": 26
+        },
+        {
+          "from": "SK_1",
+          "statistic": "% of all",
+          "value": 26.5
+        },
+        {
+          "from": "SK_15",
+          "statistic": "rows",
+          "value": 4
+        },
+        {
+          "from": "SK_15",
+          "statistic": "% of all",
+          "value": 4.1
+        },
+        {
+          "from": "SK_76",
+          "statistic": "rows",
+          "value": 2
+        },
+        {
+          "from": "SK_76",
+          "statistic": "% of all",
+          "value": 2
+        },
+        {
+          "from": "SK_11",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "from": "SK_11",
+          "statistic": "% of all",
+          "value": 1
+        },
+        {
+          "from": "SK_12",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "from": "SK_12",
+          "statistic": "% of all",
+          "value": 1
+        },
+        {
+          "from": "SK_118",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "from": "SK_118",
+          "statistic": "% of all",
+          "value": 1
+        },
+        {
+          "from": "SK_123",
+          "statistic": "rows",
+          "value": 1
+        },
+        {
+          "from": "SK_123",
+          "statistic": "% of all",
+          "value": 1
+        }
+      ]
+    },
+    "serialInterval": {
+      "params": {
+        "by": [
+          "exposure"
+        ],
+        "aggregate": "median",
+        "excludeMissing": true
+      },
+      "valueField": "diff_dt_onset",
+      "rows": [
+        {
+          "exposure": "Emergency room",
+          "value": 18
+        },
+        {
+          "exposure": "Family member",
+          "value": 7
+        },
+        {
+          "exposure": "Contact with HCW",
+          "value": 14
+        },
+        {
+          "exposure": "Hospital room",
+          "value": 12
+        },
+        {
+          "exposure": "Visit hospital",
+          "value": 12
+        }
+      ]
+    }
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "a7782d4a598c7140c3573f7336a87a0b37f9dfcdc92c5b1a313c76349374a8a0"
+  }
+}

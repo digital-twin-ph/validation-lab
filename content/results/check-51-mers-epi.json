@@ -1,0 +1,44 @@
+{
+ "check": "51-mers-epi",
+ "ranAt": "2026-11-14T05:41:32+00:00",
+ "fixture": {
+  "id": "mers-epi-001",
+  "sha256": "a7782d4a598c7140c3573f7336a87a0b37f9dfcdc92c5b1a313c76349374a8a0",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.114.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:group_table",
+   "release": "0.4.0",
+   "label": "The MERS example's epidemiology: deaths by age class and sex, days from exposure to onset, secondary cases and the serial interval",
+   "implementation": "example-2015-mers-korea at its pinned commit"
+  }
+ },
+ "source": {
+  "commit": "ddf30f613637d84e0ec7d71450a0309d6a32abcf"
+ },
+ "agrees": true,
+ "criteria": "Exact: each case's days, every count, every share under the declared rounding, every median; the two-by-two's cells exact and its estimates and limits within 1e-9 relative",
+ "checked": {
+  "days": 324,
+  "counts": 50,
+  "shares": 24,
+  "medians": 7,
+  "estimates": 9
+ },
+ "differs": [],
+ "observed": {
+  "exposureEndingAfterOnset": 3
+ },
+ "notEstablished": [
+  "That days from the last day of exposure to onset are an incubation period: 3 cases have onset before the exposure window closed, and both sides keep them as written.",
+  "That diff_dt_onset is a serial interval: the package does not document how links or their days were set.",
+  "That the risk ratio by sex says anything about sex: its interval holds 1, and no study design is declared."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "pandas": "2.3.3",
+  "pyodide": false
+ }
+}
