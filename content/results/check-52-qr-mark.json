@@ -1,0 +1,411 @@
+{
+ "check": "52-qr-mark",
+ "ranAt": "2026-11-14T13:13:45+00:00",
+ "fixture": {
+  "id": "qr-mark-001",
+  "sha256": "50e795e6e9530db7725d806a5588ff60e034077104e080cc792b765352d6c476",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.114.0"
+  },
+  "operation": {
+   "component": "example-links",
+   "release": "0.114.0",
+   "label": "The QR codes a worked example's write-up prints, with Fieldwork's mark",
+   "implementation": "src/qr.ts#qrDrawn"
+  }
+ },
+ "agrees": true,
+ "criteria": "Every marked code reads back by at least one OpenCV detector, patch light and dark; no detector reads segno's unmarked code of the same version and misses the marked one",
+ "addresses": 26,
+ "read": {
+  "classic": {
+   "light": 25,
+   "dark": 25,
+   "segno": 24
+  },
+  "aruco": {
+   "light": 26,
+   "dark": 26,
+   "segno": 26
+  }
+ },
+ "codes": [
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=south-london-1854",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-1855-cholera-south-london/tree/3858ace76b0cfe923a2c4fd1d5f9a5b5e115368d",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=oswego-1940",
+   "version": 7,
+   "classic": {
+    "light": false,
+    "dark": false,
+    "segno": false
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-1940-oswego-church-supper/tree/e39be55a4938aa11ac5e9c47478cab24430fd3b1",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=nigeria-immunization-2024",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2024-nigeria-immunization/tree/ba688ef87755fade63e770f63285b9f29b43400b",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=salmonella-germany-2021",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2021-salmonella-germany/tree/ed04b111e7f894b0b1d8770e3ae0e8eb821ee900",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=nyc-asthma-ozone-2016-2025",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2025-nyc-ozone/tree/90c572fa53b0a64542896a26a679c1b45ba841cc",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=brazil-dengue-rj-2024",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2024-brazil-dengue/tree/85e866003f7ab1aef7f67136820938f932b88be3",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=workflows-rulesets",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-workflows-rulesets/tree/c6da1c1cfd5f7af7802b7ea8b6591b4ea7b62fca",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=sierra-leone-measles",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2019-sierra-leone-measles/tree/da88fd89a18a441b235c2bcf586b4ac4e35866e2",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": false
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=sea-level-rise-philippines",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2026-sea-level-rise-philippines/tree/feb923a0c18c16151548dd0fc9a773b562b05fe6",
+   "version": 11,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=mers-korea-2015",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2015-mers-korea/tree/ddf30f613637d84e0ec7d71450a0309d6a32abcf",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=population-models-census",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-population-models-census/tree/7242e4f7841cd00246dc5e9bf5e8ab42f094e048",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=hagelloch",
+   "version": 7,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/fieldwork/tree/main/examples/hagelloch-1861",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=snow-voronoi",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/fieldwork/tree/main/examples/john-snow",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  }
+ ],
+ "differs": [],
+ "notEstablished": [
+  "That a phone camera reads a printed code with the mark at a given size and light.",
+  "That every reader app tolerates the mark as OpenCV does.",
+  "Anything in the browser kernel: OpenCV is not there, so this ran in CPython only."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "opencv": "5.0.0",
+  "segno": "1.6.6",
+  "pyodide": false
+ }
+}
