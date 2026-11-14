@@ -1,16 +1,16 @@
 {
  "check": "46-space-time-scan",
- "ranAt": "2026-11-14T16:14:58+00:00",
+ "ranAt": "2026-11-14T16:33:31+00:00",
  "fixture": {
   "id": "scan-hagelloch-001",
-  "sha256": "573089a746ea13ad2e0fff52cb707720bb9398a2b797cd7b1272e0b582db7b46",
+  "sha256": "80d12dbddf49d43493268d370a54880cb26fa65147650b302c019005762d1ec1",
   "application": {
    "name": "Fieldwork",
-   "version": "0.114.1"
+   "version": "0.115.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:space_time_scan",
-   "release": "0.4.0",
+   "release": "0.5.0",
    "label": "Space-time scan: Hagelloch 1861 by day of prodrome",
    "implementation": "src/space-time-scan.ts#spaceTimeScan"
   }
@@ -316,13 +316,13 @@
    }
   ],
   "differs": [],
-  "seconds": 47.1
+  "seconds": 47.5
  },
  "shuffles": {
   "replications": 999,
   "generator": "numpy default_rng (PCG64)",
   "seed": 46,
-  "seconds": 54.1
+  "seconds": 54.7
  },
  "notEstablished": [
   "That a cluster is an outbreak: both sides compute the same statistic; neither says what it means.",
