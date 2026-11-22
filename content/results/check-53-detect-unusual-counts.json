@@ -1,0 +1,374 @@
+{
+ "check": "53-detect-unusual-counts",
+ "ranAt": "2026-11-22T01:34:09+00:00",
+ "fixture": {
+  "id": "detect-unusual-counts-001",
+  "sha256": "d471ee9551c2bd853640a73ee40ab906496e1706f62badf5404490c706e9c3c6",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.162.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:detect_unusual_counts",
+   "release": "0.2.0",
+   "label": "Detect unusual counts: EARS C1, C2, C3, CUSUM and EWMA on four series",
+   "implementation": "src/aberration.ts#detect"
+  }
+ },
+ "agrees": true,
+ "criteria": [
+  "the same periods computed",
+  "the same numbers, within 1e-06",
+  "the same signals, except at the limit, listed",
+  "the same refusals",
+  "against R on made-up-40: C1, C2 thresholds and CUSUM; C3 reported"
+ ],
+ "runs": [
+  {
+   "run": "made-up-40 · ears-c1",
+   "agrees": true,
+   "periods": 40,
+   "signals": 2,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "made-up-40 · ears-c2",
+   "agrees": true,
+   "periods": 40,
+   "signals": 3,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "made-up-40 · ears-c3",
+   "agrees": true,
+   "periods": 40,
+   "signals": 5,
+   "largestRelativeDifference": 1.9068289901887408e-08,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "made-up-40 · cusum",
+   "agrees": true,
+   "periods": 40,
+   "signals": 14,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "made-up-40 · ewma",
+   "agrees": true,
+   "periods": 40,
+   "signals": 7,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · ears-c1",
+   "agrees": true,
+   "periods": 175,
+   "signals": 5,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · ears-c2",
+   "agrees": true,
+   "periods": 175,
+   "signals": 7,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · ears-c3",
+   "agrees": true,
+   "periods": 175,
+   "signals": 19,
+   "largestRelativeDifference": 1.9068289901887408e-08,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · cusum",
+   "agrees": true,
+   "periods": 175,
+   "signals": 29,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · ewma",
+   "agrees": true,
+   "periods": 175,
+   "signals": 12,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · cusum (as the example runs it)",
+   "agrees": true,
+   "periods": 175,
+   "signals": 7,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "syndromic-gi-2026 · ewma (the first four weeks as baseline)",
+   "agrees": true,
+   "periods": 175,
+   "signals": 12,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "seasonal-weekly · ears-c1",
+   "agrees": true,
+   "periods": 156,
+   "signals": 7,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "seasonal-weekly · ears-c2",
+   "agrees": true,
+   "periods": 156,
+   "signals": 15,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "seasonal-weekly · ears-c3",
+   "agrees": true,
+   "periods": 156,
+   "signals": 43,
+   "largestRelativeDifference": 1.9068289901887408e-08,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "seasonal-weekly · cusum (the first year as baseline)",
+   "agrees": true,
+   "periods": 156,
+   "signals": 50,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "seasonal-weekly · ewma (the first year as baseline)",
+   "agrees": true,
+   "periods": 156,
+   "signals": 0,
+   "largestRelativeDifference": 1.9553228257542662e-16,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · ears-c1",
+   "agrees": true,
+   "periods": 120,
+   "signals": 6,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · ears-c2",
+   "agrees": true,
+   "periods": 120,
+   "signals": 7,
+   "largestRelativeDifference": 4.259914748538861e-09,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · ears-c3",
+   "agrees": true,
+   "periods": 120,
+   "signals": 2,
+   "largestRelativeDifference": 1.9068289901887408e-08,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · cusum",
+   "agrees": true,
+   "refused": {
+    "fieldwork": "The baseline's mean is 0, so a count cannot be standardized by it: choose a baseline with cases in it.",
+    "here": "a baseline whose mean is 0"
+   },
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · ewma",
+   "agrees": true,
+   "refused": {
+    "fieldwork": "The baseline does not vary, so EWMA has no spread to set its limit by: choose a longer baseline.",
+    "here": "a baseline that does not vary"
+   },
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · cusum (four weeks of baseline)",
+   "agrees": true,
+   "periods": 120,
+   "signals": 51,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  },
+  {
+   "run": "sparse-daily · ewma (four weeks of baseline)",
+   "agrees": true,
+   "periods": 120,
+   "signals": 19,
+   "largestRelativeDifference": 0.0,
+   "atTheLimit": [],
+   "differs": []
+  }
+ ],
+ "againstR": {
+  "ears-c1": {
+   "largestThresholdDifference": 0.0,
+   "signals": {
+    "here": [
+     "2026-10-26",
+     "2026-10-27"
+    ],
+    "R": [
+     "2026-10-26",
+     "2026-10-27"
+    ]
+   },
+   "judged": true,
+   "agrees": true
+  },
+  "ears-c2": {
+   "largestThresholdDifference": 0.0,
+   "signals": {
+    "here": [
+     "2026-10-26",
+     "2026-10-27",
+     "2026-10-28"
+    ],
+    "R": [
+     "2026-10-26",
+     "2026-10-27",
+     "2026-10-28"
+    ]
+   },
+   "judged": true,
+   "agrees": true
+  },
+  "ears-c3": {
+   "largestThresholdDifference": 11.18602121107245,
+   "signals": {
+    "here": [
+     "2026-10-26",
+     "2026-10-27",
+     "2026-10-28",
+     "2026-10-29",
+     "2026-10-30"
+    ],
+    "R": [
+     "2026-10-27",
+     "2026-10-28",
+     "2026-10-29",
+     "2026-10-30"
+    ]
+   },
+   "judged": false
+  },
+  "cusum": {
+   "largestThresholdDifference": 0,
+   "signals": {
+    "here": [
+     "2026-10-27",
+     "2026-10-28",
+     "2026-10-29",
+     "2026-10-30",
+     "2026-10-31",
+     "2026-11-01",
+     "2026-11-02",
+     "2026-11-03",
+     "2026-11-04",
+     "2026-11-05",
+     "2026-11-06",
+     "2026-11-07",
+     "2026-11-08",
+     "2026-11-09"
+    ],
+    "R": [
+     "2026-10-27",
+     "2026-10-28",
+     "2026-10-29",
+     "2026-10-30",
+     "2026-10-31",
+     "2026-11-01",
+     "2026-11-02",
+     "2026-11-03",
+     "2026-11-04",
+     "2026-11-05",
+     "2026-11-06",
+     "2026-11-07",
+     "2026-11-08",
+     "2026-11-09"
+    ]
+   },
+   "judged": true,
+   "agrees": true
+  }
+ },
+ "series": [
+  {
+   "id": "made-up-40",
+   "periods": 40,
+   "total": 194,
+   "about": "40 made-up days, five of excess (days 25 to 29): the series Fieldwork's unit test holds to R."
+  },
+  {
+   "id": "syndromic-gi-2026",
+   "periods": 175,
+   "total": 1734,
+   "about": "Gastrointestinal visits per day in the syndromic worked example, by the syndrome each visit was generated as; a seeded outbreak 13 to 22 April."
+  },
+  {
+   "id": "seasonal-weekly",
+   "periods": 156,
+   "total": 3107,
+   "about": "Three made-up years of weekly counts, Poisson about 20 + 15 cos(2 pi (week - 2)/52): a winter peak each year."
+  },
+  {
+   "id": "sparse-daily",
+   "periods": 120,
+   "total": 21,
+   "about": "A made-up rare condition, about 0.15 a day, with six days at 3 (days 81 to 86)."
+  }
+ ],
+ "notEstablished": [
+  "That a signal is an outbreak: both sides compute the same statistic from the same baseline.",
+  "That any alpha, h or L suits a surveillance system: they are decisions about false alarms.",
+  "A seasonal baseline (Farrington, or a GLM): Fieldwork has none, and seasonal-weekly shows what follows.",
+  "Fieldwork's reading of a table into a series (periods put in order, a missing period counted as 0): the fixture carries the series as Fieldwork read them, so that step is checked by Fieldwork's own tests."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pyodide": false
+ }
+}
