@@ -257,15 +257,14 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
                         "numpy": np.__version__, "scipy": __import__("scipy").__version__,
                         "pyodide": "pyodide" in sys.modules},
     }
-    try:
-        RESULT.write_text(json.dumps(report, indent=1, ensure_ascii=False) + "\n")
-    except OSError:
-        pass
     return report
 
 
 if __name__ == "__main__":
     out = run()
+    # Written here, as every other check writes, and not inside run(): the notebook calls run(), and a notebook that
+    # rewrote the recorded result each time it ran moved a file whose digest Fieldwork pins (2026-11-26).
+    RESULT.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
     print("agrees:", out["agrees"])
     for x in out["runs"]:
         print(("  ok  " if x["agrees"] else "  NO  ") + x["run"], x.get("signals", ""), x["differs"][:3])
