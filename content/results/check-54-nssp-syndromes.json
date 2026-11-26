@@ -1,0 +1,99 @@
+{
+ "check": "54-nssp-syndromes",
+ "ranAt": "2026-11-26T21:23:04+00:00",
+ "fixture": {
+  "id": "nssp-syndromes-001",
+  "sha256": "ee852166045edbc863c5f77468aefe9ee5424502f719cf2a72931949f441dcaa",
+  "application": {
+   "name": "Fieldwork",
+   "version": "0.200.0"
+  },
+  "operation": {
+   "widget": "urn:fieldwork:widget:apply_ruleset",
+   "release": "0.18.0",
+   "label": "NSSP’s four syndrome definitions, as the syndromic example applies them",
+   "implementation": "example-2026-syndromic-surveillance at its pinned commit"
+  }
+ },
+ "criteria": "For each definition, the visits Fieldwork flags equal the visits the published ESSENCE syntax selects, read directly, apart from differences the transcription declares (a caret inside a term read as both pieces in any order); the same for the ICD-11 ruleset with the translation table applied",
+ "visits": 24328,
+ "published": {
+  "ili": {
+   "essence": 2177,
+   "fieldwork": 2177,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  },
+  "broad_respiratory": {
+   "essence": 2987,
+   "fieldwork": 2987,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  },
+  "norovirus": {
+   "essence": 223,
+   "fieldwork": 223,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  },
+  "measles": {
+   "essence": 10,
+   "fieldwork": 10,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  }
+ },
+ "icd11": {
+  "ili": {
+   "essence": 2177,
+   "fieldwork": 2177,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  },
+  "broad_respiratory": {
+   "essence": 2987,
+   "fieldwork": 2987,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  },
+  "norovirus": {
+   "essence": 223,
+   "fieldwork": 223,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  },
+  "measles": {
+   "essence": 10,
+   "fieldwork": 10,
+   "onlyEssence": [],
+   "onlyFieldwork": [],
+   "declaredDifference": 0,
+   "agrees": true
+  }
+ },
+ "agrees": true,
+ "notEstablished": [
+  "That these definitions suit this made-up district, or any real one.",
+  "That WHO's ICD-10, which the visits carry, is what NSSP wrote for ICD-10-CM: where they differ a definition finds nothing, which is what the example shows, not an error here.",
+  "That the ICD-11 translation is the only reasonable one: this checks that Fieldwork applies it as written.",
+  "How far an exclusion reaches. No visit here would be judged differently if an exclusion bound to everything before it rather than to the term before it (a complaint such as \"chills, denies any elevated temp\"), so the data cannot tell the two readings apart; a check that read exclusions the other way agrees here too."
+ ],
+ "environment": {
+  "runtime": "CPython 3.13.3",
+  "pyodide": false
+ }
+}
