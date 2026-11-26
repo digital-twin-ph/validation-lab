@@ -1,6 +1,6 @@
 {
  "check": "06-mean-center",
- "ranAt": "2026-10-11T15:31:46.053251+00:00",
+ "ranAt": "2026-11-26T13:41:46.178522+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,14 +9,14 @@
  },
  "fixture": {
   "id": "mean-center-001",
-  "sha256": "66e7c1cb5f638e218ac0d097a3f600b978f04d0dcf94bd7da4e10ccda768123a",
+  "sha256": "52f5a4eef5e6b0a9f7191975079083aa0cb1a719cff1f6ebf7f7ecc90c1c2d09",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:mean_center",
-   "release": "0.1.0",
+   "release": "0.5.0",
    "label": "Mean center",
    "implementation": "src/mean-center.ts#computeMeanCenter"
   },

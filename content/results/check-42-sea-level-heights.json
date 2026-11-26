@@ -1,16 +1,16 @@
 {
  "check": "42-sea-level-heights",
- "ranAt": "2026-11-09T16:32:28+00:00",
+ "ranAt": "2026-11-26T13:42:18+00:00",
  "fixture": {
   "id": "sea-level-heights-manila-001",
-  "sha256": "7ba96be4f1b60c24492d3ff1e7fe36495c224d2855c2b3bbaa7f5b60b7373631",
+  "sha256": "84947817b581c7c2874e6220fab1c57c85fd4bd6cb3aac29149b1742b8bdb7db",
   "application": {
    "name": "Fieldwork",
-   "version": "0.71.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:sample_raster",
-   "release": "0.2.0",
+   "release": "0.10.1",
    "label": "Sample raster, rules and the published comparison: Manila facilities against projected sea level",
    "implementation": "src/sample-raster.ts#sampleRaster; src/rule-evaluation.ts#evaluateAuthored"
   }

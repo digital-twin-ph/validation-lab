@@ -1,6 +1,6 @@
 {
  "check": "26-deduplicate",
- "ranAt": "2026-10-25T04:00:29.260704+00:00",
+ "ranAt": "2026-11-26T13:47:41.421650+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -10,14 +10,14 @@
  },
  "fixture": {
   "id": "deduplicate-facilities-001",
-  "sha256": "6d1310281865b5503967af9df536f5c75cf7dd4e86d2fcc32e2abe55feb4d86f",
+  "sha256": "28d1a63349d5a53e5beffbd6b7adea9a36f371b53a450da6433e99572d0ed78c",
   "application": {
    "name": "Fieldwork",
-   "version": "0.11.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:deduplicate_points",
-   "release": "0.1.0",
+   "release": "0.4.0",
    "label": "Deduplicate point records",
    "implementation": "src/deduplicate-points.ts#deduplicatePoints"
   },

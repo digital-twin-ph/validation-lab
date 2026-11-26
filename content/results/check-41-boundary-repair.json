@@ -1,16 +1,16 @@
 {
  "check": "41-boundary-repair",
- "ranAt": "2026-11-09T09:27:19+00:00",
+ "ranAt": "2026-11-26T13:42:17+00:00",
  "fixture": {
   "id": "boundary-repair-001",
-  "sha256": "1416b217db08f4f536a4f57b0a52f303aff6c5d173ec1fcef550a6c807fdc1c9",
+  "sha256": "f9c645612bbc19826b1aba860658019fe576f51347cbb49172071828eb5c2914",
   "application": {
    "name": "Fieldwork",
-   "version": "0.67.1"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:study_area",
-   "release": "0.7.0",
+   "release": "0.13.0",
    "label": "Study area: the boundary repair",
    "implementation": "src/boundary-repair.ts#repairBoundary"
   }

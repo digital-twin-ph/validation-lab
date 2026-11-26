@@ -48,6 +48,8 @@ from .fixtures import load_fixture
 HERE = pathlib.Path(__file__).resolve().parent
 FIXTURE = HERE.parent / "fixtures" / "population-districts-001.json"
 RESULT = HERE.parent / "results" / "check-50-population-districts.json"
+if "pyodide" in sys.modules:  # CPython only, said so (2026-11-26)
+    raise ImportError("The browser kernel does not have the population rasters, which are tens of megabytes each and not redistributed, or the census example beside this repository; run this check in CPython.")
 EXAMPLE = HERE.parents[2] / "example-population-models-census"
 SOURCES = ["WorldPop", "GRID3", "GHS-POP"]
 CENSUS = {"RWA": "rwanda_census_2022_districts.csv", "BWA": "botswana_census_2022_districts.csv"}

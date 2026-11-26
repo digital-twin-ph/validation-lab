@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "stack-polygons-soho-001",
-  "exportedAt": "2026-11-13T23:25:53.596Z",
+  "exportedAt": "2026-11-26T13:41:34.544Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.112.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:map_output",
-    "release": "0.29.0",
+    "release": "0.49.0",
     "label": "A Map’s polygon layers, collected for drawing",
     "implementation": "src/polygon-layers.ts#collectPolygonLayers"
   },
@@ -158,6 +158,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "3eb38b1e74214afb71d2b7f6909726373266133a718a8ca5172cdf60b6eae647"
+    "value": "eb25d59188d070df3297d271ccf979aedfecc91ef921cdefb16115dfee2defd6"
   }
 }

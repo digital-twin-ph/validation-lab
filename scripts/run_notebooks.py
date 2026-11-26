@@ -21,6 +21,8 @@ that reason.
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import platform
 import sys
 import time
@@ -45,6 +47,22 @@ def failing_cells(notebook) -> list[tuple[int, str]]:
     return found
 
 
+def printed(notebook) -> str:
+    """Everything the notebook printed, in order."""
+    return "".join("".join(output.get("text", "")) for cell in notebook.cells
+                   for output in cell.get("outputs", []) if output.get("output_type") == "stream")
+
+
+def recorded_agrees(path: Path) -> bool:
+    """Whether every recorded result for this notebook's check agrees. A check recorded as partial (02, 26) is not
+    held to agreement."""
+    results = sorted((CONTENT / "results").glob(f"check-{path.name[:2]}-*.json"))
+    return bool(results) and all(json.loads(r.read_text(encoding="utf-8")).get("agrees") is True for r in results)
+
+
+# NO ERROR CELL IS NOT THE SAME AS AGREEING (2026-11-26, Fieldwork's lab audit). A check that prints `agrees: False`
+# where its recorded result agrees has regressed, and until now this runner passed it. The browser runner holds the
+# same rule. A notebook that says "Not runnable here" is not run in this kernel, and says why.
 def run(path: Path, timeout: int) -> tuple[bool, str, float]:
     started = time.monotonic()
     notebook = nbformat.read(path, as_version=4)
@@ -64,7 +82,11 @@ def run(path: Path, timeout: int) -> tuple[bool, str, float]:
         first = failures[0]
         detail = f"{len(failures)} error cell{'' if len(failures) == 1 else 's'}; first at cell {first[0]}: {first[1][:160]}"
         return False, detail, time.monotonic() - started
-    return True, "", time.monotonic() - started
+    text = printed(notebook)
+    if re.search(r"agrees:\s*False", text) and recorded_agrees(path):
+        return False, "prints agrees: False, and its recorded result agrees", time.monotonic() - started
+    not_here = re.search(r"Not runnable here: ([^\n]*)", text)
+    return True, f"not run in this kernel: {not_here.group(1)[:120]}" if not_here else "", time.monotonic() - started
 
 
 def main() -> int:

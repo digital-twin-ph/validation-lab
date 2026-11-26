@@ -1,16 +1,16 @@
 {
  "check": "40-relate-spelling",
- "ranAt": "2026-11-09T04:17:36+00:00",
+ "ranAt": "2026-11-26T13:42:17+00:00",
  "fixture": {
   "id": "relate-spelling-sl-001",
-  "sha256": "1b40a590d2d932fb4583066b66bc070715c85f46dd6a08203a6863a5a2e97da0",
+  "sha256": "677948bb07d64014e49a45ead542998ff625011a57658116c4b3df0db21642d1",
   "application": {
    "name": "Fieldwork",
-   "version": "0.67.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:relate_table",
-   "release": "0.10.0",
+   "release": "0.15.0",
    "label": "Relate a column from another table, allowing for spelling",
    "implementation": "src/spelling-match.ts#linkNames"
   }

@@ -1,6 +1,6 @@
 {
   "check": "35-sample-satellite",
-  "ranAt": "2026-11-06T04:26:32.438397+00:00",
+  "ranAt": "2026-11-26T13:42:03.633541+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -11,15 +11,15 @@
   },
   "fixture": {
     "id": "sample-satellite-s5p-001",
-    "sha256": "9de8df95d6e61c453e459a14d8772bbad64b8d80dc0b1fcb14824c4d6083bc2a",
-    "fileSHA256": "2333f0ca30ce71d1b5ab0c322168bcc8cfd01b12775a5ca1e3952a046372a3b3",
+    "sha256": "9f05f161dfbef6fab23fed18f28e6a9d025bc675c723e70eff33505bf972b6e5",
+    "fileSHA256": "f60f644119bb6f9dfee152b4ac834a61099e29a473f86e76fcdf9bc69e203f47",
     "application": {
       "name": "Fieldwork",
-      "version": "0.31.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:sample_satellite_files_at_points",
-      "release": "0.2.1",
+      "release": "1.0.0",
       "label": "Sample satellite files at points",
       "implementation": "src/satellite-read.ts#readAtPoints, src/satellite-sample.ts#sampleTable"
     }

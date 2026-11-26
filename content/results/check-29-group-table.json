@@ -1,6 +1,6 @@
 {
   "check": "29-group-table",
-  "ranAt": "2026-10-27T11:40:43.905450+00:00",
+  "ranAt": "2026-11-26T13:41:49.807588+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,14 +8,14 @@
   },
   "fixture": {
     "id": "group-snow-001",
-    "sha256": "d02392f7c059c66f63ba06edf8434edf36ac1c29ba92822b68ac15b87173406d",
+    "sha256": "562587c66d04598916cbd4cc9562ca4e034db35234ffaec78912e4bb185158c3",
     "application": {
       "name": "Fieldwork",
-      "version": "0.12.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:group_table",
-      "release": "0.1.0",
+      "release": "0.7.0",
       "label": "Total a table within groups",
       "implementation": "src/group-table.ts#groupTable"
     }

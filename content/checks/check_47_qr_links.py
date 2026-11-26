@@ -11,10 +11,16 @@ version and error correction. Nothing of Fieldwork's code is read.
 
 Criteria, fixed before running:
 
-1. **Every code reads back to its address**, exactly, by OpenCV.
+1. **Every code reads back to its address**, exactly, by at least one of OpenCV's two detectors.
 2. **segno agrees on the size**: the same version, so the same number of modules, for every address.
-3. **segno's own code reads back too**, so the decoder is shown able to read a code it did not make by Fieldwork's
-   encoder; a failure on Fieldwork's codes alone would then be Fieldwork's.
+3. **segno's own code reads back too**, by at least one detector, so the decoder is shown able to read a code it did
+   not make by Fieldwork's encoder; a failure on Fieldwork's codes alone would then be Fieldwork's.
+
+**Two detectors from 2026-11-26.** The classic detector alone could not read segno's control code for one address
+added since the first run (the NYC ozone example's), while it read Fieldwork's. That is the decoder's limit, not
+Fieldwork's, and the check counted it as a disagreement. Each code is now read by the classic detector and the
+ArUco-based one, as check 52 already does, and counts as read where either reads it. Which detector read each code is
+recorded.
 
 Reported, not required: whether segno draws the identical pattern. Both choose a mask by the standard's penalty rule,
 and the same pattern says the encoders agree to the module; a different one is still a valid code if criterion 1
@@ -58,9 +64,12 @@ def image(rows: list[list[bool]]) -> np.ndarray:
     return np.kron(grid, np.ones((SCALE, SCALE), dtype=np.uint8))
 
 
-def decode(img: np.ndarray) -> str:
-    text, _, _ = cv2.QRCodeDetector().detectAndDecode(img)
-    return text
+DETECTORS = {"classic": cv2.QRCodeDetector, "aruco": cv2.QRCodeDetectorAruco}
+
+
+def decode(img: np.ndarray) -> dict[str, str]:
+    """What each of OpenCV's two detectors reads from the image."""
+    return {name: detector().detectAndDecode(img)[0] for name, detector in DETECTORS.items()}
 
 
 def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
@@ -70,14 +79,18 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
         theirs = [[ch == "1" for ch in row] for row in code["rows"]]
         n = len(theirs)
         version = (n - 17) // 4
-        read = decode(image(theirs))
+        reads = decode(image(theirs))
+        read = next((t for t in reads.values() if t == code["text"]), reads["classic"])
         other = segno.make(code["text"], error="m", mode="byte", version=version, boost_error=False)
         mine = [[bool(v) for v in row] for row in other.matrix]
-        mine_read = decode(image(mine))
+        mine_reads = decode(image(mine))
         same_size = len(mine) == n
         same_pattern = mine == theirs
         row = {"text": code["text"], "version": version, "readBack": read == code["text"],
-               "segnoSameSize": same_size, "segnoReadBack": mine_read == code["text"], "segnoSamePattern": same_pattern}
+               "readBy": [n for n, t in reads.items() if t == code["text"]],
+               "segnoSameSize": same_size, "segnoReadBack": code["text"] in mine_reads.values(),
+               "segnoReadBy": [n for n, t in mine_reads.items() if t == code["text"]],
+               "segnoSamePattern": same_pattern}
         rows_out.append(row)
         problems = [k for k in ("readBack", "segnoSameSize", "segnoReadBack") if not row[k]]
         if problems:
@@ -88,8 +101,8 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
         "fixture": {"id": fixture["fixtureId"], "sha256": digest,
                     "application": fixture["application"], "operation": fixture["operation"]},
         "agrees": not differs,
-        "criteria": "Every code reads back to its address by OpenCV; segno makes a code of the same version for it, and "
-                    "segno's own code reads back too",
+        "criteria": "Every code reads back to its address by at least one of OpenCV's two detectors; segno makes a code "
+                    "of the same version for it, and segno's own code reads back too",
         "addresses": len(rows_out),
         "samePatternAsSegno": sum(r["segnoSamePattern"] for r in rows_out),
         "codes": rows_out,

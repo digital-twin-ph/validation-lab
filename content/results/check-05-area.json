@@ -1,6 +1,6 @@
 {
  "check": "05-area",
- "ranAt": "2026-10-11T15:31:45.916652+00:00",
+ "ranAt": "2026-11-26T13:41:46.090794+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,14 +9,14 @@
  },
  "fixture": {
   "id": "measure-area-001",
-  "sha256": "f440968a56a28df5d1153711640dedb1e04c7f1260ba427e5564adaf89816d62",
+  "sha256": "a7278e78d702ade210e4a575c33b163f55b58eff7b026fefd29321bbfcff4da6",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:measure_area",
-   "release": "0.1.0",
+   "release": "0.3.0",
    "label": "Calculate area",
    "implementation": "src/area-computation.ts#calculateArea"
   },

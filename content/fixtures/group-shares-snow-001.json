@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "group-shares-snow-001",
-  "exportedAt": "2026-11-08T20:35:45.637Z",
+  "exportedAt": "2026-11-26T13:41:15.129Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.62.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:group_table",
-    "release": "0.3.0",
+    "release": "0.7.0",
     "label": "Total within groups, with each group's share",
     "implementation": "src/group-table.ts#withShares"
   },
@@ -872,6 +872,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "702ea494c5dd45a228e4e1293ac9f2c6140530748d5c09564e4c415d82ba8ce7"
+    "value": "a4bf5b565288e16e07a9f2fc0dd7a6bb2ce72a9699c36987b969c2693fcaf9c0"
   }
 }

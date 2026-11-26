@@ -1,6 +1,6 @@
 {
  "check": "20-band",
- "ranAt": "2026-10-11T22:08:17.123562+00:00",
+ "ranAt": "2026-11-26T13:41:47.956594+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -8,10 +8,10 @@
  },
  "fixture": {
   "id": "band-soho-001",
-  "sha256": "8fd861d1f42cfe65e48979f5037678234f2e8b8b1ff612f438d280b3cdcff8d0",
+  "sha256": "59f57b0d821770f942b26b5da988c43b6067a775ea172cee6eba19e63c807393",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:travel_time_band",
@@ -29,9 +29,9 @@
  ],
  "referenceBandBudgetMetres": 375,
  "fieldworkBandBudgetMetres": 375,
- "traversalBudgetMetres": 1125.01,
+ "traversalBudgetMetres": 1125,
  "junctionsOffered": 706,
- "junctionsInBand": 142,
+ "junctionsInBand": 134,
  "budgetErrorMetres": 0,
  "worstRemainingBudgetErrorMetres": 5.684341886080802e-14,
  "missingFromOutput": [],

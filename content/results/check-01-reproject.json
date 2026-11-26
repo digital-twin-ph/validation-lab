@@ -1,6 +1,6 @@
 {
   "check": "01-reproject",
-  "ranAt": "2026-10-11T15:31:45.181390+00:00",
+  "ranAt": "2026-11-26T13:41:45.580746+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -9,14 +9,14 @@
   },
   "fixture": {
     "id": "reproject-utm35s-001",
-    "sha256": "c283488566a56465e6917943826aa99ae2eb6952f702980d68407b9128220d7b",
+    "sha256": "1814c9978a9c5088c20da8f9ba274462c666aadc0e075f27bed66052eb6cc928",
     "application": {
       "name": "Fieldwork",
-      "version": "0.7.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:reproject",
-      "release": "0.1.0",
+      "release": "1.0.0",
       "label": "Reproject input",
       "implementation": "src/reproject.ts#reprojectToCRS84"
     },

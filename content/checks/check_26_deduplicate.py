@@ -45,9 +45,12 @@ from pathlib import Path
 
 from .fixtures import load_fixture
 
-import jellyfish
+try:
+    import jellyfish
+    from rapidfuzz.distance import JaroWinkler
+except ImportError as missing:  # CPython only: the two references are the point of this check
+    raise ImportError("The browser kernel does not have rapidfuzz and jellyfish, the two independent name comparisons this check is made of; run this check in CPython.") from missing
 from pyproj import Geod
-from rapidfuzz.distance import JaroWinkler
 
 ROOT = Path(__file__).resolve().parent.parent
 GEOD = Geod(ellps="WGS84")

@@ -1,6 +1,6 @@
 {
   "check": "27-rate-ratio",
-  "ranAt": "2026-10-26T12:19:08.825322+00:00",
+  "ranAt": "2026-11-26T13:41:49.333798+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,

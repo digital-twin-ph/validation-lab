@@ -1,16 +1,16 @@
 {
  "check": "53-detect-unusual-counts",
- "ranAt": "2026-11-22T01:34:09+00:00",
+ "ranAt": "2026-11-26T13:47:20+00:00",
  "fixture": {
   "id": "detect-unusual-counts-001",
-  "sha256": "d471ee9551c2bd853640a73ee40ab906496e1706f62badf5404490c706e9c3c6",
+  "sha256": "d9aaaf7c1f7ab2d075cb45e8073c7889611b21d6a3afd51588272bb0efadef6e",
   "application": {
    "name": "Fieldwork",
-   "version": "0.162.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:detect_unusual_counts",
-   "release": "0.2.0",
+   "release": "0.3.0",
    "label": "Detect unusual counts: EARS C1, C2, C3, CUSUM and EWMA on four series",
    "implementation": "src/aberration.ts#detect"
   }

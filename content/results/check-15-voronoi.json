@@ -1,6 +1,6 @@
 {
  "check": "15-voronoi",
- "ranAt": "2026-10-11T21:25:23.644223+00:00",
+ "ranAt": "2026-11-26T13:41:47.535329+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -11,14 +11,14 @@
  },
  "fixture": {
   "id": "voronoi-soho-001",
-  "sha256": "4dfabcb8800efc0988e1da5ce93631ac45a88f1c5871b2bc35eabbfb357514c5",
+  "sha256": "edea2b4d30710add3f877aac2ecd6c0693cddba366a3ab7fff4a923e758c731d",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:voronoi",
-   "release": "0.1.0",
+   "release": "0.5.0",
    "label": "Voronoi catchments",
    "implementation": "src/catchments.ts#voronoi"
   },

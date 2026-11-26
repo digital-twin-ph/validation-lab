@@ -1,6 +1,6 @@
 {
  "check": "11-fill-gaps",
- "ranAt": "2026-10-11T20:48:38.525152+00:00",
+ "ranAt": "2026-11-26T13:41:47.133917+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -11,10 +11,10 @@
  },
  "fixture": {
   "id": "fill-gaps-soho-001",
-  "sha256": "21a6523fa513dd9919fa178484ab1a410e81c98e5fab37e00005a2b983742c01",
+  "sha256": "882437797939786d6f4e9c973b70dc1ea575570b155024a20b4468c78da45b9f",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:fill_interior_gaps",
@@ -22,28 +22,28 @@
    "label": "Fill interior gaps",
    "implementation": "src/fill-interior-gaps.ts#fillInteriorGaps"
   },
-  "declaredMethod": "Interior gap fill: outer rings kept, 69 gaps filled, 37293 m\u00b2 added in EPSG:32630. That added ground was never computed as covered. Whatever the gaps meant upstream \u2014 streets no route reached, land outside every radius \u2014 this asserts the opposite of it. Anything measuring or summarising these polygons afterwards counts the filled ground too. Use the unfilled polygons for coverage and these for a map that should read solid. Separate polygons stay separate. Gaps between polygons are not interior, so they are untouched: this fills enclosed space, it does not join things up."
+  "declaredMethod": "Interior gap fill: outer rings kept, 60 gaps filled, 32514 m\u00b2 added in EPSG:32630. That added ground was never computed as covered. Whatever the gaps meant upstream \u2014 streets no route reached, land outside every radius \u2014 this asserts the opposite of it. Anything measuring or summarising these polygons afterwards counts the filled ground too. Use the unfilled polygons for coverage and these for a map that should read solid. Separate polygons stay separate. Gaps between polygons are not interior, so they are untouched: this fills enclosed space, it does not join things up."
  },
  "criterion": "the same number of gaps filled, no interior ring left in the output, the filled geometry within 0.05 m2 by symmetric difference, and the areas before, after and added each within 0.05 m2",
  "parts": 2,
  "reference": {
-  "gapsFilled": 69,
-  "areaBeforeSquareMetres": 900872.8975711575,
-  "areaAfterSquareMetres": 938165.9610707131,
-  "areaAddedSquareMetres": 37293.063499555574
+  "gapsFilled": 60,
+  "areaBeforeSquareMetres": 820554.3224684405,
+  "areaAfterSquareMetres": 853068.7216599053,
+  "areaAddedSquareMetres": 32514.399191464763
  },
  "fieldwork": {
-  "gapsFilled": 69,
-  "areaBeforeSquareMetres": 900872.9,
-  "areaAfterSquareMetres": 938165.96,
-  "areaAddedSquareMetres": 37293.06
+  "gapsFilled": 60,
+  "areaBeforeSquareMetres": 820554.33,
+  "areaAfterSquareMetres": 853068.73,
+  "areaAddedSquareMetres": 32514.4
  },
  "gapsAgree": true,
  "interiorRingsRemaining": 0,
  "geometryDifferenceSquareMetres": 0.0,
- "areaBeforeDifferenceSquareMetres": 0.0024288424756377935,
- "areaAfterDifferenceSquareMetres": 0.0010707131586968899,
- "areaAddedDifferenceSquareMetres": 0.0034995555761270225,
+ "areaBeforeDifferenceSquareMetres": 0.0075315594440326095,
+ "areaAfterDifferenceSquareMetres": 0.008340094704180956,
+ "areaAddedDifferenceSquareMetres": 0.0008085352383204736,
  "notEstablished": "Whether filling is the right thing to do. The added ground was never computed as reachable, and the reference asserts it identically because it is the same operation.",
  "agrees": true
 }

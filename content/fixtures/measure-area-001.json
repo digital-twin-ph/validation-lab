@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "measure-area-001",
-  "exportedAt": "2026-10-11T15:29:33.219Z",
+  "exportedAt": "2026-11-26T13:41:17.134Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.7.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:measure_area",
-    "release": "0.1.0",
+    "release": "0.3.0",
     "label": "Calculate area",
     "implementation": "src/area-computation.ts#calculateArea"
   },
@@ -32,28 +32,7 @@
         "geometry": {
           "type": "Polygon",
           "coordinates": [
-            [
-              [
-                0,
-                0
-              ],
-              [
-                1,
-                0
-              ],
-              [
-                1,
-                1
-              ],
-              [
-                0,
-                1
-              ],
-              [
-                0,
-                0
-              ]
-            ]
+            [[0,0],[1,0],[1,1],[0,1],[0,0]]
           ]
         }
       },
@@ -63,28 +42,7 @@
         "geometry": {
           "type": "Polygon",
           "coordinates": [
-            [
-              [
-                25.7829,
-                -24.7082
-              ],
-              [
-                25.9821,
-                -24.7082
-              ],
-              [
-                25.9821,
-                -24.5438
-              ],
-              [
-                25.7829,
-                -24.5438
-              ],
-              [
-                25.7829,
-                -24.7082
-              ]
-            ]
+            [[25.7829,-24.7082],[25.9821,-24.7082],[25.9821,-24.5438],[25.7829,-24.5438],[25.7829,-24.7082]]
           ]
         }
       },
@@ -94,28 +52,7 @@
         "geometry": {
           "type": "Polygon",
           "coordinates": [
-            [
-              [
-                10,
-                60
-              ],
-              [
-                11,
-                60
-              ],
-              [
-                11,
-                61
-              ],
-              [
-                10,
-                61
-              ],
-              [
-                10,
-                60
-              ]
-            ]
+            [[10,60],[11,60],[11,61],[10,61],[10,60]]
           ]
         }
       },
@@ -125,24 +62,7 @@
         "geometry": {
           "type": "Polygon",
           "coordinates": [
-            [
-              [
-                25,
-                -24
-              ],
-              [
-                26,
-                -24
-              ],
-              [
-                25.5,
-                -23
-              ],
-              [
-                25,
-                -24
-              ]
-            ]
+            [[25,-24],[26,-24],[25.5,-23],[25,-24]]
           ]
         }
       },
@@ -152,50 +72,8 @@
         "geometry": {
           "type": "Polygon",
           "coordinates": [
-            [
-              [
-                25,
-                -24
-              ],
-              [
-                26,
-                -24
-              ],
-              [
-                26,
-                -23
-              ],
-              [
-                25,
-                -23
-              ],
-              [
-                25,
-                -24
-              ]
-            ],
-            [
-              [
-                25.4,
-                -23.6
-              ],
-              [
-                25.6,
-                -23.6
-              ],
-              [
-                25.6,
-                -23.4
-              ],
-              [
-                25.4,
-                -23.4
-              ],
-              [
-                25.4,
-                -23.6
-              ]
-            ]
+            [[25,-24],[26,-24],[26,-23],[25,-23],[25,-24]],
+            [[25.4,-23.6],[25.6,-23.6],[25.6,-23.4],[25.4,-23.4],[25.4,-23.6]]
           ]
         }
       }
@@ -238,6 +116,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "f440968a56a28df5d1153711640dedb1e04c7f1260ba427e5564adaf89816d62"
+    "value": "a7278e78d702ade210e4a575c33b163f55b58eff7b026fefd29321bbfcff4da6"
   }
 }

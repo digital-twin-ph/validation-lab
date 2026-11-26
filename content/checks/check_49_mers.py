@@ -55,13 +55,15 @@ from .fixtures import load_fixture
 HERE = pathlib.Path(__file__).resolve().parent
 FIXTURE = HERE.parent / "fixtures" / "mers-korea-001.json"
 RESULT = HERE.parent / "results" / "check-49-mers.json"
-CHECKOUT = HERE.parents[2] / "example-2015-mers-korea"
+# The example's checkout beside this repository, where there can be one: in the browser kernel the files sit two
+# folders deep, so there is no parent to look in, and the files are read from GitHub (2026-11-26).
+CHECKOUT = HERE.parents[2] / "example-2015-mers-korea" if len(HERE.parents) > 2 else None
 
 
 def source_bytes(item: dict, commit: str) -> bytes:
     """The file at the pinned commit: the checkout beside this repository if it has it, else GitHub. Digest first."""
     data = None
-    if CHECKOUT.exists():
+    if CHECKOUT is not None and CHECKOUT.exists():
         try:
             data = subprocess.run(["git", "-C", str(CHECKOUT), "show", f"{commit}:{item['path']}"],
                                   check=True, capture_output=True).stdout

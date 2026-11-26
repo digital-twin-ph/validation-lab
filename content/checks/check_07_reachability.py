@@ -21,6 +21,14 @@ in Soho in 1854, and both implementations inherit that assumption identically.
 
 Independent by construction: nothing here imports Fieldwork code.
 Design record: fieldwork/docs/experiments/83-reachable-junctions.md
+
+**Updated 2026-11-26: the walk onto the network.** Since Reachable junctions 0.4.0 (2026-10-14) the walk from the site
+to its junction is spent before any street is walked, and the fixture now declares it (`accessWalk: charged`). This
+check recomputes that walk itself, as the straight-line distance in the declared metric CRS from the site to the
+origin junction, rounded to the centimetre, with pyproj; it does not read Fieldwork's snap distance. A node is reached
+where the walk plus its cheapest path is within the budget. Until this update the check spent the whole budget on the
+streets, and at 0.200.0 it disagreed on 6 junctions Fieldwork rightly did not reach (docs/audits/validation-lab-audit.md
+in Fieldwork). A fixture that declares no walk is checked as before.
 """
 import hashlib
 import json
@@ -32,6 +40,7 @@ from pathlib import Path
 from .fixtures import load_fixture, verified_asset
 
 import networkx as nx
+import pyproj
 
 # Fieldwork rounds the reported cost to two decimals, so agreement is asserted at the
 # precision it publishes. A tighter tolerance would be measuring its rounding.
@@ -53,6 +62,17 @@ def run(fixture_path: Path) -> dict:
     if budget != declared["minutes"] * declared["speedMPerMin"]:
         raise SystemExit("Declared budget is not the minutes times the speed")
 
+    # The walk from the site onto the network, recomputed here from coordinates rather than read from the snap.
+    walk, stated_walk = 0.0, None
+    if declared.get("accessWalk") == "charged":
+        to_metric = pyproj.Transformer.from_crs("OGC:CRS84", declared["metricCRS"], always_xy=True)
+        site = fixture["input"]["snappedFrom"]
+        junction = next(n for n in fixture["input"]["network"]["nodes"] if n["id"] == declared["originNodeId"])
+        sx, sy = to_metric.transform(*site["coordinates"])
+        jx, jy = to_metric.transform(*junction["coordinates"])
+        walk = round(((sx - jx) ** 2 + (sy - jy) ** 2) ** 0.5 / declared["accessWalkRounding"]) * declared["accessWalkRounding"]
+        stated_walk = site.get("snapDistanceM")
+
     graph = nx.DiGraph()
     for node in fixture["input"]["network"]["nodes"]:
         graph.add_node(node["id"])
@@ -63,9 +83,10 @@ def run(fixture_path: Path) -> dict:
         if existing is None or edge["lengthM"] < existing["length"]:
             graph.add_edge(edge["from"], edge["to"], length=edge["lengthM"])
 
-    reference = nx.single_source_dijkstra_path_length(
-        graph, declared["originNodeId"], cutoff=budget, weight="length"
-    )
+    streets = nx.single_source_dijkstra_path_length(
+        graph, declared["originNodeId"], cutoff=budget - walk, weight="length"
+    ) if walk <= budget else {}
+    reference = {node: walk + cost for node, cost in streets.items()}
 
     reported = {r["networkNodeId"]: r["travelMetres"] for r in fixture["output"]["reached"]}
     reference_only = sorted(set(reference) - set(reported))
@@ -93,6 +114,7 @@ def run(fixture_path: Path) -> dict:
             "runtime": f"{platform.python_implementation()} {platform.python_version()} on {platform.system()} {platform.machine()}",
             "isPyodide": sys.platform == "emscripten",
             "networkx": nx.__version__,
+            "pyproj": pyproj.__version__,
         },
         "fixture": {
             "id": fixture["fixtureId"],
@@ -103,11 +125,15 @@ def run(fixture_path: Path) -> dict:
         },
         "criterion": (
             f"the same set of reached nodes exactly, every cost within {COST_TOLERANCE_M:g} m, "
-            f"and every remaining budget within {COST_TOLERANCE_M:g} m of the budget less the cost"
+            f"and every remaining budget within {COST_TOLERANCE_M:g} m of the budget less the cost; "
+            f"where the walk onto the network is charged, it is recomputed here and counted in every cost"
         ),
         "networkNodes": len(fixture["input"]["network"]["nodes"]),
         "networkEdges": len(fixture["input"]["network"]["edges"]),
         "budgetMetres": budget,
+        "accessWalk": declared.get("accessWalk", "not declared"),
+        "accessWalkMetres": walk,
+        "accessWalkStatedByFieldwork": stated_walk,
         "reference": {"implementation": "networkx.single_source_dijkstra_path_length", "reached": len(reference)},
         "fieldwork": {"reached": len(reported)},
         "reachedOnlyByReference": reference_only,

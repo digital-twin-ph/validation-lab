@@ -1,6 +1,6 @@
 {
  "check": "08-corridor",
- "ranAt": "2026-10-14T20:48:46.100413+00:00",
+ "ranAt": "2026-11-26T13:41:46.880589+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -10,14 +10,14 @@
  },
  "fixture": {
   "id": "corridor-soho-001",
-  "sha256": "a3b749381fd2f8cdb66c5fba8e007fdb8cd796a7086b10331b6ec28d18f724dd",
+  "sha256": "5bc7e1cfdc1bd6a55db6479c16a9a7d4a5154eddce6e07b57f63710ec7d00133",
   "application": {
    "name": "Fieldwork",
-   "version": "0.8.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:reachable_corridor",
-   "release": "0.2.0",
+   "release": "0.3.0",
    "label": "Reachable corridor",
    "implementation": "src/reachable-corridor.ts#reachableCorridor"
   },

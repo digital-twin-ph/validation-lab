@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "points-from-xy-001",
-  "exportedAt": "2026-11-05T12:52:27.500Z",
+  "exportedAt": "2026-11-26T13:41:18.121Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.26.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:point_input",
-    "release": "0.4.0",
+    "release": "0.19.0",
     "label": "Point data",
     "implementation": "src/table-points.ts#tablePoints"
   },
@@ -69,45 +69,27 @@
           "features": [
             {
               "id": "5-110",
-              "coordinates": [
-                -73.902,
-                40.816
-              ]
+              "coordinates": [-73.902,40.816]
             },
             {
               "id": "5-133",
-              "coordinates": [
-                -73.87809,
-                40.8679
-              ]
+              "coordinates": [-73.87809,40.8679]
             },
             {
               "id": "61-135",
-              "coordinates": [
-                -73.94825,
-                40.81976
-              ]
+              "coordinates": [-73.94825,40.81976]
             },
             {
               "id": "81-124",
-              "coordinates": [
-                -73.82153,
-                40.73614
-              ]
+              "coordinates": [-73.82153,40.73614]
             },
             {
               "id": "85-67",
-              "coordinates": [
-                -74.12525,
-                40.59664
-              ]
+              "coordinates": [-74.12525,40.59664]
             },
             {
               "id": "85-111",
-              "coordinates": [
-                -74.19832,
-                40.58027
-              ]
+              "coordinates": [-74.19832,40.58027]
             }
           ],
           "unplaced": [],
@@ -180,10 +162,7 @@
           "features": [
             {
               "id": "ok",
-              "coordinates": [
-                -73.902,
-                40.816
-              ]
+              "coordinates": [-73.902,40.816]
             },
             {
               "id": "empty",
@@ -203,31 +182,19 @@
             },
             {
               "id": "edge",
-              "coordinates": [
-                -180,
-                90
-              ]
+              "coordinates": [-180,90]
             },
             {
               "id": "edge-2",
-              "coordinates": [
-                180,
-                -90
-              ]
+              "coordinates": [180,-90]
             },
             {
               "id": "same",
-              "coordinates": [
-                -73.902,
-                40.816
-              ]
+              "coordinates": [-73.902,40.816]
             },
             {
               "id": "spaced",
-              "coordinates": [
-                -73.5,
-                40.5
-              ]
+              "coordinates": [-73.5,40.5]
             }
           ],
           "unplaced": [
@@ -237,7 +204,7 @@
             },
             {
               "row": 3,
-              "reason": "(west, 40.8) is not a pair of numbers"
+              "reason": "\"west\" is not a number or degrees, minutes and seconds"
             },
             {
               "row": 4,
@@ -259,6 +226,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "10262f46589d91e03bd39f80285eb7cc49ce9925a861fb39d5cf59aa26b04386"
+    "value": "a5bfaf0d0f50b95abbd9b84cf9bff63fd7d3adf7be88242af4946d0e9ae40f1d"
   }
 }

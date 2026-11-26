@@ -1,18 +1,18 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "mers-epi-001",
-  "exportedAt": "2026-11-14T05:40:41.194Z",
+  "exportedAt": "2026-11-26T13:41:17.461Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.114.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:group_table",
-    "release": "0.4.0",
+    "release": "0.7.0",
     "label": "The MERS example's epidemiology: deaths by age class and sex, days from exposure to onset, secondary cases and the serial interval",
     "implementation": "example-2015-mers-korea at its pinned commit"
   },
-  "source": "example-2015-mers-korea at ddf30f613637d84e0ec7d71450a0309d6a32abcf: the line list and contacts of mers_korea_2015 in the R package outbreaks (Cauchemez et al.). No licence stated, so not redistributed: read from the repository at this commit and checked by digest.",
+  "source": "example-2015-mers-korea at bc2d8f31437dc534b275cb5d243ceb46041f7023: the line list and contacts of mers_korea_2015 in the R package outbreaks (Cauchemez et al.). No licence stated, so not redistributed: read from the repository at this commit and checked by digest.",
   "declaredParameters": {
     "imports": {
       "lineList": {
@@ -68,12 +68,12 @@
       {
         "path": "data/mers_korea_2015_linelist.csv",
         "sha256": "b678afea07eb3f980658c95c7284fff75c3528d6f8c0e6ec4550c0506fd3ff7f",
-        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/ddf30f613637d84e0ec7d71450a0309d6a32abcf/data/mers_korea_2015_linelist.csv"
+        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/bc2d8f31437dc534b275cb5d243ceb46041f7023/data/mers_korea_2015_linelist.csv"
       },
       {
         "path": "data/mers_korea_2015_contacts.csv",
         "sha256": "6b94ef8ffa61e365572d05d65a33d559174212d95fe60d94bf6076a682b414c1",
-        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/ddf30f613637d84e0ec7d71450a0309d6a32abcf/data/mers_korea_2015_contacts.csv"
+        "url": "https://raw.githubusercontent.com/digital-twin-ph/example-2015-mers-korea/bc2d8f31437dc534b275cb5d243ceb46041f7023/data/mers_korea_2015_contacts.csv"
       }
     ],
     "note": "No rows: the check reads each file at the commit and verifies its digest first."
@@ -1411,6 +1411,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "a7782d4a598c7140c3573f7336a87a0b37f9dfcdc92c5b1a313c76349374a8a0"
+    "value": "0ef9908db9235b81f0156d47f277f7db9069010e0c4d7243f550b8c7ab7b19f5"
   }
 }

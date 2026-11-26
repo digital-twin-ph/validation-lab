@@ -1,6 +1,6 @@
 {
   "check": "31-area-join",
-  "ranAt": "2026-10-27T12:10:57.756716+00:00",
+  "ranAt": "2026-11-26T13:41:50.639336+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,14 +8,14 @@
   },
   "fixture": {
     "id": "area-join-snow-001",
-    "sha256": "47d41dd84c317d3e3cf62a59f587ef5da28fbf64e391ed27bc6659d5d9fd800f",
+    "sha256": "aec421582d0c893b2f21c0f2439da2c3d6278b29683c25f726c2c54efbc5ffee",
     "application": {
       "name": "Fieldwork",
-      "version": "0.12.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:join_table_to_area",
-      "release": "0.1.0",
+      "release": "0.7.0",
       "label": "Join a table to the study area",
       "implementation": "src/area-join.ts#joinTableToAreas"
     },
@@ -48,7 +48,7 @@
       "measureKey": "measure",
       "denominatorUnit": "people"
     },
-    "semantics": "Each part of the study area takes the value of the one table row whose key matches its name, compared for EQUALITY after a declared folding. `fuzzy` folds every run of non-alphanumeric characters to one space and lowercases; `exact` only trims and lowercases. There is no similarity, no threshold and no review band: a name differing by more than the folding is reported unmatched rather than resolved. A part no row names keeps its place with a null value, because a boundary with no data is a fact about the data and not a reason to leave a hole in the map. Two parts sharing one name both take that value and are flagged `shared`.",
+    "semantics": "Each part of the study area takes the value of the one table row whose key matches its name, compared for EQUALITY after a declared folding. `fuzzy` folds every run of non-alphanumeric characters to one space and lowercases; `exact` only trims and lowercases. There is no similarity, no threshold and no review band: a name differing by more than the folding is reported unmatched rather than resolved. A part no row names keeps its place with a null value, because a boundary with no data is a fact about the data and not a reason to leave a hole in the map. Two parts sharing one name both take that value. They are flagged `shared` only where they belong to different units, told apart by their id (a part with no id is a unit of its own): the parts of one unit, such as a district's islands, share its value and are not flagged (area join 0.3.1; declared here from 2026-11-26).",
     "equivalentTo": "A pandas merge of the rate table onto the parts on a folded key, left on the parts so every part survives. The folding itself is NOT independently reimplemented here -- see notEstablished."
   },
   "folding": {
@@ -132,7 +132,7 @@
         "matchedRows": 32,
         "unmatchedParts": 0,
         "unmatchedRows": 0,
-        "sharedParts": 2
+        "sharedParts": 0
       },
       "pandas": {
         "parts": 33,
@@ -140,12 +140,10 @@
         "matchedParts": 33,
         "matchedRows": 32,
         "unmatchedParts": 0,
-        "sharedParts": 2
+        "sharedParts": 0
       },
       "unmatchedPartNames": [],
-      "diagnosticCodes": [
-        "duplicate-boundary-key"
-      ],
+      "diagnosticCodes": [],
       "checks": {
         "valuesMatch": true,
         "partCount": true,
@@ -169,7 +167,7 @@
         "matchedRows": 23,
         "unmatchedParts": 9,
         "unmatchedRows": 9,
-        "sharedParts": 2
+        "sharedParts": 0
       },
       "pandas": {
         "parts": 33,
@@ -177,7 +175,7 @@
         "matchedParts": 24,
         "matchedRows": 23,
         "unmatchedParts": 9,
-        "sharedParts": 2
+        "sharedParts": 0
       },
       "unmatchedPartNames": [
         "St. James Bermondsey",
@@ -191,7 +189,6 @@
         "Trinity Newington"
       ],
       "diagnosticCodes": [
-        "duplicate-boundary-key",
         "unmatched-boundary",
         "unmatched-data-key"
       ],
@@ -218,7 +215,7 @@
         "matchedRows": 31,
         "unmatchedParts": 1,
         "unmatchedRows": 1,
-        "sharedParts": 2
+        "sharedParts": 0
       },
       "pandas": {
         "parts": 33,
@@ -226,13 +223,12 @@
         "matchedParts": 32,
         "matchedRows": 31,
         "unmatchedParts": 1,
-        "sharedParts": 2
+        "sharedParts": 0
       },
       "unmatchedPartNames": [
         "Camberwell Green"
       ],
       "diagnosticCodes": [
-        "duplicate-boundary-key",
         "unmatched-boundary",
         "unmatched-data-key"
       ],

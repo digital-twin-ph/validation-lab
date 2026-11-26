@@ -1,6 +1,6 @@
 {
  "check": "13-clip-polygons",
- "ranAt": "2026-10-11T21:05:45.351537+00:00",
+ "ranAt": "2026-11-26T13:41:47.347696+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,14 +9,14 @@
  },
  "fixture": {
   "id": "clip-polygons-soho-001",
-  "sha256": "bb8c4f97392949bda3d472ff72a225a4cafe011c61e20ebdd10b70ca480ee19f",
+  "sha256": "436f515602176fd6a3cfc2d8979b13611791ca943b05cfa8b865557c7a19d44f",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:clip_polygons",
-   "release": "0.1.0",
+   "release": "0.5.0",
    "label": "Clip polygons",
    "implementation": "src/catchments.ts#clipPolygons"
   },

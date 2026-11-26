@@ -1,22 +1,22 @@
 {
  "check": "51-mers-epi",
- "ranAt": "2026-11-14T05:41:32+00:00",
+ "ranAt": "2026-11-26T13:43:28+00:00",
  "fixture": {
   "id": "mers-epi-001",
-  "sha256": "a7782d4a598c7140c3573f7336a87a0b37f9dfcdc92c5b1a313c76349374a8a0",
+  "sha256": "0ef9908db9235b81f0156d47f277f7db9069010e0c4d7243f550b8c7ab7b19f5",
   "application": {
    "name": "Fieldwork",
-   "version": "0.114.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:group_table",
-   "release": "0.4.0",
+   "release": "0.7.0",
    "label": "The MERS example's epidemiology: deaths by age class and sex, days from exposure to onset, secondary cases and the serial interval",
    "implementation": "example-2015-mers-korea at its pinned commit"
   }
  },
  "source": {
-  "commit": "ddf30f613637d84e0ec7d71450a0309d6a32abcf"
+  "commit": "bc2d8f31437dc534b275cb5d243ceb46041f7023"
  },
  "agrees": true,
  "criteria": "Exact: each case's days, every count, every share under the declared rounding, every median; the two-by-two's cells exact and its estimates and limits within 1e-9 relative",

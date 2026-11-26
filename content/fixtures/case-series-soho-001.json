@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "case-series-soho-001",
-  "exportedAt": "2026-10-11T22:39:52.076Z",
+  "exportedAt": "2026-11-26T13:41:09.648Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.7.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:case_series",
-    "release": "0.1.0",
+    "release": "0.10.0",
     "label": "Cases by period",
     "implementation": "src/case-series.ts#caseSeries"
   },
@@ -439,6 +439,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "8b877abba461f72c446596ea38be4556391a95202a13ae0c6d1cc207ef2a7267"
+    "value": "95825df86ae66d38563b9c3f67913505cb2d2724a82890789b12959cc624fff2"
   }
 }

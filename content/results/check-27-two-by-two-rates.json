@@ -1,6 +1,6 @@
 {
   "check": "27-rate-ratio",
-  "ranAt": "2026-11-05T11:03:12.767039+00:00",
+  "ranAt": "2026-11-26T13:41:49.346857+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -9,14 +9,14 @@
   },
   "fixture": {
     "id": "two-by-two-rates-snow-001",
-    "sha256": "cfa0073dbc8cfc858d139777dc8635a317476a5410a80e097eccbe5b46d857c0",
+    "sha256": "09e3afdd8e273fe936fa023ece135522192aaf62ed4194ad5f2a2c0ff21efe40",
     "application": {
       "name": "Fieldwork",
-      "version": "0.24.1"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:two_by_two",
-      "release": "0.7.0",
+      "release": "0.8.3",
       "label": "Two-by-two table",
       "implementation": "src/two-by-two-rates.ts#computeRateTwoByTwo"
     }

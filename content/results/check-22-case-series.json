@@ -1,6 +1,6 @@
 {
  "check": "22-case-series",
- "ranAt": "2026-10-11T22:42:46.665061+00:00",
+ "ranAt": "2026-11-26T13:41:48.305999+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -8,14 +8,14 @@
  },
  "fixture": {
   "id": "case-series-soho-001",
-  "sha256": "8b877abba461f72c446596ea38be4556391a95202a13ae0c6d1cc207ef2a7267",
+  "sha256": "95825df86ae66d38563b9c3f67913505cb2d2724a82890789b12959cc624fff2",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:case_series",
-   "release": "0.1.0",
+   "release": "0.10.0",
    "label": "Cases by period",
    "implementation": "src/case-series.ts#caseSeries"
   },

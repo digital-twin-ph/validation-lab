@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "regression-nyc-001",
-  "exportedAt": "2026-11-05T03:11:26.013Z",
+  "exportedAt": "2026-11-26T13:41:19.561Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.24.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:regression",
-    "release": "0.2.0",
+    "release": "0.9.0",
     "label": "Regression",
     "implementation": "src/regression.ts#fitRegression"
   },
@@ -215,6 +215,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "79ebf801b2e3d8973eea6f6cf85b9b000b7bc6dcc06e2dfc0444ad6f4573c4e8"
+    "value": "e67540dbd073593b75cd194c731dc9cfb84ab607aae427b895dbb4369d7a1ca9"
   }
 }

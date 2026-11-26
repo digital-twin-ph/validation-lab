@@ -1,6 +1,6 @@
 {
   "check": "33-regression",
-  "ranAt": "2026-11-05T03:50:29.709039+00:00",
+  "ranAt": "2026-11-26T13:42:03.010333+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -12,28 +12,28 @@
   "fixtures": [
     {
       "id": "regression-salmonella-001",
-      "sha256": "b52d7da1aa019d6c094593dda91409bebd02c2ce60dda389388b1314b8316bd2",
+      "sha256": "49cfe540bc01632351c260649f6e18a692c240e3123369812e27ee974876d3da",
       "application": {
         "name": "Fieldwork",
-        "version": "0.24.0"
+        "version": "0.200.0"
       },
       "operation": {
         "widget": "urn:fieldwork:widget:regression",
-        "release": "0.2.0",
+        "release": "0.9.0",
         "label": "Regression",
         "implementation": "src/regression.ts#fitRegression"
       }
     },
     {
       "id": "regression-nyc-001",
-      "sha256": "79ebf801b2e3d8973eea6f6cf85b9b000b7bc6dcc06e2dfc0444ad6f4573c4e8",
+      "sha256": "e67540dbd073593b75cd194c731dc9cfb84ab607aae427b895dbb4369d7a1ca9",
       "application": {
         "name": "Fieldwork",
-        "version": "0.24.0"
+        "version": "0.200.0"
       },
       "operation": {
         "widget": "urn:fieldwork:widget:regression",
-        "release": "0.2.0",
+        "release": "0.9.0",
         "label": "Regression",
         "implementation": "src/regression.ts#fitRegression"
       }

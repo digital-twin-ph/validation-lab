@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "sea-level-heights-manila-001",
-  "exportedAt": "2026-11-09T16:31:06.533Z",
+  "exportedAt": "2026-11-26T13:41:32.339Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.71.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:sample_raster",
-    "release": "0.2.0",
+    "release": "0.10.1",
     "label": "Sample raster, rules and the published comparison: Manila facilities against projected sea level",
     "implementation": "src/sample-raster.ts#sampleRaster; src/rule-evaluation.ts#evaluateAuthored"
   },
@@ -2637,21 +2637,21 @@
   },
   "assets": {
     "egm2008-window.tif": {
-      "sha256": "9909ec2c8a111f1c4f47cab7006ef008b8e1d300569749fce340e308dc8c6dc6",
-      "bytes": 1160
+      "sha256": "f6a083892328b691e7e410537d1d783e5c207db46b4b3a1993089bbbd3def22a",
+      "bytes": 480
     },
     "dtu25mss-window.tif": {
-      "sha256": "9225ed167c35854dbb3c03fc910e55ac5cf524df94a97214617a560c777ce75f",
-      "bytes": 2768
+      "sha256": "7153dc34b7af8a42412a3f079b158c9cf3ffa7d6156d430843eab12966b9e4c5",
+      "bytes": 2168
     },
     "deltadtm-window.tif": {
-      "sha256": "f0fd1d5a5a0fd4f27c72dec3c74b613e474d716dad5270b27bf22524db9f1095",
-      "bytes": 1999728
+      "sha256": "aa69a57d58850bf1392d5f1da086ab0ae5ab1116ab82a85e2b1a9354669a3088",
+      "bytes": 999764
     }
   },
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "7ba96be4f1b60c24492d3ff1e7fe36495c224d2855c2b3bbaa7f5b60b7373631"
+    "value": "84947817b581c7c2874e6220fab1c57c85fd4bd6cb3aac29149b1742b8bdb7db"
   }
 }

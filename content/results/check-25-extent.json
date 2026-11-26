@@ -1,6 +1,6 @@
 {
  "check": "25-extent",
- "ranAt": "2026-10-14T22:14:51.637692+00:00",
+ "ranAt": "2026-11-26T13:41:48.543195+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,

@@ -1,6 +1,6 @@
 {
  "check": "10-hull",
- "ranAt": "2026-10-11T20:27:47.774876+00:00",
+ "ranAt": "2026-11-26T13:41:47.002351+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -11,14 +11,14 @@
  },
  "fixture": {
   "id": "hull-soho-001",
-  "sha256": "ed4ef656d35f397e909fd130f96c912dbe65b5f1b7fc4b5a4fbf019cf038d424",
+  "sha256": "553ce920f7eb45e0372f8a586d9a62cf45d80d73e053ae156c1f42187bba16e4",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:summarize_hull",
-   "release": "0.1.0",
+   "release": "0.4.0",
    "label": "Convex hull",
    "implementation": "src/convex-hull.ts#convexHull"
   },

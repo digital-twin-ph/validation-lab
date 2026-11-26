@@ -1,6 +1,6 @@
 {
  "check": "17-buffer-point",
- "ranAt": "2026-10-11T21:48:18.524100+00:00",
+ "ranAt": "2026-11-26T13:41:47.694915+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,15 +9,15 @@
  },
  "fixture": {
   "id": "buffer-point-soho-001",
-  "sha256": "dffbd45d4305a9b51e3a87427b55aa3a58246046828db14fae0d9a579caba4d3",
+  "sha256": "fe787d21e8e6d1874fc0f859dba375ba29188c577afd0a4ad08bed54ca27f886",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:buffer_point",
-   "release": "0.1.0",
-   "label": "Area around a point",
+   "release": "0.7.0",
+   "label": "Geometry buffer",
    "implementation": "src/buffer-point.ts#bufferPoint"
   },
   "declaredCircleRule": "A circle is approximated by a polygon of 4 x steps vertices inscribed in it. The area of such a polygon is (n / 2\u03c0) sin(2\u03c0 / n) of the circle\u2019s, which is 0.99960 at 128 vertices."

@@ -1,6 +1,6 @@
 {
  "check": "21-hex",
- "ranAt": "2026-10-28T14:51:59.838079+00:00",
+ "ranAt": "2026-11-26T13:41:48.022895+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,14 +9,14 @@
  },
  "fixture": {
   "id": "hex-soho-001",
-  "sha256": "ad47fdd3c46d6def125b43601a4f3c1f1d8d9b3678f8c944d0e8cf2c9f74f451",
+  "sha256": "a035dde15cb5763fa1062cb0cb92c02ef1f5ea542cd1cde111536908b0149e55",
   "application": {
    "name": "Fieldwork",
-   "version": "0.12.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:aggregate_points_to_h3_cell",
-   "release": "0.2.0",
+   "release": "0.5.0",
    "label": "Aggregate points in hexagons",
    "implementation": "src/geoprivacy.ts#aggregateHex"
   },

@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "regression-salmonella-001",
-  "exportedAt": "2026-11-05T03:11:25.674Z",
+  "exportedAt": "2026-11-26T13:41:19.907Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.24.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:regression",
-    "release": "0.2.0",
+    "release": "0.9.0",
     "label": "Regression",
     "implementation": "src/regression.ts#fitRegression"
   },
@@ -1892,6 +1892,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "b52d7da1aa019d6c094593dda91409bebd02c2ce60dda389388b1314b8316bd2"
+    "value": "49cfe540bc01632351c260649f6e18a692c240e3123369812e27ee974876d3da"
   }
 }

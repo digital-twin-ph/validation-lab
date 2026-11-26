@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "links-hagelloch-001",
-  "exportedAt": "2026-11-10T20:41:58.824Z",
+  "exportedAt": "2026-11-26T13:41:16.761Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.81.2"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:map_output",
-    "release": "0.23.1",
+    "release": "0.49.0",
     "label": "Map, lines between records: who infected whom, Hagelloch 1861",
     "implementation": "src/map-links.ts#mapLinks"
   },
@@ -1547,6 +1547,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "a9179cf20219278a2c6816a643a6d4e6b36c17e90944d63eee161d93a86e1375"
+    "value": "6ef54cd29734f0cae90915a478e46897f5ff80afb7576a10b0e26461c4b54cb6"
   }
 }

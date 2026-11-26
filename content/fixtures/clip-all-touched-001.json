@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "clip-all-touched-001",
-  "exportedAt": "2026-10-11T15:29:33.134Z",
+  "exportedAt": "2026-11-26T13:41:10.032Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.7.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:clip_raster",
-    "release": "1.0.0",
+    "release": "1.3.0",
     "label": "Clip raster",
     "implementation": "src/raster-mask.ts#rasterCellPredicate"
   },
@@ -19,14 +19,8 @@
     "sourceGrid": {
       "width": 24,
       "height": 18,
-      "origin": [
-        25,
-        -24
-      ],
-      "resolution": [
-        0.01,
-        -0.01
-      ],
+      "origin": [25,-24],
+      "resolution": [0.01,-0.01],
       "bounds": [
         25,
         -24.18,
@@ -39,44 +33,7 @@
     "cutline": {
       "type": "Polygon",
       "coordinates": [
-        [
-          [
-            25.03,
-            -24.03
-          ],
-          [
-            25.17,
-            -24.03
-          ],
-          [
-            25.17,
-            -24.09
-          ],
-          [
-            25.11,
-            -24.09
-          ],
-          [
-            25.11,
-            -24.14
-          ],
-          [
-            25.195,
-            -24.155
-          ],
-          [
-            25.06,
-            -24.16
-          ],
-          [
-            25.045,
-            -24.105
-          ],
-          [
-            25.03,
-            -24.03
-          ]
-        ]
+        [[25.03,-24.03],[25.17,-24.03],[25.17,-24.09],[25.11,-24.09],[25.11,-24.14],[25.195,-24.155],[25.06,-24.16],[25.045,-24.105],[25.03,-24.03]]
       ]
     },
     "cases": [
@@ -101,48 +58,11 @@
   },
   "input": {
     "raster": "clip-all-touched-001.tif",
-    "rasterSHA256": "e2f68a8fa4860a75047d1b0d453959e451eb15023de10568e1b55d4a036632d6",
+    "rasterSHA256": "1f364ce815febc3d4fb2b2d2b10e8e7dad7ed2a0fa09ebb967e3b918eebbd4e2",
     "cutline": {
       "type": "Polygon",
       "coordinates": [
-        [
-          [
-            25.03,
-            -24.03
-          ],
-          [
-            25.17,
-            -24.03
-          ],
-          [
-            25.17,
-            -24.09
-          ],
-          [
-            25.11,
-            -24.09
-          ],
-          [
-            25.11,
-            -24.14
-          ],
-          [
-            25.195,
-            -24.155
-          ],
-          [
-            25.06,
-            -24.16
-          ],
-          [
-            25.045,
-            -24.105
-          ],
-          [
-            25.03,
-            -24.03
-          ]
-        ]
+        [[25.03,-24.03],[25.17,-24.03],[25.17,-24.09],[25.11,-24.09],[25.11,-24.14],[25.195,-24.155],[25.06,-24.16],[25.045,-24.105],[25.03,-24.03]]
       ]
     }
   },
@@ -153,10 +73,7 @@
         "marginPixels": 0
       },
       "window": {
-        "origin": [
-          25.03,
-          -24.03
-        ],
+        "origin": [25.03,-24.03],
         "width": 17,
         "height": 14,
         "bounds": [
@@ -340,10 +257,7 @@
         "marginPixels": 1
       },
       "window": {
-        "origin": [
-          25.01,
-          -24.01
-        ],
+        "origin": [25.01,-24.01],
         "width": 20,
         "height": 17,
         "bounds": [
@@ -614,10 +528,7 @@
         "marginPixels": 0
       },
       "window": {
-        "origin": [
-          25.03,
-          -24.03
-        ],
+        "origin": [25.03,-24.03],
         "width": 17,
         "height": 14,
         "bounds": [
@@ -787,13 +698,13 @@
   "note": "Rebuild the clip from the GeoTIFF, the cutline and each case’s options. Row strings are one character per cell, 1 included and 0 excluded, within that case’s cropped window.",
   "assets": {
     "clip-all-touched-001.tif": {
-      "sha256": "e2f68a8fa4860a75047d1b0d453959e451eb15023de10568e1b55d4a036632d6",
-      "bytes": 4456
+      "sha256": "1f364ce815febc3d4fb2b2d2b10e8e7dad7ed2a0fa09ebb967e3b918eebbd4e2",
+      "bytes": 3856
     }
   },
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "298cd398a748e91df941831b430945e15e2dcdf4ce7e6db7d82f1a4af2e072c9"
+    "value": "e52b18abb2b79cf9a1168823cde401d3ecdcff4f6e3aa2fc1e6c44c88f1579f3"
   }
 }

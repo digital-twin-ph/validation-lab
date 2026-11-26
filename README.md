@@ -1,6 +1,6 @@
 # Fieldwork Validation Lab
 
-Notebooks that **independently recompute** Fieldwork's spatial results in Python
+Notebooks that **independently recompute** Fieldwork's results in Python
 and report agreement or disagreement with a stated tolerance.
 
 The design record lives in the Fieldwork repository, not here:
@@ -21,20 +21,37 @@ repository holds the notebooks, the fixtures and the machine-readable results.
 
 A notebook that reused the implementation under test would measure nothing.
 
+## Where things stand, 26 November 2026
+
+- **51 notebooks**, one per check, plus `00-kernel-check`. Each validates; none teaches. Lessons about what a widget's
+  method means live in their own repository, [dive-deeper](https://github.com/digital-twin-ph/dive-deeper), and are
+  deferred until the widgets are mature enough to teach from. The older teaching sections that ended some notebooks
+  here were taken out on this date.
+- **Every check was run again** on fixtures exported from Fieldwork 0.200.0. All agree, except clip raster (02) and
+  deduplicate (26), which partly agree as they always have, for the reasons their notebooks give. Four checks still
+  run on older fixtures, because nothing can make them again: 18, 25 and the rate ratio in 27 check retired widgets,
+  and 50 needs population rasters that are not redistributed.
+- **In the browser kernel**, 45 notebooks run. Six run in CPython only and say so when opened in the browser: 26, 33,
+  40, 47, 50 and 52 (see below).
+- **Both runners fail a check that has regressed**, not only one that raises an error: a notebook that prints
+  `agrees: False` where its recorded result agrees.
+
+Fieldwork's record of which widget each check covers, and at which release, is `widgets/parity.json` in the Fieldwork
+repository, pinned to a commit of this one.
+
 ## Layout
 
     content/
-      00-kernel-check.ipynb          which packages this kernel really has, and their versions
-      01-reproject-vs-pyproj.ipynb   check 01
-      02-clip-vs-rasterio.ipynb      check 02
-      05-area-vs-geodesic.ipynb      check 05
-      06-mean-center-vs-pyproj.ipynb check 06
-      checks/                        the Python comparisons, importable and runnable headlessly
-    node/                            Node-side checks: the OWL 2 DL reasoner and the SPARQL engine are JS packages
-      cq/                            the competency questions, as queries with their expectations
-      fixtures/                      an exported run receipt, hash-verified like the Python fixtures
-      fixtures/                      exported from Fieldwork, with .sha256 beside each
-      results/                       recorded reports, including the environment that produced them
+      00-kernel-check.ipynb   which packages this kernel really has, and their versions
+      NN-<what>-vs-<reference>.ipynb
+                              one notebook per check: what it checks, how, what should happen, the result, the limits
+      checks/                 the Python comparisons, importable and runnable headlessly
+      fixtures/               exported from Fieldwork; each carries its own integrity digest
+      results/                recorded reports, including the environment that produced them
+    node/                     Node-side checks: the OWL 2 DL reasoner and the SPARQL engine are JS packages
+      cq/                     the competency questions, as queries with their expectations
+      fixtures/               an exported run receipt
+    scripts/run_notebooks.py  every notebook in CPython; fails on an error cell or a regressed check
 
 ## Running
 
@@ -45,32 +62,30 @@ In a browser, build the static site and open `00-kernel-check.ipynb` first:
     jupyter lite build --contents content --output-dir _output
     python3 -m http.server --directory _output 8000
 
-Headlessly in CPython, which is faster for iterating but **is not the browser
-kernel**:
+Headlessly in CPython, which is faster for iterating but **is not the browser kernel**. A check is a module, run from
+`content/`, and writes its result to `content/results/`:
 
     pip install -r requirements-checks.txt
-    python content/checks/check_01_reproject.py
-    python content/checks/check_02_clip.py
-    python content/checks/check_05_area.py
-    python content/checks/check_06_mean_center.py
-    cd node && npm ci && npm run check:all        # ontology reasoning and competency questions
+    cd content && python -m checks.check_06_mean_center
+    cd .. && python scripts/run_notebooks.py          # every notebook
+    cd node && npm ci && npm run check:all             # ontology reasoning and competency questions
+    npm run check:notebooks-browser                    # every notebook in the browser kernel, after the site is built
 
-Either way the recorded report names the runtime, so a CPython result is never
-mistaken for a Pyodide one.
+Either way the recorded report names the runtime, so a CPython result is never mistaken for a Pyodide one.
 
 ## Fixtures
 
-Fixtures are produced on the Fieldwork side, which is the direction the boundary
-allows. From a Fieldwork checkout:
+Fixtures are produced on the Fieldwork side, which is the direction the boundary allows. From a Fieldwork checkout:
 
-    node scripts/export-validation-fixture.mjs reproject-utm35s-001 ../validation-lab/content/fixtures
-    node scripts/export-validation-fixture.mjs clip-all-touched-001 ../validation-lab/content/fixtures
+    node scripts/export-validation-fixture.mjs reachability-soho-001 ../validation-lab/content/fixtures
 
-That writes each fixture, any binary sidecar such as a GeoTIFF, and a `.sha256`
-for every file. Regenerate rather than edit: a fixture
-edited by hand no longer describes what the application did.
+That writes the fixture, with an integrity digest over its canonical form, and any binary file beside it, such as a
+GeoTIFF, whose digest the fixture carries. The exporter's usage line lists every fixture it can make. Regenerate rather
+than edit: a fixture edited by hand no longer describes what the application did.
 
-## Results so far
+## The first results, October 2026
+
+The table below is the record as it stood then, kept for its history. The current results are in `content/results/`.
 
 | Check | Operation | Reference | Result |
 | --- | --- | --- | --- |
@@ -148,7 +163,7 @@ fails while a `loadPackage` request succeeds. The notebooks used to call
 `piplite.install`, which is why `00-kernel-check.ipynb` reported packages as
 absent on the published site.
 
-## The published notebooks: all seven pass, in both environments
+## Getting the notebooks to run in the browser kernel, October 2026
 
 **Fixed 2026-10-11.** Integrity moved from a `.sha256` sidecar over the file's bytes to an
 `integrity` field inside the fixture, taken over a canonical form — the fixture with that
@@ -212,18 +227,24 @@ its bytes, computed the same way by Fieldwork's exporter and the check, or to
 carry fixtures in a format the transport does not rewrite. Both change the
 fixture contract across repositories, so neither is done here.
 
-## Two checks cannot run in the browser kernel: 26 and 40
+## Notebooks that run in CPython only
 
-**Found 2026-11-09.** Checks 26 (Deduplicate records) and 40 (Relate, allowing for spelling) compare Jaro-Winkler
-scores against rapidfuzz and jellyfish. Neither is in the Pyodide v314.0.6 distribution: its lock file, read on
-2026-11-09, lists pandas 3.0.2 and shapely 2.1.2 but not rapidfuzz or jellyfish, and neither publishes a pure-Python
-wheel `piplite` could use. Both notebooks stop at their first import, and both have passed in CPython only.
+Each says so when opened in the browser, with its reason, and skips its later cells rather than failing.
 
-Not fixed. A Jaro-Winkler written in the lab would run, but it would be one more hand-written implementation set
-against Fieldwork's rather than one by other authors, which is what the two libraries are there for.
+| Notebook | Why not in the browser kernel |
+| --- | --- |
+| 26 Deduplicate | Its two references, rapidfuzz and jellyfish, are not in the Pyodide distribution |
+| 33 Regression | The New York case reads its data from Zenodo by HTTP range requests, which the kernel cannot make |
+| 40 Relate, allowing for spelling | rapidfuzz's score is the criterion, and rapidfuzz is not there |
+| 47, 52 QR codes | OpenCV, the decoder every code is read with, is not there |
+| 50 Population models | Its rasters are tens of megabytes each and not redistributed |
 
-Check 41 (the boundary repair) does run there: on 2026-11-09 it agreed in the browser kernel with shapely 2.1.2 on
-GEOS 3.12.1, as in CPython with shapely 2.2.0 on GEOS 3.14.1.
+**Found 2026-11-09 for 26 and 40.** Neither rapidfuzz nor jellyfish publishes a pure-Python wheel `piplite` could use.
+A Jaro-Winkler written in the lab would run, but it would be one more hand-written implementation set against
+Fieldwork's rather than one by other authors, which is what the two libraries are there for.
+
+Checks 49 and 51 do run there: they read their source files from GitHub at the pinned commit when the example is not
+checked out beside this repository.
 
 ## What a passing check does not establish
 

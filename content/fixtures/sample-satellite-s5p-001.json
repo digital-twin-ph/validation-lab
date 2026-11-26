@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "sample-satellite-s5p-001",
-  "exportedAt": "2026-11-06T04:26:32.294Z",
+  "exportedAt": "2026-11-26T13:41:21.205Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.31.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:sample_satellite_files_at_points",
-    "release": "0.2.1",
+    "release": "1.0.0",
     "label": "Sample satellite files at points",
     "implementation": "src/satellite-read.ts#readAtPoints, src/satellite-sample.ts#sampleTable"
   },
@@ -129,7 +129,7 @@
       }
     ],
     "file": "sample-satellite-s5p-001.nc",
-    "fileSHA256": "2333f0ca30ce71d1b5ab0c322168bcc8cfd01b12775a5ca1e3952a046372a3b3"
+    "fileSHA256": "f60f644119bb6f9dfee152b4ac834a61099e29a473f86e76fcdf9bc69e203f47"
   },
   "output": {
     "tilesRead": 6,
@@ -1103,13 +1103,13 @@
   "note": "Read the file with an independent HDF5 reader, find each point's pixel, read value, quality and time there, and rebuild both cases' rows from `declaredParameters`.",
   "assets": {
     "sample-satellite-s5p-001.nc": {
-      "sha256": "2333f0ca30ce71d1b5ab0c322168bcc8cfd01b12775a5ca1e3952a046372a3b3",
+      "sha256": "f60f644119bb6f9dfee152b4ac834a61099e29a473f86e76fcdf9bc69e203f47",
       "bytes": 21101
     }
   },
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "9de8df95d6e61c453e459a14d8772bbad64b8d80dc0b1fcb14824c4d6083bc2a"
+    "value": "9f05f161dfbef6fab23fed18f28e6a9d025bc675c723e70eff33505bf972b6e5"
   }
 }

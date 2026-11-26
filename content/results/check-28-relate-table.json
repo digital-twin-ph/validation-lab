@@ -1,6 +1,6 @@
 {
   "check": "28-relate-table",
-  "ranAt": "2026-10-28T14:38:10.619557+00:00",
+  "ranAt": "2026-11-26T13:41:49.600497+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,14 +8,14 @@
   },
   "fixture": {
     "id": "relate-snow-001",
-    "sha256": "6e7782a472a4926dfd2d4afdb2e61d78567bb6b82356d2e15cb6c2c83a213dd8",
+    "sha256": "c1cec4513b374e7687975bfc0e1fcd47c64f0489b938b006453f5592ee884d18",
     "application": {
       "name": "Fieldwork",
-      "version": "0.12.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:relate_table",
-      "release": "0.3.0",
+      "release": "0.15.0",
       "label": "Relate a table",
       "implementation": "src/relate-table.ts#relateTable"
     }
@@ -571,7 +571,7 @@
     {
       "note": "A key the right table does not carry, UNDECLARED: St. Saviour, Southwark withheld and nothing said about it. Refused, where a merge would proceed",
       "constructed": null,
-      "fieldworkRefused": "1 key in the first table has no row in the second: \"St. Saviour, Southwark\". Open the join and say whether to drop those rows or keep them under a category you name, because the two give different totals and the result cannot be read for which you got.",
+      "fieldworkRefused": "1 key in the first table has no row in the second: \"St. Saviour, Southwark\". Under Decisions in Configure\u2026, say whether to drop those rows or keep them under a category you name, because the two give different totals and the result cannot be read for which you got.",
       "whatAMergeDoesInstead": "A merge proceeds and returns 64 rows with 2 of them carrying NaN in water_supply. Nothing asks what should happen to them, and a total over the result is a total over a table the practitioner never chose.",
       "pandasRowCount": 64,
       "checks": {
@@ -586,7 +586,7 @@
     {
       "note": "An ambiguous key, constructed: one sub-district given a second, different company",
       "constructed": "No sub-district in Table XII carries two companies. The row is added here because the case cannot be drawn from the data.",
-      "fieldworkRefused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Check whether \"sub_district\" identifies one row of the second table.",
+      "fieldworkRefused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Or, under Configure\u2026, keep one row per match. Check whether \"sub_district\" identifies one row of the second table.",
       "whatAMergeDoesInstead": "A merge returns 66 rows where the left table has 64: the rows for that key each match twice, so both companies appear in the stratification carrying the same population, and no total reveals it.",
       "pandasRowCount": 66,
       "checks": {

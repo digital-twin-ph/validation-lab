@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "chains-hagelloch-001",
-  "exportedAt": "2026-11-09T21:17:12.458Z",
+  "exportedAt": "2026-11-26T13:41:09.839Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.72.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:relate_table",
-    "release": "0.11.0",
+    "release": "0.15.0",
     "label": "Relate, rules and a count: serial intervals and secondary cases, Hagelloch 1861",
     "implementation": "src/relate-table.ts#relateTable; src/rule-evaluation.ts#evaluateAuthored; src/group-table.ts#groupTable"
   },
@@ -1909,6 +1909,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "41eebf5e0803a2dbd31b32d81b1db971944c8a394da2658f5cb27ca6d2df5b7e"
+    "value": "ef1300a18f9d458c239b8c1149c5dc60e20f6b6b945fd68adf4c030b6e7ff6c5"
   }
 }

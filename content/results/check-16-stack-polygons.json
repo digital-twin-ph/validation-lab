@@ -1,22 +1,22 @@
 {
  "check": "16-stack-polygons",
- "ranAt": "2026-11-13T23:25:59.448176+00:00",
+ "ranAt": "2026-11-26T13:41:47.616481+00:00",
  "environment": {
-  "runtime": "CPython 3.11.15 on Darwin arm64",
+  "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
-  "shapely": "2.0.7",
-  "geos": "3.13.0"
+  "shapely": "2.2.0",
+  "geos": "3.14.1"
  },
  "fixture": {
   "id": "stack-polygons-soho-001",
-  "sha256": "3eb38b1e74214afb71d2b7f6909726373266133a718a8ca5172cdf60b6eae647",
+  "sha256": "eb25d59188d070df3297d271ccf979aedfecc91ef921cdefb16115dfee2defd6",
   "application": {
    "name": "Fieldwork",
-   "version": "0.112.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:map_output",
-   "release": "0.29.0",
+   "release": "0.49.0",
    "label": "A Map\u2019s polygon layers, collected for drawing",
    "implementation": "src/polygon-layers.ts#collectPolygonLayers"
   },

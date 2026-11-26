@@ -1,0 +1,135 @@
+{
+  "schema": "fieldwork/validation-fixture/1",
+  "fixtureId": "two-by-two-snow-002",
+  "exportedAt": "2026-11-26T13:41:35.567Z",
+  "application": {
+    "name": "Fieldwork",
+    "version": "0.200.0"
+  },
+  "operation": {
+    "widget": "urn:fieldwork:widget:two_by_two",
+    "release": "0.8.3",
+    "label": "Two-by-two table",
+    "implementation": "src/two-by-two.ts#computeTwoByTwo"
+  },
+  "declaredParameters": {
+    "exposureColumn": "water_supply",
+    "exposed": "Southwark and Vauxhall Company only",
+    "unexposed": "Lambeth Company only",
+    "outcomeColumn": "measure",
+    "caseValue": "deaths_seven_weeks",
+    "nonCaseValue": "survived",
+    "level": 95,
+    "semantics": "Cells from the table: exposed and unexposed are the two values of the exposure column compared, cases and non-cases the two values of the outcome column named. The risk ratio has a Katz log interval, the odds ratio a Wald interval on the log scale, and the risk difference an unpooled Wald interval, each at the declared level. Each estimate carries a conventional label and where the label was read: `results-panel` is a deduction from another program's published results, `original-program` a reading of that program itself."
+  },
+  "source": "John Snow, On the Mode of Communication of Cholera, 2nd ed., 1855: Tables VIII and XII, for people, as the South London example's people workflow derives them.",
+  "input": {
+    "table": {
+      "columns": null,
+      "keys": [
+        "water_supply",
+        "measure"
+      ],
+      "rows": [
+        {
+          "key": {
+            "water_supply": "Southwark and Vauxhall Company only",
+            "measure": "deaths_seven_weeks"
+          },
+          "value": 844
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+            "measure": "deaths_seven_weeks"
+          },
+          "value": 652
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company only",
+            "measure": "deaths_seven_weeks"
+          },
+          "value": 18
+        },
+        {
+          "key": {
+            "water_supply": "Southwark and Vauxhall Company only",
+            "measure": "survived"
+          },
+          "value": 166810
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company and Southwark and Vauxhall Company",
+            "measure": "survived"
+          },
+          "value": 299497
+        },
+        {
+          "key": {
+            "water_supply": "Lambeth Company only",
+            "measure": "survived"
+          },
+          "value": 19115
+        }
+      ]
+    }
+  },
+  "output": {
+    "cells": {
+      "exposedCases": 844,
+      "exposedNonCases": 166810,
+      "unexposedCases": 18,
+      "unexposedNonCases": 19115
+    },
+    "exposedTotal": 167654,
+    "unexposedTotal": 19133,
+    "riskExposed": 0.0050341775322986625,
+    "riskUnexposed": 0.0009407829404693462,
+    "strataLeftOut": [
+      "Lambeth Company and Southwark and Vauxhall Company"
+    ],
+    "estimates": [
+      {
+        "name": "risk ratio",
+        "value": 5.351051040303906,
+        "lower": 3.3557136905521703,
+        "upper": 8.532833810153194,
+        "level": 95,
+        "method": "Katz log",
+        "conventionalLabel": "Risk Ratio (RR)",
+        "conventionalLabelSource": "results-panel",
+        "unavailable": null
+      },
+      {
+        "name": "odds ratio",
+        "value": 5.373065830052822,
+        "lower": 3.367904307171166,
+        "upper": 8.57204771305694,
+        "level": 95,
+        "method": "Wald log",
+        "conventionalLabel": "Odds Ratio (cross product)",
+        "conventionalLabelSource": "results-panel",
+        "unavailable": null
+      },
+      {
+        "name": "risk difference",
+        "value": 0.004093394591829317,
+        "lower": 0.003542507114247166,
+        "upper": 0.0046442820694114675,
+        "level": 95,
+        "method": "Wald unpooled",
+        "conventionalLabel": "Risk Difference (RD%)",
+        "conventionalLabelSource": "results-panel",
+        "unavailable": null
+      }
+    ]
+  },
+  "assets": {},
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
+    "value": "ec787c213c66a351895b7898fba4165cf3516f0b2c815bbdb638b26eeca7db5a"
+  }
+}

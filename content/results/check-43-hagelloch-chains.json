@@ -1,16 +1,16 @@
 {
  "check": "43-hagelloch-chains",
- "ranAt": "2026-11-09T21:29:43+00:00",
+ "ranAt": "2026-11-26T13:42:18+00:00",
  "fixture": {
   "id": "chains-hagelloch-001",
-  "sha256": "41eebf5e0803a2dbd31b32d81b1db971944c8a394da2658f5cb27ca6d2df5b7e",
+  "sha256": "ef1300a18f9d458c239b8c1149c5dc60e20f6b6b945fd68adf4c030b6e7ff6c5",
   "application": {
    "name": "Fieldwork",
-   "version": "0.72.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:relate_table",
-   "release": "0.11.0",
+   "release": "0.15.0",
    "label": "Relate, rules and a count: serial intervals and secondary cases, Hagelloch 1861",
    "implementation": "src/relate-table.ts#relateTable; src/rule-evaluation.ts#evaluateAuthored; src/group-table.ts#groupTable"
   }

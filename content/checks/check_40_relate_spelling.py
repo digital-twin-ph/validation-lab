@@ -38,8 +38,11 @@ import unicodedata
 from datetime import datetime, timezone
 
 import pandas
-from rapidfuzz.distance import JaroWinkler
-import jellyfish
+try:
+    from rapidfuzz.distance import JaroWinkler
+    import jellyfish
+except ImportError as missing:  # CPython only: rapidfuzz's score is the criterion
+    raise ImportError("The browser kernel does not have rapidfuzz and jellyfish, whose spelling scores this check compares against; run this check in CPython.") from missing
 from .fixtures import load_fixture
 
 HERE = pathlib.Path(__file__).resolve().parent

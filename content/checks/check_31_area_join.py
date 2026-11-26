@@ -38,7 +38,9 @@ decision is worth.
 Criteria, fixed before running:
 
 1. **Every part's value** equal to a pandas left merge on the folded key, compared part by part
-   including the nulls, with the Streatham pair carrying one value and flagged `shared`.
+   including the nulls, with the Streatham pair carrying one value. The two are parts of one unit (the same id), so
+   they are not flagged `shared`: a key is shared only where it names more than one unit. Until 2026-11-26 this
+   check counted parts, and at Fieldwork 0.200.0 it disagreed on exactly this pair.
 2. **The counts** -- parts, rows, matched parts, matched rows, unmatched, shared -- all equal.
 3. **The raw baseline**: 23 of 32 rows match on unfolded equality, and the 9 that do not are
    exactly the 9 the fixture reports, each differing from its row only by non-alphanumerics.
@@ -121,7 +123,9 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
     # declares, which for `exact` means not folded at all.
     for case in (fuzzy, exact, control):
         folded = {p["index"]: p["key"] for p in case["parts"]}
-        parts = pandas.DataFrame([{"index": p["index"], "name": p["name"], "key": folded[p["index"]]}
+        parts = pandas.DataFrame([{"index": p["index"], "name": p["name"], "key": folded[p["index"]],
+                                   # The unit a part belongs to: its id, or the part itself where it has none.
+                                   "unit": p.get("id") or f"part {p['index']}"}
                                   for p in case["parts"]])
         # The table side is keyed by the SAME rule the case declares, taken from how Fieldwork
         # keyed the parts: for `fuzzy`, a part's key is its folded name, so a row's key is its
@@ -145,8 +149,11 @@ def run(fixture_path: pathlib.Path = FIXTURE) -> dict:
         reported = [p["value"] for p in case["parts"]]
         matched_parts = int(merged["value"].notna().sum())
         matched_rows = int(table[table["key"].isin(set(parts["key"]))].shape[0])
-        # A part sharing its key with another part: both take the one value.
-        shared = set(parts["key"][parts["key"].duplicated(keep=False)])
+        # A key that names more than one UNIT: its parts take the one value and are flagged shared. The parts of one
+        # unit (the same id, as Streatham's two polygons here) are one unit and are not, as the fixture declares
+        # (Join a table to the study area 0.3.1; this check counted parts until 2026-11-26).
+        units_per_key = parts.groupby("key")["unit"].nunique()
+        shared = set(units_per_key[units_per_key > 1].index)
         shared_parts = int(parts["key"].isin(shared).sum()) if shared else 0
 
         checks = {

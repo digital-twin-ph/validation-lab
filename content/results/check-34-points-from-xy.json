@@ -1,6 +1,6 @@
 {
   "check": "34-points-from-xy",
-  "ranAt": "2026-11-05T12:53:03.838138+00:00",
+  "ranAt": "2026-11-26T13:42:03.444884+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -10,14 +10,14 @@
   },
   "fixture": {
     "id": "points-from-xy-001",
-    "sha256": "f0b635b125b515213e3407b5a4b814e11c1e255f2b6976717c4f39baad682bc2",
+    "sha256": "7b44a816f1bc6b1c560cfb755ef30dc69c11f9d70cbb22bdd898e68f431f82cd",
     "application": {
       "name": "Fieldwork",
-      "version": "0.26.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:point_input",
-      "release": "0.4.0",
+      "release": "0.19.0",
       "label": "Point data",
       "implementation": "src/table-points.ts#tablePoints"
     }

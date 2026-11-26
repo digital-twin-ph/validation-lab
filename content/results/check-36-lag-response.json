@@ -1,6 +1,6 @@
 {
   "check": "36-lag-response",
-  "ranAt": "2026-11-07T06:54:12.045811+00:00",
+  "ranAt": "2026-11-26T13:42:03.834545+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,26 +8,26 @@
   },
   "fixture": {
     "id": "lag-response-brazil-001",
-    "sha256": "fa20b13850f1e328e9d17f1fcdd0a1559fe44b48c2f4c04fe45b87fd63d8e4c5",
+    "sha256": "06450a05566e9f8bd48a411ef8f645d65908b1b7cf90260e2c41814f2c0e59e7",
     "application": {
       "name": "Fieldwork",
-      "version": "0.41.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:chart_output",
-      "release": "0.11.0",
+      "release": "0.25.2",
       "label": "Chart",
       "implementation": "src/chart-output.ts#tableChart; src/chart-vega.ts#chartVegaSpec"
     },
     "alsoExercises": [
       {
         "widget": "urn:fieldwork:widget:append_rows",
-        "release": "0.2.0",
+        "release": "0.6.0",
         "implementation": "src/append-rows.ts#appendTables"
       },
       {
         "widget": "urn:fieldwork:widget:select_rows",
-        "release": "0.3.0",
+        "release": "0.5.1",
         "implementation": "src/derive-value.ts#selectRows"
       }
     ]

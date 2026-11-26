@@ -1,6 +1,6 @@
 {
   "check": "39-group-shares",
-  "ranAt": "2026-11-08T20:36:48.592125+00:00",
+  "ranAt": "2026-11-26T13:42:16.799318+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -9,14 +9,14 @@
   },
   "fixture": {
     "id": "group-shares-snow-001",
-    "sha256": "702ea494c5dd45a228e4e1293ac9f2c6140530748d5c09564e4c415d82ba8ce7",
+    "sha256": "a4bf5b565288e16e07a9f2fc0dd7a6bb2ce72a9699c36987b969c2693fcaf9c0",
     "application": {
       "name": "Fieldwork",
-      "version": "0.62.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:group_table",
-      "release": "0.3.0",
+      "release": "0.7.0",
       "label": "Total within groups, with each group's share",
       "implementation": "src/group-table.ts#withShares"
     }

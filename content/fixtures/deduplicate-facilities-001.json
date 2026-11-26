@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "deduplicate-facilities-001",
-  "exportedAt": "2026-10-25T03:54:51.938Z",
+  "exportedAt": "2026-11-26T13:41:12.790Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.11.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:deduplicate_points",
-    "release": "0.1.0",
+    "release": "0.4.0",
     "label": "Deduplicate point records",
     "implementation": "src/deduplicate-points.ts#deduplicatePoints"
   },
@@ -39,50 +39,32 @@
           {
             "id": "osm-1",
             "name": "Ospital ng Maynila Medical Center",
-            "coordinates": [
-              120.9842,
-              14.5995
-            ]
+            "coordinates": [120.9842,14.5995]
           },
           {
             "id": "osm-2",
             "name": "Ospital ng Maynila Medical Center Annex",
-            "coordinates": [
-              120.98438565683998,
-              14.5995
-            ]
+            "coordinates": [120.98438565683998,14.5995]
           },
           {
             "id": "osm-3",
             "name": "St. Mary's Clinic",
-            "coordinates": [
-              120.98791313679962,
-              14.5995
-            ]
+            "coordinates": [120.98791313679962,14.5995]
           },
           {
             "id": "osm-4",
             "name": "Mercury Drug Clinic",
-            "coordinates": [
-              120.9842,
-              14.607639345596615
-            ]
+            "coordinates": [120.9842,14.607639345596615]
           },
           {
             "id": "osm-5",
             "name": null,
-            "coordinates": [
-              120.98791313679962,
-              14.607639345596615
-            ]
+            "coordinates": [120.98791313679962,14.607639345596615]
           },
           {
             "id": "osm-6",
             "name": "Barangay Health Station 12",
-            "coordinates": [
-              121.00276568399806,
-              14.617587434659143
-            ]
+            "coordinates": [121.00276568399806,14.617587434659143]
           },
           {
             "id": "osm-7",
@@ -98,58 +80,37 @@
           {
             "id": "ovt-1",
             "name": "Ospital ng Maynila Med Ctr",
-            "coordinates": [
-              120.98436709115599,
-              14.5995
-            ]
+            "coordinates": [120.98436709115599,14.5995]
           },
           {
             "id": "ovt-2",
             "name": "Ospital ng Maynila Medical Center",
-            "coordinates": [
-              120.9842,
-              14.599771311519888
-            ]
+            "coordinates": [120.9842,14.599771311519888]
           },
           {
             "id": "ovt-3",
             "name": "St Marys Clinic",
-            "coordinates": [
-              120.98791313679962,
-              14.599698961781252
-            ]
+            "coordinates": [120.98791313679962,14.599698961781252]
           },
           {
             "id": "ovt-4",
             "name": "St. Mary's Clinic",
-            "coordinates": [
-              120.98791313679962,
-              14.59678688480113
-            ]
+            "coordinates": [120.98791313679962,14.59678688480113]
           },
           {
             "id": "ovt-5",
             "name": "Rizal Memorial Coliseum",
-            "coordinates": [
-              120.9842,
-              14.607775001356558
-            ]
+            "coordinates": [120.9842,14.607775001356558]
           },
           {
             "id": "ovt-6",
             "name": "Manila Doctors Hospital",
-            "coordinates": [
-              120.9842,
-              14.610804646661965
-            ]
+            "coordinates": [120.9842,14.610804646661965]
           },
           {
             "id": "ovt-7",
             "name": "Health Center",
-            "coordinates": [
-              120.9880245309036,
-              14.607639345596615
-            ]
+            "coordinates": [120.9880245309036,14.607639345596615]
           }
         ]
       }
@@ -668,6 +629,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "6d1310281865b5503967af9df536f5c75cf7dd4e86d2fcc32e2abe55feb4d86f"
+    "value": "28d1a63349d5a53e5beffbd6b7adea9a36f371b53a450da6433e99572d0ed78c"
   }
 }

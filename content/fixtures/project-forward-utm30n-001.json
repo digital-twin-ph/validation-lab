@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "project-forward-utm30n-001",
-  "exportedAt": "2026-10-14T12:59:15.115Z",
+  "exportedAt": "2026-11-26T13:41:18.495Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.7.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:reproject",
-    "release": "0.2.0",
+    "release": "1.0.0",
     "label": "Reproject points",
     "implementation": "src/reproject.ts#projectFromCRS84"
   },
@@ -131,6 +131,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "c86aa645b5c1fdf664c127f151dfc02f67ea62a8bd513a78ba0e2c5c3ba1c8d9"
+    "value": "01f828f50ae780418bcb417c12319637c4b177201abfcf9fbe499f8703d7adc4"
   }
 }

@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "tree-hagelloch-001",
-  "exportedAt": "2026-11-10T03:33:43.242Z",
+  "exportedAt": "2026-11-26T13:41:34.933Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.75.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:chart_output",
-    "release": "0.12.0",
+    "release": "0.25.2",
     "label": "Chart, transmission tree: who infected whom, Hagelloch 1861",
     "implementation": "src/transmission-tree.ts#transmissionTree"
   },
@@ -975,7 +975,9 @@
       "unknownInfector": 0,
       "undated": 0,
       "inLoop": 0,
-      "links": 184
+      "links": 184,
+      "severalSources": 0,
+      "furtherLinks": 0
     },
     "chains": [
       {
@@ -2134,6 +2136,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "74575e6955a194ad3c2453763eb5c46f8cbba8036d0469a2a6baad6d4ff9ceb6"
+    "value": "568014773fbd06ed2684457fbe4244b3effaa157746d058a81e60692c6950c43"
   }
 }

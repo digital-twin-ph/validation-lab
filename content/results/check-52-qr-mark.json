@@ -1,33 +1,33 @@
 {
  "check": "52-qr-mark",
- "ranAt": "2026-11-14T13:13:45+00:00",
+ "ranAt": "2026-11-26T13:43:30+00:00",
  "fixture": {
   "id": "qr-mark-001",
-  "sha256": "50e795e6e9530db7725d806a5588ff60e034077104e080cc792b765352d6c476",
+  "sha256": "f24d2f5e5cb27703160b3ec89b9bbce8e55e8d9db53e41003cd820b1571aff14",
   "application": {
    "name": "Fieldwork",
-   "version": "0.114.0"
+   "version": "0.200.0"
   },
   "operation": {
    "component": "example-links",
-   "release": "0.114.0",
+   "release": "0.200.0",
    "label": "The QR codes a worked example's write-up prints, with Fieldwork's mark",
    "implementation": "src/qr.ts#qrDrawn"
   }
  },
  "agrees": true,
  "criteria": "Every marked code reads back by at least one OpenCV detector, patch light and dark; no detector reads segno's unmarked code of the same version and misses the marked one",
- "addresses": 26,
+ "addresses": 28,
  "read": {
   "classic": {
-   "light": 25,
-   "dark": 25,
-   "segno": 24
+   "light": 27,
+   "dark": 27,
+   "segno": 26
   },
   "aruco": {
-   "light": 26,
-   "dark": 26,
-   "segno": 26
+   "light": 28,
+   "dark": 28,
+   "segno": 28
   }
  },
  "codes": [
@@ -46,7 +46,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-1855-cholera-south-london/tree/3858ace76b0cfe923a2c4fd1d5f9a5b5e115368d",
+   "text": "https://github.com/digital-twin-ph/example-1855-cholera-south-london/tree/09da2794bf2af7d69ad29113f211d67aaa633233",
    "version": 10,
    "classic": {
     "light": true,
@@ -74,7 +74,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-1940-oswego-church-supper/tree/e39be55a4938aa11ac5e9c47478cab24430fd3b1",
+   "text": "https://github.com/digital-twin-ph/example-1940-oswego-church-supper/tree/97d7d43c76a3f0ce0fe6700fb7dba94ee74ffa38",
    "version": 10,
    "classic": {
     "light": true,
@@ -130,7 +130,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-2021-salmonella-germany/tree/ed04b111e7f894b0b1d8770e3ae0e8eb821ee900",
+   "text": "https://github.com/digital-twin-ph/example-2021-salmonella-germany/tree/780837930fb75aa7f53614143bb9cc33a44f19e3",
    "version": 10,
    "classic": {
     "light": true,
@@ -158,7 +158,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-2025-nyc-ozone/tree/90c572fa53b0a64542896a26a679c1b45ba841cc",
+   "text": "https://github.com/digital-twin-ph/example-2025-nyc-ozone/tree/f7800f961d2f3f8602fa099ef85594099cb42bd5",
    "version": 10,
    "classic": {
     "light": true,
@@ -186,7 +186,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-2024-brazil-dengue/tree/85e866003f7ab1aef7f67136820938f932b88be3",
+   "text": "https://github.com/digital-twin-ph/example-2024-brazil-dengue/tree/a5d9c40b74e5ffd0b567060db7ee4383b9686185",
    "version": 10,
    "classic": {
     "light": true,
@@ -214,7 +214,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-workflows-rulesets/tree/c6da1c1cfd5f7af7802b7ea8b6591b4ea7b62fca",
+   "text": "https://github.com/digital-twin-ph/example-workflows-rulesets/tree/2362c940edc41ff28d8e9ca92f25aefe6046eb71",
    "version": 10,
    "classic": {
     "light": true,
@@ -242,12 +242,12 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-2019-sierra-leone-measles/tree/da88fd89a18a441b235c2bcf586b4ac4e35866e2",
+   "text": "https://github.com/digital-twin-ph/example-2019-sierra-leone-measles/tree/25bf86277baca4a93da2b047ac3022b48bc17207",
    "version": 10,
    "classic": {
     "light": true,
     "dark": true,
-    "segno": false
+    "segno": true
    },
    "aruco": {
     "light": true,
@@ -270,7 +270,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-2026-sea-level-rise-philippines/tree/feb923a0c18c16151548dd0fc9a773b562b05fe6",
+   "text": "https://github.com/digital-twin-ph/example-2026-sea-level-rise-philippines/tree/7236c76a029d5c1621dc89ee8002f55492d7ef07",
    "version": 11,
    "classic": {
     "light": true,
@@ -298,7 +298,7 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-2015-mers-korea/tree/ddf30f613637d84e0ec7d71450a0309d6a32abcf",
+   "text": "https://github.com/digital-twin-ph/example-2015-mers-korea/tree/bc2d8f31437dc534b275cb5d243ceb46041f7023",
    "version": 10,
    "classic": {
     "light": true,
@@ -326,12 +326,40 @@
    }
   },
   {
-   "text": "https://github.com/digital-twin-ph/example-population-models-census/tree/7242e4f7841cd00246dc5e9bf5e8ab42f094e048",
+   "text": "https://github.com/digital-twin-ph/example-population-models-census/tree/04fae268e4e1732c854aa75ccc727a7ed6f23f75",
    "version": 10,
    "classic": {
     "light": true,
     "dark": true,
     "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://digital-twin-ph.github.io/fieldwork/?example=syndromic-surveillance-2026",
+   "version": 8,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   },
+   "aruco": {
+    "light": true,
+    "dark": true,
+    "segno": true
+   }
+  },
+  {
+   "text": "https://github.com/digital-twin-ph/example-2026-syndromic-surveillance/tree/806d6d9495483610143863c758969683e3af2c60",
+   "version": 10,
+   "classic": {
+    "light": true,
+    "dark": true,
+    "segno": false
    },
    "aruco": {
     "light": true,

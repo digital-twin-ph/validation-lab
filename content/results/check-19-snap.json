@@ -1,6 +1,6 @@
 {
  "check": "19-snap",
- "ranAt": "2026-10-11T22:07:42.204889+00:00",
+ "ranAt": "2026-11-26T13:41:47.914049+00:00",
  "environment": {
   "runtime": "CPython 3.13.3 on Darwin arm64",
   "isPyodide": false,
@@ -9,14 +9,14 @@
  },
  "fixture": {
   "id": "snap-soho-001",
-  "sha256": "0742348a6fed9b2c4b28ca047c5986a2982089c454f18a563416bbe3b7e9836a",
+  "sha256": "558dd2718aaa80d1d800ef5ebf742104ed9952c64bb47b3598555f268e7b7a6e",
   "application": {
    "name": "Fieldwork",
-   "version": "0.7.0"
+   "version": "0.200.0"
   },
   "operation": {
    "widget": "urn:fieldwork:widget:snap_to_network",
-   "release": "0.1.0",
+   "release": "0.2.0",
    "label": "Snap sites to the network",
    "implementation": "src/network-snap.ts#snapToNetwork"
   },

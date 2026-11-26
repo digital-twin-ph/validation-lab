@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "relate-snow-001",
-  "exportedAt": "2026-10-28T14:36:07.110Z",
+  "exportedAt": "2026-11-26T13:41:20.608Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.12.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:relate_table",
-    "release": "0.3.0",
+    "release": "0.15.0",
     "label": "Relate a table",
     "implementation": "src/relate-table.ts#relateTable"
   },
@@ -2137,7 +2137,7 @@
         "kept": null,
         "gaps": null,
         "values": null,
-        "refused": "1 key in the first table has no row in the second: \"St. Saviour, Southwark\". Open the join and say whether to drop those rows or keep them under a category you name, because the two give different totals and the result cannot be read for which you got."
+        "refused": "1 key in the first table has no row in the second: \"St. Saviour, Southwark\". Under Decisions in Configure…, say whether to drop those rows or keep them under a category you name, because the two give different totals and the result cannot be read for which you got."
       },
       {
         "note": "The same gap, declared “drop”: the rows are excluded and the key named",
@@ -3301,7 +3301,7 @@
         "kept": null,
         "gaps": null,
         "values": null,
-        "refused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Check whether \"sub_district\" identifies one row of the second table."
+        "refused": "The second table gives \"St. Saviour, Southwark\" more than one \"water_supply\": \"Southwark and Vauxhall Company only\" and \"Lambeth Company only\". Relating cannot choose between them, and choosing would put a value on these rows that the table does not support. Or, under Configure…, keep one row per match. Check whether \"sub_district\" identifies one row of the second table."
       },
       {
         "note": "The published boundary's own spelling, compared EXACTLY: nine of the 32 sub-districts are written without their comma, so nine do not match and their rows are excluded at a declared choice",
@@ -4384,6 +4384,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "6e7782a472a4926dfd2d4afdb2e61d78567bb6b82356d2e15cb6c2c83a213dd8"
+    "value": "c1cec4513b374e7687975bfc0e1fcd47c64f0489b938b006453f5592ee884d18"
   }
 }

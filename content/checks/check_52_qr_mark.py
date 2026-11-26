@@ -29,7 +29,10 @@ import platform
 import sys
 from datetime import datetime, timezone
 
-import cv2
+try:
+    import cv2
+except ImportError as missing:  # CPython only
+    raise ImportError("The browser kernel does not have OpenCV, the QR decoder this check reads every code with; run this check in CPython.") from missing
 import numpy as np
 import segno
 

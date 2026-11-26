@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "regression-strata-brazil-001",
-  "exportedAt": "2026-11-07T06:54:11.265Z",
+  "exportedAt": "2026-11-26T13:41:20.386Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.41.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:regression",
-    "release": "0.3.0",
+    "release": "0.9.0",
     "label": "Regression",
     "implementation": "src/regression.ts#fitRegression"
   },
@@ -14902,6 +14902,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "0b86d0d773e6a00fc51fff5046a1f89c782f5683c72f6c32d773453c345ca4f6"
+    "value": "4e81c6b5fb020ac1cf5216dfdcb7a79f3e28eac3640b3dc9b60287c2017556b2"
   }
 }

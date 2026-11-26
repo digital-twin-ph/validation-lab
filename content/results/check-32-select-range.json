@@ -1,6 +1,6 @@
 {
   "check": "32-select-range",
-  "ranAt": "2026-11-04T03:36:42.207065+00:00",
+  "ranAt": "2026-11-26T13:41:50.856233+00:00",
   "environment": {
     "runtime": "CPython 3.13.3 on Darwin arm64",
     "isPyodide": false,
@@ -8,14 +8,14 @@
   },
   "fixture": {
     "id": "select-range-london-001",
-    "sha256": "f41b62c679476d153b0520cd9deb3ab664dda64d52f442b84c68615eb5347cde",
+    "sha256": "b653c7d999696d35de675528ae5b6265455f78a2c942710343b80409f41d5283",
     "application": {
       "name": "Fieldwork",
-      "version": "0.14.0"
+      "version": "0.200.0"
     },
     "operation": {
       "widget": "urn:fieldwork:widget:select_rows",
-      "release": "0.2.0",
+      "release": "0.5.1",
       "label": "Select rows by value",
       "implementation": "src/derive-value.ts#selectRange"
     }

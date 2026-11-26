@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "mean-center-001",
-  "exportedAt": "2026-10-11T15:29:33.300Z",
+  "exportedAt": "2026-11-26T13:41:16.947Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.7.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:mean_center",
-    "release": "0.1.0",
+    "release": "0.5.0",
     "label": "Mean center",
     "implementation": "src/mean-center.ts#computeMeanCenter"
   },
@@ -58,14 +58,8 @@
     ]
   },
   "output": {
-    "coordinates": [
-      25.933405345718498,
-      -24.60836795881989
-    ],
-    "projected": [
-      392027.48851484177,
-      7277997.451901149
-    ],
+    "coordinates": [25.933405345718498,-24.60836795881989],
+    "projected": [392027.48851484177,7277997.451901149],
     "crs": "EPSG:32735",
     "count": 6
   },
@@ -74,6 +68,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "66e7c1cb5f638e218ac0d097a3f600b978f04d0dcf94bd7da4e10ccda768123a"
+    "value": "52f5a4eef5e6b0a9f7191975079083aa0cb1a719cff1f6ebf7f7ecc90c1c2d09"
   }
 }

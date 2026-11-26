@@ -15,6 +15,7 @@
 //   disagrees prints `agrees: False` and raises nothing (added 2026-11-05).
 import {createServer} from 'node:http';
 import {readFile, readdir} from 'node:fs/promises';
+import {readFileSync, readdirSync} from 'node:fs';
 import {extname, join, normalize} from 'node:path';
 import {chromium} from 'playwright';
 
@@ -119,7 +120,9 @@ async function runNotebook(page, origin, name, fatal) {
 
   // Errors are read from the cell outputs, as the CPython runner does, rather than from CSS
   // classes: the model is the same thing the notebook saves.
-  const printed = process.argv.includes('--show') ? await page.evaluate(() => {
+  // Printed output is always read now (2026-11-26): it says whether the notebook ran its check at all, and what the
+  // check concluded. --show also echoes it.
+  const printed = await page.evaluate(() => {
     const text = [];
     const cells = window.jupyterapp.shell.currentWidget.content.model.cells;
     for (let index = 0; index < cells.length; index++) {
@@ -130,8 +133,8 @@ async function runNotebook(page, origin, name, fatal) {
       }
     }
     return text.join('');
-  }) : '';
-  if (printed) console.log(printed.replace(/^/gm, '      '));
+  });
+  if (printed && process.argv.includes('--show')) console.log(printed.replace(/^/gm, '      '));
   const errors = await page.evaluate(() => {
     const found = [];
     const cells = window.jupyterapp.shell.currentWidget.content.model.cells;
@@ -147,8 +150,21 @@ async function runNotebook(page, origin, name, fatal) {
     }
     return found;
   });
-  return {errors, seconds: (Date.now() - started) / 1000};
+  return {errors, printed, seconds: (Date.now() - started) / 1000};
 }
+
+// WHAT A NOTEBOOK'S OWN OUTPUT SAYS, beside its error cells (2026-11-26, Fieldwork's lab audit). A notebook whose check
+// cannot run in this kernel says so, "Not runnable here: <why>", and is reported as CPython only rather than as a pass.
+// And a check that prints `agrees: False` where every recorded result for that check agrees has regressed: no error
+// cell is not the same as agreeing, and until now this passed it. A check recorded as partial (02, 26) is not held to
+// agreement here.
+const notHere = printed => /Not runnable here: ([^\n]*)/.exec(printed)?.[1] ?? null;
+const recordedAgrees = name => {
+  const number = name.slice(0, 2);
+  const files = readdirSync(new URL('../content/results/', import.meta.url)).filter(f => f.startsWith(`check-${number}-`));
+  return files.length > 0 && files.every(f =>
+    JSON.parse(readFileSync(new URL(`../content/results/${f}`, import.meta.url), 'utf8')).agrees === true);
+};
 
 const server = await serve(OUTPUT);
 const origin = `http://localhost:${server.address().port}`;
@@ -173,15 +189,19 @@ page.on('console', message => {
 });
 
 console.log(`Running ${notebooks.length} notebooks in the browser kernel`);
-const failed = [];
+const failed = [], cpythonOnly = [];
 for (const name of notebooks) {
   try {
-    const {errors, seconds} = await runNotebook(page, origin, name, crashes);
+    const {errors, printed, seconds} = await runNotebook(page, origin, name, crashes);
+    const why = notHere(printed);
+    const regressed = !errors.length && !why && /agrees:\s*False/.test(printed) && recordedAgrees(name);
     const detail = errors.length
       ? `${errors.length} error cell${errors.length === 1 ? '' : 's'}; first at cell ${errors[0].cell}: ${errors[0].ename}: ${errors[0].evalue}`
-      : '';
-    console.log(`  ${errors.length ? 'FAIL' : 'ok  '} ${name.padEnd(34)} ${seconds.toFixed(1).padStart(6)}s  ${detail}`);
-    if (errors.length) failed.push(name);
+      : why ? `CPython only: ${why}` : regressed ? 'prints agrees: False, and its recorded result agrees' : '';
+    const status = errors.length || regressed ? 'FAIL' : why ? 'cpy ' : 'ok  ';
+    console.log(`  ${status} ${name.padEnd(34)} ${seconds.toFixed(1).padStart(6)}s  ${detail}`);
+    if (errors.length || regressed) failed.push(name);
+    if (why) cpythonOnly.push(name);
   } catch (error) {
     const message = String(error.message).split('\n')[0];
     console.log(`  FAIL ${name.padEnd(34)}         ${message.slice(0, 160)}`);
@@ -203,4 +223,6 @@ if (failed.length) {
   console.error(`\n${failed.length} of ${notebooks.length} notebooks failed in the browser: ${failed.join(', ')}`);
   process.exit(1);
 }
-console.log(`\nAll ${notebooks.length} notebooks executed in the browser kernel with no error cells.`);
+if (cpythonOnly.length)
+  console.log(`\n${cpythonOnly.length} notebooks are CPython only and say why: ${cpythonOnly.join(', ')}`);
+console.log(`\nAll ${notebooks.length} notebooks executed in the browser kernel with no error cells and no regressed check.`);

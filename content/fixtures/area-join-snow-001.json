@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "area-join-snow-001",
-  "exportedAt": "2026-10-27T12:08:53.346Z",
+  "exportedAt": "2026-11-26T13:41:08.732Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.12.0"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:join_table_to_area",
-    "release": "0.1.0",
+    "release": "0.7.0",
     "label": "Join a table to the study area",
     "implementation": "src/area-join.ts#joinTableToAreas"
   },
@@ -34,7 +34,7 @@
       "measureKey": "measure",
       "denominatorUnit": "people"
     },
-    "semantics": "Each part of the study area takes the value of the one table row whose key matches its name, compared for EQUALITY after a declared folding. `fuzzy` folds every run of non-alphanumeric characters to one space and lowercases; `exact` only trims and lowercases. There is no similarity, no threshold and no review band: a name differing by more than the folding is reported unmatched rather than resolved. A part no row names keeps its place with a null value, because a boundary with no data is a fact about the data and not a reason to leave a hole in the map. Two parts sharing one name both take that value and are flagged `shared`.",
+    "semantics": "Each part of the study area takes the value of the one table row whose key matches its name, compared for EQUALITY after a declared folding. `fuzzy` folds every run of non-alphanumeric characters to one space and lowercases; `exact` only trims and lowercases. There is no similarity, no threshold and no review band: a name differing by more than the folding is reported unmatched rather than resolved. A part no row names keeps its place with a null value, because a boundary with no data is a fact about the data and not a reason to leave a hole in the map. Two parts sharing one name both take that value. They are flagged `shared` only where they belong to different units, told apart by their id (a part with no id is a unit of its own): the parts of one unit, such as a district's islands, share its value and are not flagged (area join 0.3.1; declared here from 2026-11-26).",
     "equivalentTo": "A pandas merge of the rate table onto the parts on a folded key, left on the parts so every part survives. The folding itself is NOT independently reimplemented here -- see notEstablished."
   },
   "input": {
@@ -210,6 +210,7 @@
         "group"
       ],
       "valueField": "per 1,000 people",
+      "unit": "per 1,000 people",
       "rowCount": 32,
       "rows": [
         {
@@ -420,12 +421,14 @@
           "matchedRows": 32,
           "unmatchedParts": 0,
           "unmatchedRows": 0,
-          "sharedParts": 2
+          "sharedParts": 0
         },
         "declared": {
           "keyField": "group",
           "valueField": "per 1,000 people",
-          "normalisation": "fuzzy"
+          "normalisation": "fuzzy",
+          "matchedOn": "name",
+          "valueName": "per 1,000 people"
         },
         "parts": [
           {
@@ -714,7 +717,7 @@
             "key": "streatham",
             "value": 0.6649673057741329,
             "matched": true,
-            "shared": true
+            "shared": false
           },
           {
             "index": 32,
@@ -723,16 +726,10 @@
             "key": "streatham",
             "value": 0.6649673057741329,
             "matched": true,
-            "shared": true
+            "shared": false
           }
         ],
-        "diagnostics": [
-          {
-            "code": "duplicate-boundary-key",
-            "subject": "streatham",
-            "says": "2 parts of the boundary are named \"streatham\". Each is given the same value, which is true of a rate and is not true of a count."
-          }
-        ]
+        "diagnostics": []
       },
       {
         "note": "The same join on the raw strings, which needs no normalisation to recompute",
@@ -745,12 +742,14 @@
           "matchedRows": 23,
           "unmatchedParts": 9,
           "unmatchedRows": 9,
-          "sharedParts": 2
+          "sharedParts": 0
         },
         "declared": {
           "keyField": "group",
           "valueField": "per 1,000 people",
-          "normalisation": "exact"
+          "normalisation": "exact",
+          "matchedOn": "name",
+          "valueName": "per 1,000 people"
         },
         "parts": [
           {
@@ -1039,7 +1038,7 @@
             "key": "streatham",
             "value": 0.6649673057741329,
             "matched": true,
-            "shared": true
+            "shared": false
           },
           {
             "index": 32,
@@ -1048,15 +1047,10 @@
             "key": "streatham",
             "value": 0.6649673057741329,
             "matched": true,
-            "shared": true
+            "shared": false
           }
         ],
         "diagnostics": [
-          {
-            "code": "duplicate-boundary-key",
-            "subject": "streatham",
-            "says": "2 parts of the boundary are named \"streatham\". Each is given the same value, which is true of a rate and is not true of a count."
-          },
           {
             "code": "unmatched-boundary",
             "subject": "St. James Bermondsey",
@@ -1164,12 +1158,14 @@
           "matchedRows": 31,
           "unmatchedParts": 1,
           "unmatchedRows": 1,
-          "sharedParts": 2
+          "sharedParts": 0
         },
         "declared": {
           "keyField": "group",
           "valueField": "per 1,000 people",
-          "normalisation": "fuzzy"
+          "normalisation": "fuzzy",
+          "matchedOn": "name",
+          "valueName": "per 1,000 people"
         },
         "parts": [
           {
@@ -1458,7 +1454,7 @@
             "key": "streatham",
             "value": 0.6649673057741329,
             "matched": true,
-            "shared": true
+            "shared": false
           },
           {
             "index": 32,
@@ -1467,15 +1463,10 @@
             "key": "streatham",
             "value": 0.6649673057741329,
             "matched": true,
-            "shared": true
+            "shared": false
           }
         ],
         "diagnostics": [
-          {
-            "code": "duplicate-boundary-key",
-            "subject": "streatham",
-            "says": "2 parts of the boundary are named \"streatham\". Each is given the same value, which is true of a rate and is not true of a count."
-          },
           {
             "code": "unmatched-boundary",
             "subject": "Camberwell Green",
@@ -1495,6 +1486,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "47d41dd84c317d3e3cf62a59f587ef5da28fbf64e391ed27bc6659d5d9fd800f"
+    "value": "aec421582d0c893b2f21c0f2439da2c3d6278b29683c25f726c2c54efbc5ffee"
   }
 }

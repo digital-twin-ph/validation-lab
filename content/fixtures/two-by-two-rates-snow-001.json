@@ -1,14 +1,14 @@
 {
   "schema": "fieldwork/validation-fixture/1",
   "fixtureId": "two-by-two-rates-snow-001",
-  "exportedAt": "2026-11-05T11:00:18.511Z",
+  "exportedAt": "2026-11-26T13:41:35.151Z",
   "application": {
     "name": "Fieldwork",
-    "version": "0.24.1"
+    "version": "0.200.0"
   },
   "operation": {
     "widget": "urn:fieldwork:widget:two_by_two",
-    "release": "0.7.0",
+    "release": "0.8.3",
     "label": "Two-by-two table",
     "implementation": "src/two-by-two-rates.ts#computeRateTwoByTwo"
   },
@@ -278,6 +278,6 @@
   "integrity": {
     "algorithm": "sha256-canonical-json",
     "note": "SHA-256 of this fixture with the integrity field removed, serialised with object keys sorted, no whitespace and UTF-8. Not the file's bytes: the lab reads fixtures through a transport that re-serialises JSON.",
-    "value": "2eceec4340439038aaed9dcd4c3e07c988daf7b79e9a8091e09ea883032f7790"
+    "value": "4eeb98301e964d3a4a017b0e42d1879191b01ab319b44a2e06d4b97109237c8a"
   }
 }

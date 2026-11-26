@@ -59,6 +59,9 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from .fixtures import load_fixture
 
+if "pyodide" in sys.modules:  # CPython only, said so (2026-11-26)
+    raise ImportError("The browser kernel does not have a way to read the New York data from Zenodo by range requests; run this check in CPython.")
+
 HERE = pathlib.Path(__file__).resolve().parent
 FIXTURES = HERE.parent / "fixtures"
 RESULT = HERE.parent / "results" / "check-33-regression.json"
