@@ -16,7 +16,9 @@ Four comparisons, criteria fixed before running:
    says it reports.
 3. **The returned position**, which must be the chosen node's position and not the site's --
    that is what snapping means.
-4. **That no site exceeded the snap limit**, which the widget refuses rather than snapping.
+4. **That no site exceeded the snap limit.** A site beyond it is still snapped, and Fieldwork marks its first leg as
+   crossing no street (`offNetworkMetres`); it refused such a site until 2026-10-14. None of these sites is beyond
+   the limit, so that mark is not exercised here (corrected 2026-11-26, review of validation-lab PR 1).
 
 **Ties are reported whether or not any exist.** Two nodes exactly equidistant from a site would
 make the choice arbitrary, and a check that passed without saying so would be hiding the one
